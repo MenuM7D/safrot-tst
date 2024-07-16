@@ -113,7 +113,7 @@ if (opcion === '1' || opcion === '2') {
   // استجابة الاستخدام اللاحقة تعتمد على الخيار المحدد هنا
                              }
 break;
-} else {
+    {if else }{
   console.log(chalk.bold.redBright(`لا يُسمح إلا بأرقام ${chalk.bold.greenBright("1")} أو ${chalk.bold.greenBright("2")} فقط، ولا يُسمح بالحروف أو الرموز الخاصة. ${chalk.bold.yellowBright("نصيحة: قم بنسخ رقم الخيار ولصقه في الواجهة.")}`));
 }}
 opcion = opcion;
