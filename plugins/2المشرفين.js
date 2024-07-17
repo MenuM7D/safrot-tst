@@ -21,7 +21,7 @@ ${listAdmin}
 
 handler.help = ['staff']
 handler.tags = ['group']
-handler.command = ['المشرفين', 'admins', 'listadmin'] 
+handler.command = ['المشرفين', 'الادمن', 'listadmin'] 
 handler.group = true
 handler.register = true
 
