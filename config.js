@@ -6,8 +6,6 @@ import fetch from 'node-fetch';
 import axios from 'axios';
 import moment from 'moment-timezone';
 
-//---------[ Añada los numeros a ser Propietario/a ]---------
-
 global.owner = [['201115618853', '♯ЅᗩFᏒOT꙯', true], ['201115618853'], ['201115618853'], ['201115618853'], ['201115618853'], ['201115618853'], ['201115618853'], ['201115618853']];
 global.mods = [];
 global.prems = [];
@@ -63,7 +61,7 @@ global.APIKeys = {
 };
 
 global.cheerio = cheerio;
-global.fs = fs;
+global.fs = require('fs');
 global.fetch = fetch;
 global.axios = axios;
 global.moment = moment;
