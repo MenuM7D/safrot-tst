@@ -1405,7 +1405,7 @@ let chat = global.db.data.chats[msg?.chat] || {}
 if (!chat?.delete) return 
 if (!msg) return 
 if (!msg?.isGroup) return 
-const antideleteMessage = `*[ مكافحة الحذف ]*\n\n@${participant.split`@`[0]} Elimino un mensaje\nEnviando el mensaje...\n\n*Para desactivar esta función escriba:*\n#disable delete`.trim();
+const antideleteMessage = `*[ ANTI ELIMINAR ]*\n\n@${participant.split`@`[0]} Elimino un mensaje\nEnviando el mensaje...\n\n*Para desactivar esta función escriba:*\n#disable delete`.trim();
 await this.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participant]}, {quoted: msg})
 this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 } catch (e) {
