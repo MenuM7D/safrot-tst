@@ -1188,11 +1188,11 @@ continue
                 else
 m.exp += xp
 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-conn.sendMessage(m.chat, {text: `*❗الماس💎بتاعك خلص علشان تشتري اكتر الامر:* #buy`, contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": wm, body: '', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })         
+conn.sendMessage(m.chat, {text: `*⚠ 𝐒𝐮𝐬 𝐝𝐢𝐚𝐦𝐚𝐧𝐭𝐞 💎 𝐬𝐞 𝐡𝐚𝐧 𝐚𝐠𝐨𝐭𝐚𝐝𝐨 𝐩𝐮𝐞𝐝𝐞 𝐜𝐨𝐦𝐩𝐫𝐚𝐫 𝐦𝐚𝐬 𝐮𝐬𝐚𝐧𝐝𝐨 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨:* #buy`, contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": wm, body: '', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })         
 continue
 }
 if (plugin.level > _user.level) {
-conn.sendMessage(m.chat, {text: `*❗محتاج مستوي ${plugin.level} علشان تقدر تستخدم الامر ده مستواك الحالي هو:* ${_user.level}`, contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": wm, body: '', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })         
+conn.sendMessage(m.chat, {text: `*⚠️𝐍𝐞𝐜𝐞𝐬𝐢𝐭𝐚 𝐞𝐥 𝐧𝐢𝐯𝐞𝐥 ${plugin.level} 𝐩𝐚𝐫𝐚 𝐩𝐨𝐝𝐞𝐫 𝐮𝐬𝐚𝐫 𝐞𝐬𝐭𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨, 𝐓𝐮 𝐧𝐢𝐯𝐞𝐥 𝐚𝐜𝐭𝐮𝐚𝐥 𝐞𝐬:* ${_user.level}`, contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": wm, body: '', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })         
 continue // Si no se ha alcanzado el nivel
 }
 let extra = {match, usedPrefix, noPrefix, _args, args, command, text, conn: this, participants, groupMetadata, user, bot, isROwner, isOwner, isRAdmin, isAdmin,  isBotAdmin, isPrems, chatUpdate, __dirname: ___dirname, __filename }
@@ -1218,8 +1218,8 @@ await plugin.after.call(this, m, extra)
 } catch (e) {
 console.error(e)
 }}
-if (m.limit) m.reply(`*${+m.limit}* *💎الماس المستخدم*`)
-if (m.money) m.reply(+m.money + '*سفروت كوينز🪙*') 
+if (m.limit) m.reply(`*${+m.limit}* 𝘿𝙞𝙖𝙢𝙖𝙣𝙩𝙚 💎 𝙪𝙨𝙖𝙙𝙤𝙨`)
+if (m.money) m.reply(+m.money + ' 𝙎𝙖𝙛𝙧𝙤𝙩𝘾𝙤𝙞𝙣𝙨 𝙪𝙨𝙖𝙙𝙤𝙨') 
 }
 break
 }}} catch (e) {
@@ -1276,8 +1276,8 @@ if (opts['autoread']) await this.readMessages([m.key])
 if (settingsREAD.autoread2) await this.readMessages([m.key])  
 //if (settingsREAD.autoread2 == 'true') await this.readMessages([m.key])    
 	    
-if (!m.fromMem && m.text.match(/(@201115618853|𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿|سفروت|:v)/gi)) {
-let emot = pickRandom(["😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🤩", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🤧", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "🐱", "🧚🏼‍♂️", "💋", "🥂", "⚡️", "🦦", "☃️", "⛄️", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "💘", "💝", "💟", "🌝", "😎", "🔥", "🖕", "🐦"])
+if (!m.fromMem && m.text.match(/(@201115618853|𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿|:v)/gi)) {
+let emot = pickRandom(["😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🤩", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🤧", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "🐱", "🐈", "🐆", "🐅", "⚡️", "🌈", "☃️", "⛄️", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "💘", "💝", "💟", "🌝", "😎", "🔥", "🖕", "🐦"])
 this.sendMessage(m.chat, { react: { text: emot, key: m.key }})}
 function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}}}
 
@@ -1318,7 +1318,7 @@ let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
 if (responseb[0].status === "404") return      
 return    
 }}    
-et username = this.getName(id)
+let username = this.getName(id)
 let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }      
 let vn = 'https://qu.ax/cUYg.mp3'
 let or = ['texto', 'audio'];
@@ -1338,7 +1338,7 @@ mentionedJid:[user],
 "mediaType": 1, 
 sourceUrl: [md, nna, yt, nnn, nn, tiktok].getRandom()}}}, { quoted: fkontak2 }) 
 if (media === 'audio')
-this.sendMessage(id, { audio: { url: vn }, contextInfo:{ mentionedJid:[user], "externalAdReply": { "thumbnail": apii.data, "title": `乂 *ويلـكـم* 乂`, "body": [wm, ' ' + wm + '😊', '🌟'].getRandom(), "previewType": "PHOTO", "thumbnailUrl": null, "showAdAttribution": true,  sourceUrl: [md, nna, yt, nn, tiktok].getRandom()}},  ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak2 })
+this.sendMessage(id, { audio: { url: vn }, contextInfo:{ mentionedJid:[user], "externalAdReply": { "thumbnail": apii.data, "title": `乂 ＷＥＬＣＯＭＥ 乂`, "body": [wm, ' ' + wm + '😊', '🌟'].getRandom(), "previewType": "PHOTO", "thumbnailUrl": null, "showAdAttribution": true,  sourceUrl: [md, nna, yt, nn, tiktok].getRandom()}},  ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak2 })
 //this.sendFile(id, apii.data, 'pp.jpg', text, null, false, { mentions: [user] }, { quoted: fkontak2 })
 }}}
 			    
@@ -1415,14 +1415,14 @@ console.error(e)
 global.dfail = (type, m, conn, usedPrefix) => {
     let msg = {
         rowner: '[❗] الميزه دي للمطور بس يا حب',
-        owner: '[❗] الميزه دي للمطور بس',
-        mods: '[❗] الميزه دي للمشرفين بس يا حب',
+        owner: '[❗] الميزه دي للمشرفين بس يا حب',
+        mods: '[❗] الميزه دي للمطور بس يا حب',
         premium: '[❗] االميزه دي للمميزين بس',
         group: '[❗] الميزه دي للجروبات بس يحب',
-        private: '[❗] الميزه دي برايفت بس',
-        admin: '[❗] الميزه دي للادمن بس يحب',
+        private: '[❗] االميزه دي برايفت بس تعاله بف',
+        admin: '[❗] الميزه دي للمشرف بس يحب',
         botAdmin: '[❗] علشان تستخدم الميزه دي ارفع البوت ادمن ي حب',
-        unreg: '「*انت مش مسجل في البوت علشان تسجل اكتب الامر ده*\nمثال: #reg safrot.21',
+        unreg: '「انت مش مسجل」\n\nاانت مش موجود في قاعدة بيناتي🦦\n\nعلشان تسجل في البوت اكتب الامر\n\nده: #اكتب الاسم.ولعمر\nمثال: #reg safrot.21',
         restrict: '[ 🔐 ] الميزه دي المطور موقفهاا'
     }[type]
     if (msg) return conn.sendMessage(m.chat, {text: msg,  contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `ₛₐfᵣₒₜ bₒₜ`, body: wm, previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })
