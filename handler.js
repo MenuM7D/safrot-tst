@@ -1338,7 +1338,7 @@ mentionedJid:[user],
 "mediaType": 1, 
 sourceUrl: [md, nna, yt, nnn, nn, tiktok].getRandom()}}}, { quoted: fkontak2 }) 
 if (media === 'audio')
-this.sendMessage(id, { audio: { url: vn }, contextInfo:{ mentionedJid:[user], "externalAdReply": { "thumbnail": apii.data, "title": `乂*ويلكم*乂`, "body": [wm, ' ' + wm + '😊', '🌟'].getRandom(), "previewType": "PHOTO", "thumbnailUrl": null, "showAdAttribution": true,  sourceUrl: [md, nna, yt, nn, tiktok].getRandom()}},  ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak2 })
+this.sendMessage(id, { audio: { url: vn }, contextInfo:{ mentionedJid:[user], "externalAdReply": { "thumbnail": apii.data, "title": `乂 *ويلـكـم* 乂`, "body": [wm, ' ' + wm + '😊', '🌟'].getRandom(), "previewType": "PHOTO", "thumbnailUrl": null, "showAdAttribution": true,  sourceUrl: [md, nna, yt, nn, tiktok].getRandom()}},  ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak2 })
 //this.sendFile(id, apii.data, 'pp.jpg', text, null, false, { mentions: [user] }, { quoted: fkontak2 })
 }}}
 			    
@@ -1414,13 +1414,13 @@ console.error(e)
 
 global.dfail = (type, m, conn, usedPrefix) => {
     let msg = {
-        rowner: '*[❗] الميزه دي للمطور بس يا حب*',
-        owner: '*[❗] الميزه دي للمطور بس*',
-        mods: '*[❗] الميزه دي للمشرفين بس يا حب*',
-        premium: '*[❗] االميزه دي للمميزين بس*',
-        group: '*[❗] الميزه دي للجروبات بس يحب*',
-        private: '*[❗] الميزه دي برايفت بس*',
-        admin: '*[❗] الميزه دي للادمن بس يحب*',
+        rowner: '[❗] الميزه دي للمطور بس يا حب',
+        owner: '[❗] الميزه دي للمطور بس',
+        mods: '[❗] الميزه دي للمشرفين بس يا حب',
+        premium: '[❗] االميزه دي للمميزين بس',
+        group: '[❗] الميزه دي للجروبات بس يحب',
+        private: '[❗] الميزه دي برايفت بس',
+        admin: '[❗] الميزه دي للادمن بس يحب',
         botAdmin: '[❗] علشان تستخدم الميزه دي ارفع البوت ادمن ي حب',
         unreg: '「*انت مش مسجل في البوت علشان تسجل اكتب الامر ده*\nمثال: #reg safrot.21',
         restrict: '[ 🔐 ] الميزه دي المطور موقفهاا'
