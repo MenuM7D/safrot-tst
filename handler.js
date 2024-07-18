@@ -1318,7 +1318,7 @@ let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
 if (responseb[0].status === "404") return      
 return    
 }}    
-let username = this.getName(id)
+et username = this.getName(id)
 let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }      
 let vn = 'https://qu.ax/cUYg.mp3'
 let or = ['texto', 'audio'];
@@ -1338,7 +1338,7 @@ mentionedJid:[user],
 "mediaType": 1, 
 sourceUrl: [md, nna, yt, nnn, nn, tiktok].getRandom()}}}, { quoted: fkontak2 }) 
 if (media === 'audio')
-this.sendMessage(id, { audio: { url: vn }, contextInfo:{ mentionedJid:[user], "externalAdReply": { "thumbnail": apii.data, "title": `乂 ＷＥＬＣＯＭＥ 乂`, "body": [wm, ' ' + wm + '😊', '🌟'].getRandom(), "previewType": "PHOTO", "thumbnailUrl": null, "showAdAttribution": true,  sourceUrl: [md, nna, yt, nn, tiktok].getRandom()}},  ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak2 })
+this.sendMessage(id, { audio: { url: vn }, contextInfo:{ mentionedJid:[user], "externalAdReply": { "thumbnail": apii.data, "title": `乂*ويلكم*乂`, "body": [wm, ' ' + wm + '😊', '🌟'].getRandom(), "previewType": "PHOTO", "thumbnailUrl": null, "showAdAttribution": true,  sourceUrl: [md, nna, yt, nn, tiktok].getRandom()}},  ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak2 })
 //this.sendFile(id, apii.data, 'pp.jpg', text, null, false, { mentions: [user] }, { quoted: fkontak2 })
 }}}
 			    
@@ -1405,7 +1405,7 @@ let chat = global.db.data.chats[msg?.chat] || {}
 if (!chat?.delete) return 
 if (!msg) return 
 if (!msg?.isGroup) return 
-const antideleteMessage = `*[ ANTI ELIMINAR ]*\n\n@${participant.split`@`[0]} Elimino un mensaje\nEnviando el mensaje...\n\n*Para desactivar esta función escriba:*\n#disable delete`.trim();
+const antideleteMessage = `*[ مكافحة الحذف ]*\n\n@${participant.split`@`[0]} Elimino un mensaje\nEnviando el mensaje...\n\n*Para desactivar esta función escriba:*\n#disable delete`.trim();
 await this.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participant]}, {quoted: msg})
 this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 } catch (e) {
@@ -1414,13 +1414,13 @@ console.error(e)
 
 global.dfail = (type, m, conn, usedPrefix) => {
     let msg = {
-        rowner: '[❗] الميزه دي للمطور بس يا حب',
-        owner: '[❗] الميزه دي للمشرفين بس يا حب',
-        mods: '[❗] الميزه دي للمطور بس يا حب',
-        premium: '[❗] االميزه دي للمميزين بس',
-        group: '[❗] الميزه دي للجروبات بس يحب',
-        private: '[❗] االميزه دي برايفت بس تعاله بف',
-        admin: '[❗] الميزه دي للمشرف بس يحب',
+        rowner: '*[❗] الميزه دي للمطور بس يا حب*',
+        owner: '*[❗] الميزه دي للمطور بس*',
+        mods: '*[❗] الميزه دي للمشرفين بس يا حب*',
+        premium: '*[❗] االميزه دي للمميزين بس*',
+        group: '*[❗] الميزه دي للجروبات بس يحب*',
+        private: '*[❗] الميزه دي برايفت بس*',
+        admin: '*[❗] الميزه دي للادمن بس يحب*',
         botAdmin: '[❗] علشان تستخدم الميزه دي ارفع البوت ادمن ي حب',
         unreg: '「*انت مش مسجل في البوت علشان تسجل اكتب الامر ده*\nمثال: #reg safrot.21',
         restrict: '[ 🔐 ] الميزه دي المطور موقفهاا'
