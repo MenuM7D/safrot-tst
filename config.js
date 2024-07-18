@@ -5,7 +5,6 @@ import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 import axios from 'axios';
 import moment from 'moment-timezone';
-import fs from 'fs';
 
 //---------[ Añada los numeros a ser Propietario/a ]---------
 
@@ -110,4 +109,4 @@ global.ag = '『⚠️ 𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 ⚠️』\n\
 global.advertencia = global.ag;
 global.iig = '『❕ 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊𝙉 』\n\n';
 global.informacion = global.iig;
-global.fg = '『❌ 𝙀𝙍
+global.fg = '『❌ 𝙀𝙍𝙍𝙊𝙍 ❌』\n\n';
