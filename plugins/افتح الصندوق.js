@@ -42,7 +42,7 @@ const handler = async (m, { isPrems, conn }) => {
 
 handler.help = ['daily'];
 handler.tags = ['econ'];
-handler.command = ['coffer', 'cofre', 'abrircofre', 'cofreabrir'];
+handler.command = ['coffer', 'cofre', 'افتح_الصندوق', 'cofreabrir'];
 handler.level = 9;
 handler.register = true;
 export default handler;
