@@ -5,13 +5,13 @@ async function handler(m, { conn, args, usedPrefix, command }) {
     if (confirmation[m.sender]) return m.reply('estas haciendo una transferencia')
     let user = global.db.data.users[m.sender]
     const item = items.filter(v => v in user && typeof user[v] == 'number')
-    let lol = `😕 الاستخدام الصحيح للامر 
+    let lol = `😕 *الاستخدام الصحيح للامر* 
 *${usedPrefix + command}*  [النوع] [كميه] [@user]
 
-📌 Contoh : 
+📌 *مثال* : 
 *${usedPrefix + command}* exp 65 @${m.sender.split('@')[0]}
 
-📍 Item yang dapat ditransfer
+📍 *العناصر القابلة للتحويل*
 ┌──────────────
 ▢ *نقودك* = نقودك 🪙
 ▢ *اكس بي* = تَجْرِبة 🆙
