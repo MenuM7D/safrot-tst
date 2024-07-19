@@ -18,7 +18,7 @@ const handler = async (m, {conn, args: [effect], text: txt, usedPrefix, command,
 };
 handler.help = ['logos'];
 handler.tags = ['logo'];
-handler.command = /^(logo|logos|logos2)$/i;
+handler.command = /^(لوجو|logos|logos2)$/i;
 handler.register = true 
 handler.limit = 1
 export default handler;
