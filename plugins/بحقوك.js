@@ -23,7 +23,7 @@ const handler = async (m, {conn, text}) => {
 
 handler.help = ['wm <packname>|<author>'];
 handler.tags = ['sticker'];
-handler.command = /^take|بحقوقي|wm$/i;
+handler.command = /^take|بحقوق|wm$/i;
 handler.register = true;
 
 export default handler;
