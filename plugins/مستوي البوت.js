@@ -11,7 +11,7 @@ user.level++
 user.role = global.rpg.role(user.level).name
 if (before !== user.level) {
     
-conn.reply(m.chat, [`*「 تهانينا على الترقية 🆙🧚🏼‍♂️ 」*\n\nتهانينا لقد ارتقيت إلى مستوى جديد، استمر على هذا المنوال 👏\n\n*• المستوى:* ${before} ⟿ ${user.level}\n*• الرتبة:* ${user.role}\n\n_*لمعرفة نقاطك الحالية استخدم الأمر #level*_`, `@${m.sender.split`@`[0]} أوه! لقد وصلت إلى المستوى التالي\n*• المستوى:* ${before} ⟿ ${user.level}\n\n_*لمعرفة من هو في الصدارة استخدم الأمر #lb*_`, `ما شاء الله @${m.sender.split`@`[0]} لقد وصلت إلى مستوى جديد 🙌\n\n*• المستوى الجديد:* ${user.level}\n*• المستوى السابق:* ${before}\n`].getRandom(), m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: ' ₛₐfᵣₒₜ↯bₒₜ ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})
+conn.reply(m.chat, [`*「 تهانينا على الترقية 🆙🥳 」*\n\nتهانينا لقد ارتقيت إلى مستوى جديد، استمر على هذا المنوال 👏\n\n*• المستوى:* ${before} ⟿ ${user.level}\n*• الرتبة:* ${user.role}\n\n_*لمعرفة نقاطك الحالية استخدم الأمر #level*_`, `@${m.sender.split`@`[0]} أوه! لقد وصلت إلى المستوى التالي\n*• المستوى:* ${before} ⟿ ${user.level}\n\n_*لمعرفة من هو في الصدارة استخدم الأمر #lb*_`, `ما شاء الله @${m.sender.split`@`[0]} لقد وصلت إلى مستوى جديد 🙌\n\n*• المستوى الجديد:* ${user.level}\n*• المستوى السابق:* ${before}\n`].getRandom(), m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: ' 💫 سوبر بوت واتساب 🥳 ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})
 }}		
 
 global.rpg = {
@@ -303,4 +303,4 @@ const role = [
 
     return role.reverse().find(role => level >= role.level)
   }
-    }
+}
