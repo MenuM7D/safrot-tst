@@ -1,32 +1,33 @@
-//import db from '../lib/database.js'
+//import db from '../lib/database.js'// استيراد db من '../lib/database.js'
 import { canLevelUp } from '../lib/levelling.js'
 
 export async function before(m, { conn }) {
-let user = global.db.data.users[m.sender]
-let chat = global.db.data.chats[m.chat]
-if (!chat.autolevelup) return !0
-let before = user.level * 1
-while (canLevelUp(user.level, user.exp, global.multiplier))
-user.level++
-user.role = global.rpg.role(user.level).name
-if (before !== user.level) {
-    
-conn.reply(m.chat, [`*「 FELICIDADES LEVEL UP 🆙🥳 」*\n\nFelicidades subiste de nivel sigue asi 👏\n\n*• NIVEL:* ${before} ⟿ ${user.level}\n*• RANGO:* ${user.role}\n\n_*Para ver tu XP en tiempo real coloca el comando #level*_`, `@${m.sender.split`@`[0]} Ohhh pa has alcanzado el siguiente nivel\n*• NIVEL:* ${before} ⟿ ${user.level}\n\n_*Para ver quien es esta el top coloca el comando #lb*_`, `Que pro @${m.sender.split`@`[0]} has alcanzado un nuevo nivel 🙌\n\n*• Nuevo nivel:* ${user.level}\n*• Nivel anterior:* ${before}\n`].getRandom(), m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: ' 💫 𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐃𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 🥳 ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})  
-}}		
+    let user = global.db.data.users[m.sender]
+    let chat = global.db.data.chats[m.chat]
+    if (!chat.autolevelup) return !0
+    let before = user.level * 1
+    while (canLevelUp(user.level, user.exp, global.multiplier))
+        user.level++
+    user.role = global.rpg.role(user.level).name
+    if (before !== user.level) {
+        conn.reply(m.chat, [`*「 مبروك! وصلت للمستوى الجديد 🆙🥳 」*\n\nمبروك، ارتفعت لمستوى جديد! استمر كده 👏\n\n*• المستوى:* ${before} ⟿ ${user.level}\n*• الرتبة:* ${user.role}\n\n_*عشان تشوف XP بتاعك في الوقت الحقيقي استخدم الأمر #level*_`, `@${m.sender.split`@`[0]} أوه، وصلت للمستوى التالي\n*• المستوى:* ${before} ⟿ ${user.level}\n\n_*عشان تشوف مين في التوب استخدم الأمر #lb*_`, `يا سلام @${m.sender.split`@`[0]}، وصلت لمستوى جديد 🙌\n\n*• المستوى الجديد:* ${user.level}\n*• المستوى السابق:* ${before}\n`].getRandom(), m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: ' 💫 𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐃𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 🥳 ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})
+    }
+}
 
 global.rpg = {
-emoticon(string) {
-string = string.toLowerCase()
-let emot = { role: '🏅',
-level: '⬆️'
-}
-let results = Object.keys(emot).map(v => [v, new RegExp(v, 'gi')]).filter(v => v[1].test(string))
-if (!results.length) return ''
-else return emot[results[0][0]]
-}, 
-role(level) {
-level = parseInt(level)
-if (isNaN(level)) return { name: '', level: '' }
+    emoticon(string) {
+        string = string.toLowerCase()
+        let emot = { role: '🏅',
+            level: '⬆️'
+        }
+        let results = Object.keys(emot).map(v => [v, new RegExp(v, 'gi')]).filter(v => v[1].test(string))
+        if (!results.length) return ''
+        else return emot[results[0][0]]
+    },
+    role(level) {
+        level = parseInt(level)
+        if (isNaN(level)) return { name: '', level: '' }
+    }
     // this code make config.js to be a more understandable code
 const role = [
       { name: 'NOVATO(A) V', level: 0 }, 
