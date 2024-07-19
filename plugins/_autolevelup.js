@@ -27,7 +27,6 @@ global.rpg = {
     role(level) {
         level = parseInt(level)
         if (isNaN(level)) return { name: '', level: '' }
-    }
     // this code make config.js to be a more understandable code
 const role = [
       { name: 'NOVATO(A) V', level: 0 }, 
