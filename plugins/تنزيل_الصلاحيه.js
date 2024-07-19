@@ -7,8 +7,8 @@ const handler = async (m, {conn, usedPrefix, text}) => {
     var number = text;
   }
 
-  if (!text && !m.quoted) return conn.reply(m.chat, `*⚠️ ¿A quien le quitó admins?* etiquetas a una persona no soy adivinó :)`, m);
-  if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `*Esta drogado o que ese número ingresado es incorrecto 🤓*, ingresa el número correctamente o mejor etiquetas al usuario.`, m);
+  if (!text && !m.quoted) return conn.reply(m.chat, `*🧚🏼‍♂️ اعمل ريب او منشن للي عايز تقلق من عندو الصلاحيه* :)`, m);
+  if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `*أنت مش متأكد أو الرقم اللي دخلته غلط 🧚🏼‍♂️، إدخل الرقم صح أو حط تاج لليوزر.*`, m);
 
   try {
     if (text) {
@@ -21,12 +21,12 @@ const handler = async (m, {conn, usedPrefix, text}) => {
   } catch (e) {
   } finally {
     conn.groupParticipantsUpdate(m.chat, [user], 'demote');
-    conn.reply(m.chat, `*[ ✅ ] ÓRDENES RECIBIDAS*`, m);
+    conn.reply(m.chat, `*[ ✅ ] الأوامر اتنفذت*`, m);
   }
 };
-handler.help = ['*593xxx*', '*@usuario*', '*responder chat*'].map((v) => 'demote ' + v);
+handler.help = ['*593xxx*', '*@مستخدم*', '*رد على الشات*'].map((v) => 'demote ' + v);
 handler.tags = ['group'];
-handler.command = /^(demote|quitarpoder|quitaradmin)$/i;
+handler.command = /^(تنزيل_الصلاحيه)$/i;
 handler.group = true;
 handler.admin = true;
 handler.botAdmin = true;
