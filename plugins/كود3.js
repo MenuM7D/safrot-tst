@@ -97,9 +97,9 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     highlight_label: 'ON',
                                     rows: [
                                         {
-                                            header: '◡̈⃝💆🏻❏━━│قسم الايدت│━━❏◡̈⃝💆🏻',
+                                            header: '◡̈⃝⚙️❏━━│قسم الادوات│━━❏◡̈⃝⚙️',
                                             title: '',
-                                            description: '◡̈⃝💆🏻❏━━│قسم الايدت│━━❏◡̈⃝💆🏻',
+                                            description: '◡̈⃝⚙️❏━━│قسم الايدت│━━❏◡̈⃝⚙️',
                                             id: '.سفروت7'
                                         }
                                     ]
