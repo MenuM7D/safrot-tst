@@ -7,19 +7,19 @@ let handler = async (m, { conn }) => {
   stats = stats.sort((a, b) => b.total - a.total)
   let txt = stats.slice(0, 10).map(({ name, total, last }, idx) => {
     if (name.includes('-') && name.endsWith('.js')) name = name.split('-')[1].replace('.js', '')
-    return `[ ${idx + 1} ] *COMANDO:*\n⮕  *${name}*\n*• USOS:*\n⮕ *${total}x*\n`
+    return `[ ${idx + 1} ] *الامر:*\n⮕  *${name}*\n*• الاستخدامات:*\n⮕ *${total}x*\n`
   }).join`\n\n`
-  m.reply(`*「DASHBOARD」*\n\n*Total :* ${conn.user.name}\n\n${txt}`)
+  m.reply(`*「لوحة التحكم」*\n\n*الكل: * ${conn.user.name}\n\n${txt}`)
 }
 handler.help = ['dashboard']
 handler.tags = ['main']
-handler.command = /^dashboard$/i
+handler.command = /^مستخدمين_الاوامر$/i
 handler.register = true
 
 export default handler
 	
 export function parseMs(ms) {
-  if (typeof ms !== 'number') throw 'Parameter must be filled with number'
+  if (typeof ms !== 'number') throw 'البارامتر لازم يكون رقم'
   return {
     days: Math.trunc(ms / 86400000),
     hours: Math.trunc(ms / 3600000) % 24,
@@ -33,8 +33,8 @@ export function parseMs(ms) {
 
 export function getTime(ms) {
   let now = parseMs(+new Date() - ms)
-  if (now.days) return `Hace ${now.days} días`
-  else if (now.hours) return `Hace ${now.hours} horas`
-  else if (now.minutes) return `Hace ${now.minutes} minutos`
-  else return `hace unos segundos`
-}
+  if (now.days) return `من ${now.days} أيام`
+  else if (now.hours) return `من ${now.hours} ساعات`
+  else if (now.minutes) return `من ${now.minutes} دقائق`
+  else return `من شوية ثواني`
+		}
