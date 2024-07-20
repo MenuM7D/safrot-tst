@@ -54,7 +54,7 @@ let handler = async (m, { conn, command, usedPrefix }) => {
 
 handler.help = ['estado']
 handler.tags = ['main']
-handler.command = /^(estado|status|estate|state|stado|stats|botstat(us)?)$/i
+handler.command = /^(حالة5|حالة|حالة1|حالة4|حالة2|حالة3|حالة6(us)?)$/i
 
 export default handler
 
