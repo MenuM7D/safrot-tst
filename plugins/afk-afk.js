@@ -1,19 +1,19 @@
-const handler = async (m, {text}) => {
+const handler = async (m, { text }) => {
   const user = global.db.data.users[m.sender];
   user.afk = + new Date;
   user.afkReason = text;
   m.reply(`╭━─━─━≪ 𝙰𝙺𝙵 ≫─━─━─━•
 ┃  
-┃ 𝙴𝚂𝚃𝙴 𝚄𝚂𝚄𝙰𝚁𝙸𝙾𝚂: ${conn.getName(m.sender)} 
-┃ 𝙴𝚂𝚃𝙰 𝙸𝙽𝙰𝙲𝚃𝙸𝚅𝙾. 
+┃ 𝚄𝚂𝙴𝚁: ${conn.getName(m.sender)} 
+┃ بقى مش متاح.
 ┃ ≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋
-┃ 💤 𝙽𝙾 𝙻𝙾𝚂 𝙴𝚃𝙸𝚀𝚄𝙴𝚃𝙴 💤
-┃ ☣️ 𝙼𝙾𝚃𝙸𝚅𝙾𝚂 : ${text ? ': ' + text : 'paja'}*
+┃ 💤 𝙼𝙸𝚂𝙼𝚈𝚂: ${text ? ': ' + text : 'مفيش سبب معروف'}*
 ╰━─━─━─≪ 𝙰𝙺𝙵 ≫─━─━─━•`);
 };
-handler.help = ['afk [alasan]'];
+handler.help = ['afk [سبب]'];
 handler.tags = ['econ'];
 handler.command = /^afk$/i;
-handler.money = 75
-handler.register = true
+handler.money = 75;
+handler.register = true;
+
 export default handler;
