@@ -82,7 +82,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 };
 
 handler.help = ['main']
-handler.command = ['التحويل']
+handler.command = ['سفروت6']
 
 export default handler
 
