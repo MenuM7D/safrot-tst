@@ -87,7 +87,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     rows: [
                                         {
                                             header: '🔃✠━━│قسم الـتحـويل│━━✠◡̈⃝🔃',
-                                            title: '',
+                                            title: 'ₛₐfᵣₒₜ↯bₒₜ',
                                             description: '🔃✠━━│قسم الـتحـويل│━━✠◡̈⃝🔃',
                                             id: '.سفروت6'
                                         }
