@@ -70,7 +70,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 };
 
 handler.help = ['main'];
-handler.command = ['الدين'];
+handler.command = ['قسم_الدين'];
 
 export default handler;
 
