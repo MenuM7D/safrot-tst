@@ -31,9 +31,9 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     highlight_label: 'ON',
                                     rows: [
                                         {
-                                            header: '◡̈⃝˼‏📖˹ ━━|قسم الادمن│━━˼‏📖˹◡̈⃝',
+                                            header: '◡̈⃝˼‏👤˹ ━━|قسم الجروب│━━˼👤˹◡̈⃝',
                                             title: 'ₛₐfᵣₒₜ bₒₜ',
-                                            description: '◡̈⃝˼‏📖˹ ━━|قسم الادمن│━━˼‏📖˹◡̈⃝',
+                                            description: '◡̈⃝˼‏👤˹ ━━|قسم الجروب│━━˼👤˹◡̈⃝',
                                             id: '.سفروت1'
                                         }
                                     ]
