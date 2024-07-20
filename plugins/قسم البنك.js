@@ -76,7 +76,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
 // تعريف الأوامر والمساعدات
 handler.help = ['main'];
-handler.command = ['البنوك'];
+handler.command = ['سفروت8'];
 
 export default handler;
 
