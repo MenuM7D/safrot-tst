@@ -46,7 +46,7 @@ let handler = async (m, { conn }) => {
 handler.help = ['levelup']
 handler.tags = ['econ']
 
-handler.command = ['مستوي', 'لفل', 'مستوى_أعلى', 'مستوايا'] 
+handler.command = ['مستوي', 'مستوى_أعلى', 'مستوايا'] 
 handler.register = true
 
 export default handler
