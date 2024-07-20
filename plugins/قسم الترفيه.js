@@ -108,7 +108,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 };
 
 handler.help = ['main'];
-handler.command = ['قسم_الترفيه'];
+handler.command = ['سفروت4'];
 
 export default handler;
 
