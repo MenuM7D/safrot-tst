@@ -1,44 +1,44 @@
 import axios from 'axios';
 import fetch from 'node-fetch';
 import cheerio from 'cheerio';
-import {mediafiredl} from '@bochilteam/scraper';
+import { mediafiredl } from '@bochilteam/scraper';
 
-const handler = async (m, {conn, args, usedPrefix, command}) => {
+const handler = async (m, { conn, args, usedPrefix, command }) => {
   let sticker = 'https://qu.ax/Wdsb.webp';
   
-  // لو مفيش رابط مدخل، يبعت رسالة للمستخدم
+  // **لو مفيش رابط مدخل، يبعت رسالة للمستخدم**
   if (!args[0]) {
-    return conn.reply(m.chat, `⚠️ 𝙳𝙰𝙽𝙰 𝙧𝙚𝙣𝙡𝙚𝙙 𝙖 𝙫𝙖𝙡𝙞𝙙𝙤 𝙙𝙚 𝙈𝙚𝙙𝙞𝙖𝙛𝙞𝙧𝙚 𝙚𝙟:*\n${usedPrefix + command} https://www.mediafire.com/file/cv64tns6co3272q/Lolibot.zip/file`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}});
+    return conn.reply(m.chat, `⚠️ عايز رابط صحيح من Mediafire، مثال:\n${usedPrefix + command} https://www.mediafire.com/file/cv64tns6co3272q/Lolibot.zip/file`, m, { contextInfo: { externalAdReply: { mediaUrl: null, mediaType: 1, description: null, title: wm, previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom() } } });
   }
 
   m.react(`🚀`);
   
   try {
-    // محاولة جلب بيانات الملف من API
+    // **محاولة جلب بيانات الملف من API**
     const res = await fetch(`https://delirius-api-oficial.vercel.app/api/mediafire?url=${args[0]}`);
     if (!res.ok) throw new Error(`خطأ في HTTP! الحالة: ${res.status}`);
     const data = await res.json();
     const fileData = data.data;  
-    let caption = `┏━━『 𝐌𝐄𝐃𝐈𝐀𝐅𝐈𝐑𝐄 』━━•\n┃❥ 𝐍𝐨𝐦𝐛𝐫𝐞 :\n┃${fileData.filename}\n┃——————«•»——————\n┃❥ 𝐏𝐞𝐬𝐨 :\n┃${fileData.size}\n\n┃——————«•»——————\n┃❥ 𝐓𝐢𝐩𝐨 :\n┃${fileData.mime}\n╰━━━⊰ 𓃠 ${vs} ⊱━━━━•\n\n> ⏳ ᴱˢᵖᵉʳᵉ ᵘⁿ ᵐᵒᵐᵆᵍ ᵎᵃ ᵈᵉ ᵕ ᵛᶦᵒˢ ᵃʳᶜʰᶦᵛᵒˢ`.trim();
+    let caption = `┏━━『 𝐌𝐄𝐃𝐈𝐀𝐅𝐈𝐑𝐄 』━━•\n┃❥ اسم الملف :\n┃${fileData.filename}\n┃——————«•»——————\n┃❥ الحجم :\n┃${fileData.size}\n\n┃——————«•»——————\n┃❥ النوع :\n┃${fileData.mime}\n╰━━━⊰ 𓃠 ${vs} ⊱━━━━•\n\n> ⏳ استنى شوية علشان تحمل الملف`.trim();
     m.reply(caption);
     await conn.sendFile(m.chat, fileData.link, fileData.filename, '', m, null, { mimetype: fileData.mime, asDocument: true });
     m.react(`✅`);
   } catch {
     try {
-      // محاولة استخدام مكتبة mediafiredl
+      // **محاولة استخدام مكتبة mediafiredl**
       const resEX = await mediafiredl(args[0]);
-      const captionES = `┏━━『 𝐌𝐄𝐃𝐈𝐀𝐅𝐈𝐑𝐄 』━━•\n┃❥ 𝐍𝐨𝐦𝐛𝐫𝐞 :\n┃${resEX.filename}\n┃——————«•»——————\n┃❥ 𝐏𝐞𝐬𝐨 :\n┃ ${resEX.filesizeH}\n\n┃——————«•»——————\n┃❥ 𝐓𝐢𝐩𝐨 :\n┃${resEX.ext}\n\n╰━━━⊰ 𓃠 ${vs} ⊱━━━━•\n\n> ⏳ ᴱˢᵖᵉʳᵉ ᵘⁿ ᵐᵒᵐᵆᵍ ᵎᵃ ᵈᵉ ᵕ ᵛᶦᵒˢ ᵃʳᶜʰᶦᵛᵒˢ`.trim();
+      const captionES = `┏━━『 𝐌𝐄𝐃𝐈𝐀𝐅𝐈𝐑𝐄 』━━•\n┃❥ اسم الملف :\n┃${resEX.filename}\n┃——————«•»——————\n┃❥ الحجم :\n┃ ${resEX.filesizeH}\n\n┃——————«•»——————\n┃❥ النوع :\n┃${resEX.ext}\n\n╰━━━⊰ 𓃠 ${vs} ⊱━━━━•\n\n> ⏳ استنى شوية علشان تحمل الملف`.trim();
       m.reply(captionES);
-      await conn.sendFile(m.chat, resEX.url, resEX.filename, '', m, null, {mimetype: resEX.ext, asDocument: true});
+      await conn.sendFile(m.chat, resEX.url, resEX.filename, '', m, null, { mimetype: resEX.ext, asDocument: true });
       m.react(`✅`);
     } catch {
       try {
-        // محاولة تحميل البيانات مباشرة من Mediafire
+        // **محاولة تحميل البيانات مباشرة من Mediafire**
         const res = await mediafireDl(args[0]);
-        const {name, size, date, mime, link} = res;
-        const caption = `┏━━『 𝐌𝐄𝐃𝐈𝐀𝐅𝐈𝐑𝐄 』━━•\n┃❥ 𝐍𝐨𝐦𝐛𝐫𝐞 :\n┃${name}\n┃——————«•»——————\n┃❥ 𝐏𝐞𝐬𝐨 :\n┃${size}\n\n┃——————«•»——————\n┃❥ 𝐓𝐢𝐩𝐨 :\n┃${mime}\n\n╰━━━⊰ 𓃠 ${vs} ⊱━━━━•\n\n> ⏳ ᴱˢᵖᵉʳᵉ ᵘⁿ ᵐᵒᵐᵆᵍ ᵎᵃ ᵈᵉ ᵕ ᵛᶦᵒˢ ᵃʳᶜʰᶦᵛᵒˢ`.trim();
+        const { name, size, date, mime, link } = res;
+        const caption = `┏━━『 𝐌𝐄𝐃𝐈𝐀𝐅𝐈𝐑𝐄 』━━•\n┃❥ اسم الملف :\n┃${name}\n┃——————«•»——————\n┃❥ الحجم :\n┃${size}\n\n┃——————«•»——————\n┃❥ النوع :\n┃${mime}\n\n╰━━━⊰ 𓃠 ${vs} ⊱━━━━•\n\n> ⏳ استنى شوية علشان تحمل الملف`.trim();
         await m.reply(caption);
-        await conn.sendFile(m.chat, link, name, '', m, null, {mimetype: mime, asDocument: true});
+        await conn.sendFile(m.chat, link, name, '', m, null, { mimetype: mime, asDocument: true });
         m.react(`✅`);
       } catch (error) {
         console.error(error);
@@ -51,7 +51,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
 
 handler.help = ['mediafire', 'mediafiredl'];
 handler.tags = ['downloader'];
-handler.command = /^(mediafire|ميديافاير|dlmediafire)$/i;
+handler.command = /^(ميديا_فاير|ميديافاير|ميديا-فاير)$/i;
 handler.register = true;
 handler.limit = 3;
 export default handler;
@@ -66,5 +66,5 @@ async function mediafireDl(url) {
   let mime = '';
   const rese = await axios.head(link);
   mime = rese.headers['content-type'];
-  return {name, size, date, mime, link};
-                        }
+  return { name, size, date, mime, link };
+  }
