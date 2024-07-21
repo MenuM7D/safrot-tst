@@ -18,12 +18,12 @@ let rtotalreg = Object.values(global.db.data.users).filter(user => user.register
 let name2 = conn.getName(m.sender)
 
 if (command == 'verify' || command == 'reg' || command == 'verificar') {
-if (user.registered === true) throw `*انت مسجل بالفعل 🤨*`
-if (!Reg.test(text)) throw `*⚠️ مش عارف تستخدم الأمر ده؟* استخدمه بالشكل ده: *${usedPrefix + command} الاسم.السن*\n*• مثال:* ${usedPrefix + command} ${name2}.16`
+if (user.registered === true) throw `*انت مسجل بالفعل 🧚🏼‍♂️*`
+if (!Reg.test(text)) throw `*🧚🏼‍♂️ مش عارف تستخدم الأمر ده؟* استخدمه بالشكل ده: *${usedPrefix + command} الاسم.السن*\n*• مثال:* ${usedPrefix + command} ${name2}.16`
 let [_, name, splitter, age] = text.match(Reg)
 if (!name) throw '*فين الاسم؟*'
 if (!age) throw '*السن مينفعش يبقى فاضي، ضيف السن يا ذكي*'
-if (name.length >= 45) throw '*ايه؟ اسمك طويل كده 🤓*، مش متخيل اللي تحت 🤣' 
+if (name.length >= 45) throw '*ايه؟ اسمك طويل كده 🧚🏼‍♂️*، مش متخيل اللي تحت 🤣' 
 age = parseInt(age)
 if (age > 100) throw '👴🏻 كبير قوي'
 if (age < 5) throw '🚼 الأطفال بقى بيعرفوا يكتبوا؟ ✍️😳 '
@@ -54,7 +54,7 @@ await conn.reply(m.chat,  `*[ ✅ تسجيل تم ]*
 ⤷ 150 نقاط خبرة
 
 *◉ عشان تشوف أوامر البوت استخدم:*
-${usedPrefix}menu
+${usedPrefix}.اوامر
 
 *◉ إجمالي المستخدمين المسجلين:* ${rtotalreg}`, m, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: `𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐎 𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐀𝐃𝐎`, body: '', previewType: 0, thumbnail: img.getRandom(), sourceUrl: [nna, nn, md, yt, tiktok].getRandom()}}})
 await m.reply(`${sn}`)
