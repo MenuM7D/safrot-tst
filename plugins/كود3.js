@@ -9,7 +9,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
     m.react('📂');
 
     if (device !== 'desktop' && device !== 'web') {      
-        var joanimiimg = await prepareWAMessageMedia({ image: {url: 'https://telegra.ph/file/b63528315a84c3205ed98.jpg'}}, { upload: conn.waUploadToServer });
+        var joanimiimg = await prepareWAMessageMedia({ image: {url: 'https://telegra.ph/file/f1c40bc74fdb172093270.jpg'}}, { upload: conn.waUploadToServer });
         const interactiveMessage = {
             body: { text: `\n◞❐ *وقـت الـتـشـغـيـل: ${uptimeString}*`.trim() },
             footer: { text: ` *ممنوع سب للبوت لانك سبيت للبوت = سبيت المطور تمتع بالبوت ولا تكتر اسبام للبوت اذا كان لديك مشكله او تريد اضافه اوامر اخري جديده تواصل مع المطور المطور* ◞❐wa.me/201115618853`.trim() },  
@@ -54,7 +54,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     rows: [
                                         {
                                             header: '🂱◡̈⃝📿━━│قسم الديني│━━◡̈⃝🂱📿',
-                                            title: '',
+                                            title: 'ₛₐfᵣₒₜ↯bₒₜ',
                                             description: '🂱◡̈⃝📿━━│قسم الديني│━━◡̈⃝🂱📿',
                                             id: '.سفروت3'
                                         }
@@ -65,7 +65,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     rows: [
                                         {
                                             header: '◡̈⃝˼‏🏌˹ ━━|قسم الترفيه│━━˼‏🕺🏻˹◡̈⃝',
-                                            title: '',
+                                            title: 'ₛₐfᵣₒₜ↯bₒₜ',
                                             description: '◡̈⃝˼‏🏌˹ ━━|قسم الترفيه│━━˼‏🕺🏻˹◡̈⃝',
                                             id: '.سفروت4'
                                         }
@@ -76,7 +76,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     rows: [
                                         {
                                             header: '⬇️◡̈⃝ ━━│ قسم التحميل │━━◡̈⃝⬇️',
-                                            title: '',
+                                            title: 'ₛₐfᵣₒₜ↯bₒₜ',
                                             description: '⬇️◡̈⃝ ━━│ قسم التحميل │━━◡̈⃝⬇️',
                                             id: '.سفروت5'
                                         }
@@ -98,7 +98,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     rows: [
                                         {
                                             header: '◡̈⃝⚙️❏━━│قسم الادوات│━━❏◡̈⃝⚙️',
-                                            title: '',
+                                            title: 'ₛₐfᵣₒₜ↯bₒₜ',
                                             description: '◡̈⃝⚙️❏━━│قسم الايدت│━━❏◡̈⃝⚙️',
                                             id: '.سفروت7'
                                         }
@@ -109,7 +109,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     rows: [
                                         {
                                             header: '🏦❏━━│قسم البنك│━━❏◡̈⃝🏦',
-                                            title: '',
+                                            title: 'ₛₐfᵣₒₜ↯bₒₜ',
                                             description: '🏦❏━━│قسم البنك│━━❏◡̈⃝🏦',
                                             id: '.سفروت8'
                                         }
@@ -141,10 +141,10 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     highlight_label: 'ON',
                                     rows: [
                                         {
-                                            header: '🔧❏━━│قسم جديد│━━❏◡̈⃝🔧',
-                                            title: '',
-                                            description: '🔧❏━━│قسم جديد│━━❏◡̈⃝🔧',
-                                            id: '.جديد'
+                                            header: '🔧◡̈⃝❏━━│قسم المطور│━━❏◡̈⃝🔧',
+                                            title: 'ₛₐfᵣₒₜ↯bₒₜ',
+                                            description: '🔧◡̈⃝❏━━│قسم المطور│━━❏◡̈⃝🔧',
+                                            id: '.سفروت11'
                                         }
                                     ]
                                 },
@@ -152,10 +152,10 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     highlight_label: 'ON',
                                     rows: [
                                         {
-                                            header: '🌟❏━━│قسم إضافي│━━❏◡̈⃝🌟',
-                                            title: '',
-                                            description: '🌟❏━━│قسم إضافي│━━❏◡̈⃝🌟',
-                                            id: '.إضافي'
+                                            header: '🧚🏼‍♂️◡̈⃝❏━━│مطوري│━━❏◡̈⃝🧚🏼‍♂️',
+                                            title: 'ₛₐfᵣₒₜ↯bₒₜ',
+                                            description: '🧚🏼‍♂️◡̈⃝❏━━│مطوري│━━❏◡̈⃝🧚🏼‍♂️',
+                                            id: '.المطور'
                                         }
                                     ]
                                 }
