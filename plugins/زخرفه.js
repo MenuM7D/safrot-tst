@@ -7,7 +7,7 @@ let handler = async (m, { conn, text }) => {
 
 handler.help = ['style'].map(v => v + ' *`<هات النص معا الامر🧚🏼‍♂️>`*')
 handler.tags = ['tools']
-handler.command = /^(style|زخرفه(text)?)$/i
+handler.command = /^(style|زخرفه|زخرفة(text)?)$/i
 handler.register = true
 handler.limit = 1
 
@@ -22,7 +22,7 @@ async function stylizeText(text) {
     for (let tr of table) {
         let name = tr.querySelector('.aname').innerHTML
         let content = tr.children[1].textContent.replace(/^\n/, '').replace(/\n$/, '')
-        obj[name + (obj[name] ? ' معكوس' : '')] = content
+        obj[name + (obj[name] ? '𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿' : '')] = content
     }
     return obj
       }
