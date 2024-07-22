@@ -10,7 +10,7 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 conn.tekateki = conn.tekateki ? conn.tekateki : {}
 let id = m.chat
 if (id in conn.tekateki) {
-conn.reply(m.chat, 'Todavía hay un juegos sin responder en este chat', conn.tekateki[id][0])
+conn.reply(m.chat, '*لسه في لعبة مش محلولة في الشات ده*🧚🏼‍♂️', conn.tekateki[id][0])
 throw false
 }
 
@@ -23,13 +23,13 @@ let clue = _clue.replace(/[A-Za-z]/g, '_')
 let caption = `
 ⷮ *${json.question}*
 
-*• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
-*• Bono:* +${poin} Exp
+*• الوقت:* ${(timeout / 1000).toFixed(2)} ثواني
+*• المكافأة:* +${poin} نقطة
 `.trim()
 conn.tekateki[id] = [
 await conn.sendMessage(m.chat, { text: caption, contextInfo:{forwardingScore: 9999999, isForwarded: true, "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "body": `• 𝐀𝐂𝐄𝐍𝐓𝐈𝐉𝐎 •`, "previewType": "PHOTO", thumbnail: imagen1, sourceUrl: md}}}, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100}),
 json, poin, setTimeout(async () => {
-if (conn.tekateki[id]) await conn.reply(m.chat, `*👾 Perdiste*\n\nSe acabó el tiempo!`, conn.tekateki[id][0])
+if (conn.tekateki[id]) await conn.reply(m.chat, `*👾 خسرت*\n\nالوقت انتهى!`, conn.tekateki[id][0])
 delete conn.tekateki[id]
 }, timeout)]}
 
@@ -41,13 +41,12 @@ let clue = _clue.replace(/[A-Za-z]/g, '_')
 let caption = `
 ⷮ *${json.question}*
 
-*• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
-*• Bono:* +${poin} Exp
+*• الوقت:* ${(timeout / 1000).toFixed(2)} ثواني
+*• المكافأة:* +${poin} نقطة
 `.trim()
 conn.tekateki[id] = [
-await //conn.reply(m.chat, caption, m),
-conn.sendMessage(m.chat, { text: caption, contextInfo:{forwardingScore: 9999999, isForwarded: true, "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "body": `• ADIVINAN LA PELÍCULA CON EMOJIS •`, "previewType": "PHOTO", thumbnail: imagen1, sourceUrl: md}}}, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100}), json, poin, setTimeout(async () => {
-if (conn.tekateki[id]) await conn.reply(m.chat, `*👾 Perdiste*\n\nSe acabó el tiempo!`, conn.tekateki[id][0])
+await conn.sendMessage(m.chat, { text: caption, contextInfo:{forwardingScore: 9999999, isForwarded: true, "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "body": `• خمن الفيلم بالإيموجي •`, "previewType": "PHOTO", thumbnail: imagen1, sourceUrl: md}}}, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100}), json, poin, setTimeout(async () => {
+if (conn.tekateki[id]) await conn.reply(m.chat, `*👾 خسرت*\n\nالوقت انتهى!`, conn.tekateki[id][0])
 delete conn.tekateki[id]
 }, timeout)
 ]}
@@ -56,22 +55,22 @@ if (command == 'cancion' || command == 'canción') {
 conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {};
 const id = m.chat;
 if (id in conn.tebaklagu) {
-conn.reply(m.chat, 'Todavía hay canciones sin respuesta en este chat.', conn.tebaklagu[id][0]);
+conn.reply(m.chat, 'لسه في أغاني مش محلولة في الشات ده.', conn.tebaklagu[id][0]);
 throw false;
-} // 5LTV57azwaid7dXfz5fzJu
+} 
 const res = await fetchJson(`https://raw.githubusercontent.com/elrebelde21/LoliBot-MD/master/src/JSON/tebaklagu.json`);
 const json = res[Math.floor(Math.random() * res.length)];
-const caption = `• *Tiempo :* ${(timeout / 1000).toFixed(2)} segundos\n• *Escribe :* ${usedPrefix}pista Para obtener una pista ♨️\n• *Premio :* ${poin} XP⚡
+const caption = `• *الوقت :* ${(timeout / 1000).toFixed(2)} ثواني\n• *اكتب :* ${usedPrefix}pista عشان تاخد تلميح ♨️\n• *المكافأة :* ${poin} نقطة⚡
 `.trim();
 conn.tebaklagu[id] = [
-await conn.reply(m.chat,  caption, m, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: 'ADIVINA LA CANCION', body: '𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐃𝐞 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩', previewType: 0, thumbnail: imagen4, sourceUrl: [md, yt, tiktok].getRandom()}}}), 
+await conn.reply(m.chat,  caption, m, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: 'خمن الأغنية', body: '𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐃𝐞 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩', previewType: 0, thumbnail: imagen4, sourceUrl: [md, yt, tiktok].getRandom()}}}), 
 json, poin, setTimeout(() => {
-if (conn.tebaklagu[id]) conn.reply(m.chat, `*👾 Perdiste*\n\nSe acabó el tiempo!`, conn.tebaklagu[id][0]);
+if (conn.tebaklagu[id]) conn.reply(m.chat, `*👾 خسرت*\n\nالوقت انتهى!`, conn.tebaklagu[id][0]);
 delete conn.tebaklagu[id];
 }, timeout),
 ];
 const aa = await conn.sendMessage(m.chat, {audio: {url: json.link_song}, fileName: `error.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
-if (!aa) return conn.sendFile(m.chat, json.link_song, 'coba-lagi.mp3', '', m);
+if (!aa) return conn.sendFile(m.chat, json.link_song, 'جرب-تاني.mp3', '', m);
 };
 
 if (command == 'trivia' || command == 'triviador') {
@@ -82,14 +81,13 @@ let clue = _clue.replace(/[A-Za-z]/g, '_')
 let caption = `
 ⷮ${json.question}
 
-*• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
-*• Bono:* +${poin} Exp
+*• الوقت:* ${(timeout / 1000).toFixed(2)} ثواني
+*• المكافأة:* +${poin} نقطة
 `.trim()
 conn.tekateki[id] = [
-await //conn.reply(m.chat, caption, m),
-conn.sendMessage(m.chat, { text: caption, contextInfo:{forwardingScore: 9999999, isForwarded: true, "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "body": `• 𝐓𝐑𝐈𝐕𝐈𝐀 •`, "previewType": "PHOTO", thumbnail: imagen1, sourceUrl: md}}}, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100}),
+await conn.sendMessage(m.chat, { text: caption, contextInfo:{forwardingScore: 9999999, isForwarded: true, "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "body": `• 𝐓𝐑𝐈𝐕𝐈𝐀 •`, "previewType": "PHOTO", thumbnail: imagen1, sourceUrl: md}}}, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100}),
 json, poin, setTimeout(async () => {
-if (conn.tekateki[id]) await conn.reply(m.chat, `Se acabó el tiempo!`, conn.tekateki[id][0])
+if (conn.tekateki[id]) await conn.reply(m.chat, `الوقت انتهى!`, conn.tekateki[id][0])
 delete conn.tekateki[id]
 }, timeout)
 ]}
@@ -103,8 +101,6 @@ const nya = json.jawaban;
 const nyanya = nya.replace(/[bcdfghjklmnñpqrstvwxyzBCDEFGHJKLMNÑPQRSTVWXYZ]/g, '_');
 m.reply('' + nyanya + '');
 }} catch (e) {
-//await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
-//console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}}
 handler.help = ['acertijo', 'advpe', 'cancion', 'trivia', 'pista']
 handler.tags = ['game'];
@@ -120,4 +116,4 @@ return res.data;
   } catch (err) {
     return err;
   }
-}
+                                }
