@@ -16,8 +16,8 @@ let handler = async (m, { conn, usedPrefix }) => {
    let bot = global.db.data.settings[conn.user.jid]
    let _uptime = process.uptime() * 1000
    let uptime = (_uptime).toTimeString()
-        let totalreg = Object.keys(global.db.data.users).length
-    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
+   let totalreg = Object.keys(global.db.data.users).length
+   let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
    let totalbots = Object.keys(global.db.data.settings).length
    let totalStats = Object.values(global.db.data.stats).reduce((total, stat) => total + stat.total, 0)
    const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
@@ -73,25 +73,25 @@ let handler = async (m, { conn, usedPrefix }) => {
    let latensi = speed() - timestamp
    let teks = `*≡ INFOBOT*
 
-*INFORMACIÓN*
-*▣ Grupos total:* ${groupsIn.length}
-*▣ Grupos unidos:* ${groupsIn.length}
-*▣ Grupo salidos:* ${groupsIn.length - groupsIn.length}
-*▣ Chats privado:* ${chats.length - groupsIn.length}
-*▣ Chats totales:* ${chats.length}
-*▣ Sub-Bots conectado:* ${totaljadibot.length}
-*▣ Total plugins:* ${totalf}
-*▣ Velocidad:* ${latensi.toFixed(4)} ms
-*▣ Actividad:* ${uptime}
+*معلومات*
+*▣ عدد الجروبات الكلي:* ${groupsIn.length}
+*▣ جروبات متحد:* ${groupsIn.length}
+*▣ جروبات خرج:* ${groupsIn.length - groupsIn.length}
+*▣ الشاتس الخاصة:* ${chats.length - groupsIn.length}
+*▣ الشاتس الكلية:* ${chats.length}
+*▣ عدد البوتات الفرعية المتصلة:* ${totaljadibot.length}
+*▣ إجمالي الاضافات:* ${totalf}
+*▣ السرعة:* ${latensi.toFixed(4)} مللي ثانية
+*▣ وقت النشاط:* ${uptime}
  
-*▣ Comando Ejecutando:* ${toNum(totalStats)}/${totalStats}
-*▣ Grupos registrado:* ${toNum(totalchats)}/${totalchats}
-*▣ Usuarios registrado:*  ${rtotalreg} de ${totalreg} usuarios
+*▣ الأوامر المنفذة:* ${toNum(totalStats)}/${totalStats}
+*▣ الجروبات المسجلة:* ${toNum(totalchats)}/${totalchats}
+*▣ المستخدمين المسجلين:*  ${rtotalreg} من ${totalreg} مستخدم
 
-*≡ S E R V E R*
-▣ *Servidor:* ${hostname()}
-▣ *Ram usada:* ${format(totalmem() - freemem())} / ${format(totalmem())}
-▣ *Plataforma:* ${platform()}`
+*≡ السيرفر*
+▣ *اسم السيرفر:* ${hostname()}
+▣ *الرام المستخدمة:* ${format(totalmem() - freemem())} / ${format(totalmem())}
+▣ *المنصة:* ${platform()}`
 await conn.sendMessage(m.chat, { image: { url: "https://telegra.ph/file/39fb047cdf23c790e0146.jpg", }, caption: teks,
 contextInfo: {
 externalAdReply: {
@@ -104,7 +104,7 @@ thumbnailUrl: img1,
 }
 handler.help = ['infobot']
 handler.tags = ['main']
-handler.command = /^(infobot|informacionbot|infololi)$/i;
+handler.command = /^(معلومات_البوت|informacionbot|infololi)$/i;
 handler.register = true 
 export default handler
 
@@ -120,4 +120,4 @@ function toNum(number) {
     } else {
         return number.toString()
     }
-                                   }
+}
