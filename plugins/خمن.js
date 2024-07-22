@@ -102,9 +102,9 @@ const nyanya = nya.replace(/[bcdfghjklmnñpqrstvwxyzBCDEFGHJKLMNÑPQRSTVWXYZ]/g,
 m.reply('' + nyanya + '');
 }} catch (e) {
 console.log(e)}}
-handler.help = ['acertijo', 'advpe', 'cancion', 'trivia', 'pista']
+handler.help = ['خمن', 'تخمين', 'يخمن', 'trivia', 'pista']
 handler.tags = ['game'];
-handler.command = /^(acertijo|acert|adivinanza|tekateki|advpe|adv|peliculas|pelicula|cancion|canción|palabra|word|ordenar|order|trivia|triviador|hint|pista)$/i
+handler.command = /^(خمن|تخمين|يخمن|tekateki|advpe|adv|peliculas|pelicula|cancion|canción|palabra|word|ordenar|order|trivia|triviador|hint|pista)$/i
 handler.register = true
 export default handler
 
