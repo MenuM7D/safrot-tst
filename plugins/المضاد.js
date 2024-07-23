@@ -9,7 +9,7 @@ let toUser = `${m.sender.split("@")[0]}`
 let aa = toUser + '@s.whatsapp.net'
 let listSections = []    
 listSections.push({ title: '『 FUNCIÓN PARA ADMINS 』',
-rows: [  { header: `🎉 الترحيب ${m.isGroup ? chat.welcome ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} welcome`, description: `رسالة ترحيب للأعضاء الجدد في الجروب\n` }];
+rows: [{ header: `🎉 BIENVENIDA ${m.isGroup ? chat.welcome ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} welcome`, description: `Mensaje de Bienvenida para nuevos Miembros en Grupos\n` }, 
 { header: `🔗 ANTI ENLACES ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antilink`, description: `Eliminar Personas que envíen enlaces de Grupos de WhatsApp\n` },
 { header: `🔗 ANTI ENLACES 2 ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antilink2`, description: `Eliminar Personas que envíen enlaces que contengan https\n` }, 
 { header: `🔗 ANTI TRABA ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antitraba`, description: `El Bot detecta textos largos que podrian ser virus y causar lag en el chat y elimina al usuario.\n` }, 
@@ -438,22 +438,24 @@ break
 default:
 if (!/[01]/.test(command)) return await conn.sendList(m.chat, `\`⧼⧼⧼ ＣＯＮＦＩＧＵＲＡＣＩＯ́Ｎ ⧽⧽⧽\`
 
-> *Seleccione una opción de la lista*
-> *Para empezar a Configurar*
+> *اختر خيار من القائمة*
+> *لبدء التكوين*
 
-● *Avisos de la Configuracion:*
-✅ ⇢ *Función Activada*
-❌ ⇢ *Función Desactivada*
-⚠️ ⇢ *Este Chat no es un Grupo`, wm, `AJUSTES`, listSections, m) //conn.sendMessage(m.chat, texto, {quoted: fkontak})	
+● *تنبيهات الإعدادات:*
+✅ ⇢ *الوظيفة مفعلة*
+❌ ⇢ *الوظيفة معطلة*
+⚠️ ⇢ *هذه الدردشة ليست مجموعة*
+
+wm, `الإعدادات`, listSections, m) //conn.sendMessage(m.chat, texto, {quoted: fkontak})    
 throw false
 }
 await conn.sendButton(m.chat, `╭┄〔 *${wm}* 〕┄⊱
-┆🗂️ ᴏᴘᴄɪᴏɴ: ${type} 
+┆🗂️ ᴀʟخɪᴀʀᴀʀ: ${type} 
 ┆——————«•»——————
-┆🎚️ ᴇsᴛᴀᴅᴏ: ${isEnable ? 'ᴀᴄᴛɪᴠᴀᴅᴏ' : 'ᴅᴇsᴀᴄᴛɪᴠᴀᴅᴏ'}
+┆🎚️ ʜᴀʟ: ${isEnable ? 'مفعلة' : 'معطلة'}
 ┆——————«•»——————
-┆📣 ᴘᴀʀᴀ: ${isAll ? 'ᴇsᴛᴇ ʙᴏᴛ' : isUser ? '' : 'ᴇsᴛᴇ ᴄʜᴀᴛ'} 
-╰━━━⊰ 𓃠 ${wm} ⊱━━━━დ`, wm, null, [[`${isEnable ? `Desactivar` : `Activar`}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`]], null, null, m)
+┆📣 ʟَ: ${isAll ? 'هذا البوت' : isUser ? '' : 'هذه الدردشة'} 
+╰━━━⊰ 𓃠 ${wm} ⊱━━━━დ`, wm, null, [[`${isEnable ? `تعطيل` : `تفعيل`}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`]], null, null, m)
 }; 
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['nable']
