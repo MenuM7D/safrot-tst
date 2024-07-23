@@ -444,7 +444,7 @@ if (!/[01]/.test(command)) return await conn.sendList(m.chat, `\`⧼⧼⧼ Ｃ�
 ● *Avisos de la Configuracion:*
 ✅ ⇢ *Función Activada*
 ❌ ⇢ *Función Desactivada*
-⚠️ ⇢ *Este Chat no es un Grupo`, wm, `AJUSTES`, null, listSections, m) //conn.sendMessage(m.chat, texto, {quoted: fkontak})	
+⚠️ ⇢ *Este Chat no es un Grupo`, wm, `AJUSTES`, listSections, m) //conn.sendMessage(m.chat, texto, {quoted: fkontak})	
 throw false
 }
 await conn.sendButton(m.chat, `╭┄〔 *${wm}* 〕┄⊱
@@ -453,7 +453,7 @@ await conn.sendButton(m.chat, `╭┄〔 *${wm}* 〕┄⊱
 ┆🎚️ ᴇsᴛᴀᴅᴏ: ${isEnable ? 'ᴀᴄᴛɪᴠᴀᴅᴏ' : 'ᴅᴇsᴀᴄᴛɪᴠᴀᴅᴏ'}
 ┆——————«•»——————
 ┆📣 ᴘᴀʀᴀ: ${isAll ? 'ᴇsᴛᴇ ʙᴏᴛ' : isUser ? '' : 'ᴇsᴛᴇ ᴄʜᴀᴛ'} 
-╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ`, wm, null, [[`${isEnable ? `Desactivar` : `Activar`}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`]], null, null, m)
+╰━━━⊰ 𓃠 ${wm} ⊱━━━━დ`, wm, null, [[`${isEnable ? `Desactivar` : `Activar`}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`]], null, null, m)
 }; 
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['nable']
