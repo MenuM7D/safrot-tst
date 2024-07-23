@@ -1,7 +1,7 @@
 import gtts from 'node-gtts';
 import {readFileSync, unlinkSync} from 'fs';
 import {join} from 'path';
-const defaultLang = 'es'; // اللغة الافتراضية هي الإسبانية
+const defaultLang = 'ar'; // اللغة الافتراضية هي الإسبانية
 const handler = async (m, {conn, args, usedPrefix, command}) => {
   let lang = args[0];
   let text = args.slice(1).join(' ');
@@ -25,7 +25,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
 };
 handler.help = ['tts <lang> <teks>'];
 handler.tags = ['convertidor'];
-handler.command = /^g?tts$/i;
+handler.command = /^g?انطق$/i;
 handler.register = true;
 export default handler;
 
