@@ -1,14 +1,22 @@
-import { googleImage } from '@bochilteam/scraper'
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-if (!text) throw `*[❗خطاء❗] مثال علي الامر ${usedPrefix + command} كانيكي*`
-if (m.text.includes('gore') || m.text.includes('cp')|| m.text.includes('porno')|| m.text.includes('Gore')|| m.text.includes('rule')|| m.text.includes('CP')|| m.text.includes('Rule34')) return m.reply('[❗خطاء❗] لا يمكنني إرسال هذا المحتوى ، المجموعة محظورة \n إذا كنت مشرفًا وتريد تنشيطها ، اخبر المطور')  
-const res = await googleImage(text)
-let image = await res.getRandom()
-let link = image
-//conn.sendFile(m.chat, link, 'error.jpg', `🔎 *النتيجه ل:* ${text}\n🔗 *من* ${link}\n🌎 *محرك البحث:* جوجل`, m)}
-let captionn = `🔎 *الـبـحـث عـن:* ${text}\n🔗 *الـلـنـك* ${link}\n🌎 *مـحـرـك الـبـحـث:* Google`
-conn.sendButton(m.chat, captionn, author, link, [['صوره غيراها', `.صوره ${text}`]], m)}
-handler.help = ['gimage <query>', 'imagen <query>']
-handler.tags = ['internet', 'tools']
-handler.command = /^(gimage|image|صوره|imagen)$/i
-export default handler
+import {googleImage} from '@bochilteam/scraper';
+
+const handler = async (m, {conn, text, usedPrefix, command}) => {
+  if (!text) return conn.reply(m.chat, `*اكتب اسم الصوره الي بدور عليها🧚🏼‍♂️*\n•  مثال\n*${usedPrefix + command} خلفيه*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: iig, body: ' 𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿 ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}});
+  
+  if (m.text.includes('gore') || m.text.includes('cp') || m.text.includes('porno') || m.text.includes('Gore') || m.text.includes('rule') || m.text.includes('CP') || m.text.includes('Rule34') || m.text.includes('xxx|سكس|نودز|شرموطه|كس|نيك|سكسي|عهيرات|شراميط|لبوه|مص|اكساس')) 
+    throw 'طلبك مرفود يكسمك🙄';
+  
+  const res = await googleImage(text);
+  const image = await res.getRandom();
+  const link = image;
+  
+  conn.sendButton(m.chat, `🧚🏼‍♂️ *اتفصل يحب*: ${text}`, botname, link, [['🧚🏼‍♂️ صوره تاني 🧚🏼‍♂️', `/${command} ${text}`]], null, null, m, null, fake);
+};
+
+handler.help = ['gimage <query>', 'imagen <query>'];
+handler.tags = ['buscadores'];
+handler.command = /^(gimage|صوره|صور|imagen)$/i;
+handler.register = true;
+handler.limit = 1;
+
+export default handler;
