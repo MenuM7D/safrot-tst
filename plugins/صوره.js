@@ -3,7 +3,7 @@ import {googleImage} from '@bochilteam/scraper';
 const handler = async (m, {conn, text, usedPrefix, command}) => {
   if (!text) return conn.reply(m.chat, `*اكتب اسم الصوره الي بدور عليها🧚🏼‍♂️*\n•  مثال\n*${usedPrefix + command} خلفيه*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: iig, body: ' 𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿 ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}});
   
-  if (m.text.includes('gore') || m.text.includes('cp') || m.text.includes('porno') || m.text.includes('Gore') || m.text.includes('rule') || m.text.includes('CP') || m.text.includes('Rule34') || m.text.includes('xxx|سكس|نودز|شرموطه|كس|نيك|سكسي|عهيرات|شراميط|لبوه|مص|اكساس')) 
+  if (m.text.includes('gore') || m.text.includes('cp') || m.text.includes('porno') || m.text.includes('Gore') || m.text.includes('rule') || m.text.includes('CP') || m.text.includes('Rule34') || m.text.includes('xxx','سكس','نودز','شرموطه','كس','نيك','سكسي','عهيرات','شراميط','لبوه','اكساس','xnxx')) 
     throw 'طلبك مرفود يكسمك🙄';
   
   const res = await googleImage(text);
