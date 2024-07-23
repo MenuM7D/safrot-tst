@@ -10,7 +10,7 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
   const image = await res.getRandom();
   const link = image;
   
-  conn.sendButton(m.chat, `🧚🏼‍♂️ *اتفصل يحب*: ${text}`, botname, link, [['🧚🏼‍♂️ صوره تاني 🧚🏼‍♂️', `/${command} ${text}`]], null, null, m, null, fake);
+  conn.sendButton(m.chat, `🧚🏼‍♂️ *البحث*: ${text}`, botname, link, [['🧚🏼‍♂️ صوره تاني 🧚🏼‍♂️', `/${command} ${text}`]], null, null, m, null, fake);
 };
 
 handler.help = ['gimage <query>', 'imagen <query>'];
