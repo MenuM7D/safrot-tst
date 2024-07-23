@@ -23,7 +23,7 @@ let spotifyi = `*• العنوان:* ${spty.title}
 *• الألبوم:* ${spty.album}
 *• السنة:* ${spty.year}
 
-> 🚀 *جاري إرسال الأغنية، استنى شوية...*`
+> 🧚🏼‍♂️ *جاري التحميل...*`
 await conn.reply(m.chat, spotifyi, fkontak, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '', previewType: 0, thumbnail: spty.data.cover_url, sourceUrl: redes.getRandom()}}}) 
 await conn.sendMessage(m.chat, {audio: music.data, fileName: `${spty.name}.mp3`, mimetype: 'audio/mpeg'}, {quoted: m})
 m.react(`✅`) 
