@@ -1,11 +1,11 @@
 // TheMystic-Bot-MD@BrunoSobrino - descargas-spotify.js
-// Creditos de los tags a @darlyn1234 y diseño a @ALBERTO9883
+// الشكر للـ @darlyn1234 على الأكواد والتصميم لـ @ALBERTO9883
 import fetch from 'node-fetch';
 import fs from 'fs';
 import axios from 'axios';
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
- if (!text) return await conn.reply(m.chat, `¿Que esta buscando? ingresa el nombre para descargar sus música de Spotify, Ejemplo:* ${usedPrefix + command} ozuna`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: mg, body: wm, previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})    
+ if (!text) return await conn.reply(m.chat, `أنت بتدور على إيه؟ اكتب اسم الأغنية اللي عايز تحملها من Spotify، مثال:* ${usedPrefix + command} ozuna`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: mg, body: wm, previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})    
 m.react(`⌛`) 
   try {
     const res = await fetch(global.API('CFROSAPI', '/api/spotifysearch?text=' + text))
@@ -18,12 +18,12 @@ m.react(`⌛`)
     const spty = info.spty.resultado
     const img = await (await fetch(`${spty.thumbnail}`)).buffer()  
 
-let spotifyi = `*• Titulo:* ${spty.title}
-*• Artista:* ${spty.artist}
-*• Álbum:* ${spty.album}
-*• Publicado:* ${spty.year}
+let spotifyi = `*• العنوان:* ${spty.title}
+*• الفنان:* ${spty.artist}
+*• الألبوم:* ${spty.album}
+*• السنة:* ${spty.year}
 
-> 🚀 *ᴱⁿᵛᶦᵃⁿᵈᵒ ᶜᵃⁿᶜᶦᵒ́ⁿ ᵃᵍᵘᵃʳᵈᵉ ᵘⁿ ᵐᵒᵐᵉⁿᵗᵒ....*`
+> 🚀 *جاري إرسال الأغنية، استنى شوية...*`
 await conn.reply(m.chat, spotifyi, fkontak, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '', previewType: 0, thumbnail: spty.data.cover_url, sourceUrl: redes.getRandom()}}}) 
 await conn.sendMessage(m.chat, {audio: music.data, fileName: `${spty.name}.mp3`, mimetype: 'audio/mpeg'}, {quoted: m})
 m.react(`✅`) 
@@ -34,8 +34,8 @@ m.react(`❌`)
   }};
 handler.help = ['spotify']
 handler.tags = ['downloader']
-handler.command = /^(spotify|music)$/i
+handler.command = /^(spotify|سبوتيفي|سبوتيفاي)$/i
 handler.register = true
 //handler.limit = 1
 handler.level = 2
-export default handler
+export default handler;
