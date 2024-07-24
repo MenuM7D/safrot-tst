@@ -5,7 +5,7 @@ let a7a = url + text;
 await conn.reply(m.chat, a7a, m);
 }
     handler.help = ['تبنيد'];
-    handler.tags = ['K U R O S A K I'];
+    handler.tags = ['ₛₐfᵣₒₜ↯bₒₜ'];
     handler.command = /^(فنش)$/i
 
     export default handler;
