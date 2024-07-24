@@ -6,7 +6,7 @@ async function handler(m, { conn, args, usedPrefix, command }) {
     if (confirmation[m.sender]) return m.reply('أنت تقوم بالتحويل')
     let user = global.db.data.users[m.sender]
     const item = items.filter(v => v in user && typeof user[v] == 'number')
-    let lol = `✳️ Correct use of the command 
+    let lol = `🧚🏼‍♂️ الاستخدام الصحيح للأوامر 
 *${usedPrefix + command}*  credit [amount] [@user]
 
 📌 مثال : 
@@ -16,9 +16,9 @@ async function handler(m, { conn, args, usedPrefix, command }) {
     if (!item.includes(type)) return conn.reply(m.chat, lol, m, { mentions: [m.sender] })
     const count = Math.min(Number.MAX_SAFE_INTEGER, Math.max(1, (isNumber(args[1]) ? parseInt(args[1]) : 1))) * 1
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : args[2] ? (args[2].replace(/[@ .+-]/g, '') + '@s.whatsapp.net') : ''
-    if (!who) return m.reply('✳️ ضع علامة على المستخدم')
-    if (!(who in global.db.data.users)) return m.reply(`✳️ المستخدم ليس في قاعدة البيانات الخاصة بي`)
-    if (user[type] * 1 < count) return m.reply(`✳️  *${type}*  غير كافية للنقل`)
+    if (!who) return m.reply('🧚🏼‍♂️ ضع علامة على المستخدم')
+    if (!(who in global.db.data.users)) return m.reply(`🧚🏼‍♂️ المستخدم ليس في قاعدة البيانات الخاصة بي`)
+    if (user[type] * 1 < count) return m.reply(`🧚🏼‍♂️  *${type}*  غير كافية للنقل`)
     let confirm = `
     هل أنت متأكد أنك تريد النقل *₹${count}* to *@${(who || '').replace(/@s\.whatsapp\.net/g, '')}* ? 
 
