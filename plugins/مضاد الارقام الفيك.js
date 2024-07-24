@@ -7,7 +7,7 @@ let chat = global.db.data.chats[m.chat]
 let bot = global.db.data.settings[conn.user.jid] || {}
 if (isBotAdmin && chat.antifake && !isAdmin && !isOwner && !isROwner) {
 //if (!db.data.chats[m.chat].antifake && m.isGroup) throw 0
-let texto = `${ag}*@${m.sender.split`@`[0]}* En este grupo no esta permitido numero fake/arabe sera expulsado...`
+let texto = `${ag}*@${m.sender.split`@`[0]}* مش مسموح بلارقام الفيك🧚🏼‍♂️...`
 
 if (m.sender.startsWith('91' || '91')) {
 await conn.reply(m.chat, texto, fkontak,  m)
@@ -81,7 +81,7 @@ let responseb = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 if (responseb[0].status === "404") return 
 }
 
-if (m.sender.startsWith('20' || '20')) {
+if (m.sender.startsWith('44' || '44')) {
 await conn.reply(m.chat, texto, fkontak,  m)
 let responseb = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 if (responseb[0].status === "404") return 
