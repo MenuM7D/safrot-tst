@@ -2,7 +2,7 @@ import { xpRange } from "../lib/levelling.js";
 var handler = async (m, {conn, usedPrefix, usedPrefix: _p, text}) => {
 let porn = 'https://qu.ax/bXMB.webp'
 let porn2 = 'https://qu.ax/TxtQ.webp'
-if (!db.data.chats[m.chat].modohorny && m.isGroup) return conn.sendFile(m.chat, [porn, porn2].getRandom(), 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `ᴸᵒˢ ᶜᵒᵐᵃⁿᵈᵒ ʰᵒʳⁿʸ ᵉˢᵗᵃ ᵈᵉˢᵃᶜᵗᶦᵛᵃᵈᵒ ˢᶦ ᵉʳᵉˢ ᵃᵈᵐᶦⁿ ʸ ᵠᵘᶦᵉʳᵉ ᵃᶜᵗᶦᵛᵃʳˡᵒˢ ᵘˢᵃʳ:`, body: '#enable modohorny', mediaType: 2, sourceUrl: md, thumbnail: imagen3}}}, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})   
+if (!db.data.chats[m.chat].modohorny && m.isGroup) return conn.sendFile(m.chat, [porn, porn2].getRandom(), 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `أوامر المحتوى الحساس معطلة. لو إنت أدمن وعايز تشغلها:`, body: '#enable modohorny', mediaType: 2, sourceUrl: md, thumbnail: imagen3}}}, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})   
 
   let {exp, limit, level, role} = global.db.data.users[m.sender];
   let {min, xp, max} = xpRange(level, global.multiplier);
@@ -73,21 +73,21 @@ if (!db.data.chats[m.chat].modohorny && m.isGroup) return conn.sendFile(m.chat, 
   //let user = global.db.data.users[m.sender]
   //user.registered = false
 
-  let menu = `Hola ${username} pajin 🤓
+  let menu = `منور ${username} 🧚🏼‍♂️
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 😏😏😏😏😏😏😏😏😏
-◉ *EXPERIENCIA | EXP ➺ ${exp}*
-◉ *NIVEL | LEVEL ➺ ${level}*
+◉ *التجربة | EXP ➺ ${exp}*
+◉ *المستوى | LEVEL ➺ ${level}*
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-◉ *FECHA ➺ ${week}, ${date}*
-◉ *USUARIOS | USERS ➺ ${Object.keys(global.db.data.users).length}* 
+◉ *التاريخ ➺ ${week}, ${date}*
+◉ *المستخدمين | USERS ➺ ${Object.keys(global.db.data.users).length}* 
 😏😏😏😏😏😏😏😏😏
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-*Comandos para ver pornito 🔞*
-*Usar bajo tu responsabilidad*
-*NOTA: No sea pajero*
+*أوامر المحتوى الحساس 🔞*
+*استخدم على مسئوليتك*
+*ملاحظة: مش لازم تبقى مدمن محتوى حساس*
 *NSFW ✅*
 
 ◉ ${usedPrefix}pack
@@ -128,7 +128,7 @@ if (!db.data.chats[m.chat].modohorny && m.isGroup) return conn.sendFile(m.chat, 
 ◉ ${usedPrefix}pornochupada
 ◉ ${usedPrefix}pornomuslos
   
-> El yaoi es pa las chicas no solo los hombre se divierten 🤓`.trim();
+> 𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿`.trim();
   conn.sendMessage(m.chat, { image: { url: "https://telegra.ph/file/c0b57f22c3fce1c2b5e72.jpg", }, caption: menu, 
 contextInfo: {
 externalAdReply: {
@@ -141,7 +141,7 @@ thumbnailUrl: "https://telegra.ph/file/361c821b05575733b1bb5.jpg",
 }
 handler.help = ["menu18", "hornymenu"]
 handler.tags = ["main"];
-handler.command = /^(hornymenu|menu18|menucaliente)$/i;
+handler.command = /^(hornymenu|منيو_السكس|menucaliente)$/i;
 handler.register = true
 handler.exp = 70;
 export default handler;
@@ -153,4 +153,4 @@ function clockString(ms) {
   let m = isNaN(ms) ? "--" : Math.floor(ms / 60000) % 60;
   let s = isNaN(ms) ? "--" : Math.floor(ms / 1000) % 60;
   return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(":");
-}
+    }
