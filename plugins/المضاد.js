@@ -45,7 +45,6 @@ rows: [{ header: `🎉 الترحيب ${m.isGroup ? chat.welcome ? '✅' : '❌'
 { header: `🛡️ الحماية المتقدمة ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} advsecurity`, description: `تفعيل ميزات الحماية المتقدمة للجروب.\n` },
 { header: `🌐 حظر المواقع ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} blockweb`, description: `حظر الروابط والمواقع الغير مرغوب فيها.\n` }
 ]})
-
 let isEnable = /true|enable|(turn)?on|1/i.test(command)
 let type = (args[0] || '').toLowerCase()
 let isAll = false, isUser = false
@@ -443,28 +442,30 @@ throw false
 global.opts['swonly'] = isEnable
 break
 default:
-if (!/[01]/.test(command)) return await conn.sendList(m.chat, `\`⧼⧼⧼ ＣＯＮＦＩＧＵＲＡＣＩＯ́Ｎ ⧽⧽⧽\`
+if (!/[01]/.test(command)) return await conn.sendList(m.chat, `\`⧼⧼⧼ ْإِعْدَادَات ⧽⧽⧽
 
-> *Seleccione una opción de la lista*
-> *Para empezar a Configurar*
+> *اختر خيار من القائمة*
+> *لبدء الإعدادات*
 
-● *Avisos de la Configuracion:*
-✅ ⇢ *Función Activada*
-❌ ⇢ *Función Desactivada*
-⚠️ ⇢ *Este Chat no es un Grupo`, wm, `AJUSTES`, listSections, m) //conn.sendMessage(m.chat, texto, {quoted: fkontak})	
+● *إشعارات الإعدادات:*
+✅ ⇢ *وظيفة مفعلة*
+❌ ⇢ *وظيفة معطلة*
+⚠️ ⇢ *هذا الشات ليس مجموعة
+
+`, wm, `الإعدادات`, listSections, m) //conn.sendMessage(m.chat, texto, {quoted: fkontak})
 throw false
 }
 await conn.sendButton(m.chat, `╭┄〔 *${wm}* 〕┄⊱
-┆🗂️ ᴏᴘᴄɪᴏɴ: ${type} 
+┆🗂️ خيار: ${type} 
 ┆——————«•»——————
-┆🎚️ ᴇsᴛᴀᴅᴏ: ${isEnable ? 'ᴀᴄᴛɪᴠᴀᴅᴏ' : 'ᴅᴇsᴀᴄᴛɪᴠᴀᴅᴏ'}
+┆🎚️ الحالة: ${isEnable ? 'مفعلة' : 'معطلة'}
 ┆——————«•»——————
-┆📣 ᴘᴀʀᴀ: ${isAll ? 'ᴇsᴛᴇ ʙᴏᴛ' : isUser ? '' : 'ᴇsᴛᴇ ᴄʜᴀᴛ'} 
-╰━━━⊰ 𓃠 ${wm} ⊱━━━━დ`, wm, null, [[`${isEnable ? `Desactivar` : `Activar`}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`]], null, null, m)
-}; 
-handler.help = ['en', 'dis'].map(v => v + 'able <option>')
+┆📣 لـ: ${isAll ? 'هذا البوت' : isUser ? '' : 'هذا الشات'} 
+╰━━━⊰ 𓃠 ${wm} ⊱━━━━დ`, wm, null, [[`${isEnable ? `تعطيل` : `تفعيل`}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`]], null, null, m)
+};
+handler.help = ['اون', 'اوف'].map(v => v + 'able <option>')
 handler.tags = ['nable']
-handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|[01])$/i
+handler.command = /^مضادات$/i
 export default handler;
 
 const more = String.fromCharCode(8206)
