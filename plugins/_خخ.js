@@ -4,11 +4,11 @@ let handler = m => m
 handler.all = async function (m) {
 	
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
-let pp = await this.profilePictureUrl(who, 'image').catch(_ => "https://telegra.ph/file/33bed21a0eaa789852c30.jpg")
+let pp = await this.profilePictureUrl(who, 'image').catch(_ => "https://telegra.ph/file/842cb13ff5c3e2940486f.jpg")
 	
 global.rpl = { contextInfo: { externalAdReply: { mediaUrl: nna, mediaType: 'VIDEO', description: 'تحديثات/أخبار', title: packname, body: 'تحديث القناة', thumbnailUrl: pp, sourceUrl: nna }}} 
    	
-global.fake = { contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363160031023229@newsletter', serverMessageId: '', newsletterName: 'ₛₐfᵣₒₜ↯bₒₜ 🧚🏼‍♂️' }, externalAdReply: { title: wm, body: vs, mediaType: 1, renderLargerThumbnail: false, previewType: `PHOTO`, thumbnailUrl: pp, sourceUrl: redes.getRandom() }}}
+global.fake = { contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363297635509525@newsletter', serverMessageId: '', newsletterName: 'ₛₐfᵣₒₜ↯bₒₜ 🧚🏼‍♂️' }, externalAdReply: { title: wm, body: vs, mediaType: 1, renderLargerThumbnail: false, previewType: `PHOTO`, thumbnailUrl: pp, sourceUrl: redes.getRandom() }}}
    
 global.rpyp = { contextInfo: { externalAdReply: { mediaUrl: md, mediaType: 'VIDEO', description: 'GitHub', title: 'GitHub', body: 'لو عجبك البوت ادعمني بنجمة', thumbnailUrl: pp, sourceUrl: md }}}
 
