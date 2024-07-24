@@ -1,12 +1,11 @@
-
 const handler = async (m, {conn, text, usedPrefix, command}) => {
-  if (!text) return m.reply(`*[❗𝐈𝐍𝐅𝐎❗] 𝚄𝚂𝙾 𝙳𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾*\n\n*${usedPrefix + command}* hola @${m.sender.split`@`[0]} a`, null, {mentions: [m.sender]});
+  if (!text) return m.reply(`*[❗] استخدام الأمر*\n\n*${usedPrefix + command}* هلا @${m.sender.split`@`[0]}`, null, {mentions: [m.sender]});
   const cm = copy(m);
   let who;
   if (text.includes('@0')) who = '0@s.whatsapp.net';
   else if (m.isGroup) who = cm.participant = m.mentionedJid[0];
   else who = m.chat;
-  if (!who) return m.reply(`*[❗𝐈𝐍𝐅𝐎❗] 𝚄𝚂𝙾 𝙳𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾*\n\n*${usedPrefix + command}* hola @${m.sender.split`@`[0]} a`, null, {mentions: [m.sender]});
+  if (!who) return m.reply(`*[❗] استخدام الأمر*\n\n*${usedPrefix + command}* هلا @${m.sender.split`@`[0]}`, null, {mentions: [m.sender]});
   cm.key.fromMe = false;
   cm.message[m.mtype] = copy(m.msg);
   const sp = '@' + who.split`@`[0];
@@ -17,13 +16,14 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
     },
   });
 };
-handler.help = ['fake <text> @user <text2>'];
+
+handler.help = ['fake <نص> @شخص <نص2>'];
 handler.tags = ['tools'];
-handler.command = /^(fitnah|fakereply|fake)$/;
-handler.register = true
-handler.limit = 3
+handler.command = /^(نص|fakereply|fake)$/;
+handler.register = true;
+handler.limit = 3;
 export default handler;
 
 function copy(obj) {
   return JSON.parse(JSON.stringify(obj));
-}
+                                                                                           }
