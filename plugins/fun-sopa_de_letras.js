@@ -6,11 +6,11 @@ let handler = async (m, { conn, text, usedPrefix, command}) => {
 
 if (!userSP) { 
 userSP = m.sender.split("@")[0]
-await conn.reply(m.chat, `*@${m.sender.split("@")[0]} REGISTRADO EN EL JUEGO* ✅`, m, { mentions: [m.sender] })
+await conn.reply(m.chat, `*@${m.sender.split("@")[0]} مُسجَّل في اللعبة* ✅`, m, { mentions: [m.sender] })
 }
   
 async function generarSopaDeLetras() {
-const LADO = 16 // Si es alto o bajo, puede dar error, deja como esta
+const LADO = 16 // إذا كانت القيمة مرتفعة أو منخفضة، قد يحدث خطأ، اتركها كما هي
 let sopaDeLetras = new Array(LADO);
   
 for (let i = 0; i < LADO; i++) {
