@@ -7,10 +7,10 @@ const handler = async (m, {command, conn, usedPrefix}) => {
   const name = await conn.getName[who];
   const fgif = m;
   
-if (command == 'akira'  || command == 'akiyama' || command == 'anna' || command == 'asuna' || command == 'ayuzawa' || command == 'boruto' || command == 'chiho' || command == 'chitoge' || command == 'deidara' || command == 'erza' || command == 'elaina' || command == 'eba' || command == 'emilia' || command == 'hestia' || command == 'hinata' || command == 'inori' || command == 'isuzu' || command == 'itachi' || command == 'itori' || command == 'kaga' || command == 'kagura' || command == 'kaori' || command == 'keneki' || command == 'kotori' || command == 'kurumi' || command == 'madara' || command == 'mikasa' || command == 'miku' || command == 'minato' || command == 'naruto' || command == 'nezuko' || command == 'sagiri' || command == 'sasuke' || command == 'sakura' || command == 'cosplay') {
-const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/anime-${command}.json`)).data;
-const haha = await res[Math.floor(res.length * Math.random())];
-conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄', `/${command}`]], null, null, m)   
+if (command == 'akira' || command == 'اكيرا' || command == 'اكياما' || command == 'انا' || command == 'اسونا' || command == 'ايزاوا' || command == 'بوروتو' || command == 'chiho' || command == 'تشيتوجي' || command == 'ديدارا' || command == 'ارزا' || command == 'ايلينا' || command == 'ايبا' || command == 'ايميليا' || command == 'هستيا' || command == 'هيناتا' || command == 'اينوري' || command == 'ايسوزو' || command == 'ايتاشي' || command == 'ايتوري' || command == 'كاجا' || command == 'كاجورا' || command == 'كاوري' || command == 'كينيكي' || command == 'كوتوري' || command == 'كورومي' || command == 'مادارا' || command == 'ميكاسا' || command == 'ميكو' || command == 'ميناتو' || command == 'ناروتو' || command == 'نيزوكو' || command == 'ساجيري' || command == 'ساسكي' || command == 'ساكورا' || command == 'كوسبلاي') {
+    const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/anime-${command}.json`)).data;
+    const haha = await res[Math.floor(res.length * Math.random())];
+    conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m);   
 };
 
 if (command == 'blackpink') {  
