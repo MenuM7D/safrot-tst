@@ -33,20 +33,20 @@ let tags = {
 const defaultMenu = {
   before: `「 ${wm} 」
  
-\`『* اتفضل يا *』\` *%name*
+*\`『 اتفضل يا 』\`* *%name*
  
-*• التاريخ:* ${fecha}
-*• الوقت:* ${hora} (⌚) 
-*• المستخدم:* %totalreg
-*• مدة التشغيل:* %muptime
+*• \`『 التريخ 』\`* ${fecha}
+*• \`『 الموقت 』\`* ${hora} (⌚) 
+*• \`『 المستخدمبن 』\`* %totalreg
+*• \`『 وقت التشغيل 』\`* %muptime
 ${(conn.user.jid == global.conn.user.jid ? `*• \`『 المطور 』\`* wa.me/${global.conn.user.jid.split`@`[0]}` : `*• أنا بوت ثانوي لـ:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
 
-*• حدك:* %limit
-*• المستوى:* %level
-*• الرتبة:* %role
-*• الخبرة:* %totalexp XP 
+*• \`『 حدك 』\`* %limit
+*• \`『 المستوي 』\`* %level
+*• \`『 الرتبه 』\`* %role
+*• \`『 الخبره 』\`* %totalexp XP 
 
-*• المستخدمين المسجلين:* %rtotalreg من %totalreg
+*• \`『 المستخدمين المسجلين 』\`* %rtotalreg من %totalreg
 
 `.trimStart(),
   header: '◉ %category  ',
@@ -154,7 +154,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 
     let pp = './Menu2.jpg'
     conn.sendFile(m.chat, pp, 'menu.jpg', text.trim(), m, null, rpl)
-    m.react('🙌') 
+    m.react('🧚🏼‍♂️') 
   } catch (e) {
     m.react(`❌`) 
     throw e
