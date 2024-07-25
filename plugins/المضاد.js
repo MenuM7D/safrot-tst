@@ -465,7 +465,7 @@ await conn.sendButton(m.chat, `╭┄〔 *${wm}* 〕┄⊱
 };
 handler.help = ['اون', 'اوف'].map(v => v + 'able <option>')
 handler.tags = ['nable']
-handler.command = /^مضادات$/i
+handler.command = /^اقفل|افتح$/i
 export default handler;
 
 const more = String.fromCharCode(8206)
