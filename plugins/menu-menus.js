@@ -2,7 +2,7 @@ import { promises } from 'fs'
 import { join } from 'path'
 import moment from 'moment-timezone'
 import { xpRange } from '../lib/levelling.js'
-import { Buttons } from 'whatsapp-web.js' // تأكد من أن المكتبة تدعم الأزرار
+import { Buttons, MessageMedia } from 'whatsapp-web.js' // تأكد من استخدام المكتبة الصحيحة
 
 let fecha = moment.tz('America/Bogota').format('DD/MM/YYYY')
 let hora = moment.tz('America/Argentina/Buenos_Aires').format('LT')
@@ -140,13 +140,14 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       }
     });
 
-    // إرسال الرسالة مع الأزرار
+    // إعداد الرسالة مع الأزرار
     let message = {
       text: _text,
       buttons: buttons,
       headerType: 1
     };
 
+    // إرسال الرسالة
     conn.sendMessage(m.chat, message, { quoted: m });
 
   } catch (e) {
