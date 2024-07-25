@@ -3,51 +3,52 @@ import { join } from 'path'
 import fetch from 'node-fetch'
 import moment from 'moment-timezone'
 import { xpRange } from '../lib/levelling.js'
-//import { plugins } from '../lib/plugins.js'
+// استيراد المكونات الأخرى
+
 let fecha = moment.tz('America/Bogota').format('DD/MM/YYYY')
 let hora = moment.tz('America/Argentina/Buenos_Aires').format('LT')
 let tags = {
   'main': 'ℹ️ INFOBOT',
-  'jadibot': '✨ SER SUB BOT', 
-  'downloader': '🚀 DESCARGAS',
-  'game': '👾 JUEGOS', 
-  'rg': '🟢 REGISTRO', 
-  'group': '⚙️ GRUPO',
-  'nable': '🕹 ENABLE/DISABLE', 
-  'nsfw': '🥵 COMANDO +18', 
-  'buscadores': '🔍 BUSCADORES', 
-  'sticker': '🧧 STICKER',  
+  'jadibot': '✨ بُوت ثانوي', 
+  'downloader': '🚀 تحميلات',
+  'game': '👾 ألعاب', 
+  'rg': '🟢 تسجيل', 
+  'group': '⚙️ مجموعة',
+  'nable': '🕹 تفعيل/تعطيل', 
+  'nsfw': '🥵 أوامر +18', 
+  'buscadores': '🔍 محركات البحث', 
+  'sticker': '🧧 ملصقات',  
   'econ': '🛠 RPG',
-  'convertidor': '🎈 CONVERTIDORES',
-  'logo': '🎀 LOGOS',
-//  'prem': 'PREMIUM',
-  'tools': '🔧 HERRAMIENTA',
-  'randow': '🪄 RANDOW',
-  'efec': '🎙 EFECTO NOTA DE VOZ', 
-//  'cmd': 'DATABASE',
-//  'ansfw': 'NSFW ANIME',
-  'owner': '👑 OWNER', 
+  'convertidor': '🎈 محولات',
+  'logo': '🎀 لوجوهات',
+//  'prem': 'مميز',
+  'tools': '🔧 أدوات',
+  'randow': '🪄 عشوائي',
+  'efec': '🎙 تأثير تسجيل صوتي', 
+//  'cmd': 'قاعدة بيانات',
+//  'ansfw': 'NSFW أنمي',
+  'owner': '👑 مالك', 
 }
+
 const defaultMenu = {
   before: `「 ${wm} 」
  
-Hola 👋🏻 *%name*
+\`『 اتفضل يا 』\` *%name*
  
-*• Fecha:* ${fecha}
-*• Hora:* ${hora} (🇦🇷) 
-*• Usuario:* %totalreg
-*• Tiempo activos:* %muptime
-${(conn.user.jid == global.conn.user.jid ? `*• Bot Ofc:* wa.me/${global.conn.user.jid.split`@`[0]}` : `*• Soy un sub bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
+*• التاريخ:* ${fecha}
+*• الوقت:* ${hora} (⌚) 
+*• المستخدم:* %totalreg
+*• مدة التشغيل:* %muptime
+${(conn.user.jid == global.conn.user.jid ? `*• البوت الرئيسي:* wa.me/${global.conn.user.jid.split`@`[0]}` : `*• أنا بوت ثانوي لـ:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
 
-*• Tu limite:* %limit
-*• Nivel:* %level
-*• Rango:* %role
-*• Exp:* %totalexp XP 
+*• حدك:* %limit
+*• المستوى:* %level
+*• الرتبة:* %role
+*• الخبرة:* %totalexp XP 
 
-*• Usuario registrados:* %rtotalreg de %totalreg
+*• المستخدمين المسجلين:* %rtotalreg من %totalreg
 
-*\`✅ Activar tu bot 24/7 activo en Infinity-Host\`*
-https://youtu.be/o6ZSpMOsvHs?si=Kp2swTeJOUYSg8wn
+*\`✅ فعّل بوتك 24/7 على Infinity-Host\`*
 `.trimStart(),
   header: '◉ %category  ',
   body: ' ║\n╠ ○%cmd %islimit %isPremium',
@@ -55,6 +56,7 @@ https://youtu.be/o6ZSpMOsvHs?si=Kp2swTeJOUYSg8wn
   after: `
 `,
 }
+
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
@@ -64,10 +66,6 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
         
     let d = new Date(new Date + 3600000)
     let locale = 'es'
-    // d.getTimeZoneOffset()
-    // Offset -420 is 18.00
-    // Offset    0 is  0.00
-    // Offset  420 is  7.00
     let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
     let week = d.toLocaleDateString(locale, { weekday: 'long' })
     let date = d.toLocaleDateString(locale, {
@@ -97,7 +95,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 
     let muptime = clockString(_muptime)
     let uptime = clockString(_uptime)
- let taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
+    let taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
     let totalreg = Object.keys(global.db.data.users).length
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
     let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => {
@@ -153,19 +151,20 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       level, limit, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
       readmore: readMore
     }
-text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+    text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-let pp = './Menu2.jpg'
-conn.sendFile(m.chat, pp, 'menu.jpg', text.trim(), m, null, rpl)
-m.react('🙌') 
-} catch (e) {
-m.react(`❌`) 
-throw e
-}}
+    let pp = './Menu2.jpg'
+    conn.sendFile(m.chat, pp, 'menu.jpg', text.trim(), m, null, rpl)
+    m.react('🙌') 
+  } catch (e) {
+    m.react(`❌`) 
+    throw e
+  }
+}
 handler.help = ['help']
 handler.tags = ['main']
 //handler.command = ['menucompleto', 'help', 'fullmenu'] 
-handler.command = /^(menu|menú|memu|memú|help|info|comandos|2help|menu1.2|ayuda|commands|commandos|m|\?)$/i
+handler.command = /^(menu|منيو|memu|مساعدة|help|info|أوامر|2help|menu1.2|commands|commandos|m|\?)$/i
 handler.register = false
 
 handler.exp = 3
@@ -180,4 +179,4 @@ function clockString(ms) {
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-}
+   }
