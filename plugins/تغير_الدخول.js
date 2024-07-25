@@ -8,7 +8,7 @@ let handler = async (m, { conn, text, isROwner, isOwner }) => {
 }
 handler.help = ['setwelcome <text>']
 handler.tags = ['group']
-handler.command = ['الترحيب'] 
+handler.command = ['تغير_الدخول'] 
 handler.admin = true
 handler.owner = false
 
