@@ -1,9 +1,8 @@
 import { promises } from 'fs'
 import { join } from 'path'
-import fetch from 'node-fetch'
 import moment from 'moment-timezone'
 import { xpRange } from '../lib/levelling.js'
-// استيراد المكونات الأخرى
+import { Buttons } from 'whatsapp-web.js' // تأكد من أن المكتبة تدعم الأزرار
 
 let fecha = moment.tz('America/Bogota').format('DD/MM/YYYY')
 let hora = moment.tz('America/Argentina/Buenos_Aires').format('LT')
@@ -21,12 +20,9 @@ let tags = {
   'econ': '🛠 RPG',
   'convertidor': '🎈 محولات',
   'logo': '🎀 لوجوهات',
-//  'prem': 'مميز',
   'tools': '🔧 أدوات',
   'randow': '🪄 عشوائي',
   'efec': '🎙 تأثير تسجيل صوتي', 
-//  'cmd': 'قاعدة بيانات',
-//  'ansfw': 'NSFW أنمي',
   'owner': '👑 مالك', 
 }
 
@@ -62,7 +58,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     let { exp, limit, level, role } = global.db.data.users[m.sender]
     let { min, xp, max } = xpRange(level, global.multiplier)
     let name = await conn.getName(m.sender)
-        
+
     let d = new Date(new Date + 3600000)
     let locale = 'es'
     let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
@@ -134,27 +130,25 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       }),
       after
     ].join('\n')
-    let text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
-    let replace = {
-      '%': '%',
-      p: _p, uptime, muptime,
-      me: conn.getName(conn.user.jid),
-      npmname: _package.name,
-      npmdesc: _package.description,
-      version: _package.version,
-      exp: exp - min,
-      maxexp: xp,
-      totalexp: exp,
-      xp4levelup: max - exp,
-      github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
-      level, limit, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
-      readmore: readMore
-    }
-    text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-    let pp = './Menu2.jpg'
-    conn.sendFile(m.chat, pp, 'menu.jpg', text.trim(), m, null, rpl)
-    m.react('🧚🏼‍♂️') 
+    // تحويل النصوص إلى أزرار
+    let buttons = Object.keys(tags).map(tag => {
+      return {
+        buttonId: `${_p}${tag}`, // تعيين معرف الزر
+        buttonText: { displayText: tags[tag] }, // نص الزر
+        type: 1
+      }
+    });
+
+    // إرسال الرسالة مع الأزرار
+    let message = {
+      text: _text,
+      buttons: buttons,
+      headerType: 1
+    };
+
+    conn.sendMessage(m.chat, message, { quoted: m });
+
   } catch (e) {
     m.react(`❌`) 
     throw e
@@ -162,7 +156,6 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 }
 handler.help = ['help']
 handler.tags = ['main']
-//handler.command = ['menucompleto', 'help', 'fullmenu'] 
 handler.command = /^(menu|منيو|memu|مساعدة|help|info|أوامر|2help|menu1.2|commands|commandos|m|\?)$/i
 handler.register = false
 
@@ -178,4 +171,4 @@ function clockString(ms) {
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-   }
+  }
