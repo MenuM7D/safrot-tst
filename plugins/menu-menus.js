@@ -33,13 +33,13 @@ let tags = {
 const defaultMenu = {
   before: `「 ${wm} 」
  
-\`『 اتفضل يا 』\` *%name*
+\`『* اتفضل يا *』\` *%name*
  
 *• التاريخ:* ${fecha}
 *• الوقت:* ${hora} (⌚) 
 *• المستخدم:* %totalreg
 *• مدة التشغيل:* %muptime
-${(conn.user.jid == global.conn.user.jid ? `*• البوت الرئيسي:* wa.me/${global.conn.user.jid.split`@`[0]}` : `*• أنا بوت ثانوي لـ:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
+${(conn.user.jid == global.conn.user.jid ? `*• \`『 المطور 』\`* wa.me/${global.conn.user.jid.split`@`[0]}` : `*• أنا بوت ثانوي لـ:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
 
 *• حدك:* %limit
 *• المستوى:* %level
@@ -48,7 +48,6 @@ ${(conn.user.jid == global.conn.user.jid ? `*• البوت الرئيسي:* wa.
 
 *• المستخدمين المسجلين:* %rtotalreg من %totalreg
 
-*\`✅ فعّل بوتك 24/7 على Infinity-Host\`*
 `.trimStart(),
   header: '◉ %category  ',
   body: ' ║\n╠ ○%cmd %islimit %isPremium',
