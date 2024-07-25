@@ -6,21 +6,21 @@ const handler = async (m, {command, conn, usedPrefix}) => {
   const who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
   const name = await conn.getName[who];
   const fgif = m;
-if (command == 'اكيرا' || command == 'اكيرا' || command == 'akiyama' || command == 'اكياما' || command == 'anna' || command == 'انا' || command == 'asuna' || command == 'اسونا' || command == 'ayuzawa' || command == 'ايزاوا' || command == 'boruto' || command == 'بوروتو' || command == 'chiho' || command == 'تشيهو' || command == 'chitoge' || command == 'تشيتوجي' || command == 'deidara' || command == 'ديدارا' || command == 'erza' || command == 'ارزا' || command == 'elaina' || command == 'ايلينا' || command == 'eba' || command == 'ايبا' || command == 'emilia' || command == 'ايميليا' || command == 'hestia' || command == 'هستيا' || command == 'hinata' || command == 'هيناتا' || command == 'inori' || command == 'اينوري' || command == 'isuzu' || command == 'ايسوزو' || command == 'itachi' || command == 'ايتاشي' || command == 'itori' || command == 'ايتوري' || command == 'kaga' || command == 'كاجا' || command == 'kagura' || command == 'كاجورا' || command == 'kaori' || command == 'كاوري' || command == 'keneki' || command == 'كينيكي' || command == 'kotori' || command == 'كوتوري' || command == 'kurumi' || command == 'كورومي' || command == 'madara' || command == 'مادارا' || command == 'mikasa' || command == 'ميكاسا' || command == 'miku' || command == 'ميكو' || command == 'minato' || command == 'ميناتو' || command == 'naruto' || command == 'ناروتو' || command == 'nezuko' || command == 'نيزوكو' || command == 'sagiri' || command == 'ساجيري' || command == 'sasuke' || command == 'ساسكي' || command == 'sakura' || command == 'ساكورا' || command == 'cosplay' || command == 'كوسبلاي') {
+if (command == 'اكير' || command == 'اكيرا' || command == 'akiyama' || command == 'اكياما' || command == 'anna' || command == 'انا' || command == 'asuna' || command == 'اسونا' || command == 'ayuzawa' || command == 'ايزاوا' || command == 'boruto' || command == 'بوروتو' || command == 'chiho' || command == 'تشيهو' || command == 'chitoge' || command == 'تشيتوجي' || command == 'deidara' || command == 'ديدارا' || command == 'erza' || command == 'ارزا' || command == 'elaina' || command == 'ايلينا' || command == 'eba' || command == 'ايبا' || command == 'emilia' || command == 'ايميليا' || command == 'hestia' || command == 'هستيا' || command == 'hinata' || command == 'هيناتا' || command == 'inori' || command == 'اينوري' || command == 'isuzu' || command == 'ايسوزو' || command == 'itachi' || command == 'ايتاشي' || command == 'itori' || command == 'ايتوري' || command == 'kaga' || command == 'كاجا' || command == 'kagura' || command == 'كاجورا' || command == 'kaori' || command == 'كاوري' || command == 'keneki' || command == 'كينيكي' || command == 'kotori' || command == 'كوتوري' || command == 'kurumi' || command == 'كورومي' || command == 'madara' || command == 'مادارا' || command == 'mikasa' || command == 'ميكاسا' || command == 'miku' || command == 'ميكو' || command == 'minato' || command == 'ميناتو' || command == 'naruto' || command == 'ناروتو' || command == 'nezuko' || command == 'نيزوكو' || command == 'sagiri' || command == 'ساجيري' || command == 'sasuke' || command == 'ساسكي' || command == 'sakura' || command == 'ساكورا' || command == 'cosplay' || command == 'كوسبلاي') {
 const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/anime-${command}.json`)).data;
 const haha = await res[Math.floor(res.length * Math.random())];
-conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄', `/${command}`]], null, null, m)   
+conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
 };
 
 if (command == 'بلاكبينك') {  
 fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/kpop/blackpink.txt').then((res) => res.text()).then((body) => {
     const randomkpop = body.split('\n');
     const randomkpopx = randomkpop[Math.floor(Math.random() * randomkpop.length)];
-  conn.sendButton(m.chat, `_${command}_`, botname, randomkpopx, [['🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄', `/${command}`]], null, null, m)   
+  conn.sendButton(m.chat, `_${command}_`, botname, randomkpopx, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
   });
 }
 
-if (command == 'رونالدو' || command == 'cr7') {  
+if (command == 'رونالدو' || command == 'كرستيانو') {  
 const cristiano = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/CristianoRonaldo.json`)).data;
   const ronaldo = await cristiano[Math.floor(cristiano.length * Math.random())];
 conn.sendButton(m.chat, '*Siiiuuuuuu*', botname, ronaldo, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)  
@@ -29,17 +29,17 @@ conn.sendButton(m.chat, '*Siiiuuuuuu*', botname, ronaldo, [['🔄 صوره تا�
 if (command == 'قط') {  
 const res = await fetch('https://api.thecatapi.com/v1/images/search');
     const img = await res.json();
-    const caption = `🐱`.trim();
- conn.sendButton(m.chat, '🐱', botname, img[0].url, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
+    const caption = `🧚🏼‍♂️`.trim();
+ conn.sendButton(m.chat, '🧚🏼‍♂️', botname, img[0].url, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
  }
 
-if (command == 'itzy' || command == 'kpopitzy') {  
+if (command == 'ايتزي' || command == 'kpopitzy') {  
  const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/itzy.json`)).data;
   const mystic = await res[Math.floor(res.length * Math.random())];
 conn.sendButton(m.chat, `_${command}_`, botname, mystic, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m) 
 }
 
-if (command == 'kpop') {  
+if (command == 'كيبوب') {  
 if (args.length == 0) return conn.reply(m.chat, `Usar ${usedPrefix}kpop\nPor favor escribe: ${usedPrefix}kpop [buscar]\nEjemplo:: ${usedPrefix}kpop bts\n\nBusquedas disponibles:\nblackpink, exo, bts`, m);
   if (args[0] == 'blackpink' || args[0] == 'exo' || args[0] == 'bts') {
     fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/kpop/' + args[0] + '.txt')
@@ -56,23 +56,23 @@ if (args.length == 0) return conn.reply(m.chat, `Usar ${usedPrefix}kpop\nPor fav
     conn.reply(m.chat, `Lo sentimos, la busqueda no está disponible. Por favor escribe ${usedPrefix}kpop para ver la lista de busquedas disponibles`, m);
   }}
 
-if (command == 'loli') {  
+if (command == 'لولي') {  
 const yh = global.loli;
   const url = yh[Math.floor(Math.random() * yh.length)];
  conn.sendButton(m.chat, `*Yo soy tu loli uwu 😍*`, botname, url, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m) 
 }
 
-if (command == 'lolivid' || command == 'lolivideos' || command == 'lolívid') {  
+if (command == 'لولي_فديو' || command == 'لولي-فديو' || command == 'lolívid') {  
 const res = await lolivid[Math.floor(Math.random() * lolivid.length)];
 conn.sendButton(m.chat, `*Yo soy tu loli uwu 😍*`, botname, res, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m) 
 }
 
-if (command == 'meme' || command == 'memes') {  
+if (command == 'ميمي' || command == 'ميمس') {  
 const url = await hispamemes.meme();
 conn.sendButton(m.chat, `_🤣 ${command} 🤣_`, botname, url, [['😂 صوره تاني 😂', `/${command}`]], null, null, m)  
 }
 
-if (command == 'meme2' || command == 'memes2') {  
+if (command == 'ميم2' || command == 'ميمس2') {  
 const meme = hispamemes.meme()
 conn.sendButton(m.chat, '😂🤣🤣', botname, meme, [['😂 صوره تاني 😂', `/${command}`]], null, null, m)   
 }
@@ -83,21 +83,21 @@ const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/The
 conn.sendButton(m.chat, '*🧚🏼‍♂️*', botname, url, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
 }
 
-if (command == 'navidad') {  
+if (command == 'كريسماس') {  
  const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/navidad.json`)).data;
   const tee = await res[Math.floor(res.length * Math.random())];
-conn.sendButton(m.chat, '_Navidad 🧑‍🎄_', botname, tee, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
+conn.sendButton(m.chat, '_🧚🏼‍♂️_', botname, tee, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
 }
 
-if (command == 'neko') {  
+if (command == 'نيكو') {  
 const ne = await (await fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/anime/neko.txt')).text();
   const nek = ne.split('\n');
   const neko = await nek[Math.floor(Math.random() * nek.length)];
   if (neko == '') throw 'Error';
-  conn.sendButton(m.chat, '*💖 Nyaww 💖*', botname, neko, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
+  conn.sendButton(m.chat, '*🧚🏼‍♂️*', botname, neko, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
 }
 
-if (command == 'ppcp' || command == 'ppcouple') {  
+if (command == 'شخصي' || command == 'ppcouple') {  
 const res = await fetch(`https://api.lolhuman.xyz/api/random/ppcouple?apikey=${lolkeysapi}`);
   if (res.status != 200) throw await res.text();
   const json = await res.json();
@@ -134,7 +134,7 @@ conn.sendButton(m.chat, `*💖 اتفضل يحب 💖*`, botname, json.url, [['�
     conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
   }
 
-  if (command == 'wpgaming') {
+  if (command == 'جيمينج') {
     const ga = ['gaming', 'gamers', 'video game'];
     const ga2 = ga[Math.floor(Math.random() * ga.length)];
     const anu = await wallpaper(ga2);
@@ -196,7 +196,7 @@ conn.sendButton(m.chat, `*💖 اتفضل يحب 💖*`, botname, json.url, [['�
     conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
   }
 
-  if (command == 'doraemon') {
+  if (command == 'دورايمون') {
     const anu = await wallpaper('doraemon');
     const result = anu[Math.floor(Math.random() * anu.length)];
     const haha = result.image[0];
@@ -204,7 +204,7 @@ conn.sendButton(m.chat, `*💖 اتفضل يحب 💖*`, botname, json.url, [['�
     conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
   }
 
-  if (command == 'hacker') {
+  if (command == 'هاكر') {
     const anu = await wallpaper('hacker');
     const result = anu[Math.floor(Math.random() * anu.length)];
     const haha = result.image[0];
@@ -212,7 +212,7 @@ conn.sendButton(m.chat, `*💖 اتفضل يحب 💖*`, botname, json.url, [['�
     conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
   }
 
-  if (command == 'planeta') {
+  if (command == 'كوكب') {
     const anu = await wallpaper('planet');
     const result = anu[Math.floor(Math.random() * anu.length)];
     const haha = result.image[0];
@@ -220,36 +220,36 @@ conn.sendButton(m.chat, `*💖 اتفضل يحب 💖*`, botname, json.url, [['�
     conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
   }
 
-  if (command == 'randomprofile') {
+  if (command == 'عشواي') {
     const haha = await conn.getFile(`https://api.zahwazein.xyz/randomimage/profil?apikey=${apikey}`);
     await conn.reply(m.chat, global.wait, m);
     conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
   }
 
-  if (command == 'wpaesthetic2') {
+  if (command == 'جمالية2') {
     const haha = await conn.getFile(`https://api.zahwazein.xyz/randomimage/aesthetic?apikey=${apikey}`);
     await conn.reply(m.chat, global.wait, m);
     conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
   }
 
-  if (command == 'wpvehiculo') {
+  if (command == 'مركبة') {
     const haha = await conn.getFile(`https://api.zahwazein.xyz/randomimage/mobil?apikey=${apikey}`);
     await conn.reply(m.chat, global.wait, m);
     conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
   }
 
-  if (command == 'wallhp') {
+  if (command == 'خلفيه') {
     const haha = await conn.getFile(`https://api.zahwazein.xyz/randomimage/wallhp?apikey=${apikey}`);
     await conn.reply(m.chat, global.wait, m);
     conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
   }
 
-  if (command == 'wpmoto') {
+  if (command == 'موتو') {
     const haha = await conn.getFile(`https://api.zahwazein.xyz/randomimage/motor?apikey=${apikey}`);
     await conn.reply(m.chat, global.wait, m);
     conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
   }}
-handler.command = handler.help = ['اكيرا', 'اكياما', 'انا', 'اسونا', 'ايزاوا', 'بوروتو', 'تشيهو', 'تشيتوجي', 'ديدارا', 'ارزا', 'ايلينا', 'ايبا', 'ايميليا', 'هستيا', 'هيناتا', 'اينوري', 'ايسوزو', 'ايتاشي', 'ايتوري', 'كاجا', 'كاجورا', 'كاوري', 'كينيكي', 'كوتوري', 'كورومي', 'مادارا', 'ميكاسا', 'ميكو', 'ميناتو', 'ناروتو', 'نيزوكو', 'ساجيري', 'ساسكي', 'ساكورا', 'كوسبلاي', 'بلاكبينك', 'كريستيانو رونالدو', 'cr7', 'قط', 'ايتزي', 'كيبوب ايتزي', 'كيبوب', 'لولي', 'فيديو لولي', 'فيديوهات لولي', 'مقاطع لولي', 'ميم', 'ميمات', 'ميم2', 'ميمات2', 'ميسي', 'كريسماس', 'نيكو', 'ppcp', 'ppcouple', 'وايفو', 'جبل', 'ببجي', 'العاب', 'جمالية', 'عشوائي', 'قهوة', 'كرات اللحم', 'كاريكاتير', 'فضاء الكتروني', 'تكنولوجيا', 'دورايمون', 'هاكر', 'كوكب', 'ملف عشوائي', 'جمالية2', 'مركبة', 'خلفية الهاتف', 'دراجة نارية'];
+handler.command = handler.help = ['اكيرا', 'اكياما', 'انا', 'اسونا', 'ايزاوا', 'بوروتو', 'تشيهو', 'تشيتوجي', 'ديدارا', 'ارزا', 'ايلينا', 'ايبا', 'ايميليا', 'هستيا', 'هيناتا', 'اينوري', 'ايسوزو', 'ايتاشي', 'ايتوري', 'كاجا', 'كاجورا', 'كاوري', 'كينيكي', 'كوتوري', 'كورومي', 'مادارا', 'ميكاسا', 'ميكو', 'ميناتو', 'ناروتو', 'نيزوكو', 'ساجيري', 'ساسكي', 'ساكورا', 'كوسبلاي', 'بلاكبينك', 'رونالدو', 'كرستيانو', 'قط', 'ايتزي', 'كيبوب_ايتزي', 'كيبوب', 'لولي', 'فيديو-لولي', 'لولي_فديو', 'لولي-فديو', 'ميمي', 'ميمس', 'ميمي2', 'ميمس2', 'ميسي', 'كريسماس', 'نيكو', 'شخصي', 'زوجين', 'وايفو', 'جبل', 'ببجي', 'العاب', 'جمالية', 'عشوائي', 'قهوة', 'كرات اللحم', 'كاريكاتير', 'فضاء الكتروني', 'تكنولوجيا', 'دورايمون', 'هاكر', 'كوكب', 'عشوائي', 'جمالية2', 'مركبة', 'خلفيه', 'دراجة نارية'];
 handler.tags = ['عشوائي'];
 handler.register = true
 handler.limit = 1
