@@ -1,21 +1,17 @@
-import fetch from 'node-fetch';
+. gps crr|const handler = async (m, { text, conn }) => {
+  if (!text) {
+    return conn.sendMessage(m.chat, { text: `*فين الرابط اللي هتجيبلو اسكرين ي حوب 🧚🏼‍♂️*` }, { quoted: m });
+  }
 
-let handler = async (m, { conn, command, args }) => {
-  if (!args[0]) return conn.reply(m.chat, '🧚🏼‍♂️ *دخل رابط علشان نعمل اسكرين*', m);
-  await m.react('⌛');
+  const screenshotUrl = `https://image.thum.io/get/fullpage/${text}`;
+  const loadingMessage = await conn.sendMessage(m.chat, { text: '𝐋𝐨𝐚𝐝𝐢𝐧𝐠, 𝐰𝐚𝐢𝐭 𝐦𝐨𝐦𝐞𝐧𝐭...' }, { quoted: m });
+
   try {
-    let ss = await (await fetch(`https://delirius-api-oficial.vercel.app/api/ssweb?url=${args[0]}`)).buffer();
-    conn.sendFile(m.chat, ss, 'screenshot.png', '✅', m);
-    await m.react('✅');
-  } catch {
-    await m.react('❌');
+    await conn.sendMessage(m.chat, { image: { url: screenshotUrl }, mimetype: 'image/png', fileName: 'screen.png' }, { quoted: m });
+  } catch (error) {
+    await conn.sendMessage(m.chat, { text: `*حدث خطأ أثناء جلب الصورة. حاول مرة أخرى لاحقًا.*` }, { quoted: m });
   }
 };
 
-handler.help = ['ss', 'ssweb'].map(v => v + ' *<url>*');
-handler.tags = ['tools'];
-handler.command = /^ss|اسكريت(web)?f?$/i;
-handler.register = true;
-handler.limit = 1;
-
+handler.command = /^(screen|سكرين)$/i;
 export default handler;
