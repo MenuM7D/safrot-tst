@@ -13,7 +13,7 @@ let handler = async (m, { conn, participants, groupMetadata, args }) => {
 *• المشرفين *
 ${listAdmin}
 
-> [🦦] *استخدم هذا الأمر فقط في حالات الطوارئ*
+> [🧚🏼‍♂️] *استخدم هذا الأمر فقط في حالات الطوارئ*
 `.trim()
 
   conn.sendFile(m.chat, pp, 'staff.png', text, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })
@@ -23,6 +23,6 @@ handler.help = ['staff']
 handler.tags = ['group']
 handler.command = ['المشرفين', 'الادمن', 'listadmin'] 
 handler.group = true
-handler.register = true
+//handler.register = true
 
 export default handler
