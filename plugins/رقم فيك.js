@@ -13,11 +13,7 @@ let handler = async (m, { conn, text }) => {
     let additionalLink = args.join(" ").trim(); // Extract the additional link after the command
 
     if (!lister.includes(feature)) {
-        return conn.sendMessage(m.chat, {text: cap, buttons: [
-            { buttonId: 'دولة', buttonText: {displayText: 'دولة'}, type: 1 },
-            { buttonId: 'أرقام', buttonText: {displayText: 'أرقام'}, type: 1 },
-            { buttonId: 'رسائل', buttonText: {displayText: 'رسائل'}, type: 1 }
-        ]}, { quoted: m });
+        return conn.sendMessage(m.chat, { text: cap }, { quoted: m });
     }
 
     if (feature == "دولة") {
@@ -50,23 +46,23 @@ let handler = async (m, { conn, text }) => {
                 }
             });
 
-            let countryText = "╮────────────────────────╭ـ\n│ *قائمة الدول وروابطها:*\n╯────────────────────────╰ـ\n\n" + countryLinks.map((country, index) => 
+            let countryText = "╮────────────────────────╭ـ\n│ *قائمة الدول وروابطها:*\n╯────────────────────────╰ـ\n\n" + countryLinks.map((country, index) =>
                 `╮────────────────────────╭ـ\n│نتيجة: [${index + 1}]\n│دولة: ${country.name}\n│المتاح: ${country.number}\n│ عنوان: ${country.shortLink}\n│ رابط: ${country.fullLink}\n╯────────────────────────╰ـ`
             ).join("\n\n<─────────────────────────>\n\n");
 
-            return conn.sendMessage(m.chat, {text: countryText}, { quoted: m });
+            return conn.sendMessage(m.chat, { text: countryText }, { quoted: m });
 
         } catch (error) {
             console.log(error);
-            return conn.sendMessage(m.chat, {text: "حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا."}, { quoted: m });
+            return conn.sendMessage(m.chat, { text: "حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا." }, { quoted: m });
         }
-        
+
     } else if (feature == "أرقام") {
-    
+
         if (!additionalLink) {
-            return conn.sendMessage(m.chat, {text: "يرجى إدخال الرابط بعد الأمر \"أرقام\"."}, { quoted: m });
+            return conn.sendMessage(m.chat, { text: "يرجى إدخال الرابط بعد الأمر \"أرقام\"." }, { quoted: m });
         }
-        
+
         try {
             let response = await fetch(additionalLink);
             if (!response.ok) {
@@ -82,20 +78,21 @@ let handler = async (m, { conn, text }) => {
                 const countryNumber = $(el).text().trim();
 
                 if (href) {
-                    countryNumbers.push({ shortLink: href, fullLink: `${link}${href}` });
+                    countryNumbers.push({ number: countryNumber, shortLink: href, fullLink: `${link}${href}` });
                 }
             });
 
-            let numbersText = "╮────────────────────────╭ـ\n│ *قائمة الأرقام وروابطها:*\n╯────────────────────────╰ـ\n\n" + countryNumbers.map((number, index) => 
-                `╮────────────────────────╭ـ\n│نتيجة: [${index + 1}]\n│ عنوان: ${number.shortLink}\n│ رابط: ${number.fullLink}\n╯────────────────────────╰ـ`
+            let numbersText = "╮────────────────────────╭ـ\n│ *قائمة الأرقام وروابطها:*\n╯────────────────────────╰ـ\n\n" + countryNumbers.map((number, index) =>
+                `╮────────────────────────╭ـ\n│نتيجة: [${index + 1}]\n│ رقم: ${number.number}\n│ عنوان: ${number.shortLink}\n│ رابط: ${number.fullLink}\n╯────────────────────────╰ـ`
             ).join("\n\n<─────────────────────────>\n\n");
 
-            return conn.sendMessage(m.chat, {text: numbersText}, { quoted: m });
+            return conn.sendMessage(m.chat, { text: numbersText }, { quoted: m });
 
         } catch (error) {
             console.log(error);
-            return conn.sendMessage(m.chat, {text: "حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا."}, { quoted: m });
+            return conn.sendMessage(m.chat, { text: "حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا." }, { quoted: m });
         }
+
     } else if (feature == "رسائل") {
         // معالجة الأمر "رسائل" هنا
     }
