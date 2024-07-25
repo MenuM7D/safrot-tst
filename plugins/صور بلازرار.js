@@ -7,12 +7,24 @@ const handler = async (m, {command, conn, usedPrefix}) => {
   const name = await conn.getName[who];
   const fgif = m;
   
-if (command == 'akira' || command == 'اكيرا' || command == 'اكياما' || command == 'انا' || command == 'اسونا' || command == 'ايزاوا' || command == 'بوروتو' || command == 'chiho' || command == 'تشيتوجي' || command == 'ديدارا' || command == 'ارزا' || command == 'ايلينا' || command == 'ايبا' || command == 'ايميليا' || command == 'هستيا' || command == 'هيناتا' || command == 'اينوري' || command == 'ايسوزو' || command == 'ايتاشي' || command == 'ايتوري' || command == 'كاجا' || command == 'كاجورا' || command == 'كاوري' || command == 'كينيكي' || command == 'كوتوري' || command == 'كورومي' || command == 'مادارا' || command == 'ميكاسا' || command == 'ميكو' || command == 'ميناتو' || command == 'ناروتو' || command == 'نيزوكو' || command == 'ساجيري' || command == 'ساسكي' || command == 'ساكورا' || command == 'كوسبلاي') {
-    const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/anime-${command}.json`)).data;
-    const haha = await res[Math.floor(res.length * Math.random())];
-    conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m);   
-};
+const validCommands = [
+  'akira', 'اكيرا', 'اكياما', 'انا', 'اسونا', 'ايزاوا', 'بوروتو', 'chiho', 
+  'تشيتوجي', 'ديدارا', 'ارزا', 'ايلينا', 'ايبا', 'ايميليا', 'هستيا', 'هيناتا', 
+  'اينوري', 'ايسوزو', 'ايتاشي', 'ايتوري', 'كاجا', 'كاجورا', 'كاوري', 'كينيكي', 
+  'كوتوري', 'كورومي', 'مادارا', 'ميكاسا', 'ميكو', 'ميناتو', 'ناروتو', 'نيزوكو', 
+  'ساجيري', 'ساسكي', 'ساكورا', 'كوسبلاي'
+];
 
+if (validCommands.includes(command)) {
+  try {
+    const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/anime-${command}.json`)).data;
+    const haha = res[Math.floor(res.length * Math.random())];
+    conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m);
+  } catch (error) {
+    console.error(error);
+    conn.sendMessage(m.chat, 'حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقاً.', null, null, m);
+  }
+}
 if (command == 'blackpink') {  
 fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/kpop/blackpink.txt').then((res) => res.text()).then((body) => {
     const randomkpop = body.split('\n');
