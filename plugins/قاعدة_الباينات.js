@@ -36,7 +36,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 handler.help = ['backup']
 handler.tags = ['owner']
-handler.command = /^(backup|respalدو|cوبيا)$/i
+handler.command = /^(backup|البيانات|cوبيا)$/i
 handler.owner = true
 
 export default handler
