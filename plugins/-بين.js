@@ -1,8 +1,8 @@
 import {pinterest} from '@bochilteam/scraper';
 const handler = async (m, {conn, text, usedPrefix, command}) => {
-  if (!text) throw `*⚠️ مثال:* ${usedPrefix + command} صورة`;
+  if (!text) throw `*🧚🏼‍♂️ مثال:* ${usedPrefix + command} صورة`;
   const json = await pinterest(text);
-  conn.sendButton(m.chat, `🔎 *نتائج البحث عن* ${text}`, botname, json.getRandom(), [['🔄 التالي 🔄', `/${command} ${text}`]], null, null, m);
+  conn.sendButton(m.chat, `🧚🏼‍♂️ *نتائج البحث عن* ${text}`, botname, json.getRandom(), [['🔄 صوره تاني 🔄', `/${command} ${text}`]], null, null, m);
 };
 handler.help = ['ببين<كلمة البحث>'];
 handler.tags = ['البحث'];
