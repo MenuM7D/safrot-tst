@@ -3,7 +3,7 @@ const handler = async (m, { conn, isOwner }) => {
   const warns = global.db.data.users.warn;
   const user = global.db.data.users;
   const imagewarn = './src/warn.jpg';
-  const caption = `🧚🏼‍♂️ *المستخدمون المحذرين*
+  const caption = `🧚🏼‍♂️ *\`『 مستخدمين الانذار 』\`*
 
 *╔═══════════════════·•*
 ║ *العدد الكلي: ${adv.length} مستخدمين* ${adv ? '\n' + adv.map(([jid, user], i) => `
@@ -14,9 +14,9 @@ const handler = async (m, { conn, isOwner }) => {
   await conn.sendMessage(m.chat, { text: caption }, { quoted: m, mentions: await conn.parseMention(caption) });
 };
 
-handler.help = ['listwarn']
+handler.help = ['الانذارات']
 handler.tags = ['group']
-handler.command = /^(التحذير)$/i;
+handler.command = /^(الانذارات)$/i;
 handler.group = true;
 handler.admin = true;
 
