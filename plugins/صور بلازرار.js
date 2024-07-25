@@ -6,14 +6,13 @@ const handler = async (m, {command, conn, usedPrefix}) => {
   const who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
   const name = await conn.getName[who];
   const fgif = m;
-
-if (command == 'akira'  || command == 'akiyama' || command == 'anna' || command == 'asuna' || command == 'ayuzawa' || command == 'boruto' || command == 'chiho' || command == 'chitoge' || command == 'deidara' || command == 'erza' || command == 'elaina' || command == 'eba' || command == 'emilia' || command == 'hestia' || command == 'hinata' || command == 'inori' || command == 'isuzu' || command == 'itachi' || command == 'itori' || command == 'kaga' || command == 'kagura' || command == 'kaori' || command == 'keneki' || command == 'kotori' || command == 'kurumi' || command == 'madara' || command == 'mikasa' || command == 'miku' || command == 'minato' || command == 'naruto' || command == 'nezuko' || command == 'sagiri' || command == 'sasuke' || command == 'sakura' || command == 'cosplay') {
+if (command == 'اكيرا' || command == 'اكيرا' || command == 'akiyama' || command == 'اكياما' || command == 'anna' || command == 'انا' || command == 'asuna' || command == 'اسونا' || command == 'ayuzawa' || command == 'ايزاوا' || command == 'boruto' || command == 'بوروتو' || command == 'chiho' || command == 'تشيهو' || command == 'chitoge' || command == 'تشيتوجي' || command == 'deidara' || command == 'ديدارا' || command == 'erza' || command == 'ارزا' || command == 'elaina' || command == 'ايلينا' || command == 'eba' || command == 'ايبا' || command == 'emilia' || command == 'ايميليا' || command == 'hestia' || command == 'هستيا' || command == 'hinata' || command == 'هيناتا' || command == 'inori' || command == 'اينوري' || command == 'isuzu' || command == 'ايسوزو' || command == 'itachi' || command == 'ايتاشي' || command == 'itori' || command == 'ايتوري' || command == 'kaga' || command == 'كاجا' || command == 'kagura' || command == 'كاجورا' || command == 'kaori' || command == 'كاوري' || command == 'keneki' || command == 'كينيكي' || command == 'kotori' || command == 'كوتوري' || command == 'kurumi' || command == 'كورومي' || command == 'madara' || command == 'مادارا' || command == 'mikasa' || command == 'ميكاسا' || command == 'miku' || command == 'ميكو' || command == 'minato' || command == 'ميناتو' || command == 'naruto' || command == 'ناروتو' || command == 'nezuko' || command == 'نيزوكو' || command == 'sagiri' || command == 'ساجيري' || command == 'sasuke' || command == 'ساسكي' || command == 'sakura' || command == 'ساكورا' || command == 'cosplay' || command == 'كوسبلاي') {
 const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/anime-${command}.json`)).data;
 const haha = await res[Math.floor(res.length * Math.random())];
 conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄', `/${command}`]], null, null, m)   
 };
 
-if (command == 'blackpink') {  
+if (command == 'بلاكبينك') {  
 fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/kpop/blackpink.txt').then((res) => res.text()).then((body) => {
     const randomkpop = body.split('\n');
     const randomkpopx = randomkpop[Math.floor(Math.random() * randomkpop.length)];
@@ -21,13 +20,13 @@ fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/kpop
   });
 }
 
-if (command == 'cristianoronaldo' || command == 'cr7') {  
+if (command == 'رونالدو' || command == 'cr7') {  
 const cristiano = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/CristianoRonaldo.json`)).data;
   const ronaldo = await cristiano[Math.floor(cristiano.length * Math.random())];
 conn.sendButton(m.chat, '*Siiiuuuuuu*', botname, ronaldo, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)  
 }
 
-if (command == 'cat') {  
+if (command == 'قط') {  
 const res = await fetch('https://api.thecatapi.com/v1/images/search');
     const img = await res.json();
     const caption = `🐱`.trim();
@@ -78,10 +77,10 @@ const meme = hispamemes.meme()
 conn.sendButton(m.chat, '😂🤣🤣', botname, meme, [['😂 صوره تاني 😂', `/${command}`]], null, null, m)   
 }
 
-if (command == 'messi') {  
+if (command == 'ميسي') {  
 const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/Messi.json`)).data;
   const url = await res[Math.floor(res.length * Math.random())];
-conn.sendButton(m.chat, '*🇦🇷 Messi*', botname, url, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
+conn.sendButton(m.chat, '*🧚🏼‍♂️*', botname, url, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
 }
 
 if (command == 'navidad') {  
@@ -250,8 +249,8 @@ conn.sendButton(m.chat, `*💖 اتفضل يحب 💖*`, botname, json.url, [['�
     await conn.reply(m.chat, global.wait, m);
     conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m)   
   }}
-handler.command = handler.help = ['akira', 'akiyama', 'anna', 'asuna', 'ayuzawa', 'boruto', 'chiho', 'chitoge', 'deidara', 'erza', 'elaina', 'eba', 'emilia', 'hestia', 'hinata', 'inori', 'isuzu', 'itachi', 'itori', 'kaga', 'kagura', 'kaori', 'keneki', 'kotori', 'kurumi', 'madara', 'mikasa', 'miku', 'minato', 'naruto', 'nezuko', 'sagiri', 'sasuke', 'sakura', 'cosplay', 'blackpink', 'cristianoronaldo', 'cr7', 'cat', 'itzy', 'kpopitzy', 'kpop', 'loli', 'lolivid', 'lolivideos', 'lolívid', 'meme', 'memes', 'meme2', 'memes2', 'ميسي', 'navidad', 'neko', 'ppcp', 'ppcouple', 'waifu', 'wpmontaña', 'pubg', 'wpgaming', 'wpaesthetic', 'wprandom', 'كوفي', 'pentol', 'caricatura', 'ciberespacio', 'technology', 'doraemon', 'hacker', 'planeta', 'randomprofile', 'wpaesthetic2', 'wpvehiculo', 'wallhp', 'wpmoto'];
-handler.tags = ['randow'];
+handler.command = handler.help = ['اكيرا', 'اكياما', 'انا', 'اسونا', 'ايزاوا', 'بوروتو', 'تشيهو', 'تشيتوجي', 'ديدارا', 'ارزا', 'ايلينا', 'ايبا', 'ايميليا', 'هستيا', 'هيناتا', 'اينوري', 'ايسوزو', 'ايتاشي', 'ايتوري', 'كاجا', 'كاجورا', 'كاوري', 'كينيكي', 'كوتوري', 'كورومي', 'مادارا', 'ميكاسا', 'ميكو', 'ميناتو', 'ناروتو', 'نيزوكو', 'ساجيري', 'ساسكي', 'ساكورا', 'كوسبلاي', 'بلاكبينك', 'كريستيانو رونالدو', 'cr7', 'قط', 'ايتزي', 'كيبوب ايتزي', 'كيبوب', 'لولي', 'فيديو لولي', 'فيديوهات لولي', 'مقاطع لولي', 'ميم', 'ميمات', 'ميم2', 'ميمات2', 'ميسي', 'كريسماس', 'نيكو', 'ppcp', 'ppcouple', 'وايفو', 'جبل', 'ببجي', 'العاب', 'جمالية', 'عشوائي', 'قهوة', 'كرات اللحم', 'كاريكاتير', 'فضاء الكتروني', 'تكنولوجيا', 'دورايمون', 'هاكر', 'كوكب', 'ملف عشوائي', 'جمالية2', 'مركبة', 'خلفية الهاتف', 'دراجة نارية'];
+handler.tags = ['عشوائي'];
 handler.register = true
 handler.limit = 1
 export default handler;
