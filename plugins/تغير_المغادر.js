@@ -3,12 +3,12 @@
 let handler = async (m, { conn, text, isROwner, isOwner }) => {
   if (text) {
     global.db.data.chats[m.chat].sBye = text
-    m.reply('*تـــم تـحديــث رســالــة الـوداع !*')
+    m.reply('*\`『 تم تحديث الرساله 』\`*')
   } else throw `*أدخــل الــرسالــه !*\n*أكــتب @user اذا اردت ان يــكون بــها مـنشـن !*`
 }
 handler.help = ['setbye <text>']
 handler.tags = ['group']
-handler.command = ['المغادره'] 
+handler.command = ['تغير_المغادره'] 
 handler.admin = true
 handler.owner = false
 
