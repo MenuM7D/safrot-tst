@@ -13,7 +13,7 @@ let handler = async (m, { conn }) => {
 }
 handler.help = ['dashboard']
 handler.tags = ['main']
-handler.command = /^مستخدمين_الاوامر$/i
+handler.command = /^عرض_المستخدمين$/i
 handler.register = true
 
 export default handler
