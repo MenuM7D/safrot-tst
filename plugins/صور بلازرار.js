@@ -6,25 +6,13 @@ const handler = async (m, {command, conn, usedPrefix}) => {
   const who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
   const name = await conn.getName[who];
   const fgif = m;
-  
-const validCommands = [
-  'akira', 'اكيرا', 'اكياما', 'انا', 'اسونا', 'ايزاوا', 'بوروتو', 'chiho', 
-  'تشيتوجي', 'ديدارا', 'ارزا', 'ايلينا', 'ايبا', 'ايميليا', 'هستيا', 'هيناتا', 
-  'اينوري', 'ايسوزو', 'ايتاشي', 'ايتوري', 'كاجا', 'كاجورا', 'كاوري', 'كينيكي', 
-  'كوتوري', 'كورومي', 'مادارا', 'ميكاسا', 'ميكو', 'ميناتو', 'ناروتو', 'نيزوكو', 
-  'ساجيري', 'ساسكي', 'ساكورا', 'كوسبلاي'
-];
 
-if (validCommands.includes(command)) {
-  try {
-    const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/anime-${command}.json`)).data;
-    const haha = res[Math.floor(res.length * Math.random())];
-    conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 صوره تاني 🔄', `/${command}`]], null, null, m);
-  } catch (error) {
-    console.error(error);
-    conn.sendMessage(m.chat, 'حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقاً.', null, null, m);
-  }
-}
+if (command == 'akira'  || command == 'akiyama' || command == 'anna' || command == 'asuna' || command == 'ayuzawa' || command == 'boruto' || command == 'chiho' || command == 'chitoge' || command == 'deidara' || command == 'erza' || command == 'elaina' || command == 'eba' || command == 'emilia' || command == 'hestia' || command == 'hinata' || command == 'inori' || command == 'isuzu' || command == 'itachi' || command == 'itori' || command == 'kaga' || command == 'kagura' || command == 'kaori' || command == 'keneki' || command == 'kotori' || command == 'kurumi' || command == 'madara' || command == 'mikasa' || command == 'miku' || command == 'minato' || command == 'naruto' || command == 'nezuko' || command == 'sagiri' || command == 'sasuke' || command == 'sakura' || command == 'cosplay') {
+const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/anime-${command}.json`)).data;
+const haha = await res[Math.floor(res.length * Math.random())];
+conn.sendButton(m.chat, `_${command}_`, botname, haha, [['🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄', `/${command}`]], null, null, m)   
+};
+
 if (command == 'blackpink') {  
 fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/kpop/blackpink.txt').then((res) => res.text()).then((body) => {
     const randomkpop = body.split('\n');
@@ -68,7 +56,7 @@ if (args.length == 0) return conn.reply(m.chat, `Usar ${usedPrefix}kpop\nPor fav
   } else {
     conn.reply(m.chat, `Lo sentimos, la busqueda no está disponible. Por favor escribe ${usedPrefix}kpop para ver la lista de busquedas disponibles`, m);
   }}
-  
+
 if (command == 'loli') {  
 const yh = global.loli;
   const url = yh[Math.floor(Math.random() * yh.length)];
@@ -437,4 +425,4 @@ async function wallpaper(title, page = '1') {
       resolve(hasil);
     });
   });
-}
+    }
