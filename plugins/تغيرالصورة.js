@@ -4,7 +4,7 @@ const handler = async (message, { conn, usedPrefix, command, args, isOwner, isAd
     try {
         const chatId = message.chat;
         const quotedMessage = message.quoted ? message.quoted : message;
-        if (!message.quoted) throw '*اعمل ريب ع الصوره🧚🏼‍♂️*';
+        if (!message.quoted) throw '*\`『 اعمل ريب ع الصوره🧚🏼‍♂️ 』\`*';
 
         const mimeType = quotedMessage.mimetype || '';
         const imageBuffer = await quotedMessage.download();
@@ -25,15 +25,15 @@ const handler = async (message, { conn, usedPrefix, command, args, isOwner, isAd
             content: [{ tag: 'picture', attrs: { type: 'image' }, content: img }],
         });
 
-        message.reply('⚘ *تم تحديث الصورة بنجاح🧚🏼‍♂️*');
+        message.reply('🧚🏼‍♂️ *\`『 تم تغير الصوره 』\`*');
     } catch {
-        throw '*اعمل ريب ع الصوره الي عيزني احطهالك بروفيل للروم🧚🏼‍♂️*';
+        throw '*\`『 اعمل ريب ع الصوره الي هحطهالك بروفيل للروم🧚🏼‍♂️ 』\`*';
     }
 };
 
 handler.help = ['setppgc']
 handler.tags = ['group']
-handler.command = ['بروفيل_الروم'];
+handler.command = ['تغيرالصورة'];
 handler.botAdmin = true;
 handler.admin = true;
 
