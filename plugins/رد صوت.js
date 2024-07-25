@@ -29,7 +29,7 @@ handler.all = async function (m) {
     conn.sendPresenceUpdate( 'recording' , m.chat);
     conn.sendMessage(m.chat, { audio: { url: vn }, ptt: true, mimetype: 'audio/mpeg' , fileName: `shawaza_zizo_2024.opp` }, { quoted: m });
   }
-  if (/^ههههه|😂😂|ضحك$/i.test(m.text)) {
+  if (/^ههههههههههه|😂😂😂😂😂😂😂😂|ضحك$/i.test(m.text)) {
     let vn =  'https://qu.ax/PFyy.wav' ;
     conn.sendPresenceUpdate( 'recording' , m.chat);
     conn.sendMessage(m.chat, { audio: { url: vn }, ptt: true, mimetype:  'audio/mpeg' , fileName: `shawaza_zizo_2024.opp` }, { quoted: m });
@@ -60,12 +60,12 @@ handler.all = async function (m) {
     conn.sendPresenceUpdate(   'recording'   , m.chat);
     conn.sendMessage(m.chat, { audio: { url: vn }, ptt: true, mimetype:    'audio/mpeg'   , fileName: `shawaza_zizo_2024.opp` }, { quoted: m });
   }
-  if (/^دسوقي$/i.test(m.text)) {
+  if (/^دساااوقي$/i.test(m.text)) {
     let vn =     'https://qu.ax/WOgR'    ;
     conn.sendPresenceUpdate(    'recording'    , m.chat);
     conn.sendMessage(m.chat, { audio: { url: vn }, ptt: true, mimetype:     'audio/mpeg'    , fileName: `shawaza_zizo_2024.opp` }, { quoted: m });
   }
-  if (/^سامو عليكو|السلام عليكم$/i.test(m.text)) {
+  if (/^سامو عليكو|السلام عليكم|سمو عليكو/i.test(m.text)) {
     let vn =     'https://qu.ax/LASb.wav'    ;
     conn.sendPresenceUpdate(    'recording'    , m.chat);
     conn.sendMessage(m.chat, { audio: { url: vn }, ptt: true, mimetype:     'audio/mpeg'    , fileName: `shawaza_zizo_2024.opp` }, { quoted: m });
