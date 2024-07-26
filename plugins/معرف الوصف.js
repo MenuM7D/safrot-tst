@@ -1,10 +1,15 @@
-import { sticker } from '../lib/sticker.js';
+import fetch from 'node-fetch';
 import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs';
 import path from 'path';
+
 const handler = (m) => m;
 
 export async function before(m, { conn, participants, groupMetadata }) {
   if (!m.messageStubType || !m.isGroup) return;
+
+  const sendGroupMessage = async (text, mentions) => {
+    await conn.sendMessage(m.chat, { text, mentions }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100 });
+  };
 
   let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://telegra.ph/file/2a1d71ab744b55b28f1ae.jpg');
   let img = await (await fetch(`${pp}`)).buffer();
@@ -15,33 +20,43 @@ export async function before(m, { conn, participants, groupMetadata }) {
     "participant": "0@s.whatsapp.net"
   };
   let chat = global.db.data.chats[m.chat];
-  let users = participants.map(u => conn.decodeJid(u.id));
   const groupAdmins = participants.filter(p => p.admin);
-  const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n');
-
-  if (chat.detect && m.messageStubType == 21) {
-    await this.sendMessage(m.chat, { text: `${usuario} \`تتم تغير اسم الجروب🧚🏼‍♂️`\n\n> *${m.messageStubParameters[0]}*`, mentions: [m.sender, ...groupAdmins.map(v => v.id)] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100 });
-  } else if (chat.detect && m.messageStubType == 22) {
-    await this.sendMessage(m.chat, { text: `${usuario} \`تم تغير صورة الجروب🧚🏼‍♂️\``, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100 });
-  } else if (chat.detect && m.messageStubType == 24) {
-    await this.sendMessage(m.chat, { text: `${usuario} تم تغير وصف الجروب🧚🏼‍♂️\n\n${m.messageStubParameters[0]}`, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100 });
-  } else if (chat.detect && m.messageStubType == 25) {
-    await this.sendMessage(m.chat, { text: `🔒 دلوقتي *${m.messageStubParameters[0] == 'on' ? 'الأدمنز بس' : 'الكل'}* يقدر يغير معلومات الجروب`, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100 });
-  } else if (chat.detect && m.messageStubType == 26) {
-    await this.sendMessage(m.chat, { text: `الجروب *${m.messageStubParameters[0] == 'on' ? 'مغلق 🔒' : 'مفتوح 🔓'}*\n ${m.messageStubParameters[0] == 'on' ? 'الأدمنز بس يقدروا يكتبوا' : 'دلوقتي الكل يقدر يكتب'}`, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100 });
-  } else if (chat.detect && m.messageStubType == 29) {
-    await this.sendMessage(m.chat, { text: `@${m.messageStubParameters[0].split`@`[0]} *\`『 ابسط بقيت ادمن😹 』\`*\n\n😹*\`『 الي رفعك اهو 』\` ${usuario}`, mentions: [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100 });
-  } else if (chat.detect && m.messageStubType == 30) {
-    await this.sendMessage(m.chat, { text: `@${m.messageStubParameters[0].split`@`[0]} 🧚🏼‍♂️*\`『 نزلت من الرول 』\`*\n\n*\`『 الي نزلك اهو 😹 』\`* ${usuario}`, mentions: [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100 });
-  } else if (chat.detect && m.messageStubType == 72) {
-    await this.sendMessage(m.chat, { text: `${usuario} غير مدة الرسائل المؤقتة لـ *@${m.messageStubParameters[0]}*`, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100 });
-  } else if (chat.detect && m.messageStubType == 123) {
-    await this.sendMessage(m.chat, { text: `${usuario} *ألغى* الرسائل المؤقتة.`, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100 });
-  } else {
-    console.log({
-      messageStubType: m.messageStubType,
-      messageStubParameters: m.messageStubParameters,
-      type: WAMessageStubType[m.messageStubType]
-    });
+  
+  if (chat.detect) {
+    switch (m.messageStubType) {
+      case 21:
+        await sendGroupMessage(`${usuario} \`تتم تغير اسم الجروب🧚🏼‍♂️`\n\n> *${m.messageStubParameters[0]}*`, [m.sender, ...groupAdmins.map(v => v.id)]);
+        break;
+      case 22:
+        await sendGroupMessage(`${usuario} \`تم تغير صورة الجروب🧚🏼‍♂️\``, [m.sender]);
+        break;
+      case 24:
+        await sendGroupMessage(`${usuario} تم تغير وصف الجروب🧚🏼‍♂️\n\n${m.messageStubParameters[0]}`, [m.sender]);
+        break;
+      case 25:
+        await sendGroupMessage(`🔒 دلوقتي *${m.messageStubParameters[0] == 'on' ? 'الأدمنز بس' : 'الكل'}* يقدر يغير معلومات الجروب`, [m.sender]);
+        break;
+      case 26:
+        await sendGroupMessage(`الجروب *${m.messageStubParameters[0] == 'on' ? 'مغلق 🔒' : 'مفتوح 🔓'}*\n ${m.messageStubParameters[0] == 'on' ? 'الأدمنز بس يقدروا يكتبوا' : 'دلوقتي الكل يقدر يكتب'}`, [m.sender]);
+        break;
+      case 29:
+        await sendGroupMessage(`@${m.messageStubParameters[0].split`@`[0]} *\`『 ابسط بقيت ادمن😹 』\`*\n\n😹*\`『 الي رفعك اهو 』\` ${usuario}`, [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)]);
+        break;
+      case 30:
+        await sendGroupMessage(`@${m.messageStubParameters[0].split`@`[0]} 🧚🏼‍♂️*\`『 نزلت من الرول 』\`*\n\n*\`『 الي نزلك اهو 😹 』\`* ${usuario}`, [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)]);
+        break;
+      case 72:
+        await sendGroupMessage(`${usuario} غير مدة الرسائل المؤقتة لـ *@${m.messageStubParameters[0]}*`, [m.sender]);
+        break;
+      case 123:
+        await sendGroupMessage(`${usuario} *ألغى* الرسائل المؤقتة.`, [m.sender]);
+        break;
+      default:
+        console.log({
+          messageStubType: m.messageStubType,
+          messageStubParameters: m.messageStubParameters,
+          type: WAMessageStubType[m.messageStubType]
+        });
+    }
   }
-            }
+    }
