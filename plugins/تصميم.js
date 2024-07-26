@@ -7,7 +7,7 @@ const handler = async (_0x5321d9, {
 }) => {
   let _0x206172 = _0x3a87c3.join(" ").split("|");
   if (!_0x3a87c3[0]) {
-    throw "يمكنك انشاء شعار لــــ  تصميم1 باسمك مثال :\n\n*.تصميم1* safrot|bot";
+    throw "يمكنك انشاء شعار لــــ  تصميم باسمك مثال :\n\n*.تصميم* safrot|bot";
   }
   _0x35ee5f.sendMessage(_0x5321d9.chat, {
     react: {
@@ -18,8 +18,8 @@ const handler = async (_0x5321d9, {
   let _0x361d0f = "https://api.betabotz.eu.org/api/photooxy/pubg?text1=" + _0x206172[0] + "&text2=" + _0x206172[1] + "&apikey=6wy2KEG8";
   _0x35ee5f.sendFile(_0x5321d9.chat, _0x361d0f, "pubg.jpg", "تفضل طلبك ببجي", _0x5321d9, false);
 };
-handler.help = ["✓ ◡̈⃝ ✓│تصميم1🧸💜"];
+handler.help = ["تصميم"];
 handler.tags = ["game"];
-handler.command = /^(تصميم1)$/i;
+handler.command = /^(تصميم)$/i;
 handler.limit = false;
 export default handler;
