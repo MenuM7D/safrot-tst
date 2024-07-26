@@ -21,9 +21,9 @@ var user = number + '@s.whatsapp.net'
 } catch (e) {
 } finally {
 conn.groupParticipantsUpdate(m.chat, [user], 'promote')
-conn.reply(m.chat, `*[ 😂🤙🏻 ] الكلام خلصان رفعتك*`, m)
+conn.reply(m.chat, `*\`『 تم يحب🧚🏼‍♂️ 』\`*`, m)
 }}
-handler.help = ['✓ ◡̈⃝ ✓│رفع💫🫣']
+handler.help = ['رفع']
 handler.tags = ['owner']
 handler.command = /^(ترقيه|promote|رفع)$/i
 handler.group = true
