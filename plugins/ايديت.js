@@ -5,7 +5,7 @@ const handler = async (m, {conn, usedPrefix, command}) => {
   try {    
     let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || q.mediaType || ""
-    if (!mime) return m.reply(`*اعمل ريب ع الصوره يحب🧚🏼‍♂️*`) 
+    if (!mime) return m.reply(`*\`『 اعمل ريب ع الصوره يحب🧚🏼‍♂️』\`*`) 
     await m.react('⌛')
     let img = await q.download?.()
     let pr = await remini(img, "enhance")
@@ -20,7 +20,7 @@ const handler = async (m, {conn, usedPrefix, command}) => {
 handler.help = ["hd"]
 handler.tags = ["tools"]
 handler.command = ["remini", "ايديت", "enhance"]
-handler.register = true 
+//handler.register = true 
 handler.limit = 1
 
 export default handler
