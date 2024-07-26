@@ -1,10 +1,16 @@
-let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems })  => {
-const caption =`
+let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems }) => {
+  // تعريف المتغيرات بالقيم المناسبة
+  const name = "اسم المستخدم"; // يجب استبدال هذا بالقيمة الحقيقية
+  const wib = new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit', second: '2-digit' }); // الوقت الحالي
+  const date = new Date().toLocaleDateString('ar-EG'); // التاريخ الحالي
+  const rtotal = 100; // عدد المستخدمين، يجب استبدال هذا بالقيمة الحقيقية
+
+  const caption = `
 『𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿』
 *· · • • • • ✦ • • • • · ·*
 *🧚🏼‍♂️ ❛╏ \`『 منور 』\`* ${name}⁩
 *🧚🏼‍♂️ ❛╏ \`『 الوقت 』\`* ${wib}
-*🧚🏼‍♂️ ❛╏ \`『 التريخ 』\`* ${date}
+*🧚🏼‍♂️ ❛╏ \`『 التاريخ 』\`* ${date}
 *🧚🏼‍♂️ ❛╏ \`『 المستخدمين 』\`* ${rtotal}
 *· · • • • • ✦ • • • • · ·*
 *₪↲ \`『 معلومات المطور 』\` ┆⥌🧚🏼‍♂️⥍*
@@ -17,20 +23,19 @@ const caption =`
   ----------------------------- 
 `
 
-
-await conn.sendMessage( m.chat, {
-        video: {
-          url: 'https://telegra.ph/file/eeb2e29a434b5dad1a36d.mp4'
-        },
-        caption: caption,
-        gifPlayback: true,
-        gifAttribution: Math.floor( Math.random( ) * 2 ) + 1
-      }, {
-        quoted: m
-      } );
+  await conn.sendMessage(m.chat, {
+    video: {
+      url: 'https://telegra.ph/file/eeb2e29a434b5dad1a36d.mp4'
+    },
+    caption: caption,
+    gifPlayback: true,
+    gifAttribution: Math.floor(Math.random() * 2) + 1
+  }, {
+    quoted: m
+  });
 }
 
 handler.help = ['allmenu']
 handler.tags = ['main']
-handler.command = ['الصانع'] 
+handler.command = ['الصانع']
 export default handler
