@@ -101,7 +101,7 @@ const fkontak = {
 await conn.sendButton(m.chat, chat, wm, pp, [['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu'] ], fkontak, m)  
 }
 
-handler.command = /^(anonimochat|chatanonimo|شات_مجهول|ChatAnonimo|chatanónimo|anónimochat|anonimoch)$/i
+handler.command = /^(anonimochat|بنشات|شات_مجهول|ChatAnonimo|chatanónimo|anónimochat|anonimoch)$/i
 handler.exp = 70
 //export default handler
 
