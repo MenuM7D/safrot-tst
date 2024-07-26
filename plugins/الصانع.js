@@ -25,7 +25,7 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, isP
 
   await conn.sendMessage(m.chat, {
     video: {
-      url: 'https://telegra.ph/file/eeb2e29a434b5dad1a36d.mp4'
+      url: 'https://telegra.ph/file/73ef7488ba7f7f3e613ee.mp4'
     },
     caption: caption,
     gifPlayback: true,
