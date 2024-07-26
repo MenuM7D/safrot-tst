@@ -19,5 +19,5 @@ m.reply(love, null, { mentions: conn.parseMention(love) })}
 handler.help = ['love']
 handler.tags = ['fun']
 handler.command = /^(توأم|توام)$/i
-handler.register = true
+//handler.register = true
 export default handler
