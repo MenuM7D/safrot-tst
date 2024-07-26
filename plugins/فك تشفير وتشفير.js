@@ -44,7 +44,7 @@ const handler = async (m, { text, usedPrefix, command }) => {
     }
 }
 
-handler.command = ['تشفير', 'فك-'];
+handler.command = ['تشفير', 'فك'];
 handler.tags = ['tools'];
 
 export default handler;
