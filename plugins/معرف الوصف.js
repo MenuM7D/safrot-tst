@@ -28,7 +28,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
         await sendGroupMessage(`${usuario} \`تتم تغير اسم الجروب🧚🏼‍♂️`\n\n> *${m.messageStubParameters[0]}*`, [m.sender, ...groupAdmins.map(v => v.id)]);
         break;
       case 22:
-        await sendGroupMessage(`${usuario} \`تم تغير صورة الجروب🧚🏼‍♂️\``, [m.sender]);
+        await sendGroupMessage(`${usuario} \`تم تغير صورة الجروب🧚🏼‍♂️`, [m.sender]);
         break;
       case 24:
         await sendGroupMessage(`${usuario} تم تغير وصف الجروب🧚🏼‍♂️\n\n${m.messageStubParameters[0]}`, [m.sender]);
@@ -40,10 +40,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
         await sendGroupMessage(`الجروب *${m.messageStubParameters[0] == 'on' ? 'مغلق 🔒' : 'مفتوح 🔓'}*\n ${m.messageStubParameters[0] == 'on' ? 'الأدمنز بس يقدروا يكتبوا' : 'دلوقتي الكل يقدر يكتب'}`, [m.sender]);
         break;
       case 29:
-        await sendGroupMessage(`@${m.messageStubParameters[0].split`@`[0]} *\`『 ابسط بقيت ادمن😹 』\`*\n\n😹*\`『 الي رفعك اهو 』\` ${usuario}`, [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)]);
+        await sendGroupMessage(`@${m.messageStubParameters[0].split`@`[0]} * ابسط بقيت ادمن🧚🏼‍♂️*\n\n🧚🏼‍♂️* اليي اداك ادمن  ${usuario}`, [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)]);
         break;
       case 30:
-        await sendGroupMessage(`@${m.messageStubParameters[0].split`@`[0]} 🧚🏼‍♂️*\`『 نزلت من الرول 』\`*\n\n*\`『 الي نزلك اهو 😹 』\`* ${usuario}`, [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)]);
+        await sendGroupMessage(`@${m.messageStubParameters[0].split`@`[0]} 🧚🏼‍♂️*نزلت من الرول*\n\n*الي نزلك 🧚🏼‍♂️* ${usuario}`, [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)]);
         break;
       case 72:
         await sendGroupMessage(`${usuario} غير مدة الرسائل المؤقتة لـ *@${m.messageStubParameters[0]}*`, [m.sender]);
