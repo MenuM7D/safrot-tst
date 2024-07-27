@@ -1,478 +1,577 @@
 [
     {
-        "question": "¿Qué le dice un pingüino a otro pingüino?",
-        "response": "Te quiero como a ningüino" 
+        "question": "واحد بطريق بيقول لبطريق تاني إيه؟",
+        "response": "بحبك زي ما بحبش حد تاني"
     },
     {
-        "question": "El que lo hace, no lo quiere; el que lo compra, no lo usa; el que lo usa, no lo sabe. ¿Qué es?",
-        "response": "Un ataúd" 
+        "question": "اللي بيعمله مش عايزه، واللي بيشتريه مش بيستخدمه، واللي بيستخدمه مش عارف. إيه هو؟",
+        "response": "تابوت"
     },
     {
-        "question": "Puede correr pero nunca caminar, tiene una boca pero nunca habla. ¿Qué es?",
-        "response": "Un río" 
+        "question": "يقدر يجري لكن عمره ما يمشي، ليه بق لكن عمره ما بيتكلم. إيه هو؟",
+        "response": "نهر"
     },
     {
-        "question": "Tiene llaves pero no puede abrir cerraduras. ¿Qué es?",
-        "response": "Un piano" 
+        "question": "عنده مفاتيح لكن ما يفتحش أقفال. إيه هو؟",
+        "response": "بيانو"
     },
     {
-        "question": "Sube y baja, pero nunca se mueve. ¿Qué es?",
-        "response": "Una escalera" 
+        "question": "بيطلع وينزل، لكن عمره ما بيتحرك. إيه هو؟",
+        "response": "سلم"
     },
     {
-        "question": "Soy una palabra de 7 letras, si me pronuncias, te dejo sin aire. Si me agregas una letra más, pareceré bastante frío, pero si me quitas una, seré necesario. ¿Qué soy?",
-        "response": "Silencio" 
+        "question": "أنا كلمة من 7 حروف، لو نطقتني هخليك من غير هوا. لو ضفت حرف هبقى باين عليا البرودة، ولو شلت حرف هبقى ضروري. إيه أنا؟",
+        "response": "صمت"
     },
     {
-        "question": "Entra en la casa por la ventana, pero nunca sale por la puerta. ¿Qué es?",
-        "response": "La luz del sol" 
+        "question": "يدخل البيت من الشباك، لكن عمره ما يخرج من الباب. إيه هو؟",
+        "response": "ضوء الشمس"
     },
     {
-        "question": "Siempre estoy delante de ti, pero nunca puedes verme. ¿Qué soy?",
-        "response": "El futuro" 
+        "question": "أنا دايمًا قدامك، لكن عمرك ما تقدر تشوفني. إيه أنا؟",
+        "response": "المستقبل"
     },
     {
-        "question": "Nunca puedes mantenerme hasta que me das. ¿Qué soy?",
-        "response": "Tu palabra" 
+        "question": "عمرك ما تقدر تمسكني إلا لما تديني. إيه أنا؟",
+        "response": "كلمتك"
     },
     {
-        "question": "Soy un símbolo que siempre sigue a la R, pero nunca a la T. ¿Qué soy?",
-        "response": "La letra E" 
+        "question": "أنا رمز دايمًا بييجي بعد الـ\"ر\" لكن عمره ما بييجي بعد الـ\"ت\". إيه أنا؟",
+        "response": "حرف \"إي\""
     },
     {
-        "question": "Cuanto más te quito, más grande me vuelvo. ¿Qué soy?",
-        "response": "Un agujero" 
+        "question": "كل ما تاخد مني، أكبر. إيه أنا؟",
+        "response": "حفرة"
     },
     {
-        "question": "Tengo ciudades, pero no edificios. Tengo selvas, pero no árboles. Tengo ríos, pero no agua. ¿Qué soy?",
-        "response": "Un mapa" 
+        "question": "عندي مدن بس مفيش فيها مباني، عندي غابات بس مفيش فيها أشجار، عندي أنهار بس مفيش فيها مية. إيه أنا؟",
+        "response": "خريطة"
     },
     {
-        "question": "Tiene llaves, pero no puede abrir ninguna puerta. A veces tiene números, pero nunca hace cálculos. ¿Qué es?",
-        "response": "Un teclado" 
+        "question": "عنده مفاتيح لكن ما بيفتحش ولا باب. ساعات عنده أرقام، لكن عمره ما بيحسب. إيه هو؟",
+        "response": "كيبورد"
     },
     {
-        "question": "Soy un lugar donde todos corren, pero nadie se mueve. Siempre estoy lleno, pero nunca hay multitud. ¿Qué soy?",
-        "response": "Un sueño" 
+        "question": "أنا مكان الناس بتجري فيه، لكن مفيش حد بيتحرك. دايمًا مليان، لكن عمره ما فيه زحمة. إيه أنا؟",
+        "response": "حلم"
     },
     {
-        "question": "Soy el comienzo de la sabiduría, el final de la vida y el medio de la oscuridad. ¿Qué soy?",
-        "response": "La letra E" 
+        "question": "أنا بداية الحكمة، نهاية الحياة ووسط الظلمة. إيه أنا؟",
+        "response": "حرف \"إي\""
     },
     {
-        "question": "Soy un número que siempre está en medio de 5 y 9. ¿Qué soy?",
-        "response": "El número 7" 
+        "question": "أنا رقم دايمًا بيجي بين 5 و 9. إيه أنا؟",
+        "response": "رقم 7"
     },
     {
-        "question": "Soy una palabra de 12 letras, aunque si me pronuncias, tendrás una de las 12 partes. Si me escribes, tendrás todas las 12. ¿Qué soy?",
-        "response": "El alfabeto" 
+        "question": "أنا كلمة من 12 حرف، لو نطقتني، هتبقى عندك واحدة من الـ 12 جزء. لو كتبتني، هتبقى عندك كل الـ 12 جزء. إيه أنا؟",
+        "response": "الأبجدية"
     },
     {
-        "question": "Tengo ojos, pero nunca lloro. Tengo un corazón, pero nunca amo. ¿Qué soy?",
-        "response": "Un espantapájaros" 
+        "question": "عندي عيون، لكن عمره ما بيعيط. عندي قلب، لكن عمره ما بيحب. إيه أنا؟",
+        "response": "فزاعة"
     },
     {
-        "question": "Soy un agujero que puedes llenar con objetos, pero si lo llenas con agua, desapareceré. ¿Qué soy?",
-        "response": "Un agujero negro" 
+        "question": "أنا حفرة تقدر تملاني بأشياء، لكن لو ملأتني مية، هختفي. إيه أنا؟",
+        "response": "ثقب أسود"
     },
     {
-        "question": "Tengo un cuello pero no tengo cabeza, y te acompaño en la cama todas las noches. ¿Qué soy?",
-        "response": "Una almohada" 
+        "question": "عندي رقبة لكن ما عنديش رأس، وبصحبك في السرير كل ليلة. إيه أنا؟",
+        "response": "مخدة"
     },
     {
-        "question": "Soy un lugar donde las personas van cuando están rotas, pero nunca necesito ser reparado. ¿Qué soy?",
-        "response": "Un espejo" 
+        "question": "أنا مكان الناس بتروحله لما تكون مكسورة، لكن عمره ما يحتاج يتصلح. إيه أنا؟",
+        "response": "مرايا"
     },
     {
-        "question": "Tengo hojas, pero no soy un árbol. Tengo una cara, pero no soy una persona. ¿Qué soy?",
-        "response": "Un libro" 
+        "question": "عندي أوراق، لكن مش شجرة. عندي وجه، لكن مش شخص. إيه أنا؟",
+        "response": "كتاب"
     },
     {
-        "question": "Soy un camino que puedes caminar, pero siempre estás retrocediendo. ¿Qué soy?",
-        "response": "Una escalera" 
+        "question": "أنا طريق ممكن تمشي فيه، لكن دايمًا بترجع للخلف. إيه أنا؟",
+        "response": "سلم"
     },
     {
-        "question": "Nunca puedes tocarlo, pero siempre está frente a ti. ¿Qué es?",
-        "response": "El futuro" 
+        "question": "عمرك ما تقدر تلمسه، لكنه دايمًا قدامك. إيه هو؟",
+        "response": "المستقبل"
     },
     {
-        "question": "Tengo un ojo pero no puedo ver. ¿Qué soy?",
-        "response": "Una aguja" 
+        "question": "عندي عين لكن ما بشوفش. إيه أنا؟",
+        "response": "إبرة"
     },
     {
-        "question": "Siempre estoy en el agua, pero nunca me mojo. ¿Qué soy?",
-        "response": "Una sombra" 
+        "question": "واحد بطريق بيقول لبطريق تاني إيه؟",
+        "response": "بحبك زي ما بحبش حد تاني"
     },
     {
-        "question": "Puedo volar sin alas, siempre estoy cerca del suelo, pero nunca me caigo. ¿Qué soy?",
-        "response": "Un sueño" 
+        "question": "اللي بيعمله مش عايزه، واللي بيشتريه مش بيستخدمه، واللي بيستخدمه مش عارف. إيه هو؟",
+        "response": "تابوت"
     },
     {
-        "question": "Soy redondo como una moneda, pero no tengo valor. ¿Qué soy?",
-        "response": "Un botón" 
+        "question": "يقدر يجري لكن عمره ما يمشي، ليه بق لكن عمره ما بيتكلم. إيه هو؟",
+        "response": "نهر"
     },
     {
-        "question": "Soy una palabra de cinco letras y me temen más que a la muerte. Si me quitas la primera letra, tendrás un lugar donde la gente vive. ¿Qué soy?",
-        "response": "Cárcel" 
+        "question": "عنده مفاتيح لكن ما يفتحش أقفال. إيه هو؟",
+        "response": "بيانو"
     },
     {
-        "question": "Soy un lugar donde nunca se puede entrar, pero siempre puedes ver lo que está dentro. ¿Qué soy?",
-        "response": "Un ojo" 
+        "question": "بيطلع وينزل، لكن عمره ما بيتحرك. إيه هو؟",
+        "response": "سلم"
     },
     {
-        "question": "Tengo dientes, pero no puedo masticar. ¿Qué soy?",
-        "response": "Un peine" 
+        "question": "أنا كلمة من 7 حروف، لو نطقتني هخليك من غير هوا. لو ضفت حرف هبقى باين عليا البرودة، ولو شلت حرف هبقى ضروري. إيه أنا؟",
+        "response": "صمت"
     },
     {
-        "question": "Soy un agujero en el agua que puedes llenar con una taza. ¿Qué soy?",
-        "response": "Un agujero de llave" 
+        "question": "يدخل البيت من الشباك، لكن عمره ما يخرج من الباب. إيه هو؟",
+        "response": "ضوء الشمس"
     },
     {
-        "question": "Tengo una cabeza, un cuerpo, pero no tengo alma. ¿Qué soy?",
-        "response": "Un muñeco" 
+        "question": "أنا دايمًا قدامك، لكن عمرك ما تقدر تشوفني. إيه أنا؟",
+        "response": "المستقبل"
     },
     {
-        "question": "Tengo manos y una cara, pero no tengo cuerpo. ¿Qué soy?",
-        "response": "Un reloj" 
+        "question": "عمرك ما تقدر تمسكني إلا لما تديني. إيه أنا؟",
+        "response": "كلمتك"
     },
     {
-        "question": "Soy una cosa que es más útil cuando está rota. ¿Qué soy?",
-        "response": "Un huevo" 
+        "question": "أنا رمز دايمًا بييجي بعد الـ\"ر\" لكن عمره ما بييجي بعد الـ\"ت\". إيه أنا؟",
+        "response": "حرف \"إي\""
     },
     {
-        "question": "Soy un lugar donde puedes encontrar tesoros y libros, pero nunca encontrarás oro ni palabras. ¿Qué soy?",
-        "response": "Una biblioteca" 
+        "question": "كل ما تاخد مني، أكبر. إيه أنا؟",
+        "response": "حفرة"
     },
     {
-        "question": "Si me nombras, me rompes. ¿Qué soy?",
-        "response": "El silencio" 
+        "question": "عندي مدن بس مفيش فيها مباني، عندي غابات بس مفيش فيها أشجار، عندي أنهار بس مفيش فيها مية. إيه أنا؟",
+        "response": "خريطة"
     },
     {
-        "question": "Soy un número sin fin, pero siempre empiezo con un 1. ¿Qué soy?",
-        "response": "El número Pi" 
+        "question": "عنده مفاتيح لكن ما بيفتحش ولا باب. ساعات عنده أرقام، لكن عمره ما بيحسب. إيه هو؟",
+        "response": "كيبورد"
     },
     {
-        "question": "¿Qué le dice un ciego a otro ciego?",
-        "response": "Después nos vemos"
+        "question": "أنا مكان الناس بتجري فيه، لكن مفيش حد بيتحرك. دايمًا مليان، لكن عمره ما فيه زحمة. إيه أنا؟",
+        "response": "حلم"
     },
     {
-        "question": "¿En qué se parece un alfiler a un policía?",
-        "response": "En que los dos prenden"
+        "question": "أنا بداية الحكمة، نهاية الحياة ووسط الظلمة. إيه أنا؟",
+        "response": "حرف \"إي\""
     },
     {
-        "question": "¿Qué se congela cuando se calienta?",
-        "response": "La computadora"
+        "question": "أنا رقم دايمًا بيجي بين 5 و 9. إيه أنا؟",
+        "response": "رقم 7"
     },
     {
-        "question": "¿Qué fruta tiene muchos ojos, pero no puede ver?",
-        "response": "La piña"
+        "question": "أنا كلمة من 12 حرف، لو نطقتني، هتبقى عندك واحدة من الـ 12 جزء. لو كتبتني، هتبقى عندك كل الـ 12 جزء. إيه أنا؟",
+        "response": "الأبجدية"
     },
     {
-        "question": "¿En qué idioma se comunican las tortugas?",
-        "response": "En tortugués"
+        "question": "عندي عيون، لكن عمره ما بيعيط. عندي قلب، لكن عمره ما بيحب. إيه أنا؟",
+        "response": "فزاعة"
     },
     {
-        "question": "¿Cómo llama un policía sevillano a su pistola?",
-        "response": "Mi arma"
+        "question": "أنا حفرة تقدر تملاني بأشياء، لكن لو ملأتني مية، هختفي. إيه أنا؟",
+        "response": "ثقب أسود"
     },
     {
-        "question": "¿Qué es todo para uno y nada para lo demás?",
-        "response": "La mente"
+        "question": "عندي رقبة لكن ما عنديش رأس، وبصحبك في السرير كل ليلة. إيه أنا؟",
+        "response": "مخدة"
     },
     {
-        "question": "¿Cuál es el colmo de una aspiradora?",
-        "response": "Ser alérgica al polvo"
+        "question": "أنا مكان الناس بتروحله لما تكون مكسورة، لكن عمره ما يحتاج يتصلح. إيه أنا؟",
+        "response": "مرايا"
     },
     {
-        "question": "¿Qué es aquello que si nombras, desaparece?",
-        "response": "El silencio"
+        "question": "عندي أوراق، لكن مش شجرة. عندي وجه، لكن مش شخص. إيه أنا؟",
+        "response": "كتاب"
     },
     {
-        "question": "¿Qué necesitamos para escribir durmiendo?",
-        "response": "Estar despiertos"
+        "question": "أنا طريق ممكن تمشي فيه، لكن دايمًا بترجع للخلف. إيه أنا؟",
+        "response": "سلم"
     },
     {
-        "question": "¿Qué objeto puede tener cara sin poseer cuerpo?",
-        "response": "Una moneda"
+        "question": "عمرك ما تقدر تلمسه، لكنه دايمًا قدامك. إيه هو؟",
+        "response": "المستقبل"
     },
     {
-        "question": "Alimenta la casa, Gabinete con hielo",
-        "response": "La nevera"
+        "question": "عندي عين لكن ما بشوفش. إيه أنا؟",
+        "response": "إبرة"
     },
     {
-        "question": "¿Qué tienen las mujeres en medio de las piernas?",
-        "response": "Las rodillas"
+        "question": "دايمًا في المية، لكن عمري ما ببتل. إيه أنا؟",
+        "response": "ظل"
     },
     {
-        "question": "Entra duro y seco y sale blandito y mojado ¿Qué es?",
-        "response": "Un chicle"
+        "question": "أقدر أطير من غير جناحات، دايمًا قريب من الأرض، لكن عمري ما بوقع. إيه أنا؟",
+        "response": "حلم"
     },
     {
-        "question": "Estoy en todo y estoy en nada ¿qué soy?",
-        "response": "La letra d"
+        "question": "أنا مدور زي العملة، لكن ماليش قيمة. إيه أنا؟",
+        "response": "زرار"
     },
     {
-        "question": "Continuas en rojo, pero te paras en verde. ¿Qué soy?",
-        "response": "Una sandía"
+        "question": "أنا كلمة من خمس حروف وبيخافوا مني أكتر من الموت. لو شلت أول حرف، هيبقى مكان الناس عايشة فيه. إيه أنا؟",
+        "response": "سجن"
     },
     {
-        "question": "¿Qué es negro cuando lo compras, rojo cuando lo usas, y gris cuando lo tiras?",
-        "response": "El carbón"
+        "question": "أنا مكان عمرك ما تقدر تدخله، لكن دايمًا تقدر تشوف اللي جواه. إيه أنا؟",
+        "response": "عين"
     },
     {
-        "question": "¿Qué hay delante de ti siempre pero que no se puede ver?",
-        "response": "El futuro"
+        "question": "عندي سنان، لكن ما بقدرش أعض. إيه أنا؟",
+        "response": "مشط"
     },
     {
-        "question": "¿Qué mes tiene 28 días?",
-        "response": "Todos"
+        "question": "أنا حفرة في المية تقدر تملاها بكباية. إيه أنا؟",
+        "response": "فتحة مفتاح"
     },
     {
-        "question": "¿Cómo puede estar alguien sin dormir diez días y no tener sueño?",
-        "response": "Durmiendo por las noches"
+        "question": "عندي راس وجسم، لكن ما عنديش روح. إيه أنا؟",
+        "response": "عروسة"
     },
     {
-        "question": "¿De qué llenarías un barril para que pese lo menos posible?",
-        "response": "De agujeros"
+        "question": "عندي أيدين ووجه، لكن ما عنديش جسم. إيه أنا؟",
+        "response": "ساعة"
     },
     {
-        "question": "Si durante una carrera adelantas a quien va segundo, ¿en qué posición estás?",
-        "response": "Segundo"
+        "question": "أنا حاجة بتبقى مفيدة لما تتكسر. إيه أنا؟",
+        "response": "بيضة"
     },
     {
-        "question": "¿En qué lugar el jueves va antes que el miércoles?",
-        "response": "En el diccionario"
+        "question": "أنا مكان تلاقي فيه كنوز وكتب، لكن عمرك ما تلاقي ذهب أو كلمات. إيه أنا؟",
+        "response": "مكتبة"
     },
     {
-        "question": "¿Qué sube y baja pero se queda siempre en el mismo sitio?",
-        "response": "Las escaleras"
+        "question": "لو نطقتني، هتكسّرني. إيه أنا؟",
+        "response": "صمت"
     },
     {
-        "question": "¿Cómo llaman a un ascensor en China?",
-        "response": "Apretando el botón"
+        "question": "أنا رقم ملوش نهاية، لكن دايمًا ببدأ بـ 1. إيه أنا؟",
+        "response": "الرقم باي"
     },
     {
-        "question": "¿Qué es lo primero que hace un elefante al salir el sol?",
-        "response": "Sombra"
+        "question": "الأعمى بيقول للأعمى إيه؟",
+        "response": "نشوف بعض بعدين"
     },
     {
-        "question": "¿Por qué un Tiranosaurus Rex no puede aplaudir?",
-        "response": "Porque se extinguió"
+        "question": "إيه اللي شبه الدبوس بالظابط؟",
+        "response": "الاتنين بيقبضوا"
     },
     {
-        "question": "¿Qué animal siempre está lleno?",
-        "response": "La ballena"
+        "question": "إيه اللي بيتجمد لما يسخن؟",
+        "response": "الكمبيوتر"
     },
     {
-        "question": "¿Qué es lo primero que todos hacemos al despertar?",
-        "response": "Abrir los ojos"
+        "question": "إيه الفاكهة اللي عندها عيون كتير، لكن ما بتشوفش؟",
+        "response": "الأناناس"
     },
     {
-        "question": "¿Cuál es el número que si le quitas la mitad, vale 0?",
-        "response": "El ocho"
+        "question": "التُرس بيتكلم بأي لغة؟",
+        "response": "بالتُرسية"
     },
     {
-        "question": "¿Qué se necesita para encender una vela?",
-        "response": "Que esté apagada"
+        "question": "الظابط في إشبيلية بيقول على مسدسه إيه؟",
+        "response": "سلاح"
     },
     {
-        "question": "¿Cuál es el país donde termina todo?",
-        "response": "Finlandia"
+        "question": "إيه الحاجة اللي بتبقى لكل واحد لوحده، لكن ملاش لازمة لحد    تاني؟",
+        "response": "العقل"
     },
     {
-        "question": "La respuesta a esta pregunta es #######",
+        "question": "إيه أكتر حاجة ممكن تكنسها تخاف من التراب؟",
+        "response": "المكنسة"
+    },
+    {
+        "question": "إيه الحاجة اللي لو قلت اسمها تختفي؟",
+        "response": "الصمت"
+    },
+    {
+        "question": "إيه الحاجة اللي لازم تعملها عشان تقدر تكتب وانت نايم؟",
+        "response": "تكون صاحي"
+    },
+    {
+        "question": "إيه الشيء اللي ممكن يبقى عنده وجه لكن ما عندوش جسم؟",
+        "response": "عملة"
+    },
+    {
+        "question": "الحاجة اللي بتأكل البيت، وتكون مليانة تلج جوه. إيه هي؟",
+    },
+    {
+        "question": "إيه اللي الستات عندهم في النص بين رجليهم؟",
+        "response": "الركب"
+    },
+    {
+        "question": "بيدخل ناشف و جامد و بيطلع طري و مبلول. إيه هو؟",
+        "response": "اللبانة"
+    },
+    {
+        "question": "أنا موجود في كل حاجة و مش موجود في أي حاجة. إيه أنا؟",
+        "response": "حرف الدال"
+    },
+    {
+        "question": "بتكمل في الأحمر، لكن بتقف في الأخضر. إيه أنا؟",
+        "response": "البطيخة"
+    },
+    {
+        "question": "إيه اللي بيبقى اسود لما تشتريه، أحمر لما تستخدمه، ورمادي لما ترميه؟",
+        "response": "الفحم"
+    },
+    {
+        "question": "إيه اللي دايماً قدامك و مش تقدر تشوفه؟",
+        "response": "المستقبل"
+    },
+    {
+        "question": "إيه الشهر اللي فيه 28 يوم؟",
+        "response": "كلهم"
+    },
+    {
+        "question": "إزاي واحد يقدر يقعد عشر أيام من غير ما ينام و من غير ما يحس بتعب؟",
+        "response": "بينام بالليل"
+    },
+    {
+        "question": "إيه اللي ممكن تملأ برميل بيه عشان يبقى أخف؟",
+        "response": "ثقوب"
+    },
+    {
+        "question": "لو في سباق و عدّيت اللي في المركز التاني، تبقى في أنهي مركز؟",
+        "response": "التاني"
+    },
+    {
+        "question": "إيه المكان اللي فيه الخميس بييجي قبل الأربع؟",
+        "response": "القاموس"
+    },
+    {
+        "question": "إيه اللي بيطلع و ينزل بس بيبقى دايماً في نفس المكان؟",
+        "response": "السلم"
+    },
+    {
+        "question": "إزاي بينادوا على الأسانسير في الصين؟",
+        "response": "بالضغط على الزر"
+    },
+    {
+        "question": "إيه أول حاجة بيعملها الفيل لما يطلع الشمس؟",
+        "response": "الظل"
+    },
+    {
+        "question": "ليه الديناصور تي ريكس مش بيقدر يصفق؟",
+        "response": "لأنه انقرض"
+    },
+    {
+        "question": "إيه الحيوان اللي دايماً مليان؟",
+        "response": "الحوت"
+    },
+    {
+        "question": "إيه أول حاجة كلنا بنعملها لما نصحى من النوم؟",
+        "response": "نفتح عنينا"
+    },
+    {
+        "question": "إيه الرقم اللي لو شلت منه النص يبقى 0؟",
+        "response": "التمانية"
+    },
+    {
+        "question": "إيه اللي محتاجه عشان تولع شمعة؟",
+        "response": "إنها تكون مطفية"
+    },
+    {
+        "question": "إيه البلد اللي كل حاجة بتنتهي فيها؟",
+        "response": "فنلندا"
+    },
+    {
+        "question": "إجابة السؤال ده هي #######",
         "response": "#######"
     },
     {
-        "question": "Cuál es el final de todo",
-        "response": "La letra o"
+        "question": "إيه نهاية كل حاجة؟",
+        "response": "حرف الواو"
     },
     {
-        "question": "¿Dónde se encuentra una pared con otra pared?",
-        "response": "En la esquina"
+        "question": "فين الحيطة بتتقابل مع الحيطة؟",
+        "response": "في الزاوية"
     },
     {
-        "question": "¿Qué tiene muchas palabras, pero nunca habla?",
-        "response": "Un libro"
+        "question": "إيه اللي فيه كلام كتير بس ما بيتكلمش؟",
+        "response": "الكتاب"
     },
     {
-        "question": "¿Qué cosa te pertenece, pero los demás usan más que tú?",
-        "response": "Tu nombre"
+        "question": "إيه الحاجة اللي بتاعتك بس الناس بتستخدمها أكتر منك؟",
+        "response": "اسمك"
     },
     {
-        "question": "¿En qué momento una persona se convierte en fruta?",
-        "response": "Cuando espera"
+        "question": "إمتى الواحد يبقى فاكهة؟",
+        "response": "لما ينتظر"
     },
     {
-        "question": "Los padres de José tienen tres hijos: Luis, Raúl y…, ¿cómo se llama el tercero?",
-        "response": "José"
+        "question": "أبو يوسف عنده ثلاثة عيال: لطفي و فؤاد و..., إيه اسم التالت؟",
+        "response": "يوسف"
     },
     {
-        "question": "¿Qué palabra del diccionario se escribe incorrectamente?",
-        "response": "Incorrectamente"
+        "question": "إيه الكلمة اللي في القاموس مكتوبة غلط؟",
+        "response": "غلط"
     },
     {
-        "question": "Húmedo por dentro, con pelos por fuera. Comienza por la C. ¿De qué se trata?",
-        "response": "Un coco"
+        "question": "مبلول من جوا و عليه شعر من بره. بيبدأ بحرف الكاف. إيه هو؟",
+        "response": "جوز الهند"
     },
     {
-        "question": "David y Fabián están jugando al ajedrez. Llevan 5 partidas, pero ambos han ganado 3. ¿Cómo es posible?",
-        "response": "Porque juegan con más personas"
+        "question": "داود و فؤاد بيلعبوا شطرنج. لعبوا 5 جولات، و الاتنين كسبوا 3 مرات. إزاي؟",
+        "response": "عشان بيلعبوا مع ناس تانية"
     },
     {
-        "question": "¿Cuántos 9 hay entre el 1 y el 100?",
+        "question": "كام مرة 9 موجود بين 1 و 100؟",
         "response": "20"
     },
     {
-        "question": "Son dos abanicos que están todo el día sin parar, pero cuando te duermas se paran y quietos se quedarán",
-        "response": "Las pestañas"
+        "question": "هم مروحيتين شغالين طول اليوم، لكن لما تنام بيقفوا. إيه هما؟",
+        "response": "الرموش"
     },
     {
-        "question": "Oro parece, plata no es y el que no lo adivine un tonto es",
-        "response": "Un platano"
+        "question": "ذهب يبان، فضة ما هوش. اللي ما يعرفش يبقى مغفل. إيه هو؟",
+        "response": "الموز"
     },
     {
-        "question": "Círculo bien redondo al que si le pegas, das un brinco del susto",
-        "response": "Un tambor"
+        "question": "دائرة تمام، لو ضربتها، تقفز من الخوف. إيه هو؟",
+        "response": "الطبلة"
     },
     {
-        "question": "Un caballo blanco entró en el Mar Negro. ¿Cómo salió?",
-        "response": "Salió mojado"
+        "question": "حصان أبيض دخل البحر الأسود. إزاي خرج؟",
+        "response": "خرج مبلول"
     },
     {
-        "question": "Si un tren eléctrico va de Norte a Sur, ¿Hacia qué lado echará el humo?",
-        "response": "Es eléctrico, no echa humo"
+        "question": "لو القطار الكهربائي رايح من الشمال للجنوب، الدخان هيطلع فين؟",
+        "response": "القطار الكهربائي مابيطلعش دخان"
     },
     {
-       "question": "Tiene 4 letras, empieza por C y termina por O y esta en la parte trasera",
-        "response": "El codo"
+        "question": "عنده 4 حروف، بيبدأ بحرف الكاف و بينتهي بحرف الواو و موجود في الضهر. إيه هو؟",
+        "response": "الكوع"
     },
     {
-       "question": "Se estrella un avión y mueren todos, justo en la frontera entre España y Portugal ¿A que Hospital tienen que llevar a los supervivientes? ",
-        "response": "No hay supervivientes"
+        "question": "طيارة وقعت و ماتوا كل الناس، على الحدود بين إسبانيا و البرتغال. يودوا الناجي في أنهي مستشفى؟",
+        "response": "مافيش ناجين"
     },
     {
-       "question": "Este banco está ocupado por un padre y por un hijo, el padre se llama Juan y el hijo ya te lo he dicho",
-        "response": "Esteban"
+        "question": "البنك ده قاعد فيه أب و ابنه. الأب اسمه محمد و الابن أنا قلتلك اسمه. إيه هو؟",
+        "response": "استبان"
     },
     {
-       "question": "Algunos meses tienen 31 días, otros solo 30.¿Cuantos tienen 28 días?",
-        "response": "Todos"
+        "question": "بعض الشهور فيها 31 يوم، و بعضها بس 30. كام شهر فيهم 28 يوم؟",
+        "response": "كلهم"
     },
     {
-       "question": "¿Que es lo que puedes encontrar una vez en un minutos, dos veces en un momento y ninguna vez cien años",
-        "response": "La letra M"
+        "question": "إيه الحاجة اللي تلاقيها مرة في الدقيقة، مرتين في اللحظة و ولا مرة في مية سنة؟",
+        "response": "حرف الميم"
     },
     {
-       "question": "¿Que llanta no gira a la derecha?",
-        "response": "las llanta de respuesto"
+        "question": "إيه العجلة اللي ما بتلفش ناحية اليمين؟",
+        "response": "عجلة الاستبن"
     },
     {
-       "question": "la gente me compra para comer pero nunca me come ¿que soy?",
-        "response": "un plato"
+        "question": "الناس بيشتروني عشان ياكلوا بس مش بيأكلوني. إيه أنا؟",
+        "response": "الطبق"
     },
     {
-       "question": "Matamos y alentamos tu decides si somos un venemos o un dulce ¿que somos?",
-        "response": "las palabras"
+        "question": "إحنا بنقتلك و بنشجعك، أنت تقرر إذا كنا سم أو حلو. إيه إحنا؟",
+        "response": "الكلمات"
     },
     {
-       "question": "¿con que manos es mejor revolver el caldo?",
-        "response": "es mejor usar una cuchara"
+        "question": "بأنهي أيد تقلب الشوربة؟",
+        "response": "الأفضل تستخدم ملعقة"
     },
     {
-       "question": "¿quien se moja mientras seca?",
-        "response": "la toalla"
+        "question": "إيه اللي بيبقى مبلول و هو بينشف؟",
+        "response": "الفوطة"
     },
     {
-       "question": "Cuantos mas le quitas, mas grande se vuelve. ¿que es?",
-        "response": "un foso"
+        "question": "كل ما تاخد منه، يكبر. إيه هو؟",
+        "response": "الحفرة"
     },
     {
-       "question": "¿Que palabra es p_ta?",
-        "response": "pata"
+        "question": "إيه الكلمة اللي هي ب_ت_؟",
+        "response": "بطة"
     },
     {
-       "question": "tengo un par, van colgando y al camina se van desplazando ¿que son?",
-        "response": "los brazos"
+        "question": "عندي اتنين، معلقين و هما بيتمشوا. إيه هما؟",
+        "response": "الأذرع"
     },
     {
-       "question": "¿Que es largo y le cuelga a los hombres por delante?",
-        "response": "la corbata"
+        "question": "إيه الحاجة الطويلة و بتتعلق عند الرجالة من قدام؟",
+        "response": "الكرافتة"
     },
     {
-       "question": "¿Cual es el juguete más egoísta?",
-        "response": "El Yo-Yo"
+        "question": "إيه اللعبة اللي أنانية؟",
+        "response": "اليويو"
     },
     {
-       "question": "¿Que hacer una persona corriendo rápidamente alrededor de la universidad?",
-        "response": "Su carrera universitaria"
+        "question": "إيه اللي بيعمله الشخص وهو بيجري بسرعة حوالين الجامعة؟",
+        "response": "دراسته الجامعية"
     },
     {
-       "question": "No son flores, pero tienes plantas y olores ¿que es?",
-        "response": "Los pies"
+        "question": "مش زهور، بس فيها نباتات وروائح. إيه هي؟",
+        "response": "القدمين"
     },
     {
-       "question": "No lo puedes ver, pero no puedes vivir sin él. ¿Qué es?",
-       "response": "El aire"
-}, 
-{
-       "question": "¿Qué pasa si arrojas una piedra blanca al mar Rojo?",
-       "response": "Se moja"
-}, 
-{
-       "question": "Tengo ciudades, pero no casas. Tengo montañas, pero no árboles. Tengo agua, pero no peces. ¿Qué soy?",
-       "response": "Un mapa"
-}, 
-{
-       "question": "¿Qué sube y baja, pero siempre permanece en el mismo lugar?",
-       "response": "Las escaleras"
-}, 
-{
-       "question": "¿Qué puedes atrapar pero no lanzar?",
-       "response": "Un resfriado"
-}, 
-{
-       "question": "¿Qué tiene cuatro patas, pero no puede caminar?",
-       "response": "Una mesa"
-}, 
-{
-       "question": "Me rompo si me nombras, ¿qué soy?",
-       "response": "El silencio"
-}, 
-{
-       "question": "¿Qué palabra empieza con (e), termina con (e) y contiene una letra?",
-       "response": "Sobre"
-}, 
-{
-       "question": "Si un gallo pone un huevo en la cima de una montaña, ¿hacia dónde caerá el huevo?",
-       "response": "Los gallos no ponen huevos"
-}, 
-{
-       "question": "¿Qué es algo que puedes romper sin tocarlo?",
-       "response": "Una promesa"
-}, 
-{
-       "question": "¿Qué es lo que cuanto más se seca, más moja?",
-       "response": "Una toalla"
-}, 
-{
-       "question": " ¿Qué palabra se escribe incorrectamente en el diccionario?",
-       "response": "Incorrectamente"
-}, 
-{
-       "question": "¿Qué pasa si arrojas una piedra blanca al mar Rojo?",
-       "response": "Se moja"
-}, 
-{
-       "question": "¿Qué cosa puede hacerte llorar y reír al mismo tiempo?",
-       "response": "Una cebolla"
-}, 
-{
-       "question": "¿Qué cosa puede escribir, pero no puede leer?",
-       "response": "Una pluma"
-}, 
-{
-       "question": "¿Qué es algo que tiene muchas palabras, pero nunca habla?",
-       "response": "Un libro"
-}
-]
+        "question": "مش تقدر تشوفه، لكن مش تقدر تعيش من غيره. إيه هو؟",
+        "response": "الهواء"
+    },
+    {
+        "question": "إيه اللي يحصل لو رميت حجر أبيض في البحر الأحمر؟",
+        "response": "يتبل"
+    },
+    {
+        "question": "عندي مدن بس ماعنديش بيوت، عندي جبال بس ماعنديش شجر، عندي مية بس ماعنديش سمك. إيه أنا؟",
+        "response": "الخريطة"
+    },
+    {
+        "question": "إيه اللي بيطلع وبينزل بس دايماً في نفس المكان؟",
+        "response": "السلم"
+    },
+    {
+        "question": "إيه اللي تقدر تمسكه بس مش تقدر ترميه؟",
+        "response": "البرد"
+    },
+    {
+        "question": "إيه اللي عنده أربع رجلين، لكن مايمشيش؟",
+        "response": "الترابيزة"
+    },
+    {
+        "question": "بتتكسر لو قلت اسمها. إيه هي؟",
+        "response": "الصمت"
+    },
+    {
+        "question": "إيه الكلمة اللي بتبدأ بحرف الألف وتنتهي بحرف الألف وبتحتوي على حرف؟",
+        "response": "ظرف"
+    },
+    {
+        "question": "لو ديك باض بيضة فوق قمة جبل، البيضة هتقع فين؟",
+        "response": "الديك مابيبيضش"
+    },
+    {
+        "question": "إيه الحاجة اللي تقدر تكسرها من غير ما تلمسها؟",
+        "response": "الوعد"
+    },
+    {
+        "question": "إيه اللي كل ما ينشف، يبل أكتر؟",
+        "response": "الفوطة"
+    },
+    {
+        "question": "إيه الكلمة اللي مكتوبة غلط في القاموس؟",
+        "response": "غلط"
+    },
+    {
+        "question": "إيه اللي يحصل لو رميت حجر أبيض في البحر الأحمر؟",
+        "response": "يتبل"
+    },
+    {
+        "question": "إيه الحاجة اللي ممكن تخليك تعيط وتضحك في نفس الوقت؟",
+        "response": "البصل"
+    },
+    {
+        "question": "إيه الحاجة اللي بتكتب، لكن ما بتقراش؟",
+        "response": "القلم"
+    },
+    {
+        "question": "إيه اللي فيه كلام كتير، لكن مش بيتكلم؟",
+        "response": "الكتاب"
+    }
+        ]
