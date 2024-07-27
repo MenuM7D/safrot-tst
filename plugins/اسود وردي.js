@@ -1,6 +1,6 @@
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
     let response = args.join(' ').split('|')
-    if (!text) throw ` *❗لازم تدخل نص مع الأمر* `
+    if (!text) throw ` *\`『 هات نص معا الامر يحب🧚🏼‍♂️ 』\`* `
     await m.react('🕓')
     try {
         let res = `https://api.lolhuman.xyz/api/textprome/blackpink?apikey=${lolkeysapi}&text=${text}`
@@ -14,5 +14,5 @@ handler.help = ['بلاك']
 handler.tags = ['logo']
 handler.command = /^(بلاك)$/i
 handler.limit = 3
-handler.register = true 
+//handler.register = true 
 export default handler
