@@ -91,9 +91,9 @@ handler.before = async (m, { conn }) => {
     }
 };
 
-handler.help = ['ahorcado'];
+handler.help = ['لغز'];
 handler.tags = ['game'];
 handler.command = ['لغز'];
-handler.register = true;
+//handler.register = true;
 
 export default handler;
