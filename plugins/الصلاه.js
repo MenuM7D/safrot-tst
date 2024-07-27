@@ -53,7 +53,7 @@ const handler = async (m, { text, usedPrefix, command }) => {
   const mediaMessage = await prepareWAMessageMedia({ image: { url: randomImage } }, { upload: conn.waUploadToServer });
 
   // إعداد الرسالة النصية والميديا للإرسال
-  const caption = `مــرحــبـا يــا @${m.pushName}\nاخــتــاࢪ مـن قــائــمــة الــدول 🧞`;
+  const caption = `مــرحــبـا يــا @${m.pushName}\nاخــتــاࢪ مـن قــائــمــة الــدول 🧚🏼‍♂️`;
   const msg = generateWAMessageFromContent(m.chat, {
     viewOnceMessage: {
       message: {
