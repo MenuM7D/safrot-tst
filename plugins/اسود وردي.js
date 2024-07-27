@@ -10,9 +10,9 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
         await m.react('❌')
     }
 }
-handler.help = ['blackpink *<نص>*']
+handler.help = ['بلاك']
 handler.tags = ['logo']
-handler.command = /^(blackpink)$/i
+handler.command = /^(بلاك)$/i
 handler.limit = 3
 handler.register = true 
 export default handler
