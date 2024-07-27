@@ -1,111 +1,296 @@
 import fetch from "node-fetch";
 import cheerio from "cheerio";
+import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysockets/baileys';
 
-let handler = async (m, { conn, text }) => {
-    const cap = `╮────────────────────────╭ـ\n│ *مرحبا أنا خدمة /Fake Number Ai*/\n│ خدمة قادرة على صنع الأرقام الوهمية.\n│[دولة] لعرض قائمة الدول.\n│[أرقام] لعرض قائمة الأرقام للدولة.\n│[رسائل] لعرض قائمة الرسائل للرقم \n╯────────────────────────╰ـ`;
+let handler = async (m, { conn, text, command, usedPrefix }) => {
 
-    let lister = ["دولة", "أرقام", "رسائل"];
+    let menu = `╮────────────────────────╭ـ\n│مرحبا : ~@${m.sender.split("@")[0]}~\n╯────────────────────────╰ـ \n`;
 
-    const link = 'https://getfreesmsnumber.com/';
-    const link2 = 'https://getfreesmsnumber.com/virtual-phone';
+    let pp = 'https://telegra.ph/file/c73aac3f5ad3201fd4717.jpg';
+
+    const cap = `${menu}\n╮────────────────────────╭ــ\n│ *أنا خدمة Fake Number Ai*\n│ خدمة قادرة على صنع الأرقام الوهمية.\n│[دولة] لعرض قائمة الدول.\n│[أرقام] لعرض قائمة الأرقام للدولة.\n│[رسائل] لعرض قائمة الرسائل للرقم \n│[كود] لنسخ كود الرسالة المحددة\n╯────────────────────────╰ـ`;
+
+    let lister = ["دولة", "أرقام", "رسائل", "كود"];
+
+    const link = 'https://temporary-phone-number.com';
+    const link2 = 'https://temporary-phone-number.com/countrys/';
 
     let [feature, ...args] = text.split(" ");
-    let additionalLink = args.join(" ").trim(); // Extract the additional link after the command
-
+    let additionalLink = args.join(" ").trim(); 
+    
     if (!lister.includes(feature)) {
-        return conn.sendMessage(m.chat, { text: cap }, { quoted: m });
+        return conn.sendButton(m.chat, cap, '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['دولـة',`${usedPrefix + command} دولة`]], null, null, m);
     }
 
-    // Helper function to introduce delay
-    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-    if (feature == "دولة") {
+    if (feature === "دولة") {
         try {
             let response = await fetch(link2);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
-            // Introduce delay while processing the response
-            await delay(2000); // Delay for 2 seconds
-
             let html = await response.text();
             const $ = cheerio.load(html);
 
             let countryLinks = [];
-            $('.col-12.col-lg-3.col-md-4.col-sm-6.p-2').each((i, el) => {
-                const href = $(el).find('a.btn.btn-primary').attr('href').trim();
-                const countryName = $(el).find('.card-title h3').text().trim();
-                const number = $(el).find('.card-text p.font-weight-bold').text().trim();
+            $('a.checkout-box').each((i, el) => {
+                const href = $(el).attr('href');
+                const countryName = $(el).text().trim();
 
                 if (href) {
-                    countryLinks.push({
-                        name: countryName,
-                        number: number,
-                        shortLink: href,
-                        fullLink: `${link}${href.trim()}`
-                    });
+                    const parts = countryName.split('\n');
+                    let name, number;
+                    if (parts.length === 2) {
+                        name = parts[0];
+                        number = parts[1].replace(/\s+/g, '');
+                    } else {
+                        name = countryName;
+                        number = '';
+                    }
+
+                    countryLinks.push({ name: name, number: number, shortLink: href, fullLink: `${link}${href}` });
                 }
             });
+            
+            let heager = [];
+            for (const v of countryLinks) {
+                heager.push({
+                    header: v.number,
+                    title: v.name,
+                    id: `${usedPrefix + command} أرقام ${v.fullLink}`,
+                    description: `قائمة أرقام دولة ${v.name}`
+                });
+            }
 
-            let countryText = "╮────────────────────────╭ـ\n│ *قائمة الدول وروابطها:*\n╯────────────────────────╰ـ\n\n" + countryLinks.map((country, index) => 
-                `╮────────────────────────╭ـ\n│نتيجة: [${index + 1}]\n│دولة: ${country.name}\n│المتاح: ${country.number}\n│ عنوان: ${country.shortLink}\n│ رابط: ${country.fullLink}\n╯────────────────────────╰ـ`
-            ).join("\n\n<─────────────────────────>\n\n");
+            const media = await prepareWAMessageMedia({ image: { url: pp } }, { upload: conn.waUploadToServer });
 
-            return conn.sendMessage(m.chat, { text: countryText }, { quoted: m });
+            const caption = '╮────────────────────────╭ـ\n│ *قائمة الدول وروابطها:*\n╯────────────────────────╰ـ\n';
+
+            const msg = generateWAMessageFromContent(m.chat, {
+                viewOnceMessage: {
+                    message: {
+                        interactiveMessage: {
+                            body: { text: caption },
+                            footer: { text: '𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩' },
+                            header: {
+                                hasMediaAttachment: true,
+                                imageMessage: media.imageMessage,
+                            },
+                            nativeFlowMessage: {
+                                buttons: [
+                                    {
+                                        name: 'single_select',
+                                        buttonParamsJson: JSON.stringify({
+                                            title: 'قائـمة الـدول',
+                                            sections: [
+                                                {
+                                                    title: 'قائمة الدول',
+                                                    highlight_label: '🧚🏼‍♂️',
+                                                    rows: heager
+                                                }
+                                            ]
+                                        }),
+                                    },
+                                    {
+                                        name: 'quick_reply',
+                                        buttonParamsJson: JSON.stringify({
+                                            displayText: 'الرئيسية',
+                                            id: `${usedPrefix + command}`
+                                        }),
+                                    },
+                                ],
+                                messageParamsJson: "",
+                            },
+                        },
+                    },
+                }
+            }, { userJid: conn.user.jid, quoted: m });
+
+            return await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
 
         } catch (error) {
             console.log(error);
-            return conn.sendMessage(m.chat, { text: "حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا." }, m);
+            return conn.sendButton(m.chat, `╮────────────────────────╭ـ\n│ حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا.\n╯────────────────────────╰ـ `, '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['حاول مجددا',`${usedPrefix + command} دولة`]], null, null, m);
         }
-
-    } else if (feature == "أرقام") {
+    } else if (feature === "أرقام") {
         if (!additionalLink) {
             return conn.sendMessage(m.chat, { text: "يرجى إدخال رابط بعد الأمر \"أرقام\"." }, { quoted: m });
         }
-
+        
         try {
             let response = await fetch(additionalLink);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-
-            // Introduce delay while processing the response
-            await delay(2000); // Delay for 2 seconds
 
             let html = await response.text();
             const $ = cheerio.load(html);
 
             let numberLinks = [];
-            $('.col-12.col-lg-3.col-md-4.col-sm-6.p-2').each((i, el) => {
-                const href = $(el).find('a.btn.btn-primary').attr('href').trim();
-                const numberText = $(el).find('.card-text p.font-weight-bold').text().trim();
-                const latestText = $(el).find('.card-text p.small').text().trim();
+            $('.col-sm-6.col-md-4.col-lg-3.col-xs-12').each((i, el) => {
+                const href = $(el).find('a').attr('href');
+                const numberText = $(el).find('.info-box-number').text().trim();
+                const latestText = $(el).find('.info-box-time').text().trim();
 
                 if (href && numberText) {
-                    numberLinks.push({
-                        number: numberText,
-                        shortLink: href,
-                        fullLink: `${link}${href}`,
-                        latest: latestText
-                    });
+                    numberLinks.push({ number: numberText, shortLink: href, fullLink: `${link}${href}`, latest: latestText });
                 }
             });
 
-            let numberText = "╮────────────────────────╭ـ\n│ *قائمة الأرقام وروابطها:*\n╯────────────────────────╰ـ\n\n" + numberLinks.map((num, index) => 
-                `╮────────────────────────╭ـ\n│نتيجة: [${index + 1}]\n│رقم: ${num.number}\n│ أحدث: ${num.latest}\n│ عنوان: ${num.shortLink}\n│ رابط: ${num.fullLink}\n╯────────────────────────╰ـ`
-            ).join("\n\n<─────────────────────────>\n\n");
+            let heager = [];
+            for (const v of numberLinks) {
+                heager.push({
+                    header: v.number,
+                    title: v.number,
+                    id: `${usedPrefix + command} رسائل ${v.fullLink}`,
+                    description: `قائمة رسائل الرقم ${v.number}`
+                });
+            }
 
-            return conn.sendMessage(m.chat, { text: numberText }, { quoted: m });
+            const media = await prepareWAMessageMedia({ image: { url: pp } }, { upload: conn.waUploadToServer });
+
+            const caption = '╮────────────────────────╭ـ\n│ *قائمة الأرقام وروابطها:*\n╯────────────────────────╰ـ\n';
+
+            const msg = generateWAMessageFromContent(m.chat, {
+                viewOnceMessage: {
+                    message: {
+                        interactiveMessage: {
+                            body: { text: caption },
+                            footer: { text: '𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩' },
+                            header: {
+                                hasMediaAttachment: true,
+                                imageMessage: media.imageMessage,
+                            },
+                            nativeFlowMessage: {
+                                buttons: [
+                                    {
+                                        name: 'single_select',
+                                        buttonParamsJson: JSON.stringify({
+                                            title: 'قائـمة الأرقام',
+                                            sections: [
+                                                {
+                                                    title: 'قائمة الأرقام',
+                                                    highlight_label: '📱',
+                                                    rows: heager
+                                                }
+                                            ]
+                                        }),
+                                    },
+                                    {
+                                        name: 'quick_reply',
+                                        buttonParamsJson: JSON.stringify({
+                                            displayText: 'الرئيسية',
+                                            id: `${usedPrefix + command}`
+                                        }),
+                                    },
+                                ],
+                                messageParamsJson: "",
+                            },
+                        },
+                    },
+                }
+            }, { userJid: conn.user.jid, quoted: m });
+
+            return await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
 
         } catch (error) {
             console.log(error);
-            return conn.sendMessage(m.chat, { text: "حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا." }, m);
+            return conn.sendButton(m.chat, `╮────────────────────────╭ـ\n│ حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا.\n╯────────────────────────╰ـ `, '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['حاول مجددا',`${usedPrefix + command} أرقام ${additionalLink}`]], null, null, m);
         }
 
-    } else if (feature == "رسائل") {
+    } else if (feature === "رسائل") {
         if (!additionalLink) {
             return conn.sendMessage(m.chat, { text: "يرجى إدخال رابط بعد الأمر \"رسائل\"." }, { quoted: m });
+        }
+        
+        try {
+            let response = await fetch(additionalLink);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            let html = await response.text();
+            const $ = cheerio.load(html);
+
+            let messages = [];
+            $('.direct-chat-msg.left').each((i, el) => {
+                const from = $(el).find('.direct-chat-info span.pull-right').text().trim();
+                const time = $(el).find('.direct-chat-timestamp').text().trim();
+                const text = $(el).find('.direct-chat-text').text().trim();
+
+                messages.push({ from: from, time: time, text: text });
+            });
+
+            let heager = [];
+            for (const v of messages) {
+                heager.push({
+                    header: v.from,
+                    title: v.text,
+                    id: `${usedPrefix + command} كود ${additionalLink}`,
+                    description: `الوقت: ${v.time}`
+                });
+            }
+
+            const media = await prepareWAMessageMedia({ image: { url: pp } }, { upload: conn.waUploadToServer });
+
+            const caption = '╮────────────────────────╭ـ\n│ *قائمة الرسائل:*';
+
+            const msg = generateWAMessageFromContent(m.chat, {
+                viewOnceMessage: {
+                    message: {
+                        interactiveMessage: {
+                            body: { text: caption },
+                            footer: { text: '𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩' },
+                            header: {
+                                hasMediaAttachment: true,
+                                imageMessage: media.imageMessage,
+                            },
+                            nativeFlowMessage: {
+                                buttons: [
+                                    {
+                                        name: 'single_select',
+                                        buttonParamsJson: JSON.stringify({
+                                            title: 'قائمة الرسائل',
+                                            sections: [
+                                                {
+                                                    title: 'قائمة الرسائل',
+                                                    highlight_label: '📧',
+                                                    rows: heager
+                                                }
+                                            ]
+                                        }),
+                                    },
+                                    {
+                                        name: 'quick_reply',
+                                        buttonParamsJson: JSON.stringify({
+                                            displayText: 'نسخ كود',
+                                            id: `${usedPrefix + command} كود ${additionalLink}`
+                                        }),
+                                    },
+                                    {
+                                        name: 'quick_reply',
+                                        buttonParamsJson: JSON.stringify({
+                                            displayText: 'الرئيسية',
+                                            id: `${usedPrefix + command}`
+                                        }),
+                                    },
+                                ],
+                                messageParamsJson: "",
+                            },
+                        },
+                    },
+                }
+            }, { userJid: conn.user.jid, quoted: m });
+
+            return await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
+
+        } catch (error) {
+            console.log(error);
+            return conn.sendButton(m.chat, `╮────────────────────────╭ـ\n│ حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا.\n╯────────────────────────╰ـ `, '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['حاول مجددا',`${usedPrefix + command} رسائل ${additionalLink}`]], null, null, m);
+        }
+    } else if (feature === "كود") {
+        if (!additionalLink) {
+            return conn.sendMessage(m.chat, { text: "يرجى إدخال رابط بعد الأمر \"كود\"." }, { quoted: m });
         }
 
         try {
@@ -114,39 +299,26 @@ let handler = async (m, { conn, text }) => {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
-            // Introduce delay while processing the response
-            await delay(2000); // Delay for 2 seconds
-
             let html = await response.text();
             const $ = cheerio.load(html);
 
-            let messages = [];
-            $('.card.m-2.text-center').each((i, el) => {
-                const from = $(el).find('.card-header span a').text().trim();
-                const time = $(el).find('.blockquote-footer.float-right').text().trim();
-                const text = $(el).find('.card-body').html().replace(/<[^>]*>/g, '').trim();
+            // assuming the code is within a specific tag/class, adjust as needed
+            let code = $('.code-snippet').text().trim();
 
-                messages.push({
-                    from: from,
-                    time: time,
-                    text: text
-                });
-            });
+            if (!code) {
+                return conn.sendMessage(m.chat, { text: "لم يتم العثور على كود في الصفحة." }, { quoted: m });
+            }
 
-            let messageText = "╮────────────────────────╭ـ\n│ *قائمة الرسائل:*\n╯────────────────────────╰ـ\n\n" + messages.map((msg, index) => 
-                `╮────────────────────────╭ـ\n│نتيجة: [${index + 1}]\n│من: ${msg.from}\n│ الوقت: ${msg.time}\n│ الرسالة: ${msg.text}\n╯────────────────────────╰ـ`
-            ).join("\n\n<─────────────────────────>\n\n");
-
-            return conn.sendMessage(m.chat, { text: messageText }, { quoted: m });
+            return conn.sendMessage(m.chat, { text: `\`\`\`${code}\`\`\`` }, { quoted: m });
 
         } catch (error) {
             console.log(error);
-            return conn.sendMessage(m.chat, { text: "حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا." }, m);
+            return conn.sendButton(m.chat, `╮────────────────────────╭ـ\n│ حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا.\n╯────────────────────────╰ـ `, '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['حاول مجددا',`${usedPrefix + command} كود ${additionalLink}`]], null, null, m);
         }
     }
 };
 
 handler.help = ["facknumbar"];
 handler.tags = ["fack"];
-handler.command = /^(رقم_فيك)$/i;
+handler.command = /^(رقم)$/i;
 export default handler;
