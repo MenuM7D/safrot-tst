@@ -1,9 +1,14 @@
-//مقدمه من قناه: https://whatsapp.com/channel/0029VaZQ0FG4dTnQxihmuk01
-//المقدم:زيريف دراجونيل
 let handler = async (m, { conn }) => {
+    // الحصول على JID الشخص المستهدف
     let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+
+    // الحصول على اسم الشخص المستهدف
     let name = conn.getName(who)
+
+    // الحصول على صورة الملف الشخصي أو استخدام الصورة الافتراضية
     let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './mob.jpg')
+
+    // إرسال الصورة مع الرسالة
     conn.sendFile(m.chat, global.API('https://some-random-api.com', '/canvas/overlay/wasted', {
       avatar: pp, 
     }), 'waste.png', `*⎔❯╼╾╾╃❖⟪ 🍥 ⟫❖╃╼╾╾❮⎔*
@@ -12,14 +17,14 @@ let handler = async (m, { conn }) => {
 *♡↵》كان راجل جدع*
 *♡↵》المرحوم『 ${name} 』•*
 *‏◉ ⊱━─━─━ •♦️• ━─━─━⊰ ◉*
-『 بوت سفروت🤺🔥』
+『 ₛₐfᵣₒₜ↯bₒₜ 』
 *⎔❯╼╾╾╃❖⟪ 🍥 ⟫❖╃╼╾╾❮⎔*
 *⧉↵╎「تـوقـيـع ✍🏻」*
 ~*♯◡̈⃝ЅᗩFᏒOT꙯*~`, m)
-  }
-  
-  handler.help = ['waste @user']
-  handler.tags = ['fun']
-  handler.command = ['موت'] 
+}
 
-  export default handler
+handler.help = ['waste @user']
+handler.tags = ['fun']
+handler.command = ['موت'] 
+
+export default handler
