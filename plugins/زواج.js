@@ -5,12 +5,11 @@ let a = ps.getRandom()
 let b
 do b = ps.getRandom()
 while (b === a)
-m.reply(`*${toM(a)}, الف مبروك للعريس🥳✨*
-*${toM(b)}, الف مبروك للعروسه🥳✨*\n\*ملاحظه ده منشن عشوائي للمرح فقط اذ لم يعجبك الأمر إذن ماتستخدمش الامر💗*`, null, {
+m.reply(`*${toM(a)},  لازم تتجوزا ومتنسوش تعزموني ع الفرح 😂🫡  ${toM(b)}, لايقين علي بعض نسخه طبق الاصل 😂💓*`, null, {
 mentions: [a, b]
 })}
 handler.help = ['formarpareja']
 handler.tags = ['main', 'fun']
-handler.command = ['formarpareja','زواج']
+handler.command = ['جواز','زواج']
 handler.group = true
 export default handler
