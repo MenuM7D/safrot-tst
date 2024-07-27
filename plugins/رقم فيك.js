@@ -19,7 +19,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
     let additionalLink = args.join(" ").trim(); 
     
     if (!lister.includes(feature)) {
-        return conn.sendButton(m.chat, cap, '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['دولـة',`${usedPrefix + command} دولة`]], null, null, m);
+        return conn.sendButton(m.chat, cap, '𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩', pp, [['دولـة',`${usedPrefix + command} دولة`]], null, null, m);
     }
 
     if (feature === "دولة") {
