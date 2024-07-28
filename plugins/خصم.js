@@ -1,5 +1,5 @@
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
-    if (!text) throw `*\`『 اكتب الرقم الي عايز تبعتلو دعوه 』\`*\n*مــثـال :\n*${usedPrefix + command} 201115618853`;
+    if (!text) throw `*\`『 اكتب الرقم 』\`*`;
     if (text.includes('+')) throw `*لا تــضـع هـذه الـعـلـامـه +*`;
     if (isNaN(text)) throw '*دخــل الـرقـم بـدـون مـسافـات !*';
     
@@ -12,7 +12,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 
 handler.help = ['send <20xxx>'];
 handler.tags = ['general'];
-handler.command = ['send']; // يمكنك تغيير اسم الأمر حسب ما تفضل
+handler.command = ['خصم']; // يمكنك تغيير اسم الأمر حسب ما تفضل
 handler.group = false;
 handler.private = false;
 handler.owner = false;
