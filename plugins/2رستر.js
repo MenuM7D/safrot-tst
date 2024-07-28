@@ -17,9 +17,9 @@ let handler = async (m, { conn, isROwner, text }) => {
     } else throw 'eh'
 }
 
-handler.help = ['restart']
+handler.help = ['رسترت']
 handler.tags = ['owner']
-handler.command = ['رستر', 'reiniciar'] 
+handler.command = ['رسترت', 'reiniciar'] 
 handler.rowner = true
 
 export default handler
