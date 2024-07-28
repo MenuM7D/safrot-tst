@@ -5,15 +5,15 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     } else {
         who = m.chat
     }
-    
+
     if (!who) throw `*منشن للي عايز تعملو بان*🧚🏼‍♂️`
 
-    // Check if the user exists in the database
-   if (!(who in global.db.data.users)) throw `*المستخدم غير موجود في قاعدة البيانات*`
-    
+    // التحقق من وجود المستخدم في قاعدة البيانات
+    if (!(who in global.db.data.users)) throw `*المستخدم غير موجود في قاعدة البيانات*`
+
     let user = global.db.data.users[who]
     user.banned = true
-    
+
     let audioUrl = 'https://qu.ax/SJJt.mp3'
     let imageUrl = 'https://telegra.ph/file/5487258cdd4f40ee4d259.jpg'  // URL للصورة الثابتة
 
