@@ -1,7 +1,7 @@
 import yts from 'yt-search';
 
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
-  if (!text) return m.reply(`*\`『 نسيت اسم الاغنيه معا الامر يحب🧚🏼‍♂️ 』\`*\n*• مثال*\n*${usedPrefix + command}* عمرو دياب`);
+  if (!text) return m.reply(`*『 نسيت اسم الاغنية مع الأمر 🧚🏼‍♂️ 』*\n*• مثال*\n*${usedPrefix + command}* عصام صاصا`);
   m.react('📀');
 
   let result = await yts(text);
@@ -46,6 +46,5 @@ let handler = async (m, { conn, usedPrefix, text, args, command }) => {
 handler.help = ['playlist', 'yts'];
 handler.tags = ['downloader'];
 handler.command = ['اغنية', 'playlist', 'playlista', 'yts', 'ytsearch'];
-//handler.register = true;
 
 export default handler;
