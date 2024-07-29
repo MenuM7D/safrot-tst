@@ -31,7 +31,7 @@ await conn.sendButton(m.chat, texto1, wm, res.videos[0].thumbnail, [
         ['الفيديو 🎥', `${usedPrefix}mp4 ${text}`], 
         ['ملف صوتي 📀', `.mp3doc ${text}`], 
         ['ملف فيديو 🎥', `.mp4doc ${text}`] 
-  ], null, [['قناتي ⚡', `https://whatsapp.com/channel/0029Vaflefp4Y9ljqmqllP3a`]], m)
+  ], null, [['قناتي ⚡', `https://whatsapp.com/channel/0029VaeXAKJAjPXLKGuZSr46`]], m)
           }
 
             if (command == "mp3") {
