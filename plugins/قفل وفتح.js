@@ -12,8 +12,8 @@
       '𝘽𝙔: 𝙎𝙖𝙛𝙧𝙤𝙩 𝘽𝙊𝙏',
       pp,
       [
-        ['open group ', `${usedPrefix + command} فتح`],
-        ['close group ', `${usedPrefix + command} قفل`]
+        ['فتح', `${usedPrefix + command} فتح`],
+        ['قفل', `${usedPrefix + command} قفل`]
       ], null, 
       m
     );
