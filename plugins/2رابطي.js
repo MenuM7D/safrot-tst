@@ -5,7 +5,7 @@ let handler = async (m, { conn, text }) => {
   let mylink = [m.sender]
   conn.reply(m.chat, tagme, m, { contextInfo: { mylink }})
 }
-handler.help = ['✓ ◡̈⃝ ✓│رابطي🧸💜']
+handler.help = ['رابطي']
 handler.tags = ['group']
 handler.command = /^رابطي$/i
 }
