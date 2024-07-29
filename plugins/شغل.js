@@ -102,7 +102,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
     }
 
     try {
-      if (command === 'play.1') {
+      if (command === 'شغل1') {
         let apiUrls2 = [
           `https://api.cafirexos.com/api/v1/ytmp3?url=${data.resultado.url}`,
           `https://api.cafirexos.com/api/v2/ytmp3?url=${data.resultado.url}`,
@@ -128,7 +128,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
           enviando = false;
           throw `حدث خطأ أثناء جلب رابط الصوت.`;
         }
-      } else if (command === 'play.2') {
+      } else if (command === 'شغل2') {
         let apiUrls22 = [
           `https://api.cafirexos.com/api/v1/ytmp4?url=${data.resultado.url}`,
           `https://api.cafirexos.com/api/v2/ytmp4?url=${data.resultado.url}`,
@@ -177,7 +177,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
   }
 };
 
-handler.command = /^(play.1|play.2|شغل)$/i;
+handler.command = /^(شغل1|شغل2|شغل)$/i;
 export default handler;
 
 async function isValidYouTubeLink(link) {
