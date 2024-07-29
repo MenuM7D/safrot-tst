@@ -13,9 +13,9 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
   conn.sendButton(m.chat, `🧚🏼‍♂️ *البحث*: ${text}`, botname, link, [['🧚🏼‍♂️ صوره تاني 🧚🏼‍♂️', `/${command} ${text}`]], null, null, m, null, fake);
 };
 
-handler.help = ['gimage <query>', 'imagen <query>'];
+handler.help = ['صوره2'];
 handler.tags = ['buscadores'];
-handler.command = /^(gimage|صوره|صور|imagen)$/i;
+handler.command = /^(gimage|صوره2|صور|imagen)$/i;
 //handler.register = true;
 handler.limit = 1;
 
