@@ -16,7 +16,7 @@ let enviando = false;
 const handler = async (m, { command, usedPrefix, conn, text }) => {
   device = await getDevice(m.key.id);
 
-  if (!text) throw `*[ ℹ️ ] ينقص عنوان فيديو YouTube.*\n\n*[ 💡 ] مثال:* _${usedPrefix + command} Good Feeling - Flo Rida_\n\n*[ 💡 ] مثال 2:* _${usedPrefix + command} https://youtu.be/JLWRZ8eWyZo?si=EmeS9fJvS_OkDk7p_`;
+  if (!text) throw '*\`『 نسيت تكتب الي عايز تشغلو🧚🏼‍♂️ 』\`*';
 
   if (command === 'playyt' && (device == 'desktop' || device == 'web')) throw `*[❗] رسائل الأزرار غير متوفرة في WhatsApp web، يرجى استخدام هاتفك المحمول لعرض الرسائل واستخدام الأزرار.*`;
 
@@ -52,7 +52,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
 
     if (!success) {
       enviando = false;
-      throw `_*< يوتيوب - تحميل />*_\n\n*[ ℹ️ ] ينقص عنوان فيديو YouTube.*\n\n*[ 💡 ] مثال:* _.شغل Good Feeling - Flo Rida_\n\n*[ 💡 ] مثال 2:* _.شغل https://youtu.be/JLWRZ8eWyZo?si=EmeS9fJvS_OkDk7p_`;
+      throw '_*\`『 اكتب الي هتشغلو معا الامر🧚🏼‍♂️ 』\`*_';
     }
 
     const dataMessage = `العنوان : ${data.resultado.title}\nتم النشر : ${data.resultado.publicDate}\nالقناه : ${data.resultado.channel}\nرابط القناه : ${data.resultado.url}`.trim();
