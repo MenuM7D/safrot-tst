@@ -1,70 +1,70 @@
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
+import fetch from 'node-fetch' 
 import yts from 'yt-search'
-var handler = async (m, { conn, command, text, usedPrefix }) => {
-  if (!text) throw `*تحميل الاغاني من يوتوب*`
-  await m.reply(wait)
-  let search = await yts(text)
-  let vid = search.videos[Math.floor(Math.random() * search.videos.length)]
-  if (!search) throw '*⚠️ Vídeo no encontrado, prueba con otro título*'
-  let { title, thumbnail, timestamp, views, ago, url } = vid
+import ytdl from 'ytdl-core'
 
-  let captvid = `╭──── 〔 Y O U T U B E 〕 ─⬣
-⬡ T: ${title}
-⬡ D: ${timestamp}
-⬡ V: ${views}
-⬡ S: ${ago}
-⬡ E: ${url}
-╰────────⬣`
-  conn.sendButton(m.chat, `╭──── 〔 Y O U T U B E 〕 ─⬣
-⬡ T: ${title}
-⬡ D: ${timestamp}
-⬡ V: ${views}
-⬡ S: ${ago}
-⬡ E: ${url}
-╰────────⬣`, author.trim(), await( await conn.getFile(thumbnail)).data, ['📽 VIDEO', `${usedPrefix}getvid ${url} 360`], false, { quoted: m, 'document': { 'url':'https://wa.me/59176184204' },
-'mimetype': global.dpdf,
-'fileName': `𝕐𝕠𝕦𝕋𝕦𝕓𝕖 ℙ𝕝𝕒𝕪`,
-'fileLength': 666666666666666,
-'pageCount': 2023,contextInfo: { externalAdReply: { showAdAttribution: true,
-mediaType:  2,
-mediaUrl: `${url}`,
-title: `BOBIZ IS HERE ♥...`,
-body:author,
-sourceUrl: 'http://wa.me/59176184204', thumbnail: await ( await conn.getFile(thumbnail)).data
-  }
- } 
-})
+var handler = async (m, { text, conn, args, usedPrefix, command }) => {
+
+if (!args[0]) conn.reply(m.chat, '🎌 *أدخل الأمر بالإضافة إلى رابط يوتيوب*',  m, fake, )
+
+let youtubeLink = ''
+if (args[0].includes('you')) {
+youtubeLink = args[0]
+} else {
+const index = parseInt(args[0]) - 1
+if (index >= 0) {
+if (Array.isArray(global.videoList) && global.videoList.length > 0) {
+const matchingItem = global.videoList.find(item => item.from === m.sender)
+if (matchingItem) {
+if (index < matchingItem.urls.length) {
+youtubeLink = matchingItem.urls[index]
+} else {
+return conn.reply(m.chat, `🚩 *لم يتم العثور على رابط لهذا الرقم، أدخل رقمًا من 1 إلى ${matchingItem.urls.length}*`,  m, fake, )
+}} else {
+return conn.reply(m.chat, `🎌 *من أجل استخدام هذا الأمر في الطريق (${usedPrefix + command} <رقم>), البحث عن مقاطع الفيديو مع ${usedPrefix}playlist <texto>*`,  m, fake, )
+}} else {
+return conn.reply(m.chat, `🎌 *من أجل استخدام هذا الأمر في الطريق (${usedPrefix + command} <رقم>), البحث عن مقاطع الفيديو مع con ${usedPrefix}playlist <texto>*`,  m, fake, )
+}}} 
+await conn.reply(m.chat, `⏰ *الرجاء الانتظار حين يتم تلبيه طلبك صلي علي نبينا محمد*`, m, fake, )
+
+try {
+
+let q = '128kbps'
+let v = youtubeLink
+const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v))
+const dl_url = await yt.audio[q].download()
+const ttl = await yt.title
+const size = await yt.audio[q].fileSizeH
+await conn.sendFile(m.chat, dl_url, ttl + '.mp3', null, m, false, { mimetype: 'audio/mp4' })
+} catch {
   
-  //let buttons = [{ buttonText: { displayText: '📽VIDEO' }, buttonId: `${usedPrefix}ytv ${url} 360` }]
- //let msg = await conn.sendMessage(m.chat, { image: { url: thumbnail }, caption: captvid, footer: author, buttons }, { quoted: m })
+try {
 
-  const yt = await youtubedlv2(url).catch(async _ => await youtubedl(url))
-const link = await yt.audio['128kbps'].download()
-  let doc = { 
-  audio: 
-  { 
-    url: link 
-}, 
-mimetype: 'audio/mp4', fileName: `${title}`, contextInfo: { externalAdReply: { showAdAttribution: true,
-mediaType:  2,
-mediaUrl: url,
-title: title,
-body: author,
-sourceUrl: url,
-thumbnail: await(await conn.getFile(thumbnail)).data                                                                     
-                                                                                                                 }
-                       }
-  }
+let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkeysapi}&url=${youtubeLink}`)
+let lolh = await lolhuman.json()
+let n = lolh.result.title || 'error'
+m.react(done)
+await conn.sendMessage(m.chat, { audio: { url: lolh.result.link }, fileName: `${n}.mp3`, mimetype: 'audio/mp4' }, { quoted: m })
+} catch {
 
-  return conn.sendMessage(m.chat, doc, { quoted: m })
-	// return conn.sendMessage(m.chat, { document: { url: link }, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, { quoted: m})
-	// return await conn.sendFile(m.chat, link, title + '.mp3', '', m, false, { asDocument: true })
+try {
+
+let searchh = await yts(youtubeLink)
+let __res = searchh.all.map(v => v).filter(v => v.type == "video")
+let infoo = await ytdl.getInfo('https://youtu.be/' + __res[0].videoId)
+let ress = await ytdl.chooseFormat(infoo.formats, { filter: 'audioonly' })
+m.react(done)
+conn.sendMessage(m.chat, { audio: { url: ress.url }, fileName: __res[0].title + '.mp3', mimetype: 'audio/mp4' }, { quoted: m })
+} catch {
+m.react(error)
+await conn.reply(m.chat, '🚩 *حدث فشل*', m, fake, )}
+}}
+
 }
-handler.help = ['play'].map(v => v + ' <pencarian>')
-handler.tags = ['downloader']
-handler.command = /^اغاني$/i
+handler.help = ['yta']
+handler.tags = ['descargas']
+handler.command = /^اغاني|fgmp3|dlmp3|getaud|yt(a|mp3)$/i
 
-handler.exp = 0
-handler.limit = false
+handler.limit = true
 
 export default handler
