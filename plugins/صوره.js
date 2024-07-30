@@ -15,7 +15,7 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
 
 handler.help = ['صوره2'];
 handler.tags = ['buscadores'];
-handler.command = /^(gimage|صوره|صور|imagen)$/i;
+handler.command = /^(gimage|صوره|صورة|imagen)$/i;
 //handler.register = true;
 handler.limit = 1;
 
