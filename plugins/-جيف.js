@@ -10,9 +10,9 @@ const handler = async (m, {conn, usedPrefix, command}) => {
   conn.sendMessage(m.chat, {video: media, gifPlayback: true, caption: '*اتفضل يحب🧚🏼‍♂️*'}, {quoted: m});
 };
 
-handler.help = ['togif'];
+handler.help = ['جيف'];
 handler.tags = ['محول'];
 handler.command = ['جيف', 'togif'];
-handler.register = true;
+//handler.register = true;
 
 export default handler;
