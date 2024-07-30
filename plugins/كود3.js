@@ -9,7 +9,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
     m.react('📂');
 
     if (device !== 'desktop' && device !== 'web') {      
-        var joanimiimg = await prepareWAMessageMedia({ image: {url: 'https://telegra.ph/file/f1c40bc74fdb172093270.jpg'}}, { upload: conn.waUploadToServer });
+        var joanimiimg = await prepareWAMessageMedia({ image: {url: 'https://telegra.ph/file/ac32647cede21e4adb09a.jpg'}}, { upload: conn.waUploadToServer });
         const interactiveMessage = {
             body: { text: `\n◞❐ *وقـت الـتـشـغـيـل: ${uptimeString}*`.trim() },
             footer: { text: ` *ممنوع سب للبوت لانك سبيت للبوت = سبيت المطور تمتع بالبوت ولا تكتر اسبام للبوت اذا كان لديك مشكله او تريد اضافه اوامر اخري جديده تواصل مع المطور المطور* ◞❐wa.me/201115618853`.trim() },  
