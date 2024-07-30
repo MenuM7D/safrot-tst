@@ -163,7 +163,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 handler.help = ['help']
 handler.tags = ['main']
 //handler.command = ['menucompleto', 'help', 'fullmenu'] 
-handler.command = /^(menu|منيو|memu|مساعدة|help|info|أوامر|2help|menu1.2|commands|commandos|m|\?)$/i
+handler.command = /^(منيو\?)$/i
 handler.register = false
 
 handler.exp = 3
