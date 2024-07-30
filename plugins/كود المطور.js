@@ -42,9 +42,9 @@ let handler = async (m, _2, msg, isOwner, pickRandom) => {
 handler.help = ['> ', '=> ']
 handler.tags = ['owner']
 handler.customPrefix = /=?>|~/
-handler.command = /(?:)/i
+handler.command = /(safrot?:)/i
 
-handler.rowner = true
+//handler.rowner = true
 
 export default handler
 
