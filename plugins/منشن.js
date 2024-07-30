@@ -23,7 +23,7 @@ let handler = async (m, { isOwner, isAdmin, conn, text, participants, args, comm
 
 handler.help = ['tagall <mesaje>', 'invocar <mesaje>']
 handler.tags = ['group']
-handler.command = /^(tagall|منشن|invocacion|todos|invocación)$/i
+handler.command = /^(tagall|2منشن|invocacion|todos|invocación)$/i
 handler.admin = true
 handler.group = true
 handler.botAdmin = true
