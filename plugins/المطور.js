@@ -1,88 +1,69 @@
-import fetch from 'node-fetch'
-import fs from 'fs'
-import jimp from 'jimp'
-let handler = async (m, { conn, usedPrefix, text, args, command }) => {
-let wm = '◄⏤͟͟͞♯ЅᗩFᏒOT꙯'
+.gps المطور|import { createHash } from 'crypto';
+import { canLevelUp, xpRange } from '../lib/levelling.js';
+import fetch from 'node-fetch';
+import fs from 'fs';
+const { levelling } = '../lib/levelling.js';
+import moment from 'moment-timezone';
+import { promises } from 'fs';
+import { join } from 'path';
+const time = moment.tz('Egypt').format('HH');
+let wib = moment.tz('Egypt').format('HH:mm:ss');
+
+let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems }) => {
+    let d = new Date(new Date + 3600000);
+    let locale = 'ar';
+    let week = d.toLocaleDateString(locale, { weekday: 'long' });
+    let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
+    let _uptime = process.uptime() * 1000;
+    let uptime = clockString(_uptime);
+    let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
+    if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`;
+    let videoUrl = 'https://telegra.ph/file/afc96eee951d7c8d05d35.jpg';
+    const user = global.db.data.users[m.sender];
+    const { money, joincount } = global.db.data.users[m.sender];
+    const { exp, limit, level, role } = global.db.data.users[m.sender];
+    let { min, xp, max } = xpRange(user.level, global.multiplier);
+    let username = conn.getName(who);
+    let math = max - xp;
+    let sn = createHash('md5').update(who).digest('hex');
+    let totalreg = Object.keys(global.db.data.users).length;
+    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length;
+    let more = String.fromCharCode(8206);
+    let readMore = more.repeat(900);
+    const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
+    let str = ` 
+
+*اهلا بيك يا* ↞${taguser}
+╯────────────────⟢ـ
+*اتفضل رقم مطوري*
+╯────────────────⟢ـ
+*لكن احرص علي عدم ازعاج المطور*
+╯────────────────⟢ـ
+ `.trim();
 
 
-let fakecontact = { 'key': { 'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': 'ₛₐfᵣₒₜ↯bₒₜ' }, 'message': { 'contactMessage': { 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` } }, 'participant': '0@s.whatsapp.net' };
-let fakegif = {key: {participant: `0@s.whatsapp.net`, ...('6289643739077-1613049930@g.us' ? {remoteJid: '6289643739077-1613049930@g.us'} : {})}, message: {'videoMessage': {'title': '𝕊ℍ𝔸𝕎𝔸ℤ𝔸-𝔹𝕆𝕋', 'h': `Hmm`, 'seconds': '99999', 'gifPlayback': 'true', 'caption': 'ₛₐfᵣₒₜ↯bₒₜ', 'jpegThumbnail': false}}};
-let mkey = {'key': {'participants': '0@s.whatsapp.net', 'remoteJid': '6289643739077-1613049930@g.us', 'fromMe': false, 'id': 'Halo'}, 'message': {'contactMessage': {'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'};
-let fakelocation = {
-  key: {
-    fromMe: false,
-    participant: '0@s.whatsapp.net',
-    remoteJid: 'status@broadcast'
-  },
-  message: {
-    locationMessage: {
-      degreesLatitude: 37.7749,
-      degreesLongitude: -122.4194,
-      name: 'Palestine',
-      address: 'San Francisco, CA, USA',
-      url: 'https://maps.google.com/?q=37.7749,-122.4194'
-    }
-  }
+    conn.sendButton(m.chat, str, '𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿', videoUrl,[[``,``]], null,[[`المطور`,`https://wa.me/201115618853`],[`القناه`,`https://whatsapp.com/channel/0029VaeXAKJAjPXLKGuZSr46`]], m);
 };
-let faketext = {
-  key: {
-    fromMe: false,
-    participant: '0@s.whatsapp.net',
-    remoteJid: 'status@broadcast'
-  },
-  message: {
-    conversation: 'فلسطين حرة مهما كان الثمن ❤️🧞'
-  }
-};
 
-let fake = [fakegif, fakecontact, mkey, fakelocation, faketext]
-let vn = fake[Math.floor(Math.random() * fake.length)];
+handler.help = ['مطور'];
+handler.tags = ['البوت'];
+handler.command = ['المطور|مطور|مطوري'];
 
-let poster = ['https://telegra.ph/file/570d07e96af9ae2595f09.jpg', 'https://telegra.ph/file/b7206649bb5be3245e387.jpg', 'https://telegra.ph/file/570d07e96af9ae2595f09.jpg', 'https://telegra.ph/file/b7206649bb5be3245e387.jpg']
-let vn2 = poster[Math.floor(Math.random() * poster.length)];
+export default handler;
 
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let ftroli = { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { itemCount: 2023, status: 1, thumbnail: 'https://i.imgur.com/RbaRjrb.jpeg', surface: 1, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
-let bjir = 'https://i.imgur.com/RbaRjrb.jpeg'
-let name = await conn.getName(who)
-
-let delay = time => new Promise(res => setTimeout(res, time))
-await conn.sendContact(m.chat, [[`201115618853` + `@s.whatsapp.net`, wm]], vn, {
- contextInfo: { 
- forwardingScore: 2023,
-isForwarded: false, 
- externalAdReply: {  
- title: '𝑇𝛨𝛯 𝐿𝛩𝛻𝛯𝐿𝑌 𝛩𝑊𝛮𝛯𝑅 𝛩𝐹', 
- body: 'ₛₐfᵣₒₜ↯bₒₜ', 
- sourceUrl: 'https://whatsapp.com/channel/0029VaeXAKJAjPXLKGuZSr46',
- thumbnail: vn2,
- thumbnailUrl: vn2, 
- mediaType: 1,
- showAdAttribution: true, 
- renderLargerThumbnail: true, 
- mentionedJid: [m.sender]
-	}}}, { quoted: vn});
-
+function clockString(ms) {
+    let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000);
+    let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
+    let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
+    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':');
 }
-handler.help = ['owner', 'creator']
-handler.tags = ['info']
-handler.command = /^(owner|مطور|المطور)$/i
 
-export default handler
-
-
-async function getBuffer(url) {
-	return new Promise(async (resolve, reject) => {
-		let buffer;
-		await jimp
-			.read(url)
-			.then((image) => {
-				image.getBuffer(image._originalMime, function (err, res) {
-					buffer = res;
-				});
-			})
-			.catch(reject);
-		if (!Buffer.isBuffer(buffer)) reject(false);
-		resolve(buffer);
-	});
-}
+function ucapan() {
+    const time = moment.tz('Egypt').format('HH');
+    let res = "بداية يوم سعيده ☀️";
+    if (time >= 4) res = "صباح الخير 🌄";
+    if (time >= 10) res = "مساء الخير ☀️";
+    if (time >= 15) res = "مساء الخير 🌇";
+    if (time >= 18) res = "مساء الخير 🌙";
+    return res;
+	}
