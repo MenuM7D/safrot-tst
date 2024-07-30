@@ -35,7 +35,7 @@ m.react(`❌`)
 handler.help = ['spotify']
 handler.tags = ['downloader']
 handler.command = /^(spotify|سبوتيفي|سبوتيفاي)$/i
-handler.register = true
+//handler.register = true
 //handler.limit = 1
-handler.level = 2
+//handler.level = 2
 export default handler;
