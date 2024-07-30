@@ -1,8 +1,14 @@
-import gtts from 'node-gtts';
+import * as googleTTS from '@sefinek/google-tts-api'
 import {readFileSync, unlinkSync} from 'fs';
 import {join} from 'path';
-const defaultLang = 'ar'; // اللغة الافتراضية هي الإسبانية
+const defaultLang = 'es';
+
 const handler = async (m, {conn, args, usedPrefix, command}) => {
+  const datas = global
+  const idioma = datas.db.data.users[m.sender].language
+  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+  const tradutor = _translate.plugins.convertidor_tts
+
   let lang = args[0];
   let text = args.slice(1).join(' ');
   if ((args[0] || '').length !== 2) {
@@ -10,29 +16,37 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
     text = args.join(' ');
   }
   if (!text && m.quoted?.text) text = m.quoted.text;
-  conn.sendPresenceUpdate('recording', m.chat); // إرسال تحديث الحالة إلى "تسجيل"
   let res;
   try {
-    res = await tts(text, lang);
+    res = googleTTS.getAudioUrl(text, { lang: lang || 'en', slow: false, host: 'https://translate.google.com' });
   } catch (e) {
     m.reply(e + '');
     text = args.join(' ');
-    if (!text) throw `*🧚🏼‍♂️ اكتب النص اللي عايز تحوله لملاحظة صوتية، مثال:* ${usedPrefix + command} es Hola negros`;
+    if (!text) throw `*┇↜فين النص اللي هقوله يحب*\n*مــثــالـ: ${usedPrefix+command} بحب زيزو*`;
     res = await tts(text, defaultLang);
   } finally {
-    if (res) conn.sendFile(m.chat, res, 'tts.opus', null, m, null, fake, true);
+    if (res) {
+        conn.sendPresenceUpdate('recording', m.chat);
+        conn.sendMessage(m.chat, {audio: {url: res}, fileName: '𝐙𝐞𝐙𝐨.mp3', mimetype: 'audio/mpeg', ptt: true}, {quoted: m});
+    }
   }
 };
 handler.help = ['tts <lang> <teks>'];
-handler.tags = ['convertidor'];
-handler.command = /^g?انطق$/i;
-handler.register = true;
+handler.tags = ['tools'];
+handler.command =['قول','انطق'];
 export default handler;
 
-function tts(text, lang = 'es') {
-  console.log(lang, text);
+function tts(text, lang = 'en') {
   return new Promise((resolve, reject) => {
     try {
       const tts = gtts(lang);
       const filePath = join(global.__dirname(import.meta.url), '../tmp', (1 * new Date) + '.wav');
-      t
+      tts.save(filePath, text, () => {
+        resolve(readFileSync(filePath));
+        unlinkSync(filePath);
+      });
+    } catch (e) {
+      reject(e);
+    }
+  });
+    }
