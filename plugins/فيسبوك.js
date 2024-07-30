@@ -50,7 +50,7 @@ for (const { url, isVideo } of result.reverse()) await conn.sendFile(m.chat, url
 console.log('6 ' + err6)    
 throw `*حدث خطأ ما في تحميل الفيديو*`
 }}}}}}}
-handler.help = ['✓ ◡̈⃝ ✓│فيسبوك🧸💜']
+handler.help = ['فيسبوك']
 handler.tags = ['search']
 handler.command = /^(فيسبوك|fb|facebookdl|fbdl|facebook2|fb2|facebookdl2|fbdl2|facebook3|fb3|facebookdl3|fbdl3|facebook4|fb4|facebookdl4|fbdl4|facebook5|fb5|facebookdl5|fbdl5)$/i
 export default handler
