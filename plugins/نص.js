@@ -22,7 +22,7 @@ handler.tags = ['tools'];
 handler.command = /^(نص|fakereply|فيك)$/;
 handler.register = true;
 handler.limit = 3;
-export default handler;
+//export default handler;
 
 function copy(obj) {
   return JSON.parse(JSON.stringify(obj));
