@@ -442,7 +442,7 @@ throw false
 global.opts['swonly'] = isEnable
 break
 default:
-if (!/[01]/.test(command)) return await conn.sendList(m.chat, `\`⧼⧼⧼ ْإِعْدَادَات ⧽⧽⧽
+if (!/[01]/.test(command)) return await conn.sendList(m.chat, `\` 𝐵𝛩𝑇 𝐸𝐿𝐴𝐾𝑅𝐴𝐵
 
 > *اختر خيار من القائمة*
 > *لبدء الإعدادات*
@@ -452,7 +452,7 @@ if (!/[01]/.test(command)) return await conn.sendList(m.chat, `\`⧼⧼⧼ ْإ�
 ❌ ⇢ *وظيفة معطلة*
 ⚠️ ⇢ *هذا الشات ليس مجموعة
 
-`, wm, `الإعدادات`, listSections, m) //conn.sendMessage(m.chat, texto, {quoted: fkontak})
+`, wm, `الازرار`, listSections, m) //conn.sendMessage(m.chat, texto, {quoted: fkontak})
 throw false
 }
 await conn.sendButton(m.chat, `╭┄〔 *${wm}* 〕┄⊱
