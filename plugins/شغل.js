@@ -16,7 +16,7 @@ let enviando = false;
 const handler = async (m, { command, usedPrefix, conn, text }) => {
   device = await getDevice(m.key.id);
 
-  if (!text) throw '*\`『 نسيت تكتب الي عايز تشغلو🧚🏼‍♂️ 』\`*';
+  if (!text) throw `*[ ℹ️ ] ينقص عنوان فيديو YouTube.*\n\n*[ 💡 ] مثال:* _${usedPrefix + command} Good Feeling - Flo Rida_\n\n*[ 💡 ] مثال 2:* _${usedPrefix + command} https://youtu.be/JLWRZ8eWyZo?si=EmeS9fJvS_OkDk7p_`;
 
   if (command === 'playyt' && (device == 'desktop' || device == 'web')) throw `*[❗] رسائل الأزرار غير متوفرة في WhatsApp web، يرجى استخدام هاتفك المحمول لعرض الرسائل واستخدام الأزرار.*`;
 
@@ -52,7 +52,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
 
     if (!success) {
       enviando = false;
-      throw '_*\`『 اكتب الي هتشغلو معا الامر🧚🏼‍♂️ 』\`*_';
+      throw `_*< يوتيوب - تحميل />*_\n\n*[ ℹ️ ] ينقص عنوان فيديو YouTube.*\n\n*[ 💡 ] مثال:* _.شغل Good Feeling - Flo Rida_\n\n*[ 💡 ] مثال 2:* _.شغل https://youtu.be/JLWRZ8eWyZo?si=EmeS9fJvS_OkDk7p_`;
     }
 
     const dataMessage = `العنوان : ${data.resultado.title}\nتم النشر : ${data.resultado.publicDate}\nالقناه : ${data.resultado.channel}\nرابط القناه : ${data.resultado.url}`.trim();
@@ -102,7 +102,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
     }
 
     try {
-      if (command === 'فيديو2') {
+      if (command === 'play.1') {
         let apiUrls2 = [
           `https://api.cafirexos.com/api/v1/ytmp3?url=${data.resultado.url}`,
           `https://api.cafirexos.com/api/v2/ytmp3?url=${data.resultado.url}`,
@@ -128,7 +128,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
           enviando = false;
           throw `حدث خطأ أثناء جلب رابط الصوت.`;
         }
-      } else if (command === 'فيديو') {
+      } else if (command === 'play.2') {
         let apiUrls22 = [
           `https://api.cafirexos.com/api/v1/ytmp4?url=${data.resultado.url}`,
           `https://api.cafirexos.com/api/v2/ytmp4?url=${data.resultado.url}`,
@@ -177,7 +177,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
   }
 };
 
-handler.command = /^(فيديو2|فيديو|شغل)$/i;
+handler.command = /^(play.1|play.2|شغل)$/i;
 export default handler;
 
 async function isValidYouTubeLink(link) {
@@ -197,4 +197,4 @@ async function isValidYouTubeLink(link) {
     /youtubei\.googleapis\.com\//i
   ];
   return validPatterns.some(pattern => pattern.test(link));
-      }
+}
