@@ -52,7 +52,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
 
     if (!success) {
       enviando = false;
-      throw '_*\`『 حط اسم الي عايز تشغلو معا الامر🧚🏼‍♂️ 』\`*_';
+      throw `_*\`『 حط اسم الي عايز تشغلو معا الامر🧚🏼‍♂️ 』\`* `;
     }
 
     const dataMessage = `العنوان : ${data.resultado.title}\nتم النشر : ${data.resultado.publicDate}\nالقناه : ${data.resultado.channel}\nرابط القناه : ${data.resultado.url}`.trim();
