@@ -454,8 +454,8 @@ handler.tags = ['game'];
 handler.command = /^(ppt|suitpvp|suit|pvp|moneda|suert|currency|luck|cara|Method|slot|apostar|slot1|slot2|slot3|tictactoe|ttc|ttt|xo|math|mates|matemáticas|delttt|deltt|delxo|deltictactoe)$/i
 handler.group = true
 handler.game = true
-//handler.register = true
-export default handler
+handler.register = true
+//export default handler
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
@@ -519,4 +519,4 @@ if (from > to) [from, to] = [to, from]
 from = Math.floor(from)
 to = Math.floor(to)
 return Math.floor((to - from) * Math.random() + from)
-}
+                                                                                                                                                                                                                                                                 }
