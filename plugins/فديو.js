@@ -6,7 +6,7 @@ import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 
 var handler = async (m, { conn, command, args, text, usedPrefix }) => {
 
-if (!text) return conn.reply(m.chat, `🧚🏼‍♂️ *\`『 هات اسم الفديو 』\`*\n\nمثال, !${command} Banners - Someone To You`,  m, fake, )
+if (!text) return conn.reply(m.chat, `🧚🏼‍♂️ *\`『 هات اسم الفديو 』\`*\n\nمثال, !${command} Banners - Someone To You`,  m)
 m.react(rwait)
 
 try {
