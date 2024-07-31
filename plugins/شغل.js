@@ -16,7 +16,7 @@ let enviando = false;
 const handler = async (m, { command, usedPrefix, conn, text }) => {
   device = await getDevice(m.key.id);
 
-  if (!text) throw `*[ ℹ️ ] ينقص عنوان فيديو YouTube.*\n\n*[ 💡 ] مثال:* _${usedPrefix + command} Good Feeling - Flo Rida_\n\n*[ 💡 ] مثال 2:* _${usedPrefix + command} https://youtu.be/JLWRZ8eWyZo?si=EmeS9fJvS_OkDk7p_`;
+  if (!text) throw `*\`『 اكتب الي عايز تشغلو معا الامر 🧚🏼‍♂️ 』\`* `;
 
   if (command === 'playyt' && (device == 'desktop' || device == 'web')) throw `*[❗] رسائل الأزرار غير متوفرة في WhatsApp web، يرجى استخدام هاتفك المحمول لعرض الرسائل واستخدام الأزرار.*`;
 
