@@ -26,7 +26,7 @@ let handler = async (m, { conn, text, isMods, isOwner }) => {
 
 handler.help = ['join [chat.whatsapp.com]'];
 handler.tags = ['owner'];
-handler.command = /^unete|انضم|nuevogrupo|unir|unite|unirse|entra|entrar$/i;
+handler.command = /^unete|انضم|خش|ادخل|ادخل الجروب|خش الجروب|بوت خش|entrar$/i;
 //handler.register = true;
 
 export default handler;
