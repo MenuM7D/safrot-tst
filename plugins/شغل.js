@@ -52,7 +52,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
 
     if (!success) {
       enviando = false;
-      throw `_*< يوتيوب - تحميل />*_\n\n*[ ℹ️ ] ينقص عنوان فيديو YouTube.*\n\n*[ 💡 ] مثال:* _.شغل Good Feeling - Flo Rida_\n\n*[ 💡 ] مثال 2:* _.شغل https://youtu.be/JLWRZ8eWyZo?si=EmeS9fJvS_OkDk7p_`;
+      throw '_*\`『 حط اسم الي عايز تشغلو معا الامر🧚🏼‍♂️ 』\`*_';
     }
 
     const dataMessage = `العنوان : ${data.resultado.title}\nتم النشر : ${data.resultado.publicDate}\nالقناه : ${data.resultado.channel}\nرابط القناه : ${data.resultado.url}`.trim();
