@@ -14,5 +14,5 @@ const handler = async (m) => {
 handler.help = ['tourl <reply image>'];
 handler.tags = ['convertidor']
 handler.command = /^(لرابط|tourl)$/i;
-handler.register = true
+//handler.register = true
 export default handler;
