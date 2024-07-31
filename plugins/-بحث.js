@@ -17,7 +17,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
         var messa = await prepareWAMessageMedia({ image: {url: randomVideo.thumbnail}}, { upload: conn.waUploadToServer })
         const interactiveMessage = {
             body: { text: `عــدد الـنـتـايــج : *${results.videos.length}*\nالـعـنـوان : *${randomVideo.title}*\nإســم الـحـســاب : *${randomVideo.author.name}*\nعــدد الـمـشــاهـدات : *${randomVideo.views}*\nالـرابــط : *${randomVideo.url}*\nرابــط‌ الـصــوره : *${randomVideo.thumbnail}*\n\nانقر علي الزر تحت لتحميل الفيديو او الصوت.`.trim() },
-            footer: { text: `𝙏𝙝𝙚𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩`.trim() },  
+            footer: { text: `𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩`.trim() },  
             header: {
                 title: `* بـحــث فــي الـيـوتـيــوب *`,
                 hasMediaAttachment: true,
@@ -81,5 +81,5 @@ description: '🎶╎تـحـمـيــل الـصـوتـيــة',
 };
 handler.help = ['ytsearch <نص>'];
 handler.tags = ['search'];
-handler.command = /^(ytsearch|yts|searchyt|buscaryt|videosearch|يوتيوب|بحث)$/i;
+handler.command = /^(ytsearch|yts|searchyt|buscaryt|videosearch|audiosearch|بحث)$/i;
 export default handler;
