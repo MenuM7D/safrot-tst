@@ -23,7 +23,7 @@ imagesSent = false
     throw '*[❗] لا يوجد رد من الصفحه، حاول مجددا.*'
  }
 };
-handler.command = /^(صوره_تيك)$/i;
+handler.command = /^(تيك_صور)$/i;
 export default handler;
 
 async function ttimg(link) {
