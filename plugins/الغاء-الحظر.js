@@ -5,5 +5,5 @@ m.reply('* تم إلغاء حظر هذه الدردشة بنجاح*')
 handler.help = ['unbanchat']
 handler.tags = ['owner']
 handler.command = /^الغاء-الحظر$/i
-handler.rowner = true
+//handler.rowner = true
 export default handler
