@@ -23,14 +23,19 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     throw 'طلبك مرفوض يكسمك🙄';
   }
 
-  const res = await googleImage(text);
-  const image = await res.getRandom();
-  const link = image;
+  try {
+    const res = await googleImage(text);
+    const image = await res.getRandom();
+    const link = image;
 
-  conn.sendButton(m.chat, `🧚🏼‍♂️ *البحث*: ${text}`, 'اسم البوت', link, [['🧚🏼‍♂️ صوره تاني 🧚🏼‍♂️', `/${command} ${text}`]], m);
+    conn.sendButton(m.chat, `🧚🏼‍♂️ *البحث*: ${text}`, 'اسم البوت', link, [['🧚🏼‍♂️ صوره تاني 🧚🏼‍♂️', `/${command} ${text}`]], m);
+  } catch (error) {
+    console.error(error);
+    conn.reply(m.chat, 'حدث خطأ أثناء البحث عن الصورة، حاول مرة أخرى.', m);
+  }
 };
 
-handler.help = ['صوره'];
+handler.help = ['صوره2'];
 handler.tags = ['buscadores'];
 handler.command = /^(gimage|صوره|صورة|imagen)$/i;
 // handler.register = true;
