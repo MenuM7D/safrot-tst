@@ -1276,8 +1276,8 @@ if (opts['autoread']) await this.readMessages([m.key])
 if (settingsREAD.autoread2) await this.readMessages([m.key])  
 //if (settingsREAD.autoread2 == 'true') await this.readMessages([m.key])    
 	    
-if (!m.fromMem && m.text.match(/(@201115618853|𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿|:v)/gi)) {
-let emot = pickRandom(["😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🤩", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🤧", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "🐱", "🐈", "🐆", "🐅", "⚡️", "🌈", "☃️", "⛄️", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "💘", "💝", "💟", "🌝", "😎", "🔥", "🖕", "🐦"])
+if (!m.fromMem && m.text.match(/(@201115618853|𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿|سفروت|بوت|بحبك|وحشني|ازيك|كلمني|اغبارك|بوتات|صباح الخير|مين ده|فين|لا|ايوه|اممم|هممم|نعم|مين|يسطا|مطور|اي|ده|تو|نو|ص|🙂|💣|😂|🥺|🤍|😹|🤣|❤️‍🔥|💗|💖|💔|💓|💓|❤|😄|😍|😎|🔥|🙊|🦁|🪺|🐤|🐧|🐦|🌚|🌝 :v)/gi)) {
+let emot = pickRandom(["😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🤩", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🤧", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "🐱", "🐈", "🐆", "🐅", "⚡️", "💣", "☃️", "⛄️", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "💘", "💝", "💟", "🌝", "😎", "🔥", "🖕", "🐦"])
 this.sendMessage(m.chat, { react: { text: emot, key: m.key }})}
 function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}}}
 
@@ -1415,14 +1415,14 @@ console.error(e)
 global.dfail = (type, m, conn, usedPrefix) => {
     let msg = {
         rowner: '[❗] الميزه دي للمطور بس يا حب',
-        owner: '[❗] الميزه دي للمشرفين بس يا حب',
+        owner: '[❗] الميزه دي للمطور بس يا حب',
         mods: '[❗] الميزه دي للمطور بس يا حب',
         premium: '[❗] االميزه دي للمميزين بس',
         group: '[❗] الميزه دي للجروبات بس يحب',
         private: '[❗] االميزه دي برايفت بس تعاله بف',
         admin: '[❗] الميزه دي للمشرف بس يحب',
         botAdmin: '[❗] علشان تستخدم الميزه دي ارفع البوت ادمن ي حب',
-        unreg: '「انت مش مسجل」\n\nاانت مش موجود في قاعدة بيناتي🦦\n\nعلشان تسجل في البوت اكتب الامر\n\nده: #اكتب الاسم.ولعمر\nمثال: #reg safrot.21',
+        unreg: '「الميزه دي للمسجيلين في البوت',
         restrict: '[ 🔐 ] الميزه دي المطور موقفهاا'
     }[type]
     if (msg) return conn.sendMessage(m.chat, {text: msg,  contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `ₛₐfᵣₒₜ bₒₜ`, body: wm, previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })
