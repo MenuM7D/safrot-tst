@@ -180,7 +180,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 handler.help = ['ytmp4', 'ytmp3'];
 handler.tags = ['downloader'];
 handler.command = /^ytmp3|ytmp4|fgmp4|audio|fgmp3|dlmp3?$/i;
-export default handler
+//export default handler
 
 function bytesToSize(bytes) {
 return new Promise((resolve, reject) => {
