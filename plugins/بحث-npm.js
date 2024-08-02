@@ -15,6 +15,6 @@ let handler = async (m, { text }) => {
 handler.help = ['npmsearch']
 handler.tags = ['tools']
 handler.command = /^npm(js|search)?$/i
-handler.register = true 
+//handler.register = true 
 handler.limit = 1
 export default handler
