@@ -45,7 +45,7 @@ handler.tags = ['econ'];
 handler.command = ['coffer', 'cofre', 'افتح_الصندوق', 'cofreabrir'];
 handler.level = 9;
 handler.register = true;
-export default handler;
+//export default handler;
 
 function pickRandom(list) {
     return list[Math.floor(Math.random() * list.length)];
