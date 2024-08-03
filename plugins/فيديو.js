@@ -5,7 +5,7 @@ import fs from 'fs';
 const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
     const device = await getDevice(m.key.id);
 
-    if (!text) throw `⚠️ *يجب كتابة النص للبحث عنه في YouTube*`;
+    if (!text) throw `🧚🏼‍♂️ *\`『 اكتب الي انت عيزو معا الامر 』\`*`;
 
     if (device !== 'desktop' && device !== 'web') {
         const results = await yts(text);
