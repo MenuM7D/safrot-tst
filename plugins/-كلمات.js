@@ -36,5 +36,5 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
 handler.help = ['lirik', 'letra'].map((v) => v + ' <Apa>');
 handler.tags = ['buscadores'];
 handler.command = /^(كلمات|lyrics|lyric|letra)$/i;
-handler.register = true;
+//handler.register = true;
 export default handler;
