@@ -28,6 +28,6 @@ const handler = async (m, {conn, usedPrefix, command}) => {
 handler.help = ['tovideo'];
 handler.tags = ['convertidor'];
 handler.command = ['لمقطع', 'لفديو', 'لفيديو', 'togif'];
-handler.register = true;
+//handler.register = true;
 
 export default handler;
