@@ -4,7 +4,7 @@ import {googleImage} from '@bochilteam/scraper';
 
 const handler = async (m, {conn, text, usedPrefix, command}) => {
   const teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : '';
-  if (!teks) throw `*🧚🏼‍♂️ اكتب الي يدور علي كليماتو بعد الامر:* ${usedPrefix + command} ozuna te vas`;
+  if (!teks) throw `*\`『 اكتب الي عايز تطلع كلماتو معا الامر🧚🏼‍♂️ 』\`* ${usedPrefix + command} ozuna te vas`;
   
   try {
     const result = await getTracks(teks);
@@ -24,12 +24,12 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
       }
     }
     
-    const textoLetra = `*🎤 عنوان:* ${result[0].title || ''}\n*👤 موالف:* ${result[0].artist || ''}\n\n*📃🎵 الكلمات:*\n${lyrics || ''}`;
-    await conn.sendButton(m.chat, textoLetra, botname, img, [['🧚🏼‍♂️ تحميل الصوت 🧚🏼‍♂️', `/ytmp3doc ${result[0].title || ''}`]], null, null, m);   
+    const textoLetra = `*🎤\`『 عنوان 』\`* ${result[0].title || ''}\n*👤\`『 موالف 』\`* ${result[0].artist || ''}\n\n*📃🎵 \`『 الكلمات 』\`*\n${lyrics || ''}`;
+    await conn.sendButton(m.chat, textoLetra, botname, img, [['الكلمات', `/ytmp3doc ${result[0].title || ''}`]], null, null, m);   
     //conn.sendMessage(m.chat, {image: {url: img}, caption: textoLetra}, {quoted: m});
     //await conn.sendMessage(m.chat, {audio: {url: result[0].preview}, fileName: `${result[0].artist} ${result[0].title}.mp3`, mimetype: 'audio/mp4'}, {quoted: m});
   } catch {
-    throw `*[❗] حصل خطأ، حاول تاني من فضلك*`;
+    throw `*[❗] \`『 حصل خطاء 』\`*`;
   }
 };
 
