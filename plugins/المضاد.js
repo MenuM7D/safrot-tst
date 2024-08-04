@@ -442,7 +442,7 @@ throw false
 global.opts['swonly'] = isEnable
 break
 default:
-if (!/[01]/.test(command)) return await conn.sendList(m.chat, `\` 𝐵𝛩𝑇 𝐸𝐿𝐴𝐾𝑅𝐴𝐵
+if (!/[01]/.test(command)) return await conn.sendList(m.chat, `\` 𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩
 
 > *اختر خيار من القائمة*
 > *لبدء الإعدادات*
