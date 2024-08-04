@@ -8,8 +8,8 @@ handler.all = async function (m) {
     conn.sendMessage(m.chat, { audio: { url: vn }, ptt: true, mimetype:  'audio/mpeg' , fileName: `shawaza_zizo_2024.opp` }, { quoted: m });
   }
 
-  if (/^الجن|جن$/i.test(m.text)) {
-    let vn =  'https://qu.ax/RQOw' ;
+  if (/^حزين|امين خطاب$/i.test(m.text)) {
+    let vn =  'https://qu.ax/TUp.wav' ;
     conn.sendPresenceUpdate( 'recording' , m.chat);
     conn.sendMessage(m.chat, { audio: { url: vn }, ptt: true, mimetype:  'audio/mpeg' , fileName: `shawaza_zizo_2024.opp` }, { quoted: m });
   }
