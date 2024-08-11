@@ -115,18 +115,18 @@ global.eg = '『💚 𝙀𝙓𝙄𝙏𝙊𝙎 💚』\n\n'
 global.exito = eg
 
 //-------------------------[ IMAGEN ]------------------------------
-global.img = "https://qu.ax/Zgqq.jpg"
-global.img1 = 'https://qu.ax/hNJk.jpg'
-global.img2 = 'https://qu.ax/jzhN.jpg'
+global.img = "https://telegra.ph/file/347496f806454cba44e23.jpg"
+global.img1 = 'https://telegra.ph/file/347496f806454cba44e23.jpg'
+global.img2 = 'https://telegra.ph/file/347496f806454cba44e23.jpg'
 
 global.imagen = fs.readFileSync('./Menu2.jpg')
 global.imagen1 = fs.readFileSync('./media/Menu1.jpg')
 global.imagen2 = fs.readFileSync('./media/Menu2.jpg')
 global.imagen3 = fs.readFileSync('./media/Menu3.jpg')
 global.imagen4 = fs.readFileSync('./media/Menu4.jpg')
-global.imagen5 = 'https://qu.ax/rULv.jpg'
-global.imagen6 = 'https://qu.ax/CySs.jpg'
-global.menu18 = 'https://qu.ax/MOgO.jpg'
+global.imagen5 = 'https://telegra.ph/file/347496f806454cba44e23.jpg'
+global.imagen6 = 'https://telegra.ph/file/347496f806454cba44e23.jpg'
+global.menu18 = 'https://telegra.ph/file/347496f806454cba44e23.jpg'
 global.vid1 = 'https://qu.ax/dcAc.mp4'
 global.img = [imagen, imagen1, imagen2, imagen3, imagen4]
 
