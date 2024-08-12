@@ -86,11 +86,34 @@ const dir = [
 'https://telegra.ph/file/27f646bd99f79ac21c288.jpg',
 
 ];
-let handler = async (m, { conn }) => {
-  conn.sendFile(m.chat, dir[Math.floor(Math.random() * dir.length)], 'dado.webp', '', m)
+
+let handler = async (m, { conn, command, useprefix }) => {
+
+const fakecontact = { 
+        'key': { 
+            'participants': '0@s.whatsapp.net', 
+            'remoteJid': 'status@broadcast', 
+            'fromMe': false, 
+            'id': '𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩' 
+        }, 
+        'message': { 
+            'contactMessage': { 
+                'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` 
+            } 
+        }, 
+        'participant': '0@s.whatsapp.net' 
+    };
+
+        
+let img = dir[Math.floor(Math.random() * dir.length)];
+
+conn.sendButton(m.chat, 'تفضل الخلفية 🧚🏼‍♂️', '𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩', img, [['التالـي',`${useprefix + command}`]], null, null, fakecontact);
+
+//conn.sendFile(m.chat, dir[Math.floor(Math.random() * dir.length)], 'dado.webp', '', m);
+  
 }
 handler.help = ['dado']
 handler.tags = ['game']
-handler.command = ['خلفيات', 'خلفيه'] 
+handler.command = ['خلفيات'] 
 
 export default handler
