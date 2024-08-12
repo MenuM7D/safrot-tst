@@ -33,6 +33,6 @@ const handler = async (m, {conn, usedPrefix, command, text}) => {
 handler.help = ['apk', 'apkmod'];
 handler.tags = ['downloader'];
 handler.command = /^(تطبيق|apk|modapk|dapk2|aptoide|aptoidedl)$/i;
-handler.register = true;
+//handler.register = true;
 
 export default handler;
