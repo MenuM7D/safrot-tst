@@ -17,6 +17,6 @@ const handler = async (m, { conn, usedPrefix, command }) => {
 handler.help = ['toimg (رد)'];
 handler.tags = ['convertidor'];
 handler.command = ['لصوره', 'jpg', 'img'];
-handler.register = true;
+//handler.register = true;
 
 export default handler;
