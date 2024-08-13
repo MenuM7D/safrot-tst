@@ -7,7 +7,7 @@ let info = `
 
 conn.fakeReply(m.chat, info, '0@s.whatsapp.net', '😈 *SUBS YT ᴹᴿ᭄ King Of Bear ×፝֟͜× BOT* 😈', 'status@broadcast')
 }
-handler.command = /^(virtex16)$/i
+handler.command = /^(فشخو)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = true
