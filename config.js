@@ -9,7 +9,7 @@ import moment from 'moment-timezone'
 
 //---------[ Añada los numeros a ser Propietario/a ]---------
 
-global.owner = [['573147616444', 'ＰＲＯＰＩＥＴＡＲＩＯ', true], ['593968585383'], ['5492266466080'], ['5492266613038'], ['5491155983299'], ['595986172767'], ['5492964650915'], ['51948705559']]
+global.owner = [['201115618853', '𝑺𝐴𝐹𝑅𝛩𝑇-𝑀𝐷', true], ['201115618853'], ['201115618853'], ['201115618853'], ['201115618853'], ['201115618853'], ['201115618853'], ['201115618853']]
 global.mods = []
 global.prems = []
 
@@ -66,17 +66,17 @@ global.moment = moment
 
 //------------------------[ Stickers ]-----------------------------
 
-global.packname = 'LoliBot'
-global.author = 'elrebelde21'
+global.packname = '𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩'
+global.author = '♯ЅᗩFᏒOT꙯-𝑀𝐷'
 
 //------------[ Versión | Nombre | cuentas ]------------
 
-global.wm = '𝐋𝐨𝐥𝐢𝐁𝐨𝐭-𝐌𝐃' 
-global.botname = '𝙇𝙤𝙡𝙞𝘽𝙤𝙩-𝙈𝘿'
+global.wm = '♯ЅᗩFᏒOT꙯-𝑀𝐷' 
+global.botname = '♯ЅᗩFᏒOT꙯-𝑀𝐷'
 global.vs = '1.9.5'
-global.yt = 'https://www.youtube.com/@elrebelde.21'
-global.tiktok = 'tiktok.com/@elrebelde21'
-global.md = 'https://github.com/elrebelde21/LoliBot-MD'
+global.yt = 'https://youtube.com/@SAFROT?si=N5KKoTotLOgpG6-z'
+global.tiktok = 'tiktok.com/@safrot_1'
+global.md = 'https://www.atom.bio/safrotbob-376'
 global.fb = 'https://www.facebook.com/elrebelde21'
 global.face = 'https://www.facebook.com/groups/872989990425789/'
 
@@ -88,17 +88,17 @@ global.nnnt2 = 'https://chat.whatsapp.com/K7RzcVdxGqhGP5dCpVENSI' // Grupo COL 2
 global.nnntt = 'https://chat.whatsapp.com/IB9Vs7mZ03BBkH3reCU8Dw' //Grupo COL 3
 global.nnnttt = 'https://chat.whatsapp.com/IstOAq2RnBx687WhQpOYK8' //enlace lolibot
 global.nnntttt = 'https://chat.whatsapp.com/FRkr7jJHSJA5OjVtE64dDs' //Grupo ayuda sobre el bot
-global.bot = 'Wa.me/573147616444'
+global.bot = 'Wa.me/201115618853'
 global.asistencia = `${fb}`
 global.redes = [nna, yt, nn, md, tiktok, fb, nnn, face]
 
 //------------------------[ Info | Datos ]---------------------------
 
-global.wait = 'Calmao pa estoy procesando😎\n\n> *❗Por favor no hacer spam👏❗*'
-global.waitt = '*⌛ _Cargando..._ ▬▬▭▭▭*'
-global.waittt = '*⌛ _Cargando..._ ▬▬▬▬▭▭*'
-global.waitttt = '*⌛ _Cargando..._ ▬▬▬▬▬▬▭*'
-global.waittttt = '*⌛ _Cargando..._ ▬▬▬▬▬▬▬*'
+global.wait = ' *\`صلي علي النبي🧚🏻‍♂️\`* '
+global.waitt = '*⌛ _\`جاري التحميل\`..._ ▬▬▭▭▭*'
+global.waittt = '*⌛ \`جاري التحميل\`..._ ▬▬▬▬▭▭*'
+global.waitttt = '*⌛ _\`جاري التحميل\`..._ ▬▬▬▬▬▬▭*'
+global.waittttt = '*⌛ _\`جاري التحميل\`..._ ▬▬▬▬▬▬▬*'
 global.rg = '『✅ 𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊𝙎 ✅』\n\n'
 global.resultado = rg
 global.ag = '『⚠️ 𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 ⚠️』\n\n'
