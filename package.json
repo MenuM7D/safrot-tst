@@ -4,23 +4,23 @@
 "description": "Super Bot WhatsApp",
 "main": "index.js",
 "type": "module",
-
+    
 "directories": {
 "lib": "lib",
 "src": "src",
 "plugins": "plugins" },
-
+    
 "scripts": {
 "start": "node index.js",
 "qr": "node index.js qr",
 "code": "node index.js code",
 "test": "node test.js",
 "test2": "nodemon index.js" },
-
+    
 "homepage": "https://github.com/elrebelde21/LoliBot-MD",
 "author": {
 "name": "elrebelde21" },
-
+    
 "repository": {
 "type": "git",
 "url": "git+https://github.com/elrebelde21/LoliBot-MD.git" },
@@ -56,7 +56,7 @@
 "chalk": "^5.1.0",
 "url-file-size": "^1.0.5-1",
 "fluid-spotify.js": "*",
-"cheerio": "^1.0.0-rc.12",
+"cheerio": "^1.0.0-rc.10",
 "colors": "1.4.0",
 "express": "^4.18.1",
 "file-type": "^18.0.0",
