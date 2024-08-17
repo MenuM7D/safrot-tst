@@ -24,7 +24,7 @@ if (m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TI
 let chat = global.db.data.chats[m.chat]
 let bot = global.db.data.settings[this.user.jid] || {}
 if (bot.antiPrivate && !isOwner && !isROwner) {
-await m.reply(`Hola esta prohibido hablar al privado del bot, por lo cual seras bloqueado...\n> _*Para usar mi funciones unirte al  grupo oficial 👇*_\n${nn}`, false, { mentions: [m.sender] })
+await m.reply(`ممنوع تتكلم في الخاص مع البوت، عشان كده هيتعملك بلوك...\n> _*لو عايز تستخدم وظائف البوت انضم للجروب الرسمي 👇*_\n${nn}`, false, { mentions: [m.sender] })
 await this.updateBlockStatus(m.chat, 'block')}
 return !1
-}
+        }
