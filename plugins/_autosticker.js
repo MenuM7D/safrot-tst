@@ -1,4 +1,4 @@
-import {sticker} from '../lib/sticker.js';
+import { sticker } from '../lib/sticker.js';
 const handler = (m) => m;
 
 handler.all = async function(m) {
@@ -15,7 +15,7 @@ const img = await q.download?.();
 if (!img) return;
 stiker = await sticker(img, false, packname, author);
 } else if (/video/g.test(mime)) {
-if (/video/g.test(mime)) if ((q.msg || q).seconds > 8) return await m.reply(`*⚠️ El video solo puede durar 8 seg*`);
+if (/video/g.test(mime)) if ((q.msg || q).seconds > 8) return await m.reply(`*⚠️ الفيديو ماينفعش يعدي 8 ثواني*`);
 const img = await q.download();
 if (!img) return;
 stiker = await sticker(img, false, packname, author);
@@ -24,7 +24,7 @@ if (isUrl(m.text)) stiker = await sticker(false, m.text.split(/\n| /i)[0], packn
 else return;
 }
 if (stiker) {
-await conn.sendFile(m.chat, stiker, null, null, fake, {asSticker: true});
+await conn.sendFile(m.chat, stiker, null, null, fake, { asSticker: true });
 }}
 return !0;
 };
