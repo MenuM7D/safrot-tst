@@ -23,9 +23,9 @@ await this.sendMessage(m.chat, { text: `🔒 دلوقتي *${m.messageStubParame
 } else if (chat.detect && m.messageStubType == 26) {
 await this.sendMessage(m.chat, { text: `الجروب *${m.messageStubParameters[0] == 'on' ? 'مقفول 🔒' : 'مفتوح 🔓'}*\n ${m.messageStubParameters[0] == 'on' ? 'فقط الأدمنز يقدروا يكتبوا' : 'الكل يقدر يكتب'} في الجروب ده`, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (chat.detect && m.messageStubType == 29) {
-await this.sendMessage(m.chat, { text: `@${m.messageStubParameters[0].split`@`[0]} بقى أدمن في الجروب\n\n😼🫵تم الإجراء بواسطة: ${usuario}`, mentions: [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+await this.sendMessage(m.chat, { text: `@${m.messageStubParameters[0].split`@`[0]} بقيت ادمن\n\n🧚🏻‍♂️الي رفعك ادمن: ${usuario}`, mentions: [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (chat.detect && m.messageStubType == 30) {
-await this.sendMessage(m.chat, { text: `@${m.messageStubParameters[0].split`@`[0]} مش أدمن في الجروب بعد دلوقتي\n\n😼🫵تم الإجراء بواسطة: ${usuario}`, mentions: [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+await this.sendMessage(m.chat, { text: `@${m.messageStubParameters[0].split`@`[0]} نزلت من الادمن\n\nالي نزلك 🧚🏻‍♂️: ${usuario}`, mentions: [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (chat.detect && m.messageStubType == 72) {
 await this.sendMessage(m.chat, { text: `${usuario} غير مدة الرسائل المؤقتة لـ *@${m.messageStubParameters[0]}*`, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (chat.detect && m.messageStubType == 123) {
