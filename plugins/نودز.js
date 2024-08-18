@@ -6,27 +6,27 @@ if (!db.data.chats[m.chat].modohorny && m.isGroup) return conn.sendFile(m.chat, 
   switch (command) {
     case 'pack':
       const url = await pack[Math.floor(Math.random() * pack.length)];
-      conn.sendButton(m.chat, '_🥵 aqui tiene mi Pack 😏_', botname, url, [['🥵 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🥵', `/${command}`]], null, null, m)
-  //conn.sendMessage(m.chat, {image: {url: url}, caption: `_🥵 aqui tiene mi Pack 😏_`}, {quoted: m});
+      conn.sendButton(m.chat, '_𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩_', botname, url, [['التالي 🥵', `/${command}`]], null, null, m)
+  //conn.sendMessage(m.chat, {image: {url: url}, caption: `_𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩_`}, {quoted: m});
       break;
     case 'pack2':
       const url2 = await packgirl[Math.floor(Math.random() * packgirl.length)];
-      conn.sendButton(m.chat, '_🥵 aqui tiene mi Pack 😏_', botname, url2, [['🥵 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🥵', `/${command}`]], null, null, m)
+      conn.sendButton(m.chat, '_𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩_', botname, url2, [['تاني🥵', `/${command}`]], null, null, m)
       break;
     case 'pack3':
       const url3 = await packmen[Math.floor(Math.random() * packmen.length)];
-      conn.sendButton(m.chat, '_🥵 aqui tiene mi Pack 😏_', botname, url3, [['🥵 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🥵', `/${command}`]], null, null, m) 
+      conn.sendButton(m.chat, '_𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩_', botname, url3, [['تاني🥵', `/${command}`]], null, null, m) 
       break;
 case 'girls': case 'pack4':
-conn.sendButton(m.chat, '🥵', botname, "https://delirius-api-oficial.vercel.app/api/girls", [['🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄', `/${command}`]], null, null, m)
+conn.sendButton(m.chat, '🥵', botname, "https://delirius-api-oficial.vercel.app/api/girls", [['التالي 🔄', `/${command}`]], null, null, m)
 break
     case 'videoxxx': case 'vídeoxxx':
       const url4 = await videosxxxc[Math.floor(Math.random() * videosxxxc.length)];
-   await conn.sendButton(m.chat, '_*ᴅɪsғʀᴜᴛᴀ ᴅᴇʟ ᴠɪᴅᴇᴏ 🥵*_', botname, url4, [['🥵 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🥵', `/${command}`]], null, null, m)       
+   await conn.sendButton(m.chat, '_*𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩🥵*_', botname, url4, [['التالي🥵', `/${command}`]], null, null, m)       
       break;
     case 'videoxxxlesbi': case 'videolesbixxx': case 'pornolesbivid': case 'pornolesbianavid': case 'pornolesbiv': case 'pornolesbianav': case 'pornolesv':
       const url5 = await videosxxxc2[Math.floor(Math.random() * videosxxxc2.length)];
-      await conn.sendButton(m.chat, '_*ᴅɪsғʀᴜᴛᴀ ᴅᴇʟ ᴠɪᴅᴇᴏ 🥵*_', botname, url5, [['🥵 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🥵', `/${command}`]], null, null, m)   
+      await conn.sendButton(m.chat, '_*𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩🥵*_', botname, url5, [['التالي 🥵', `/${command}`]], null, null, m)   
       break;
   }
 };
@@ -34,7 +34,7 @@ handler.help = ['pack', 'pack2', 'pack3', 'pack4', 'videoxxx', 'videoxxxlesbi', 
 handler.tags = ['nsfw'];
 handler.command = /^(pack|pack2|pack3|videoxxx|vídeoxxx|videoxxxlesbi|videolesbixxx|pornolesbivid|pornolesbianavid|pornolesbiv|pornolesbianav|pornolesv|girls|pack4)$/i;
 handler.limit = 2
-handler.register = true
+//handler.register = true
 export default handler;
 
 global.pack = [
