@@ -17,13 +17,9 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
     var res = await yts(text)
     var vid = res.videos[0]
     var q = '128kbps'
-const texto1 = `اغــنيــههة 乂 يـوتـيـوب\n
+const texto1 = `ابحاثك\n
         ✩ *العنوان ∙* ${vid.title}\n
         ✩ *المده ∙* ${vid.timestamp}\n
-        ✩ *المشاهده ∙* ${vid.views}\n
-        ✩ *الفنان ∙* ${vid.author.name}\n
-        ✩ *مده النشر ∙* ${vid.ago}\n
-        ✩ *الرابط ∙* ${'https://youtu.be/' + vid.videoId}\n`.trim()
 
 await conn.sendButton(m.chat, texto1, wm, res.videos[0].thumbnail, [
         ['الصوت 📀', `${usedPrefix}mp3 ${text}`],
