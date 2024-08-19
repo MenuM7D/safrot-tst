@@ -1,23 +1,17 @@
-const handler = async (m, { text, conn }) => {
-  if (!text) {
-    return conn.sendMessage(m.chat, { text: `*فين الرابط اللي هتجيبلب اسكرين🧚🏻‍♂️*` }, { quoted: m });
-  }
-
-  const screenshotUrl = `https://image.thum.io/get/fullpage/${text}`;
-  const loadingMessage = await conn.sendMessage(m.chat, { text: '𝐋𝐨𝐚𝐝𝐢𝐧𝐠, 𝐰𝐚𝐢𝐭 𝐦𝐨𝐦𝐞𝐧𝐭...' }, { quoted: m });
-
- try {
-  // إضافة تأخير قبل إرسال رسالة الصورة (مثلاً 5 ثواني)
-  setTimeout(async () => {
-
- await conn.sendMessage(m.chat, { image: { url: screenshotUrl }, mimetype: 'image/png', fileName: 'screen.png' }, { quoted: m });
-
-  }, 5000); // 5000 ميلي ثانية = 5 ثواني
-
- } catch (error) {
-      await conn.sendMessage(m.chat, { text: `*حدث خطأ أثناء جلب الصورة. حاول مرة أخرى لاحقًا.*` }, { quoted: m });
+import fetch from 'node-fetch'
+let handler = async (m, { conn, command, args }) => {
+    if (!args[0]) return conn.reply(m.chat, '*\`『 هات لينك الصفحه او الموقع معا الامر🧚🏻‍♂️ 』\`*', m)
+    await m.react('🕓')
+    try {
+        let ss = await (await fetch(`https://image.thum.io/get/fullpage/${args[0]}`)).buffer()
+        conn.sendFile(m.chat, ss, 'screenshot.png', '*تم يحب🧚🏻‍♂️*', m)
+        await m.react('✅')
+    } catch {
+        await m.react('✖️')
     }
-};
+}
+handler.help = ['اسكرين *<رابط>*']
+handler.tags = ['tools']
+handler.command = /^اسكرين$/i
 
-handler.command = /^(screen|سكرين)$/i;
-export default handler;
+export default handler
