@@ -12,7 +12,7 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
     ]
     let [feature, inputs, inputs_, inputs__, inputs___] = text.split(" ")
           if (command == "شغل" || command == 'play') {
-            if (!text) return conn.reply(m.chat, `*🚩 أدخل عنوان مقطع فيديو أو موسيقى*`,  m)
+            if (!text) return conn.reply(m.chat, '*\`『 اكتب الي عايز تشغلو معا الامر🧚🏻‍♂️ 』\`*',  m)
     await m.react('🕓')
     var res = await yts(text)
     var vid = res.videos[0]
