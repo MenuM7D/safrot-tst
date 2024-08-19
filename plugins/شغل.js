@@ -19,7 +19,7 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
     var q = '128kbps'
 const texto1 = `ابحاثك\n
         ✩ *العنوان ∙* ${vid.title}\n
-        ✩ *المده ∙* ${vid.timestamp}\n
+        ✩ *المده ∙* ${vid.timestamp} `
 
 await conn.sendButton(m.chat, texto1, wm, res.videos[0].thumbnail, [
         ['الصوت 📀', `${usedPrefix}mp3 ${text}`],
