@@ -11,7 +11,7 @@ const handler = async (m, {conn, isPrems}) => {
 handler.help = ['عمل']
 handler.tags = ['econ']
 handler.command = /^(عمل)$/i
-handler.register = true
+//handler.register = true
 export default handler
 
 function msToTime(duration) {
