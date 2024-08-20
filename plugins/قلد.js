@@ -12,6 +12,6 @@ let handler = async (m, { conn, text, participants, isAdmin, isOwner, usedPrefix
 
 handler.help = ['قلد']
 handler.tags = ['tools']
-handler.command = ['قلد']
+handler.command = ['قلد|كيب']
 
 export default handler
