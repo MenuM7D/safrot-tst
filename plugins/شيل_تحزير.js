@@ -26,9 +26,9 @@ let handler = async (m, { conn, args, groupMetadata }) => {
 
 handler.help = ['delwarn *@user*'];
 handler.tags = ['group'];
-handler.command = ['شيل_تحزير', 'شيل-تحزير'];
+handler.command = ['الغاء_تحزير', 'شيل-تحزير'];
 handler.group = true;
 handler.admin = true;
-handler.botAdmin = true;
+
 
 export default handler;
