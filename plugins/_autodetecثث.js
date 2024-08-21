@@ -1,37 +1,223 @@
-let WAMessageStubType = (await import(global.baileys)).default
-import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs';
-import path from 'path';
-export async function before(m, { conn, participants, groupMetadata }) {
-if (!m.messageStubType || !m.isGroup) return
-let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://telegra.ph/file/2a1d71ab744b55b28f1ae.jpg')
-let img = await (await fetch(`${pp}`)).buffer()
-let usuario = `@${m.sender.split`@`[0]}`
-let fkontak = { "key": { "participants": "0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-let chat = global.db.data.chats[m.chat]
-let users = participants.map(u => conn.decodeJid(u.id))
-const groupAdmins = participants.filter(p => p.admin)
-const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
+import {WAMessageStubType} from '@whiskeysockets/baileys';
+import fetch from 'node-fetch';
 
-if (chat.detect && m.messageStubType == 21) {
-await this.sendMessage(m.chat, { text: `${usuario} \`غير اسم الجروب لـ:\`\n\n> *${m.messageStubParameters[0]}*`, mentions: [m.sender], mentions: [...groupAdmins.map(v => v.id)] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else if (chat.detect && m.messageStubType == 22) {
-await this.sendMessage(m.chat, { text: `${usuario} \`غير صورة الجروب\``, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else if (chat.detect && m.messageStubType == 24) {
-await this.sendMessage(m.chat, { text: `${usuario} الوصف الجديد للجروب هو:\n\n${m.messageStubParameters[0]}`, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else if (chat.detect && m.messageStubType == 25) {
-await this.sendMessage(m.chat, { text: `🔒 دلوقتي *${m.messageStubParameters[0] == 'on' ? 'فقط الأدمنز' : 'الكل'}* يقدروا يعدلوا معلومات الجروب`, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else if (chat.detect && m.messageStubType == 26) {
-await this.sendMessage(m.chat, { text: `الجروب *${m.messageStubParameters[0] == 'on' ? 'مقفول 🔒' : 'مفتوح 🔓'}*\n ${m.messageStubParameters[0] == 'on' ? 'فقط الأدمنز يقدروا يكتبوا' : 'الكل يقدر يكتب'} في الجروب ده`, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else if (chat.detect && m.messageStubType == 29) {
-await this.sendMessage(m.chat, { text: `@${m.messageStubParameters[0].split`@`[0]} بقيت ادمن\n\n🧚🏻‍♂️الي رفعك ادمن: ${usuario}`, mentions: [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else if (chat.detect && m.messageStubType == 30) {
-await this.sendMessage(m.chat, { text: `@${m.messageStubParameters[0].split`@`[0]} نزلت من الادمن\n\nالي نزلك 🧚🏻‍♂️: ${usuario}`, mentions: [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else if (chat.detect && m.messageStubType == 72) {
-await this.sendMessage(m.chat, { text: `${usuario} غير مدة الرسائل المؤقتة لـ *@${m.messageStubParameters[0]}*`, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else if (chat.detect && m.messageStubType == 123) {
-await this.sendMessage(m.chat, { text: `${usuario} *وقف* الرسائل المؤقتة.`, mentions: [m.sender] }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else {
-console.log({messageStubType: m.messageStubType,
-messageStubParameters: m.messageStubParameters,
-type: WAMessageStubType[m.messageStubType], 
-})}}
+
+export async function before(m, {conn, participants}) {
+
+
+  if (!m.messageStubType || !m.isGroup) return !0;
+  
+  
+  const groupMetadata = await conn.groupMetadata(m.chat);
+  
+  const groupName = groupMetadata.subject;
+  
+  const groupDescription = groupMetadata.desc || 'No description';
+  
+  const groupMembersCount = groupMetadata.participants.length;
+  
+  const groupCreator = groupMetadata.owner.split('@')[0];
+  
+  const groupAdmins = participants.filter((p) => p.admin);
+  
+  const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || './src/avatar_contact.png';
+  
+  const img = await (await fetch(pp)).buffer();
+  
+  const chat = global.db.data.chats[m.chat];
+  
+  const mentionsString = [m.sender, m.messageStubParameters[0], ...groupAdmins.map((v) => v.id)];
+  
+  const mentionsContentM = [m.sender, m.messageStubParameters[0]];
+  
+  const fkontak2 = {
+    'key': {
+      'participants': '0@s.whatsapp.net',
+      'remoteJid': 'status@broadcast',
+      'fromMe': false,
+      'id': 'Halo'
+    },
+    'message': {
+      'contactMessage': {
+        'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+      }
+    },
+    'participant': '0@s.whatsapp.net'
+  };
+  
+  
+
+  if (chat.welcome && m.messageStubType == 27) {
+  
+    let txt3 = `*╭────────────────────╮*\n`;
+    
+    txt3 += `*• ⦓🤭⦔ نورت الجروب يقلب*\n`;
+    
+    txt3 += `*• ⦓📇⦔ الجروب:* 《 ${groupName} 》\n`;
+    
+    if (!m.sender.endsWith('@g.us')) {
+    
+      txt3 += `*⦓👾⦔⎽ • تمت إضافته:* 《 @${m.messageStubParameters[0].split`@`[0]} 》\n`;
+      
+      txt3 += `*⦓👾⦔⎽ • نفت بواسطة:* 《 @${m.sender.split`@`[0]} 》\n`
+      
+      txt3 += `*╰────────────────────╯*`;
+      
+    } else {
+    
+      txt3 += `*⦓📧⦔⎽ • الـمـنـشـن:* 《 @${m.messageStubParameters[0].split`@`[0]} 》*\n`;
+      
+      txt3 += `*╰────────────────────╯*`;
+      
+    }
+    
+    await conn.sendMessage(m.chat, {image: img, caption: txt3, mentions: mentionsContentM}, {quoted: fkontak2});
+    
+  }
+  
+  
+
+  if (chat.welcome && m.messageStubType == 32) {
+  
+    let ax;
+    
+    if (m.messageStubParameters[0] === m.sender) {
+      ax = 'salido';
+    } else {
+      ax = 'eliminado';
+    }
+    
+    let txt5 = `*╭────────────────────╮*\n`;
+    
+    let txt5 = `*•اللي باعنا وخرج فداهيه ⦓🚯⦔⎽!*\n`;
+    
+    txt5 += `*⦓📇⦔⎽  الجروب:* ${groupName}\n`;
+    
+    if (ax === 'إزالة') {
+      txt5 += `*⦓📧⦔⎽ • تم القضاء عليه:* 《 @${m.messageStubParameters[0].split`@`[0]} 》\n`;
+      txt5 += `*⦓📧⦔⎽ • نفت بواسطة:* 《 @${m.sender.split`@`[0]} 》*\n`;
+      
+      txt5 += `*╰────────────────────╯*`;
+      
+    } else {
+    
+      txt5 += `*⦓📧⦔⎽ • الـمـنـشـن:* 《 @${m.messageStubParameters[0].split`@`[0]} 》*\n`;
+      
+      txt5 += `*╰────────────────────╯*`;
+      
+    }
+    
+    await conn.sendMessage(m.chat, {image: {url: pp}, caption: txt5, mentions: mentionsContentM}, {quoted: fkontak2});
+    
+  }
+
+
+
+  if (chat.detect2 && m.messageStubType == 29) {
+  
+    let txt1 = `*╭────────────────────╮*\n`;
+    
+    let txt1 += `*تمت ترقية أحد الأعضاء إلى مسؤول.*\n\n`;
+    
+    txt1 += `*◦  الجروب:* ${groupName}\n`;
+    
+    txt1 += `*◦  المشرف الجديد:* @${m.messageStubParameters[0].split`@`[0]}\n`;
+    
+    txt1 += `*◦  نفت بواسطة:* @${m.sender.split`@`[0]}`;
+    
+    await conn.sendMessage(m.chat, {image: img, caption: txt1, mentions: mentionsString}, {quoted: fkontak2});
+    
+  }
+
+
+  if (chat.detect2 && m.messageStubType == 30) {
+  
+    let txt2 = `*╭────────────────────╮*\n`;
+    
+    let txt2 += `*تم تخفيض رتبة المسؤول إلى عضو.*\n`;
+    
+    txt2 += `*◦  Grupo:* ${groupName}\n`;
+    
+    txt2 += `*◦  تمت إزالته:* @${m.messageStubParameters[0].split`@`[0]}\n`;
+    
+    txt2 += `*◦  نفت بواسطة:* @${m.sender.split`@`[0]}`;
+    
+    await conn.sendMessage(m.chat, {image: img, caption: txt2, mentions: mentionsString}, {quoted: fkontak2});
+    
+  }
+
+  if (chat.detect2 && m.messageStubType == 27) {
+  
+    let txt3 = `*╭────────────────────╮*\n`;
+    
+    let txt3 += `*انضم عضو جديد مؤخرا إلى المجموعة.*\n`;
+    
+    txt3 += `*◦  الجروب:* ${groupName}\n`;
+    
+    if (!m.sender.endsWith('@g.us')) {
+    
+      txt3 += `*◦  تمت إضافته إلى:* @${m.messageStubParameters[0].split`@`[0]}\n`;
+      
+      txt3 += `*◦  نفت بواسطة:* @${m.sender.split`@`[0]}`;
+      
+    } else {
+    
+      txt3 += `*◦  تمت أضافتة:* @${m.messageStubParameters[0].split`@`[0]}\n`;
+      
+    }
+    await conn.sendMessage(m.chat, {image: img, caption: txt3, mentions: mentionsContentM}, {quoted: fkontak2});
+  }
+
+  if (chat.detect2 && m.messageStubType == 28) {
+    let txt4 = `*تمت إزالة أحد الأعضاء مؤخرًا من المجموعة.*\n\n`;
+    txt4 += `*◦  الجروب:* ${groupName}\n`;
+    if (!m.sender.endsWith('@g.us')) {
+      txt4 += `*◦  تم القضاء عليه:* @${m.messageStubParameters[0].split`@`[0]}\n`;
+      txt4 += `*◦  نفت بواسطة:* @${m.sender.split`@`[0]}`;
+    } else {
+      txt4 += `*◦  تم القضاء عليه:* @${m.messageStubParameters[0].split`@`[0]}\n`;
+    }
+    await conn.sendMessage(m.chat, {image: {url: pp}, caption: txt4, mentions: mentionsContentM}, {quoted: fkontak2});
+  }
+
+  if (chat.detect2 && m.messageStubType == 32) {
+    let ax;
+    if (m.messageStubParameters[0] === m.sender) {
+      ax = 'salido';
+    } else {
+      ax = 'eliminado';
+    }
+    let txt5 = `*لقد كان في الآونة الأخيرة ${ax} عضو في المجموعة.*\n\n`;
+    txt5 += `*◦  الجروب:* ${groupName}\n`;
+    if (ax === 'إزالة') {
+      txt5 += `*◦  تم القضاء عليه:* @${m.messageStubParameters[0].split`@`[0]}\n`;
+      txt5 += `*◦  نفت بواسطة:* @${m.sender.split`@`[0]}`;
+    } else {
+      txt5 += `*◦  خرجت:* @${m.messageStubParameters[0].split`@`[0]}\n`;
+    }
+    await conn.sendMessage(m.chat, {image: {url: pp}, caption: txt5, mentions: mentionsContentM}, {quoted: fkontak2});
+  }
+
+
+  if (chat.detect2 && m.messageStubType == 26) {
+    let accion;
+    if (m.messageStubParameters[0].split`@`[0] === 'on') {
+      accion = 'cerrado';
+    } else {
+      accion = 'abierto';
+    }
+    let txt6 = `*تم تغيير إعدادات المجموعة مؤخرًا.*\n\n`;
+    txt6 += `*◦  الجروب:* ${groupName}\n`;
+    txt6 += `*◦  المجموعة لديها:* ${'```' + accion + '```'}\n`;
+    txt6 += `*◦ نفت بواسطة:* @${m.sender.split`@`[0]}`;
+    await conn.sendMessage(m.chat, {image: {url: pp}, caption: txt6, mentions: mentionsContentM}, {quoted: fkontak2});
+  }
+
+
+  if (chat.detect2 && m.messageStubType == 21) {
+    let txt7 = `*تم تغيير اسم المجموعة مؤخرًا.*\n\n`;
+    txt7 += `*◦ اسم جديد:* ${'```' + groupName + '```'}\n`;
+    txt7 += `*◦ نفت بواسطة:* @${m.sender.split`@`[0]}`;
+    await conn.sendMessage(m.chat, {image: {url: pp}, caption: txt7, mentions: mentionsContentM}, {quoted: fkontak2});
+  }
+  }
