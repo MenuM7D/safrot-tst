@@ -1,99 +1,100 @@
-const palabras = ["gato", "perro", "pájaro", "elefante", "tigre", "ballena", "mariposa", "tortuga", "conejo", "rana", "pulpo", "ardilla", "jirafa", "cocodrilo", "pingüino", "delfín", "serpiente", "hámster", "mosquito", "abeja", "Porno", "negro", "television", "computadora", "botsito", "reggaeton", "economía", "electrónica", "facebook", "WhatsApp", "Instagram", "tiktok", "milanesa", "presidente", "bot", "películas"];
+let فترة_انتظار = 60000;
+let نقاط = 450;
 
-const intentosMaximos = 6;
+let الألغاز = [
+    { "question": "ما هو أكبر كوكب في المجموعة الشمسية؟", "response": "المشتري" },
+    { "question": "ما هو أصغر حيوان ثديي في العالم؟", "response": "خفاش النمل" },
+    { "question": "ما هو أسرع حيوان بري؟", "response": "الفهد" },
+    { "question": "من هو مؤلف رواية '1984'؟", "response": "جورج أورويل" },
+    { "question": "ما هي عاصمة اليابان؟", "response": "طوكيو" },
+    { "question": "ما هو العنصر الكيميائي الذي يرمز له بالرمز Au؟", "response": "الذهب" },
+    { "question": "من هو النبي الذي بنى السفينة؟", "response": "نوح" },
+    { "question": "ما هو أطول نهر في العالم؟", "response": "نهر النيل" },
+    { "question": "ما هي أكبر قارة من حيث المساحة؟", "response": "آسيا" },
+    { "question": "ما هي لغة البرمجة التي تستخدم بشكل رئيسي لتطوير تطبيقات الويب؟", "response": "جافا سكريبت" },
+    { "question": "من هو العالم الذي اكتشف قوانين الحركة والجاذبية؟", "response": "إسحاق نيوتن" },
+    { "question": "ما هو اسم أكبر حيوان على وجه الأرض؟", "response": "الحوت الأزرق" },
+    { "question": "ما هو الاسم القديم لمدينة إسطنبول؟", "response": "بيزنطة" },
+    { "question": "ما هي العملة الرسمية في الولايات المتحدة الأمريكية؟", "response": "الدولار" },
+    { "question": "من هو الكاتب الذي كتب 'الأمير'؟", "response": "نيكولو مكيافيلي" },
+    { "question": "ما هو العنصر الكيميائي الذي يرمز له بالرمز O؟", "response": "الأكسجين" },
+    { "question": "ما هي أكبر دولة في العالم من حيث عدد السكان؟", "response": "الصين" },
+    { "question": "ما هو اسم أول قمر صناعي أطلقه الإنسان؟", "response": "سبوتنيك" },
+    { "question": "من هو مؤلف رواية 'الجريمة والعقاب'؟", "response": "فيودور دوستويفسكي" },
+    { "question": "ما هو أكبر المحيطات على وجه الأرض؟", "response": "المحيط الهادئ" },
+    { "question": "ما هو اسم أكبر صحراء في العالم؟", "response": "الصحراء الكبرى" },
+    { "question": "ما هي العادة الشهرية التي تتميز بتغير في لون العين؟", "response": "الزرقاء" },
+    { "question": "ما هو اسم أكبر جزيرة في العالم؟", "response": "غرينلاند" },
+    { "question": "من هو صاحب نظرية النسبية؟", "response": "ألبرت أينشتاين" },
+    { "question": "ما هو اسم أقرب نجم إلى الأرض بعد الشمس؟", "response": "بروكسيما قنطورس" },
+    { "question": "ما هو اسم أول سفينة فضاء هبطت على سطح القمر؟", "response": "أبولو 11" },
+    { "question": "ما هو اسم العملة الرسمية في اليابان؟", "response": "الين" },
+    { "question": "من هو مؤلف مسرحية 'روميو وجولييت'؟", "response": "ويليام شكسبير" },
+    { "question": "ما هو الحيوان الذي يُعتبر أسرع حيوان مائي؟", "response": "سمك الشبوط" },
+    { "question": "ما هو اسم أصغر قارة في العالم؟", "response": "أستراليا" },
+    { "question": "ما هو أكبر حيوان زاحف على وجه الأرض؟", "response": "التمساح" },
+    { "question": "من هو مكتشف بنية الحمض النووي؟", "response": "فرانسيس كريك وجيمس واطسون" },
+    { "question": "ما هو اسم أكبر قارة من حيث عدد الدول؟", "response": "أفريقيا" },
+    { "question": "ما هي أعلى قمة جبلية في العالم؟", "response": "جبل إيفرست" },
+    { "question": "ما هي الدولة التي تعتبر مصدر الشوكولاتة؟", "response": "سويسرا" },
+    { "question": "ما هو اسم أشهر لاعب كرة سلة أمريكي في التاريخ؟", "response": "مايكل جوردان" },
+    { "question": "ما هو اسم أطول نهر في أمريكا الجنوبية؟", "response": "نهر الأمازون" },
+    { "question": "من هو المؤلف الذي كتب رواية 'أوليفر تويست'؟", "response": "تشارلز ديكنز" },
+    { "question": "ما هو اسم أول رئيس للولايات المتحدة الأمريكية؟", "response": "جورج واشنطن" },
+    { "question": "ما هو اسم أكبر حيوان ثديي على اليابسة؟", "response": "الفيل" },
+    { "question": "من هو مؤلف 'أليس في بلاد العجائب'؟", "response": "لويس كارول" },
+    { "question": "ما هو الاسم العلمي لكوكب الأرض؟", "response": "الأرض" }
+    // يمكنك إضافة ألغاز أخرى هنا إذا لزم الأمر
+];
 
-const gam = new Map();
-
-function elegirPalabraAleatoria() {
-    return palabras[Math.floor(Math.random() * palabras.length)];
-}
-
-function ocultarPalabra(palabra, letrasAdivinadas) {
-    let palabraOculta = "";
-    for (const letra of palabra) {
-        if (letrasAdivinadas.includes(letra)) {
-            palabraOculta += letra + " ";
-        } else {
-            palabraOculta += "_ ";
-        }
+let handler = async (m, { conn, usedPrefix }) => {
+    let الآن = new Date();
+    let آخر_استخدام = global.db.data.users[m.sender]?.آخر_لغز || 0;
+    
+    if (الآن - آخر_استخدام < فترة_انتظار) {
+        let الوقت_المتبقي = فترة_انتظار - (الآن - آخر_استخدام);
+        return m.reply(`⏱️ استنى ${msToTime(الوقت_المتبقي)} قبل ما تستخدم الأمر تاني!`);
     }
-    return palabraOculta.trim();
-}
 
-function mostrarAhorcado(intentos) {
-    const dibujo = [
-        " ____",
-        " |  |",
-        intentos < 6 ? " |  O" : " |",
-        intentos < 5 ? " | /" : intentos < 4 ? " | / " : intentos < 3 ? " | / \\" : intentos < 2 ? " | / \\ " : " |",
-        intentos < 2 ? "_|_" : " |",
-    ];
-    return dibujo.slice(0, intentosMaximos - intentos).join("\n");
-}
-
-function juegoTerminado(sender, mensaje, palabra, letrasAdivinadas, intentos) {
-    if (intentos === 0) {
-        gam.delete(sender);
-        return `❌ **خسرت! الكلمة الصحيحة كانت:** ${palabra}\n\n${mostrarAhorcado(intentos)}`;
-    } else if (!mensaje.includes("_")) {
-        let expGanada = Math.floor(Math.random() * 300); //فوز سهل
-        if (palabra.length >= 8) {
-            expGanada = Math.floor(Math.random() * 3500); //فوز صعب
-        }
-        global.db.data.users[sender].exp += expGanada;
-        gam.delete(sender);
-        return `🎉 *مبروك! انت فز 🧚🏼‍♂️! الكلمة كانت* "${palabra}".\n\n*🎁 *الخبرة المكتسبة:* ${expGanada} Exp.*`;
-    } else {
-        return `${mostrarAhorcado(intentos)}\n\n${mensaje}`;
+    conn.ألغاز = conn.ألغاز || {};
+    let id = m.chat;
+    if (id in conn.ألغاز) {
+        conn.reply(m.chat, 'لسه فيه لغز مش متحلش في الشات ده', conn.ألغاز[id][0]);
+        return null;
     }
-}
 
-let handler = async (m, { conn }) => {
-    let users = global.db.data.users[m.sender];
-    if (gam.has(m.sender)) {
-        return conn.reply(m.chat, "*عندك لعبة شغالة بالفعل. خلصها الأول!*", m);
-    }
-    let palabra = elegirPalabraAleatoria();
-    let letrasAdivinadas = [];
-    let intentos = intentosMaximos;
-    let mensaje = ocultarPalabra(palabra, letrasAdivinadas);
-    gam.set(m.sender, { palabra, letrasAdivinadas, intentos });
-    let text = `🎉 *اكتشف الكلمة*:\n\n${mensaje}\n\n🕵️‍♂️ *محاولات متبقية*: ${intentos}`;
-    conn.reply(m.chat, text, m);
-};
-
-handler.before = async (m, { conn }) => {
-    let users = global.db.data.users[m.sender];
-    let juego = gam.get(m.sender);
-    if (!juego) return;
-    let { palabra, letrasAdivinadas, intentos } = juego;
-    if (m.text.length === 1 && m.text.match(/[a-zA-Z]/)) {
-        let letra = m.text.toLowerCase();
-        if (!letrasAdivinadas.includes(letra)) {
-            letrasAdivinadas.push(letra);
-            if (!palabra.includes(letra)) {
-                intentos--;
+    let json = الألغاز[Math.floor(Math.random() * الألغاز.length)];
+    let _الإجابة = json.response;
+    let الإجابة = _الإجابة.replace(/[A-Za-z]/g, '_');
+    let نص = `
+ⷮ *${json.question}*
+*• الوقت:* ${(فترة_انتظار / 1000).toFixed(2)} ثانية
+*• البونص:* +${نقاط} نقطة
+`.trim();
+    conn.ألغاز[id] = [
+        await conn.reply(m.chat, نص, m), json, نقاط,
+        setTimeout(async () => {
+            if (conn.ألغاز[id]) {
+                await conn.reply(m.chat, `خلص الوقت!\n*الإجابة كانت:* ${json.response}`, conn.ألغاز[id][0]);
+                delete conn.ألغاز[id];
             }
-        }
-        let mensaje = ocultarPalabra(palabra, letrasAdivinadas);
-        let respuesta = juegoTerminado(m.sender, mensaje, palabra, letrasAdivinadas, intentos);
-        if (respuesta.includes("*خسرت!*") || respuesta.includes("*مبروك! انت فزت*")) {
-            conn.reply(m.chat, respuesta, m);
-        } else {
-            gam.set(m.sender, { palabra, letrasAdivinadas, intentos });
-            conn.reply(m.chat, respuesta + `\n\n🕵️‍♂️ *محاولات متبقية*: ${intentos}`, m);
-        }
-    } else {
-        let mensaje = ocultarPalabra(palabra, letrasAdivinadas);
-        let respuesta = juegoTerminado(m.sender, mensaje, palabra, letrasAdivinadas, intentos);
-        conn.reply(m.chat, respuesta, m);
-        gam.delete(m.sender);
-    }
+        }, فترة_انتظار)
+    ];
+    global.db.data.users[m.sender].آخر_لغز = الآن;
 };
 
 handler.help = ['لغز'];
 handler.tags = ['game'];
-handler.command = ['لغز'];
-//handler.register = true;
+handler.command = /^(لغز)$/i;
 
 export default handler;
+
+function msToTime(duration) {
+    let seconds = Math.floor((duration / 1000) % 60),
+        minutes = Math.floor((duration / (1000 * 60)) % 60);
+
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+    return minutes + " دقيقة " + seconds + " ثانية";
+     }
