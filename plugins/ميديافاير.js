@@ -52,8 +52,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
 handler.help = ['mediafire', 'mediafiredl'];
 handler.tags = ['downloader'];
 handler.command = /^(ميديا_فاير|ميديافاير|ميديا-فاير)$/i;
-handler.register = true;
-handler.limit = 3;
+
 export default handler;
 
 async function mediafireDl(url) {
