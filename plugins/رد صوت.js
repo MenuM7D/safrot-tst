@@ -56,7 +56,7 @@ handler.all = async function (m) {
     conn.sendMessage(m.chat, { audio: { url: vn }, ptt: true, mimetype:   'audio/mpeg'  , fileName: `shawaza_zizo_2024.opp` }, { quoted: m });
   }
   if (/^🙂|🙂🙂$/i.test(m.text)) {
-    let vn =    'https://files.catbox.moe/bqtufo.mp3'   ;
+    let vn =    'https://files.ca.tbo.x.moe/bqtu.mp'   ;
     conn.sendPresenceUpdate(   'recording'   , m.chat);
     conn.sendMessage(m.chat, { audio: { url: vn }, ptt: true, mimetype:    'audio/mpeg'   , fileName: `shawaza_zizo_2024.opp` }, { quoted: m });
   }
