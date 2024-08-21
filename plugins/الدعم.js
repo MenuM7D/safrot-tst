@@ -39,5 +39,5 @@ await conn.reply(m.chat, str, fkontak, {contextInfo: {externalAdReply :{ mediaUr
 handler.help = ['cuentaoficial']
 handler.tags = ['main']
 handler.command = /^الدعم|دعم|الدوعم|cuentaoficial$/i
-handler.register = true
+
 export default handler
