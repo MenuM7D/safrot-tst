@@ -38,7 +38,7 @@ const handler = async (m, { text, conn, args, usedPrefix, command }) => {
 
   let video = data.url;
   try {
-    await conn.sendMessage(m.chat, { video: { url: video }, caption: 'اتفضل', fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m });
+    await conn.sendMessage(m.chat, { video: { url: video }, caption: '*\`『 اتفضل يحب🧚🏻‍♂️ 』\`*', fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m });
     await m.react('✅');
   } catch (error) {
     await m.react('✖️');
