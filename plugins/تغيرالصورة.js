@@ -33,7 +33,7 @@ const handler = async (message, { conn, usedPrefix, command, args, isOwner, isAd
 
 handler.help = ['setppgc']
 handler.tags = ['group']
-handler.command = ['تغيرالصورة'];
+handler.command = ['تغييرالصورة'];
 handler.botAdmin = true;
 handler.admin = true;
 
