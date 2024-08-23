@@ -7,25 +7,25 @@ let handler = m => m
 handler.before = async function (m) {
     let id = m.chat
 
-    // التحقق مما إذا كانت الرسالة المقتبسة صحيحة
+    // التحقق من صحة الرسالة المقتبسة
     if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !/^ⷮ/i.test(m.quoted.text)) return !0
 
-    // التحقق مما إذا كان هناك لغز نشط
+    // إدارة الأحاجي
     this.tekateki = this.tekateki ? this.tekateki : {}
-    if (!(id in this.tekateki)) return m.reply('Ese acertijo ya ha terminado!')
+    if (!(id in this.tekateki)) return m.reply('هذا اللغز قد انتهى!')
 
-    // التحقق مما إذا كانت الإجابة الصحيحة
+    // التحقق من الإجابة
     if (m.quoted.id == this.tekateki[id][0].id) {
         let json = JSON.parse(JSON.stringify(this.tekateki[id][1]))
         if (m.text.toLowerCase() == json.response.toLowerCase().trim()) {
             global.db.data.users[m.sender].exp += this.tekateki[id][2]
-            m.reply(`*Respuesta correcta!*\n+${this.tekateki[id][2]} Exp`)
+            m.reply(`*إجابة صحيحة!*\n+${this.tekateki[id][2]} XP`)
             clearTimeout(this.tekateki[id][3])
             delete this.tekateki[id]
         } else if (similarity(m.text.toLowerCase(), json.response.toLowerCase().trim()) >= threshold) {
-            m.reply('Casi lo logras!')
+            m.reply('قريب جدًا!')
         } else {
-            m.reply('Respuesta incorrecta!')
+            m.reply('إجابة غير صحيحة!')
         }
     }
 
