@@ -1,3 +1,4 @@
+
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 import './config.js'; 
 import { createRequire } from "module"; // Bring in the ability to create the 'require' method
@@ -332,9 +333,9 @@ conn.ev.off('creds.update', conn.credsUpdate)
 }
 
 conn.welcome = `*نورت يحب @user🧚🏼‍♂️*
-『*اسم ⌁ الروم* *@subject*』
+『*اسم الروم* *@subject*』
 
-*وصف الروم* 🧚🏼‍♂️`
+*نورت يا قلب اخوك جروبنا المتواضع* 🧚🏼‍♂️`
 conn.bye = `😿 *سجل خروج@user* 
 *يلا في دهيا مترجعش* 😎`
 conn.spromote = 'لقد اصبحت ادمن افرح يعم @user'
