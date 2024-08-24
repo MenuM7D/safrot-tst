@@ -77,21 +77,21 @@ global.author = '𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿'
 global.wm = '𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿' 
 global.botname = '𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿'
 global.vs = '1.9.5'
-global.yt = 'https://www.youtube.com/@elrebelde.21'
-global.tiktok = 'tiktok.com/@elrebelde21'
-global.md = 'https://github.com/elrebelde21/LoliBot-MD'
-global.fb = 'https://www.facebook.com/elrebelde21'
-global.face = 'https://www.facebook.com/groups/872989990425789/'
+global.yt = 'https://youtube.com/@SAFROT?si=N5KKoTotLOgpG6-z'
+global.tiktok = 'tiktok.com/@safrot_1'
+global.md = 'https://www.atom.bio/safrotbob-376'
+global.fb = 'https://www.facebook.com/safrotbob?mibextid=ZbWKwL'
+global.face = 'https://www.facebook.com/safrotbob?mibextid=ZbWKwL'
 
-global.nna = 'https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A' //Update
-global.nn = 'https://chat.whatsapp.com/HNDVUxHphPzG3cJHIwCaX5' //Grupo 1
-global.nnn = 'https://chat.whatsapp.com/H4hxytyGvucIF1k0UAR7es' //Grupo 2
-global.nnnt = 'https://chat.whatsapp.com/IlyJBy1fxcw2qAHLSC5YLa' //Grupo del Colaboracion
-global.nnnt2 = 'https://chat.whatsapp.com/K7RzcVdxGqhGP5dCpVENSI' // Grupo COL 2
-global.nnntt = 'https://chat.whatsapp.com/IB9Vs7mZ03BBkH3reCU8Dw' //Grupo COL 3
-global.nnnttt = 'https://chat.whatsapp.com/IstOAq2RnBx687WhQpOYK8' //enlace lolibot
-global.nnntttt = 'https://chat.whatsapp.com/FRkr7jJHSJA5OjVtE64dDs' //Grupo ayuda sobre el bot
-global.bot = 'Wa.me/573147616444'
+global.nna = 'https://whatsapp.com/channel/0029VaeXAKJAjPXLKGuZSr46' //Update
+global.nn = 'https://chat.whatsapp.com/ClNQxTnKyFx6eZnJcvqsPY' //Grupo 1
+global.nnn = 'https://chat.whatsapp.com/ClNQxTnKyFx6eZnJcvqsPY' //Grupo 2
+global.nnnt = 'https://chat.whatsapp.com/ClNQxTnKyFx6eZnJcvqsPY' //Grupo del Colaboracion
+global.nnnt2 = 'https://chat.whatsapp.com/ClNQxTnKyFx6eZnJcvqsPY' // Grupo COL 2
+global.nnntt = 'https://chat.whatsapp.com/ClNQxTnKyFx6eZnJcvqsPY' //Grupo COL 3
+global.nnnttt = 'https://whatsapp.com/channel/0029VaeXAKJAjPXLKGuZSr46' //enlace lolibot
+global.nnntttt = 'https://chat.whatsapp.com/ClNQxTnKyFx6eZnJcvqsPY' //Grupo ayuda sobre el bot
+global.bot = 'Wa.me/201115618853'
 global.asistencia = `${fb}`
 global.redes = [nna, yt, nn, md, tiktok, fb, nnn, face]
 
