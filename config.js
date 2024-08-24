@@ -2,14 +2,14 @@ import { watchFile, unwatchFile } from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 import fs from 'fs'
-import * as cheerio from 'cheerio'
+import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 import axios from 'axios'
 import moment from 'moment-timezone' 
 
 //---------[ Añada los numeros a ser Propietario/a ]---------
 
-global.owner = [['201115618853', '♯ЅᗩFᏒOT꙯-𝑀𝐷', true], ['201115618853'], ['201115618853'], ['201115618853'], ['201115618853'], ['201115618853'], ['201115618853'], ['201115618853']]
+global.owner = [['+201115618853', '♯ЅᗩFᏒOT꙯', true], ['+201115618853'], ['+201115618853'], ['+201115618853'], ['+201115618853'], ['+201115618853'], ['+201115618853'], ['+201115618853']]
 global.mods = []
 global.prems = []
 
@@ -17,6 +17,9 @@ global.prems = []
 //Sólo aplica para opción 2 (ser bot con código de texto de 8 digitos)
 global.botNumberCode = "" //Ejemplo: +59309090909
 global.confirmCode = "" 
+
+// Cambiar a false para usar el Bot desde el mismo numero del Bot.
+global.isBaileysFail = false
 
 //---------[ APIS GLOBAL ]---------
 
@@ -67,38 +70,38 @@ global.moment = moment
 //------------------------[ Stickers ]-----------------------------
 
 global.packname = '𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩'
-global.author = '♯ЅᗩFᏒOT꙯-𝑀𝐷'
+global.author = '𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿'
 
 //------------[ Versión | Nombre | cuentas ]------------
 
-global.wm = '♯ЅᗩFᏒOT꙯-𝑀𝐷' 
-global.botname = '♯ЅᗩFᏒOT꙯-𝑀𝐷'
+global.wm = '𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿' 
+global.botname = '𝙎𝙖𝙛𝙧𝙤𝙩-𝙈𝘿'
 global.vs = '1.9.5'
-global.yt = 'https://youtube.com/@SAFROT?si=N5KKoTotLOgpG6-z'
-global.tiktok = 'tiktok.com/@safrot_1'
-global.md = 'https://www.atom.bio/safrotbob-376'
-global.fb = 'https://www.facebook.com/safrotbob?mibextid=ZbWKwL'
-global.face = 'https://www.facebook.com/safrotbob?mibextid=ZbWKwL'
+global.yt = 'https://www.youtube.com/@elrebelde.21'
+global.tiktok = 'tiktok.com/@elrebelde21'
+global.md = 'https://github.com/elrebelde21/LoliBot-MD'
+global.fb = 'https://www.facebook.com/elrebelde21'
+global.face = 'https://www.facebook.com/groups/872989990425789/'
 
-global.nna = 'https://whatsapp.com/channel/0029VaeXAKJAjPXLKGuZSr46' //Update
-global.nn = 'https://chat.whatsapp.com/ClNQxTnKyFx6eZnJcvqsPY' //Grupo 1
-global.nnn = 'https://chat.whatsapp.com/ClNQxTnKyFx6eZnJcvqsPY' //Grupo 2
-global.nnnt = 'https://chat.whatsapp.com/ClNQxTnKyFx6eZnJcvqsPY' //Grupo del Colaboracion
-global.nnnt2 = 'https://chat.whatsapp.com/ClNQxTnKyFx6eZnJcvqsPY' // Grupo COL 2
-global.nnntt = 'https://chat.whatsapp.com/ClNQxTnKyFx6eZnJcvqsPY' //Grupo COL 3
-global.nnnttt = 'https://whatsapp.com/channel/0029VaeXAKJAjPXLKGuZSr46' //enlace lolibot
-global.nnntttt = 'https://chat.whatsapp.com/ClNQxTnKyFx6eZnJcvqsPY' //Grupo ayuda sobre el bot
-global.bot = 'Wa.me/201115618853'
+global.nna = 'https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A' //Update
+global.nn = 'https://chat.whatsapp.com/HNDVUxHphPzG3cJHIwCaX5' //Grupo 1
+global.nnn = 'https://chat.whatsapp.com/H4hxytyGvucIF1k0UAR7es' //Grupo 2
+global.nnnt = 'https://chat.whatsapp.com/IlyJBy1fxcw2qAHLSC5YLa' //Grupo del Colaboracion
+global.nnnt2 = 'https://chat.whatsapp.com/K7RzcVdxGqhGP5dCpVENSI' // Grupo COL 2
+global.nnntt = 'https://chat.whatsapp.com/IB9Vs7mZ03BBkH3reCU8Dw' //Grupo COL 3
+global.nnnttt = 'https://chat.whatsapp.com/IstOAq2RnBx687WhQpOYK8' //enlace lolibot
+global.nnntttt = 'https://chat.whatsapp.com/FRkr7jJHSJA5OjVtE64dDs' //Grupo ayuda sobre el bot
+global.bot = 'Wa.me/573147616444'
 global.asistencia = `${fb}`
 global.redes = [nna, yt, nn, md, tiktok, fb, nnn, face]
 
 //------------------------[ Info | Datos ]---------------------------
 
-global.wait = ' *\`صلي علي النبي🧚🏻‍♂️\`* '
-global.waitt = '*⌛ _\`جاري التحميل\`..._ ▬▬▭▭▭*'
-global.waittt = '*⌛ \`جاري التحميل\`..._ ▬▬▬▬▭▭*'
-global.waitttt = '*⌛ _\`جاري التحميل\`..._ ▬▬▬▬▬▬▭*'
-global.waittttt = '*⌛ _\`جاري التحميل\`..._ ▬▬▬▬▬▬▬*'
+global.wait = '*\`『 صلي علي النبي 🧚🏻‍♂️ 』\`*'
+global.waitt = '*⌛ _جاري التحميل..._ ▬▬▭▭▭*'
+global.waittt = '*⌛ _جاري التحميل..._ ▬▬▬▬▭▭*'
+global.waitttt = '*⌛ _جاري التحميل..._ ▬▬▬▬▬▬▭*'
+global.waittttt = '*⌛ _جاري التحميل..._ ▬▬▬▬▬▬▬*'
 global.rg = '『✅ 𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊𝙎 ✅』\n\n'
 global.resultado = rg
 global.ag = '『⚠️ 𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 ⚠️』\n\n'
