@@ -28,6 +28,6 @@ const handler = async (m, { text, command, args, usedPrefix }) => {
 
 handler.help = ['simi', 'bot']
 handler.tags = ['fun']
-handler.command = /^((sim)?simi|بوت|alexa|cortana)$/i
+handler.command = /^((sim)?simi|سمسم|alexa|cortana)$/i
 
 export default handler;
