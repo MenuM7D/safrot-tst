@@ -1,59 +1,95 @@
-// by https://github.com/elrebelde21 & https://github.com/GataNina-Li
-import { randomBytes } from 'crypto'
+let handler = async (m, { conn, text }) => {
+  let totalreg = Object.keys(global.db.data.users).length;
+  let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered === true).length;
+  
+  const contactInfo = {
+    key: {
+      participants: '0@s.whatsapp.net',
+      remoteJid: 'status@broadcast',
+      fromMe: false,
+      id: 'Halo'
+    },
+    message: {
+      contactMessage: {
+        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+      }
+    },
+    participant: '0@s.whatsapp.net'
+  };
 
-let handler = async (m, { conn, command, participants, usedPrefix, text }) => { 
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${conn.user.jid.split('@')[0]}:${conn.user.jid.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" } 
+  const readMore = String.fromCharCode(8206).repeat(850);
+  
+  const d = new Date(new Date().toLocaleString("en-US", {timeZone: "Africa/Cairo"}));
+  
+  const locale = 'ar';
+  const week = d.toLocaleDateString(locale, { weekday: 'long' });
+  const day = d.toLocaleDateString('en', { day: '2-digit' });
+  const month = d.toLocaleDateString(locale, { month: 'long' });
+  const year = d.toLocaleDateString('en', { year: 'numeric' });
+  
+  const time = d.toLocaleTimeString('en', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
 
-if (!text && !m.quoted) return m.reply('*⚠️ *أدخل الرسالة اللي عايز تبعتها*')   
-let cc4 = text ? m : m.quoted ? await m.getQuotedObj() : false || m
-let teks4 = text ? text : cc4.text 
-let groups2 = Object.keys(await conn.groupFetchAllParticipating())
-let chats2 = Object.keys(global.db.data.users).filter(user => user.endsWith('@s.whatsapp.net'))
-await conn.reply(m.chat, '*بعت الرسالة الرسمية، استنى لحظة...*', m);
-let start2 = new Date().getTime()
-let usersTag2 = participants.map(u => conn.decodeJid(u.id))
-let totalPri2 = 0
-for (let i = 0; i < groups2.length; i++) {
-const group = groups2[i];
-const delay = i * 4000; // 4 ثواني
-setTimeout(async () => {
-await conn.reply(group, `✅ **الرسالة الرسمية** ✅\n\n` + teks4, { mentions: usersTag2 }, { quoted: fkontak });
-}, delay)}
-for (let user of chats2) {
-await new Promise(resolve => setTimeout(resolve, 2000)) // 2 ثواني
-await delay(2 * 2000)
-await conn.reply(user, `✅ **الرسالة الرسمية** ✅\n\n` + teks4, fkontak, null)
-totalPri2++
-if (totalPri2 >= 500000) { 
-break
-}}  
-let end2 = new Date().getTime()
-let totalPrivate2 = chats2.length
-let totalGroups2 = groups2.length
-let total2 = totalPrivate2 + totalGroups2
-let time2 = Math.floor((end2 - start2) / 1000)
-if (time2 >= 60) {
-let minutes = Math.floor(time2 / 60)
-let seconds = time2 % 60
-time2 = `${minutes} دقيقة و ${seconds} ثانية`
-} else {
-time2 = `${time2} ثانية`
-} 
-await m.reply(`**الرسالة اتبعتت لـــ:**
-\`\`\`الرسائل الخاصة >> ${totalPrivate2}\`\`\`
-\`\`\`الجروبات >>   ${totalGroups2}\`\`\`
-\`\`\`الإجمالي >>   ${total2}\`\`\`\n\n**الوقت الكلي للإرسال ${time2}**\n${totalPri2 >= 500000 ? `\n**ملاحظة: ممكن يحصل فشل في إرسال الرسالة لكل الشاتس، آسف على الإزعاج**` : ''}`);        
-}
-handler.help = ['بث', 'بث مباشر'].map(v => v + ' <teks>')
-handler.tags = ['owner']
-handler.command = /^(بث|بث_مباشر|إرسال_للجميع)$/i
+  const uptime = clockString(process.uptime() * 1000); 
+  
+  const pesan = m.quoted && m.quoted.text ? m.quoted.text : text;
+  
+  if (!pesan) return conn.sendMessage(m.chat, {text: 'ادخل نص الرساله اولا'}, { quoted: m });
+  
+  let formattedPesan = pesan.replace(/\n/g, '*\n*│');
+  
+  let counter = 1; 
+  
+  for (let [id, user] of Object.entries(global.db.data.users)) {
+    if (id.endsWith('s.whatsapp.net')) {
+    
+      let name = '@' + id.split('@')[0];
+      
+      let whatsappLink = `https://wa.me/${id.split('@')[0]}`;
+      
+      const list = `
+*≡      ◈─┄┄┄┄〘 إعلام من المطور 〙┄┄┄┄─◈*
+*╭────┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄────╮*
+*├───┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄───┤*
+*│✑ مرحبا 「 ${name} 」*
+*│✑ اسمي 「 ${wm} 」*
+*│✑ المطور 「 @${m.sender.split('@')[0]} 」*
+*│✑ التاريخ 「 ${week} ${day}/${month}/${year} 」*
+*│✑ الوقت 「 ${time} 」*
+*│✑ التشغيل 「 ${uptime} 」*
+*┤┄┄⋗  لا تنسي اضافه . قبل الأمر  ┄┄─◈*
+*├───┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄───┤*
+*╰────┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄────╯*
+${readMore}
 
-handler.owner = true
+*≡      ◈─┄┄┄┄┄┄┄〘 الإعلام 〙┄┄┄┄┄┄┄─◈*
+*╭────┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄────╮*
+*├───┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄───┤*
+*│${formattedPesan}*
+*├───┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄───┤*
+*╰────┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄───╯*
+`.trim();
 
-export default handler
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+      conn.sendMessage(id, { text: list, mentions: [m.sender, id] }, { quoted: contactInfo });
+      
+      counter++; 
+    }
+  }
+  
+  let txt = `*تم ارسال الرسالة الي ${counter} مستخدم 🧚🏻‍♂️*`;
+  
+  conn.sendMessage(m.chat, { text: txt }, { quoted: m });
+};
 
-const more = String.fromCharCode(8206)
-const readMore = more.repeat(4001)
+handler.help = ['database', 'user'];
+handler.tags = ['info'];
+handler.command = /^(bc-c|بث)$/i;
+handler.owner = true;
 
-const randomID = length => randomBytes(Math.ceil(length * .5)).toString('hex').slice(0, length)
+export default handler;
+
+function clockString(ms) {
+  const h = Math.floor(ms / 3600000);
+  const m = Math.floor(ms / 60000) % 60;
+  const s = Math.floor(ms / 1000) % 60;
+  return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':');
+                                   }
