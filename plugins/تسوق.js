@@ -1,5 +1,3 @@
-> https://chat.whatsapp.com/DpPhnhTY50z2pl6F1N9XBP
-
 const handler = async (m, {isPrems, conn}) => {
   const time = global.db.data.users[m.sender].lastcofre + 86400000; // 36000000 10 Horas //86400000 24 Horas
   if (new Date - global.db.data.users[m.sender].lastcofre < 86400000) throw `*[❗تنبيه❗]* لقد تسوقت  بالفعل\nيرجع بعد *${msToTime(time - new Date())}* للمطالبة مرة أخرى`;
