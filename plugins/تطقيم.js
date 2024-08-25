@@ -1,4 +1,4 @@
-.ww ui import fs from 'fs';
+import fs from 'fs';
 import axios from 'axios';
 
 let handler = async (m, { conn, usedPrefix }) => {
