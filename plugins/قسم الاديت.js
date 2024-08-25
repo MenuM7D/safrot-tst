@@ -24,7 +24,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
     let videoUrl = 'https://telegra.ph/file/73ef7488ba7f7f3e613ee.mp4';
     let user = global.db.data.users[who];
-    let { name, exp, diamond, lastclaim, registered, regTime, age, level, role, warn } = global.db.data.users[who];
+    let { name, exp, diamond, lastclaim, registered, regTime, age, level, role, warn } = user;
     let { min, xp, max } = xpRange(user.level, global.multiplier);
     let username = conn.getName(who);
     let math = max - xp;
@@ -105,4 +105,4 @@ function ucapan() {
         res = "مساء الخير 🌙";
     }
     return res;
-                                              }
+}
