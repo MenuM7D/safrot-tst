@@ -1,5 +1,3 @@
-//حقوق روبيرتو قناتي https://whatsapp.com/channel/0029VadWNZBLdQei1yiuc52P
-
 const calculateAge = (birthday) => {
   const [day, month, year] = birthday.split('-');
   const birthDate = new Date(year, month - 1, day);
@@ -52,5 +50,3 @@ handler.command = /^(age|عمري)$/i;
 handler.limit = false;
 
 export default handler;
-
-> ROPERTO AL MASRY
