@@ -1,5 +1,3 @@
-نص الملف حط_اونر.js:
-
 let handler = async (m, { conn, text }) => {
     let who
     if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text
@@ -14,7 +12,7 @@ let handler = async (m, { conn, text }) => {
 }
 handler.help = ['حط_اونر']
 handler.tags = ['owner']
-handler.command = /^حط_اونر$/i
+handler.command = /^اونر$/i
 handler.owner = true
 
 export default handler
