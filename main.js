@@ -332,7 +332,7 @@ conn.ev.off('connection.update', conn.connectionUpdate)
 conn.ev.off('creds.update', conn.credsUpdate)
 }
 
-conn.welcome = '*\`『 رحبو بلعضو الجديد 』\`*
+conn.welcome = '*`『 رحبوا بالعضو الجديد 』`*';
  *\`『 الاسم 』\`* : @user
   *\`『 اسم الروم 』\`* :『 @subject 』
 
