@@ -332,25 +332,26 @@ conn.ev.off('connection.update', conn.connectionUpdate)
 conn.ev.off('creds.update', conn.credsUpdate)
 }
 
-conn.welcome = '*`『 رحبوا بالعضو الجديد 』`*';
-conn.welcome = '*`『 الاسم 』`* : @user';
-conn.welcome = `*『 اسم الروم 』* :『 @subject 』`;
+conn.welcome = '*`『 رحبوا بالعضو الجديد 』`*\n';
+conn.welcome += '*`『 الاسم 』`* : @user\n';
+conn.welcome += '*『 اسم الروم 』* :『 @subject 』\n';
+conn.welcome += `*『 نورت يا قلب اخوك جروبنا المتواضع 』* 🧚🏼‍♂️`;
 
-conn.welcome = `*『 نورت يا قلب اخوك جروبنا المتواضع 』* 🧚🏼‍♂️`;
+
 conn.bye = '😿 *سجل خروج* @user';
-conn.someProperty = '*يلا في دهيا مترجعش* 😎';
-conn.spromote = 'لقد اصبحت ادمن افرح يعم @user'
-conn.sdemote = 'اصبحت عضو عادي @user'
-conn.sDesc = 'ل تغير الوصف انظر للوصف الجديد\n@desc'
-conn.sSubject = 'تغير اسم الجروب الي\n@group'
-conn.sIcon = 'تم تغيير أيقونة المجموعة'
-conn.sRevoke = 'تم تغيير رابط المجموعة إلى \n@revoke'
-conn.handler = handler.handler.bind(global.conn)
-conn.participantsUpdate = handler.participantsUpdate.bind(global.conn)
-conn.groupsUpdate = handler.groupsUpdate.bind(global.conn)
-conn.onDelete = handler.deleteUpdate.bind(global.conn)
-conn.connectionUpdate = connectionUpdate.bind(global.conn)
-conn.credsUpdate = saveCreds.bind(global.conn, true)
+conn.someProperty = '*يلا في داهية، مترجعش* 😎';
+conn.spromote = 'مبروك! لقد أصبحت أدمن، افرح يا عم @user';
+conn.sdemote = 'تم تخفيضك إلى عضو عادي @user';
+conn.sDesc = 'تم تغيير الوصف، انظر للوصف الجديد:\n@desc';
+conn.sSubject = 'تم تغيير اسم الجروب إلى:\n@group';
+conn.sIcon = 'تم تغيير أيقونة المجموعة';
+conn.sRevoke = 'تم تغيير رابط المجموعة إلى:\n@revoke';
+conn.handler = handler.handler.bind(global.conn);
+conn.participantsUpdate = handler.participantsUpdate.bind(global.conn);
+conn.groupsUpdate = handler.groupsUpdate.bind(global.conn);
+conn.onDelete = handler.deleteUpdate.bind(global.conn);
+conn.connectionUpdate = connectionUpdate.bind(global.conn);
+conn.credsUpdate = saveCreds.bind(global.conn, true);
 
 conn.ev.on('messages.upsert', conn.handler)
 conn.ev.on('group-participants.update', conn.participantsUpdate)
