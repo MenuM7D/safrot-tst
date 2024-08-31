@@ -1,6 +1,7 @@
 let handler = async (m, { isOwner, isAdmin, conn, text, participants, args, command }) => {
     // التحقق من صلاحيات الأدمن أو المالك
     if (!(isAdmin || isOwner)) {
+        m.reply('انت مش أدمن أو مالك عشان تنفذ الأمر ده.')
         global.dfail('admin', m, conn)
         throw false
     }
@@ -15,15 +16,15 @@ let handler = async (m, { isOwner, isAdmin, conn, text, participants, args, comm
         teks += `➥ @${mem.id.split('@')[0]}\n`
     }
 
-    teks += `➥ ${wm}`
+    teks += `➥ ${wm}` // تأكد أن wm معرف في مكان آخر في الكود
 
     // إرسال الرسالة إلى الدردشة
     conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) })
 }
 
-handler.help = ['tagall <mesaje>', 'invocar <mesaje>']
+handler.help = ['منشن الكل <رسالة>', 'استدعاء <رسالة>']
 handler.tags = ['group']
-handler.command = /^(tagall|2منشن|invocacion|todos|invocación)$/i
+handler.command = /^(tagall|منشن|استدعاء|الكل)$/i
 handler.admin = true
 handler.group = true
 handler.botAdmin = true
