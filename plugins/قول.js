@@ -22,7 +22,7 @@ if (res) conn.sendFile(m.chat, res, 'tts.opus', null, m, true)
 }}
 handler.help = ['tts <lang> <teks>']
 handler.tags = ['tools']
-handler.command = /^g?قول$/i
+handler.command = /^g?قولي|انطقي$/i
 export default handler
 
 function tts(text, lang = 'ar') {
