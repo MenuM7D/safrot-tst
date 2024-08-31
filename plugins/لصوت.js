@@ -1,25 +1,27 @@
-import {toAudio} from '../lib/converter.js';
+import { toAudio } from '../lib/converter.js' 
 
-const handler = async (m, {conn, usedPrefix, command}) => {
-  const q = m.quoted ? m.quoted : m;
-  const mime = (q || q.msg).mimetype || q.mediaType || '';
-  
-  if (!/video|audio/.test(mime)) throw `*⚠️ فين الفيديو؟ رد على فيديو أو ملاحظة صوتية عشان أحولها لـ MP3*`;
-  
-  const media = await q.download();
-  if (!media) throw '*⚠️ حصل خطأ مش عارف إيه اللي حصل؟ إنت تعرف؟* :)';
-  
-  m.reply(`استنى شوية بعمل تحويل 😎\n\n> *بحول من MP4 لـ MP3 🔄*`);
-  
-  const audio = await toAudio(media, 'mp4');
-  if (!audio.data) throw '*⚠️ مش عارف إنت فاهم تستخدم الأمر إزاي؟ رد على فيديو أو ملاحظة صوتية يا غبي*';
-  
-  conn.sendMessage(m.chat, {audio: audio.data, mimetype: 'audio/mpeg', fake}, {quoted: m});
-};
+let handler = async (m, { conn, usedPrefix, command }) => {
+    let q = m.quoted ? m.quoted : m
+    let mime = (m.quoted ? m.quoted : m.msg).mimetype || ''
+    
+    if (!/video|audio/.test(mime)) throw '*\`『 اعمل ريب ع الفديو الي هحولو لي صوت🧚🏻‍♂️ 』\`*'
 
-handler.help = ['tomp3'];
-handler.tags = ['convertidor'];
-handler.command = /^to(mp3|لصوت|audio)$/i;
-handler.register = true;
+    await conn.sendPresenceUpdate('recording', m.chat)
+    let media = await q.download?.()
 
-export default handler;
+    if (!media && !/video/.test(mime)) throw `مش لاقي الملف، تأكد إنه فيديو وحاول تاني.`
+    if (!media && !/audio/.test(mime)) throw `مش لاقي الملف، تأكد إنه صوت وحاول تاني.`
+
+    let audio = await toAudio(media, 'mp4')
+
+    if (!audio.data && !/audio/.test(mime)) throw `مش قادر أحول الملف لصوت، تأكد إنه ملف صوتي.`
+    if (!audio.data && !/video/.test(mime)) throw `مش قادر أحول الملف لصوت، تأكد إنه ملف فيديو.`
+
+    conn.sendFile(m.chat, audio.data, 'error.mp3', '', m, null, { mimetype: 'audio/mp4' })
+}
+
+handler.help = ['لصوت (رد)']
+handler.tags = ['الصوت']
+handler.command = ['لصوت', 'تحويل_الصوت', 'mp3']
+
+export default handler
