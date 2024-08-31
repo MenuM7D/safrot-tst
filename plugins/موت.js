@@ -1,16 +1,16 @@
 let handler = async (m, { conn }) => {
     // الحصول على JID الشخص المستهدف
-    let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+    let who = m.quoted ? m.quoted.sender : (m.mentionedJid && m.mentionedJid[0]) ? m.mentionedJid[0] : (m.fromMe ? conn.user.jid : m.sender)
 
     // الحصول على اسم الشخص المستهدف
-    let name = conn.getName(who)
+    let name = await conn.getName(who) // استخدم await هنا للحصول على الاسم
 
     // الحصول على صورة الملف الشخصي أو استخدام الصورة الافتراضية
     let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './mob.jpg')
 
     // إرسال الصورة مع الرسالة
     conn.sendFile(m.chat, global.API('https://some-random-api.com', '/canvas/overlay/wasted', {
-      avatar: pp, 
+        avatar: pp,
     }), 'waste.png', `*⎔❯╼╾╾╃❖⟪ 🍥 ⟫❖╃╼╾╾❮⎔*
 *⌝🪦┇لقد مات┇🪦⌞*
 *⎔❯╼╾╾╃❖⟪ 🍥 ⟫❖╃╼╾╾❮⎔*
