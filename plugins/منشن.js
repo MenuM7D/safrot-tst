@@ -1,4 +1,4 @@
-let handler = async (m, { isOwner, isAdmin, conn, text, participants, args, command }) => {
+.ee f let handler = async (m, { isOwner, isAdmin, conn, text, participants, args, command }) => {
     // التحقق من صلاحيات الأدمن أو المالك
     if (!(isAdmin || isOwner)) {
         return m.reply('انت مش أدمن أو مالك عشان تنفذ الأمر ده.')
@@ -7,7 +7,7 @@ let handler = async (m, { isOwner, isAdmin, conn, text, participants, args, comm
     // جمع النص المدخل في رسالة واحدة
     let pesan = args.join(' ')
     if (!pesan) {
-        return m.reply('*\`『 اكتب الرساله 🧚🏻‍♂️ 』\`*')
+        return m.reply('*\`『 اكتب الرساله 』\`*')
     }
 
     let oi = `*الرساله* ${pesan}`
