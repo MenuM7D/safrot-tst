@@ -191,12 +191,23 @@ const tmp = [tmpdir(), join(__dirname, './tmp')]
 const filename = []
 tmp.forEach(dirname => readdirSync(dirname).forEach(file => filename.push(join(dirname, file))))
 
+const fs = require('fs');
+
 return filename.map(file => {
-const stats = statSync(file)
-if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 1)) return unlinkSync(file) // 1 minuto
-return false
-})
-}
+  try {
+    if (fs.existsSync(file)) {
+      const stats = fs.statSync(file);
+      if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 1)) {
+        return fs.unlinkSync(file); // 1 دقيقة
+      }
+    } else {
+      console.log(`الملف ${file} غير موجود`);
+    }
+  } catch (err) {
+    console.error(`خطأ في التعامل مع الملف ${file}: ${err.message}`);
+  }
+  return false;
+});
 
 setInterval(async () => {
 await clearTmp()
