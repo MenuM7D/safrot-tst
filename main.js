@@ -443,5 +443,5 @@ Promise.all([
 });
 
 _quickTest()
-.then(() => conn.logger.info('Ƈᴀʀɢᴀɴᴅᴏ．．．.\n'))
+..then(() => conn.logger.info('Ƈᴀʀɢᴀɴᴅᴏ．．．.\n'))
 .catch(console.error);
