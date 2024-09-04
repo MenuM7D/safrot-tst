@@ -431,19 +431,17 @@ return Promise.race([
 new Promise(resolve => {
 p.on('close', code => {
 resolve(code !== 127)
-})
-}),
-new Promise(resolve => {
-p.on('error', _ => resolve(false))
-})
-])}))
-
-let [ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm, find] = test
-console.log(test)
-let s = global.support = {ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm, find }
-Object.freeze(global.support)
-}
+Promise.all([
+    new Promise(resolve => {
+        p.on('error', _ => resolve(false))
+    })
+]).then(test => {
+    let [ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm, find] = test;
+    console.log(test);
+    let s = global.support = { ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm, find };
+    Object.freeze(global.support);
+});
 
 _quickTest()
 .then(() => conn.logger.info('Ƈᴀʀɢᴀɴᴅᴏ．．．.\n'))
-.catch(console.error)
+.catch(console.error);
