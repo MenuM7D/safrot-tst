@@ -1,27 +1,28 @@
-import { toAudio } from '../lib/converter.js' 
+import uploadFile from '../lib/uploadFile.js'
+import uploadImage from '../lib/uploadImage.js'
 
-let handler = async (m, { conn, usedPrefix, command }) => {
+const handler = async (m, {command, conn, usedPrefix}) => {
     let q = m.quoted ? m.quoted : m
-    let mime = (m.quoted ? m.quoted : m.msg).mimetype || ''
-    
-    if (!/video|audio/.test(mime)) throw '*\`『 اعمل ريب ع الفديو الي هحولو لي صوت🧚🏻‍♂️ 』\`*'
+    let mime = (q.msg || q).mimetype || ''
+    if (!mime) throw '*قم بالرد على الفيديو أو الصوت الذي ترغب في تحويله إلى MP3*'
+    if (command ==='لصوت' || command ==='لصوتي'){
+    let media = await q.download()
+    let isAudio = /audio/.test(mime) // تحقق من نوع الصوت
+    let isVideo = /video/.test(mime) // تحقق من نوع الفيديو
+    let link = await (isAudio ? uploadFile : uploadImage)(media)
 
-    await conn.sendPresenceUpdate('recording', m.chat)
-    let media = await q.download?.()
+    // إرسال الرد بصيغة MP3 كرسالة نصية
+    conn.sendMessage(m.chat, {audio: {url: link}, mimetype: 'audio/mpeg', fileName: `converted_audio.mp3`}, {quoted: m});
+    } else if (command ==='لريك' || command ==='لفويس'){
+    let media = await q.download()
+let isTele = /audio\/mp3|video\/mp4/.test(mime)
+let link = await (isTele ? uploadImage : uploadFile)(media)
+conn.sendMessage(m.chat, {audio: {url: link}, ptt: true, mimetype: 'audio/mpeg', fileName: `shawaza_zizo_2024.opp`}, {quoted: m});
+        } 
+}; 
 
-    if (!media && !/video/.test(mime)) throw `مش لاقي الملف، تأكد إنه فيديو وحاول تاني.`
-    if (!media && !/audio/.test(mime)) throw `مش لاقي الملف، تأكد إنه صوت وحاول تاني.`
-
-    let audio = await toAudio(media, 'mp4')
-
-    if (!audio.data && !/audio/.test(mime)) throw `مش قادر أحول الملف لصوت، تأكد إنه ملف صوتي.`
-    if (!audio.data && !/video/.test(mime)) throw `مش قادر أحول الملف لصوت، تأكد إنه ملف فيديو.`
-
-    conn.sendFile(m.chat, audio.data, 'error.mp3', '', m, null, { mimetype: 'audio/mp4' })
-}
-
-handler.help = ['لصوت (رد)']
-handler.tags = ['الصوت']
-handler.command = ['لصوت', 'تحويل_الصوت', 'mp3']
+handler.help = ['sendmp3 <reply video>', 'sendmp3 <reply audio>']
+handler.tags = ['convert'] 
+handler.command = /^(لصوت)$/i
 
 export default handler
