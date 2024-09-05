@@ -4,10 +4,7 @@ import fetch from 'node-fetch';
 let handler = m => m;
 
 handler.all = async function (m, conn) {
-    let img =["https://telegra.ph/file/ae5e5bfbc98cb7825f8ac.jpg",
-              "https://telegra.ph/file/ae5e5bfbc98cb7825f8ac.jpg",
-             "https://telegra.ph/file/ae5e5bfbc98cb7825f8ac.jpg",
-             "https://telegra.ph/file/ae5e5bfbc98cb7825f8ac.jpg",
+    let img =["https://telegra.ph/file/f7799a1459cac6eb1346c.png",
              "https://telegra.ph/file/d870091e1b346afd2d30f.png",
              "https://telegra.ph/file/f7799a1459cac6eb1346c.png",
              "https://telegra.ph/file/4e84292a76a07ab824228.png",
