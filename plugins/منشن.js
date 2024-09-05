@@ -1,16 +1,21 @@
-.ee f let handler = async (m, { isOwner, isAdmin, conn, text, participants, args, command }) => {
+let handler = async (m, { isOwner, isAdmin, conn, text, participants, args, command }) => {
     // التحقق من صلاحيات الأدمن أو المالك
     if (!(isAdmin || isOwner)) {
         return m.reply('انت مش أدمن أو مالك عشان تنفذ الأمر ده.')
     }
 
+    // التحقق من وجود المشاركين
+    if (!participants || participants.length === 0) {
+        return m.reply('مفيش أعضاء في المجموعة.')
+    }
+
     // جمع النص المدخل في رسالة واحدة
     let pesan = args.join(' ')
     if (!pesan) {
-        return m.reply('*\`『 اكتب الرساله 』\`*')
+        return m.reply('برجاء كتابة الرسالة اللي عايز تبعتها.')
     }
 
-    let oi = `*الرساله* ${pesan}`
+    let oi = `*الرسالة* ${pesan}`
     let teks = `*⺀ \`『 منشن جماعي🧚🏼‍♂️ 』\` ⺀*\n\n❏ ${oi}\n\n❏ *🧚🏽‍♂️*\n`
 
     // إضافة منشن لكل عضو في المجموعة
@@ -18,10 +23,11 @@
         teks += `➥ @${mem.id.split('@')[0]}\n`
     }
 
-    teks += `➥ ${wm}` // تأكد أن wm معرف في مكان آخر في الكود
+    const wm = 'علامة تجارية هنا' // تأكد أن wm معرف هنا
+    teks += `➥ ${wm}`
 
     // إرسال الرسالة إلى الدردشة
-    conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) })
+    await conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) })
 }
 
 handler.help = ['منشن الكل <رسالة>', 'استدعاء <رسالة>']
