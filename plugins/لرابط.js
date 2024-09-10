@@ -1,18 +1,35 @@
-import uploadFile from '../lib/uploadFile.js';
-import uploadImage from '../lib/uploadImage.js';
+import fs from 'fs'
+import fetch from 'node-fetch'
+import FormData from 'form-data'
 
-const handler = async (m) => {
-  const q = m.quoted ? m.quoted : m;
-  const mime = (q.msg || q).mimetype || '';
-  if (!mime) throw '*🧚🏼‍♂️ فين الصورة أو الفيديو؟ رد على صورة أو فيديو اللي عايز تحوله لرابط*';
-  const media = await q.download();
-  const isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime);
-  const link = await (isTele ? uploadImage : uploadFile)(media);
-  m.reply(link);
-};
+let handler = async (m) => {
 
-handler.help = ['tourl <reply image>'];
-handler.tags = ['convertidor']
-handler.command = /^(لرابط|tourl)$/i;
-//handler.register = true
-export default handler;
+    let q = m.quoted ? m.quoted : m
+    let mime = q.mediaType || ''
+    
+    if (/image|video|audio|sticker|document/.test(mime)) {
+    
+        let media = await q.download(true)
+        let data = await uploadFile(media)
+        m.reply(data.files[0].url)
+    } else throw '*\`『 اعمل ريب ع الي هيترفع لرابط 🧚🏼‍♂️』\`*'
+}
+handler.help = ['tourl <reply file>']
+ handler.tags = ['url']
+handler.command = /^(لرابط)$/i
+
+export default handler
+
+async function uploadFile(path) {
+    let form = new FormData()
+    form.append('files[]', fs.createReadStream(path))
+    let res = await (await fetch('https://uguu.se/upload.php', {
+        method: 'post',
+        headers: {
+            ...form.getHeaders()
+        },
+        body: form
+    })).json()
+    await fs.promises.unlink(path)
+    return res
+  }
