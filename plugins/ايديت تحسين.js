@@ -20,7 +20,7 @@ let handler = async (m, { conn, usedPrefix, command, args }) => {
         return await handler(m, { conn, usedPrefix, command: selectedCommand, args: args.slice(1) });
     } else {
         // تنفيذ الأوامر الفرعية
-        await processImage(m, conn, command, "> `🅃🄰🅁🄱🄾🄾 🄱🄾🅃 |❥!`");
+        await processImage(m, conn, command, "> `𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩 |❥!`");
     }
 };
 
@@ -34,7 +34,7 @@ async function processImage(m, conn, method, caption) {
     let q = m.quoted ? m.quoted : m;
     let mime = (q.msg || q).mimetype || q.mediaType || "";
     if (!mime)
-        throw `أين هي الصورة؟`;
+        throw '*\`『 اعمل ريب ع الصوره🧚🏻‍♂️ 』\`*';
     if (!/image\/(jpe?g|png)/.test(mime))
         throw `النوع ${mime} غير مدعوم`;
     else conn[method][m.sender] = true;
