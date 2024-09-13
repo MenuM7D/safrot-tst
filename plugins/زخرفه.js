@@ -8,7 +8,7 @@ let handler = async (m, { conn, text }) => {
 handler.help = ['style'].map(v => v + ' *<هات النص معا الامر🧚🏼‍♂️>*')
 handler.tags = ['tools']
 handler.command = /^(style|زخرفه|زخرفة(text)?)$/i
-handler.register = true
+//handler.register = true
 handler.limit = 1
 
 export default handler
