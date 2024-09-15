@@ -123,7 +123,7 @@ let handler = async (m, { conn: _conn, args, usedPrefix, command, isOwner }) => 
             if (connection === 'open') {
                 conn.isInit = true;
                 global.conns.push(conn);
-                await parent.reply(m.chat, args[0] ? '*تم الاتصال بنجاح' : 'تم الاتصال بنجاح مع واتساب"\n\n*ملاحظة:* هذا مؤقت\n*إذا تم إعادة تشغيل البوت الرئيسي أو تعطيله، سيتم إيقاف جميع البوتات الفرعية أيضًا*\n\n*رقم البوت قد يتغير، احفظ هذا الرابط:*\n*-* https://whatsapp.com/channel/0029VagKvPX4dTnNxfbTnR45', m);
+                await parent.reply(m.chat, args[0] ? '*تم الاتصال بنجاح' : 'تم الاتصال بنجاح مع واتساب"\n\n*ملاحظة:* هذا مؤقت\n*إذا تم إعادة تشغيل البوت الرئيسي أو تعطيله، سيتم إيقاف جميع البوتات الفرعية أيضًا*\n\n*رقم البوت قد يتغير، احفظ هذا الرابط:*\n*-* https://whatsapp.com/channel/0029VaeXAKJAjPXLKGuZSr46', m);
                 await sleep(5000);
                 if (args[0]) return;
 
