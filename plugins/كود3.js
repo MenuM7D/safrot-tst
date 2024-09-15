@@ -194,9 +194,14 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
 
     } else {
         conn.sendFile(m.chat, 'JoAnimi•Error.jpg', m);      
-    }    
+    };  
+    conn.sendMessage(m.chat, { 
+    audio: { url: 'https://qu.ax/SdWV.mp3' }, 
+    mimetype: 'audio/mpeg', 
+    ptt: true
+}, { quoted: m });
 };
 handler.help = ['imgboton'];
 handler.tags = ['For Test'];
-handler.command = /^(help|الاوامر|menu|أوامر|menu|اوامر)$/i;
+handler.command = /^(تست|help|الاوامر|menu|أوامر|menu|اوامر)$/i;
 export default handler;
