@@ -6,7 +6,7 @@ const handler = async (m, {conn, command}) => {
   if (neko == '') throw 'خطأ';
   
   // عرض الزر فقط
-  conn.sendButton(m.chat, '*\`『 𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩 』\`*', neko, [['🧚🏻‍♂️ صوره تاني ', `/${command}`]], m);
+  conn.sendButton(m.chat, '*`『 𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩 』`*', '🥺💕', neko, [['🧚🏻‍♂️ صوره تاني ', `/${command}`]], m);
 };
 handler.command = /^(كيوت|كيت)$/i;
 handler.tags = ['انمي'];
