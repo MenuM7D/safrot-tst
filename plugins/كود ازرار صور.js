@@ -47,8 +47,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                             description: '🥷🏻‎',
                                             id: '.ببجي'
                                         }
-                                    ]
-                                },
+                                    ]                               },
                                 {
                                     highlight_label: '3',
                                     rows: [
@@ -100,7 +99,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                             header: '*\`『 صور كرتون 』\`*',
                                             title: '◡',
                                             description: '📦',
-                                            id: '.سفروت7'
+                                            id: '.كرتون'
                                         }
                                     ]
                                 },
@@ -108,10 +107,10 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     highlight_label: '8',
                                     rows: [
                                         {
-                                            header: '🏦❏━━│قسم البنك│━━❏◡̈⃝🏦',
-                                            title: 'ₛₐfᵣₒₜ↯bₒₜ',
-                                            description: '🏦❏━━│قسم البنك│━━❏◡̈⃝🏦',
-                                            id: '.سفروت8'
+                                            header: '*\`『 صور هكر 』\`*',
+                                            title: '◡',
+                                            description: '👨🏻‍💻',
+                                            id: '.هكر'
                                         }
                                     ]
                                 },
@@ -119,10 +118,10 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     highlight_label: '9',
                                     rows: [
                                         {
-                                            header: '◡̈⃝📢❏━━│قسم الاصوات│━━❏◡̈⃝📢',
-                                            title: 'ₛₐfᵣₒₜ↯bₒₜ',
-                                            description: '◡̈⃝📢❏━━│قسم الاصوات│━━❏◡̈⃝📢',
-                                            id: '.سفروت9'
+                                            header: '*\`『 صور درايمون 』\`*',
+                                            title: '◡',
+                                            description: '🧸',
+                                            id: '.درايمون'
                                         }
                                     ]
                                 },
@@ -130,10 +129,10 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     highlight_label: '10',
                                     rows: [
                                         {
-                                            header: '◡̈⃝˼‏👤˹ ━━|قسم الانمي│━━˼✨˹◡̈⃝',
-                                            title: 'ₛₐfᵣₒₜ↯bₒₜ',
-                                            description: '◡̈⃝˼‏👤˹ ━━|قسم الانمي│━━˼✨˹◡̈⃝',
-                                            id: '.سفروت10'
+                                            header: '*\`『 صور ماتشينج 』\`*',
+                                            title: '◡',
+                                            description: '👥',
+                                            id: '.ماتشينج'
                                         }
                                     ]
                                 },
@@ -141,9 +140,9 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     highlight_label: '11',
                                     rows: [
                                         {
-                                            header: '🔧◡̈⃝❏━━│قسم المطور│━━❏◡̈⃝🔧',
-                                            title: 'ₛₐfᵣₒₜ↯bₒₜ',
-                                            description: '🔧◡̈⃝❏━━│قسم المطور│━━❏◡̈⃝🔧',
+                                            header: '*\`『 صور خلفيات 』\`*',
+                                            title: '◡',
+                                            description: '🎑',
                                             id: '.سفروت11'
                                         }
                                     ]
@@ -152,10 +151,10 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     highlight_label: '12',
                                     rows: [
                                         {
-                                            header: '🧚🏼‍♂️◡̈⃝❏━━│مطوري│━━❏◡̈⃝🧚🏼‍♂️',
-                                            title: 'ₛₐfᵣₒₜ↯bₒₜ',
-                                            description: '🧚🏼‍♂️◡̈⃝❏━━│مطوري│━━❏◡̈⃝🧚🏼‍♂️',
-                                            id: '.المطور'
+                                            header: '*\`『 صور كابلز 』\`*',
+                                            title: '◡',
+                                            description: '👩‍❤️‍👨',
+                                            id: '.كابلز'
                                         }
                                     ]
                                 }
