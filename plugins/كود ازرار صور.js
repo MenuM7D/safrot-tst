@@ -9,7 +9,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
     m.react('🦦');
 
     if (device !== 'desktop' && device !== 'web') {      
-        var joanimiimg = await prepareWAMessageMedia({ image: {url: 'https://telegra.ph/file/ac32647cede21e4adb09a.jpg'}}, { upload: conn.waUploadToServer });
+        var joanimiimg = await prepareWAMessageMedia({ image: {url: 'https://i.ibb.co/dGTKqbC/file.jpg'}}, { upload: conn.waUploadToServer });
         const interactiveMessage = {
         
             footer: { text: ` *دوس علي زر اخطار علشان يظهرلك القائمة وتختار انت يحب🧚🏻‍♂️* 𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩`.trim() },  
