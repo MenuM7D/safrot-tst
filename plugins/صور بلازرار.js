@@ -171,4 +171,4 @@ async function wallpaper(title, page = '1') {
       resolve(hasil);
     });
   });
-                }
+                                                                                    }
