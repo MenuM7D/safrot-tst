@@ -92,10 +92,10 @@ let handler = async (m, { conn, usedPrefix }) => {
 ▣ *اسم السيرفر:* ${hostname()}
 ▣ *الرام المستخدمة:* ${format(totalmem() - freemem())} / ${format(totalmem())}
 ▣ *المنصة:* ${platform()}`
-await conn.sendMessage(m.chat, { image: { url: "https://telegra.ph/file/39fb047cdf23c790e0146.jpg", }, caption: teks,
+await conn.sendMessage(m.chat, { image: { url: "https://i.ibb.co/b54Ym1M/file.jpg", }, caption: teks,
 contextInfo: {
 externalAdReply: {
-title: `INFO - BOT`,
+title: `𝑺𝐴𝐹𝑅O𝑇-𝐵O𝑇`,
 sourceUrl: nna, 
 mediaType: 1,
 showAdAttribution: true,
@@ -105,7 +105,7 @@ thumbnailUrl: img1,
 handler.help = ['infobot']
 handler.tags = ['main']
 handler.command = /^(معلومات_البوت|informacionbot|infololi)$/i;
-handler.register = true 
+
 export default handler
 
 function toNum(number) {
