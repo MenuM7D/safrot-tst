@@ -1,51 +1,63 @@
- import { igdl } from 'ruhend-scraper';
+import fetch from 'node-fetch';
+import axios from 'axios';
+import fs from 'fs';
 
-const handler = async (m, { text, conn, args, usedPrefix, command }) => {
-  // إرسال رد فعل "انتظار" عند البدء
-  await m.react('🕓');
-
-  if (!args[0]) {
-    await m.react('✖️');
-    return conn.reply(m.chat, '*\`『 هات لينك الفديو الي عايز تحملو من الفيسبوك معا الامر🧚🏻‍♂️ 』\`*', m);
+const handler = async (m, {conn, text, command, usedPrefix}) => {
+  
+  if (!text) {
+    throw '*\`『 هات الرابط🧚🏻‍♂️ 』\`*\n\n*مثال:*فيس https://fb.watch/fOTpgn6UFQ/';
   }
 
-  let res;
   try {
-    res = await igdl(args[0]);
+    const response = await fetch(`https://api.neastooid.xyz/api/downloader/fbdl?url=${text}`);
+    const data = await response.json();
+
+    let chname = '*\`『 𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩 』\`*';
+    let chid = '120363316635505389@newsletter';
+    const videoBuffer = await getBuffer(data.hd);
+    const imgthem = data.thumbnail;
+    
+    await conn.sendMessage(m.chat, {
+      video: videoBuffer,
+      filename: 'video.mp4',
+      caption: '*\`『 طلبك يحب🧚🏻‍♂️ 』\`*',
+      contextInfo: {
+        isForwarded: true,
+        forwardingScore: 1,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: chid,
+          newsletterName: chname,
+          serverMessageId: 100
+        },
+        externalAdReply: {
+          title: 'wm',
+          body: 'Download Facebook🍿❤️',
+          sourceUrl: 'https://www.atom.bio/safrotbob-376/',
+          thumbnailUrl: imgthem,
+          mediaType: 2,
+          containsAutoReply: true,
+          showAdAttribution: true,
+          renderLargerThumbnail: true
+        }
+      }
+    }, {quoted: m});
+
   } catch (error) {
-    await m.react('✖️');
-    return conn.reply(m.chat, '*\`『 حصل خطاء في جلب الباينات🧚🏻‍♂️ 』\`*', m);
-  }
-
-  let result = res.data;
-  if (!result || result.length === 0) {
-    await m.react('✖️');
-    return conn.reply(m.chat, '*\`『 مافيش نتاج او اللنك معطل🚯 』\`*', m);
-  }
-
-  let data;
-  try {
-    data = result.find(i => i.resolution === "720p (HD)") || result.find(i => i.resolution === "360p (SD)");
-  } catch (error) {
-    await m.react('✖️');
-    return conn.reply(m.chat, '*\`『 حصل خطاء في معالج الباينات🧚🏻‍♂️ 』\`*', m);
-  }
-
-  if (!data) {
-    await m.react('✖️');
-    return conn.reply(m.chat, '*\`『 الجوه مش مناسبه 』\`*', m);
-  }
-
-  let video = data.url;
-  try {
-    await conn.sendMessage(m.chat, { video: { url: video }, caption: '*\`『 اتفضل يحب🧚🏻‍♂️ 』\`*', fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m });
-    await m.react('✅');
-  } catch (error) {
-    await m.react('✖️');
-    return conn.reply(m.chat, '*\`『 حدث خطاء في جلب الفديو عيد.في لنك تاني🧚🏻‍♂️ 』\`*', m);
+    console.error('Error occurred:', error);
+    throw `*خطا*`;
   }
 };
 
-handler.command = /^(فيس|فيسبوك|فيسو)$/i;
-
+handler.command = /^(فيس)$/i;
 export default handler;
+
+const getBuffer = async (url, options = {}) => {
+  const res = await axios({
+    method: 'get',
+    url,
+    headers: {'DNT': 1, 'Upgrade-Insecure-Request': 1},
+    ...options,
+    responseType: 'arraybuffer'
+  });
+  return res.data;
+};
