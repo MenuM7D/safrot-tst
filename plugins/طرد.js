@@ -2,7 +2,7 @@ let handler = async (m, { conn, participants, usedPrefix, command }) => {
 
     let developers = ['201115618853@s.whatsapp.net'];   
 
-    let kickte = '*\`『 اعمل ريب او منشن للي عايز تطردو🧚🏻‍♂️ 』\`*';
+    let kickte = '*\`『 اعمل ريب او منشن للي عايز تنطرو🧚🏻‍♂️ 』\`*';
 
     if (!m.mentionedJid[0] && !m.quoted) return m.reply(kickte, m.chat, { mentions: conn.parseMention(kickte) });
 
@@ -14,7 +14,7 @@ let handler = async (m, { conn, participants, usedPrefix, command }) => {
 
     await conn.groupParticipantsUpdate(m.chat, [user], 'remove');
 
-    m.reply('*\`『 تم الطرد وديتو الجحيم😹 』\`*');
+    m.reply('*\`『 تم وديتو الجحيم😹 』\`*');
 
     let admins = participants.filter(participant => participant.admin).map(participant => participant.id);
 
@@ -23,7 +23,7 @@ let handler = async (m, { conn, participants, usedPrefix, command }) => {
 
 handler.help = ['kick @user'];
 handler.tags = ['group'];
-handler.command = ['kick', 'طرد'];
+handler.command = ['انطر', 'طرد'];
 handler.admin = true;
 handler.group = true;
 handler.botAdmin = true;
