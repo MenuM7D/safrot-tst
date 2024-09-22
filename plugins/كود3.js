@@ -28,7 +28,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                             sections: [
                                 {
                                     title: 'List',
-                                    highlight_label: 'ON',
+                                    highlight_label: '1',
                                     rows: [
                                         {
                                             header: '◡̈⃝˼‏👤˹ ━━|قسم الجروب│━━˼👤˹◡̈⃝',
@@ -39,7 +39,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     ]
                                 },
                                 {
-                                    highlight_label: 'ON',
+                                    highlight_label: '2',
                                     rows: [
                                         {
                                             header: '🚻 ◡̈⃝☠︎︎━━ |قسم الاعضاء│━━☠︎︎🚻 ◡̈⃝‎',
@@ -50,7 +50,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     ]
                                 },
                                 {
-                                    highlight_label: 'ON',
+                                    highlight_label: '3',
                                     rows: [
                                         {
                                             header: '🂱◡̈⃝📿━━│قسم الديني│━━◡̈⃝🂱📿',
@@ -61,7 +61,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     ]
                                 },
                                 {
-                                    highlight_label: 'ON',
+                                    highlight_label: '4',
                                     rows: [
                                         {
                                             header: '◡̈⃝˼‏🏌˹ ━━|قسم الترفيه│━━˼‏🕺🏻˹◡̈⃝',
@@ -72,7 +72,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     ]
                                 },
                                 {
-                                    highlight_label: 'ON',
+                                    highlight_label: '5',
                                     rows: [
                                         {
                                             header: '⬇️◡̈⃝ ━━│ قسم التحميل │━━◡̈⃝⬇️',
@@ -83,7 +83,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     ]
                                 },
                                 {
-                                    highlight_label: 'ON',
+                                    highlight_label: '6',
                                     rows: [
                                         {
                                             header: '🔃✠━━│قسم الـتحـويل│━━✠◡̈⃝🔃',
@@ -94,7 +94,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     ]
                                 },
                                 {
-                                    highlight_label: 'ON',
+                                    highlight_label: '7',
                                     rows: [
                                         {
                                             header: '◡̈⃝⚙️❏━━│قسم الاديت│━━❏◡̈⃝⚙️',
@@ -105,7 +105,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     ]
                                 },
                                 {
-                                    highlight_label: 'ON',
+                                    highlight_label: '8',
                                     rows: [
                                         {
                                             header: '🏦❏━━│قسم البنك│━━❏◡̈⃝🏦',
@@ -116,7 +116,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     ]
                                 },
                                 {
-                                    highlight_label: 'ON',
+                                    highlight_label: '9',
                                     rows: [
                                         {
                                             header: '◡̈⃝📢❏━━│قسم الاصوات│━━❏◡̈⃝📢',
@@ -127,7 +127,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     ]
                                 },
                                 {
-                                    highlight_label: 'ON',
+                                    highlight_label: '10',
                                     rows: [
                                         {
                                             header: '◡̈⃝˼‏👤˹ ━━|قسم الانمي│━━˼✨˹◡̈⃝',
@@ -138,7 +138,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     ]
                                 },
                                 {
-                                    highlight_label: 'ON',
+                                    highlight_label: '11',
                                     rows: [
                                         {
                                             header: '🔧◡̈⃝❏━━│قسم المطور│━━❏◡̈⃝🔧',
@@ -149,13 +149,13 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     ]
                                 },
                                 {
-                                    highlight_label: 'ON',
+                                    highlight_label: '12',
                                     rows: [
                                         {
-                                            header: '🧚🏼‍♂️◡̈⃝❏━━│مطوري│━━❏◡̈⃝🧚🏼‍♂️',
+                                            header: '🧚🏼‍♂️◡̈⃝❏━━│قسم الصور│━━❏◡̈⃝🧚🏼‍♂️',
                                             title: 'ₛₐfᵣₒₜ↯bₒₜ',
-                                            description: '🧚🏼‍♂️◡̈⃝❏━━│مطوري│━━❏◡̈⃝🧚🏼‍♂️',
-                                            id: '.المطور'
+                                            description: '🧚🏼‍♂️◡̈⃝❏━━│قسم الصور│━━❏◡̈⃝🧚🏼‍♂️',
+                                            id: '.سفروت12'
                                         }
                                     ]
                                 }
