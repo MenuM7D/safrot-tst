@@ -10,7 +10,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
             footer: { text: `©𝑺𝐴𝐹𝑹O𝑇-𝐵O𝑇`.trim() },  
             header: {
                 
-                subtitle: '*\`『 اتفضل ي حب قائمة الصور بلازرار 』\`*',
+                sourceUrl: 'https://www.atom.bio/safrotbob-376/',
                 hasMediaAttachment: true,
                 imageMessage: joanimiimg.imageMessage,
             },
