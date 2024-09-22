@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 import fs from 'fs'
 import jimp from 'jimp'
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
-let wm = '◄⏤͟͟͞سـ⇼ـف̸ـࢪوت گيبرها „3 »'
+let wm = '◄⏤͟͟͞𝑺𝐴𝐹𝑅O𝑇-𝐵O𝑇'
 
 
 let fakecontact = { 'key': { 'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': '𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩' }, 'message': { 'contactMessage': { 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` } }, 'participant': '0@s.whatsapp.net' };
@@ -38,12 +38,12 @@ let faketext = {
 let fake = [fakegif, fakecontact, mkey, fakelocation, faketext]
 let vn = fake[Math.floor(Math.random() * fake.length)];
 
-let poster = ['https://i.ibb.co/b54Ym1M/file.jpg', 'https://i.ibb.co/6tDQGPD/file.jpg', 'https://i.ibb.co/dGTKqbC/file.jpg']
+let poster = ['https://i.ibb.co/b54Ym1M/file.jpg', 'https://i.ibb.co/fX3X4wb/file.jpg', 'https://i.ibb.co/dGTKqbC/file.jpg']
 let vn2 = poster[Math.floor(Math.random() * poster.length)];
 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let ftroli = { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { itemCount: 2023, status: 1, thumbnail: 'https://i.imgur.com/RbaRjrb.jpeg', surface: 1, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
-let bjir = 'https://i.ibb.co/dGTKqbC/file.jpg'
+let bjir = 'https://i.imgur.com/RbaRjrb.jpeg'
 let name = await conn.getName(who)
 
 let delay = time => new Promise(res => setTimeout(res, time))
