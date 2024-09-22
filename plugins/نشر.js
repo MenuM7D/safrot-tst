@@ -1,22 +1,33 @@
-//import Connection from '../lib/connection.js'
-import { randomBytes } from 'crypto'
+import fetch from 'node-fetch'
 
-let handler = async (m, { conn, text }) => {
-  let chats = Object.entries(conn.chats).filter(([_, chat]) => chat.isChats).map(v => v[0])
-  let cc = conn.serializeM(text ? m : m.quoted ? await m.getQuotedObj() : false || m)
-  let teks = text ? text : cc.text
-  conn.reply(m.chat, `جاري التجهيز *عدد الجروبات:* ${chats.length}`, m)
-  for (let id of chats) await conn.copyNForward(id, conn.cMod(m.chat, cc, /bc|broadcast|tx/i.test(teks) ? teks : `${teks}` ), true).catch(_ => _)
-  m.reply('تم التحويل')
+let handler = async (m, { conn, usedPrefix, command }) => {
+    let img = await (await fetch(`https://i.ibb.co/fX3X4wb/file.jpg`)).buffer()
+    const more = String.fromCharCode(8206)
+    const readMore = more.repeat(4001)
+
+    // عرّف المتغيرات
+    let group = "https://chat.whatsapp.com/ClNQxTnKyFx6eZnJcvqsPY"
+    let canal = "https://whatsapp.com/channel/0029VaeXAKJAjPXLKGuZSr46"
+    let textbot = "*\`『 دعموني علشان اقدر استمر وفضل معاكو 』\`*"
+
+    let txt = `*أهلاً، أنا بدعوك تنضم للجروبات الرسمية للبوت عشان تتفاعل مع المجتمع :D*
+
+1- 【 ✯ 𝑺𝐴𝐹𝑅O𝑇-𝐵O𝑇 ✰ 】
+*✰* ${group}
+
+*─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ*
+
+➠ اللينك مش شغال؟ ادخل هنا!
+
+قناة :
+*✰* ${canal}
+
+> 🚩 ${textbot}`
+    
+    await conn.sendFile(m.chat, img, "Thumbnail.jpg", txt, m, null, canal)
 }
-handler.help = ['tx']
-handler.tags = ['owner']
+
+handler.help = ['جروبات']
+handler.tags = ['رئيسية']
 handler.command = /^(نشر)$/i
-handler.owner = true
-
 export default handler
-
-const more = String.fromCharCode(8206)
-const readMore = more.repeat(4001)
-
-const randomID = length => randomBytes(Math.ceil(length * .5)).toString('hex').slice(0, length)
