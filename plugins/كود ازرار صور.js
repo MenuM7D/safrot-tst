@@ -2,179 +2,35 @@ import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '
 
 const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
     const device = await getDevice(m.key.id);
-    const mentionId = m.key.participant || m.key.remoteJid;
 
-    const uptime = process.uptime();
-    const uptimeString = `${Math.floor(uptime / 60)} دقائق ${Math.floor(uptime % 60)} ثواني`;
-    m.react('🦦');
-
-    if (device !== 'desktop' && device !== 'web') {      
-        var joanimiimg = await prepareWAMessageMedia({ image: {url: 'https://i.ibb.co/dGTKqbC/file.jpg'}}, { upload: conn.waUploadToServer });
+    if (device !== 'desktop' || device !== 'web') {      
+        var joanimiimg = await prepareWAMessageMedia({ image: {url: 'https://i.ibb.co/dGTKqbC/file.jpg'}}, { upload: conn.waUploadToServer })
         const interactiveMessage = {
-        
-            footer: { text: ` *دوس علي زر اخطار علشان يظهرلك القائمة وتختار انت يحب🧚🏻‍♂️* 𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩`.trim() },  
+            body: { text: '*\`『 اتفضل يحب القائمه 』\`*\n *🧚🏻‍♂️دوس علي زر اخطار علشان تخطار الزر الصور الي تينزبك* '.trim() },
+            footer: { text: `©𝑺𝐴𝐹𝑹O𝑇-𝐵O𝑇`.trim() },  
             header: {
-                title: `◞❐*نورت يحب قائمة الاوامر*\n*◞❐ تفضل القائمة يا:* @${mentionId.split('@')[0]}`,
-                subtitle: ``,
+                
+                subtitle: '*\`『 اتفضل ي حب قائمة الصور بلازرار 』\`*',
                 hasMediaAttachment: true,
                 imageMessage: joanimiimg.imageMessage,
             },
             nativeFlowMessage: {
                 buttons: [
                     {
-                        name: 'single_select',
-                        buttonParamsJson: JSON.stringify({
-                            title: '*\`『 اخطا 』\`*',
-                            sections: [
-                                {
-                                    title: 'List',
-                                    highlight_label: '1',
-                                    rows: [
-                                        {
-                                            header: '*\`『 صور جبل 』\`*',
-                                            title: ' ',
-                                            description: ' 🧗‍♀️',
-                                            id: '.جبل'
-                                        }
-                                    ]
-                                },
-                                {
-                                    highlight_label: '2',
-                                    rows: [
-                                        {
-                                            header: '*\`『 صور ببجي 』\`*',
-                                            title: ' ',
-                                            description: '🥷🏻‎',
-                                            id: '.ببجي'
-                                        }
-                                    ]                               },
-                                {
-                                    highlight_label: '3',
-                                    rows: [
-                                        {
-                                            header: '*\`『 صور.جيمينج 』\`*',
-                                            title: ' ',
-                                            description: '🧟‍♂️',
-                                            id: '.جيمينج'
-                                        }
-                                    ]
-                                },
-                                {
-                                    highlight_label: '4',
-                                    rows: [
-                                        {
-                                            header: '*\`『 صور عشوائي 』\`*',
-                                            title: ' ',
-                                            description: '🔁',
-                                            id: '.عشوائي'
-                                        }
-                                    ]
-                                },
-                                {
-                                    highlight_label: '5',
-                                    rows: [
-                                        {
-                                            header: '*\`『 صور كوكب 』\`*',
-                                            title: ' ',
-                                            description: '🌏',
-                                            id: '.كوكب'
-                                        }
-                                    ]
-                                },
-                                {
-                                    highlight_label: '6',
-                                    rows: [
-                                        {
-                                            header: '*\`『 صور انميز 』\`*',
-                                            title: ' ',
-                                            description: '🙅🏻',
-                                            id: '.انميز'
-                                        }
-                                    ]
-                                },
-                                {
-                                    highlight_label: '7',
-                                    rows: [
-                                        {
-                                            header: '*\`『 صور كرتون 』\`*',
-                                            title: '◡',
-                                            description: '📦',
-                                            id: '.كرتون'
-                                        }
-                                    ]
-                                },
-                                {
-                                    highlight_label: '8',
-                                    rows: [
-                                        {
-                                            header: '*\`『 صور هكر 』\`*',
-                                            title: '◡',
-                                            description: '👨🏻‍💻',
-                                            id: '.هكر'
-                                        }
-                                    ]
-                                },
-                                {
-                                    highlight_label: '9',
-                                    rows: [
-                                        {
-                                            header: '*\`『 صور درايمون 』\`*',
-                                            title: '◡',
-                                            description: '🧸',
-                                            id: '.درايمون'
-                                        }
-                                    ]
-                                },
-                                {
-                                    highlight_label: '10',
-                                    rows: [
-                                        {
-                                            header: '*\`『 صور ماتشينج 』\`*',
-                                            title: '◡',
-                                            description: '👥',
-                                            id: '.ماتشينج'
-                                        }
-                                    ]
-                                },
-                                {
-                                    highlight_label: '11',
-                                    rows: [
-                                        {
-                                            header: '*\`『 صور خلفيات 』\`*',
-                                            title: '◡',
-                                            description: '🎑',
-                                            id: '.سفروت11'
-                                        }
-                                    ]
-                                },
-                                {
-                                    highlight_label: '12',
-                                    rows: [
-                                        {
-                                            header: '*\`『 صور كابلز 』\`*',
-                                            title: '◡',
-                                            description: '👩‍❤️‍👨',
-                                            id: '.كابلز'
-                                        }
-                                    ]
-                                }
-                            ]
-                        })
-                    },
-                    {
-                        name: 'cta_url',
-                        buttonParamsJson: JSON.stringify({
-                            display_text: '*\`『 🧚🏻‍♂️المطور 』\`*',
-                            url: 'https://wa.me/201115618853',
-                            merchant_url: ''
-                        })
-                    },
-                    {
-                        name: 'single_select',
-                        buttonParamsJson: JSON.stringify({
-                            display_text: 'call',
-                            id: '.صوره'
-                        })
+                        "name": "single_select",
+                        "buttonParamsJson": `{\"title\":\"اخطار\",\"sections\":[
+                            {\"title\":\"『 بيجبلك صور جيبال 』\",\"highlight_label\":\"1\",\"rows\":[{\"title\":\"『 صور جبل 』\",\"id\":\"/جبل\"}]},
+                            {\"title\":\"『 بيجبلك صور ببجي  』\",\"highlight_label\":\"2\",\"rows\":[{\"title\":\"『 صور ببجي 』\",\"id\":\"/ببجي\"}]},
+                            {\"title\":\"『 بيجبلك صور جيمينج  』\",\"highlight_label\":\"3\",\"rows\":[{\"title\":\"『 صور جيمينج 』\",\"id\":\"/جيمينج\"}]},
+                            {\"title\":\"『 بيجبلك صور عسوائي 』\",\"highlight_label\":\"4\",\"rows\":[{\"title\":\"『 صور عشوائي 』\",\"id\":\"/عشوائي\"}]},
+                            {\"title\":\"『 بيجبلك صور كوكب وكده 』\",\"highlight_label\":\"5\",\"rows\":[{\"title\":\"『 صور كوكب 』\",\"id\":\"/كوكب\"}]},
+                            {\"title\":\"『 بيجبلك صور انميز 』\",\"highlight_label\":\"6\",\"rows\":[{\"title\":\"『 صور انميز 』\",\"id\":\"/انميز\"}]},
+                            {\"title\":\"『 بيجبلك صور كرتون 』\",\"highlight_label\":\"7\",\"rows\":[{\"title\":\"『 صور كرتون 』\",\"id\":\"/كرتون\"}]},
+                            {\"title\":\"『 بيجبلك صور خلفيات هكر 』\",\"highlight_label\":\"8\",\"rows\":[{\"title\":\"『 صور هكر 』\",\"id\":\"/هكر\"}]},
+                            {\"title\":\"『 بيجبلك صور درايمون 』\",\"highlight_label\":\"9\",\"rows\":[{\"title\":\"『 صور درايمون 』\",\"id\":\"/درايمون\"}]},
+                            {\"title\":\"『 بيجبلك صور كابلز 』\",\"highlight_label\":\"10\",\"rows\":[{\"title\":\"『 صور ماتشينج 』\",\"id\":\"/ماتشينج\"}]},
+                            {\"title\":\"『 بيجبلك صور خلفيات』\",\"highlight_label\":\"11\",\"rows\":[{\"title\":\"『 صور خلفيات 』\",\"id\":\"/خلفيات\"}]}
+                        ]}`
                     }
                 ],
                 messageParamsJson: ''
@@ -187,18 +43,14 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                     interactiveMessage,
                 },
             },
-        }, { userJid: conn.user.jid, quoted: m });
-        msg.message.viewOnceMessage.message.interactiveMessage.contextInfo = { mentionedJid: [mentionId] };
-        conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
+        }, { userJid: conn.user.jid, quoted: m })
+        conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id});
 
     } else {
         conn.sendFile(m.chat, 'JoAnimi•Error.jpg', m);      
-    };  
-    conn.sendMessage(m.chat, {
-    ptt: true
-}, { quoted: m });
+    }    
 };
 handler.help = ['imgboton'];
 handler.tags = ['For Test'];
-handler.command = /^(احو)$/i;
+handler.command = /^(تو)$/i;
 export default handler;
