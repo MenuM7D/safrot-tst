@@ -11,7 +11,7 @@ let handler = async (m, {
         text = args.slice(0).join(" ")
     } else if (m.quoted && m.quoted.text) {
         text = m.quoted.text
-    } else throw "\n🧸💜علشان ارد علي اي سوال نقطه سفروت وكتب سوالك"
+    } else throw "*\`『 قول عايز اي وكتب اسمي الاول ع ارد عليك🧚🏻‍♂️ 』\`*"
     
     const messages = [
     { role: 'system', content: 'You are a helpful assistant.' },
