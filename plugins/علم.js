@@ -1,30 +1,30 @@
+import fetch from 'node-fetch'
 let timeout = 60000
-let poin = 500
+let poin = 5000
 let handler = async (m, { conn, command, usedPrefix }) => {
     conn.tebakbendera = conn.tebakbendera ? conn.tebakbendera : {}
     let id = m.chat
     if (id in conn.tebakbendera) {
-        conn.reply(m.chat, '❐┃لم يتم الاجابة علي السؤال بعد┃❌ ❯', conn.tebakbendera[id][0])
+        conn.reply(m.chat, 'هنالك سؤال لم تتم الاجابه عليه', conn.tebakbendera[id][0])
         throw false
     }
-    let src = await (await fetch('https://gist.githubusercontent.com/YosefZoro1/10ef5c5023de5b565fbf561adafd86a8/raw/4a97c5abef49be34d1d748faa954b71345d24c3d/game5.json')).json()
+    let src = await (await fetch('https://raw.githubusercontent.com/ze819/game/master/src/game.js/luffy1.json')).json()
   let json = src[Math.floor(Math.random() * src.length)]
     let caption = `*${command.toUpperCase()}*
-  ❐↞┇الـوقـت⏳↞ *${(timeout / 1000).toFixed(2)} ┇
- استخدم .انسحب للأنسحاب
-  ❐↞┇الـجـائـزة💰↞ ${poin} نقاط┇
-*\`『 𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩 』\`*
-     `.trim()
+الوقت *${(timeout / 1000).toFixed(2)} ثواني*
+استخدم .تلميح للتلميح
+الجائزه: ${poin} XP
+    `.trim()
     conn.tebakbendera[id] = [
         await conn.sendFile(m.chat, json.img, '', caption, m),
         json, poin,
         setTimeout(() => {
-            if (conn.tebakbendera[id]) conn.reply(m.chat, `❮ ⌛┇انتهي الوقت┇⌛❯\n❐↞┇الاجـابـة✅↞ ${json.name}*┇`, conn.tebakbendera[id][0])
+            if (conn.tebakbendera[id]) conn.reply(m.chat, `انتهى الوقت!\nالجواب *${json.name}*`, conn.tebakbendera[id][0])
             delete conn.tebakbendera[id]
         }, timeout)
     ]
 }
-handler.help = ['guessflag']
+handler.help = ['علم']
 handler.tags = ['game']
 handler.command = /^علم/i
 
