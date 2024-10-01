@@ -28,7 +28,7 @@ const handler = async (message, { conn, usedPrefix, command, args, isOwner, isAd
 
 handler.help = ["setppbot"]
 handler.tags = ["owner"]
-handler.command = /^بروفيل_بوت|cambiafoto|fotobot$/i;
+handler.command = /^برفبوت|بروفيلك|fotobot$/i;
 handler.owner = true;
 
 export default handler;
