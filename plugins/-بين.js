@@ -6,7 +6,6 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
 };
 handler.help = ['ببين<كلمة البحث>'];
 handler.tags = ['البحث'];
-handler.command = /^(بين)$/i;
-handler.register = true;
-handler.limit = 1;
+handler.command = /^(ننبين)$/i;
+
 export default handler;
