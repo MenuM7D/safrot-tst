@@ -1,4 +1,4 @@
-import axios from 'axios'
+.ee k import axios from 'axios'
 const {proto, generateWAMessageFromContent, prepareWAMessageMedia, generateWAMessageContent, getDevice} = (await import("@whiskeysockets/baileys")).default
 
 let handler = async (message, { conn, text, usedPrefix, command }) => {
@@ -55,5 +55,5 @@ let handler = async (message, { conn, text, usedPrefix, command }) => {
 
 handler.help = ['tiktoksearch <txt>']
 handler.tags = ['بحث']
-handler.command = ['فيديو2', 'tts', 'فيديو']
+handler.command = ['ستوري', 'استوري', 'فيديو']
 export default handler
