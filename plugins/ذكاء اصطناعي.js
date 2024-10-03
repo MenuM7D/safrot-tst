@@ -1,50 +1,30 @@
-import fetch from "node-fetch"
 
-let handler = async (m, {
-    conn,
-    args,
-    usedPrefix,
-    command
-}) => {
-    let text
-    if (args.length >= 1) {
-        text = args.slice(0).join(" ")
-    } else if (m.quoted && m.quoted.text) {
-        text = m.quoted.text
-    } else throw "*\`『 قول عايز اي وكتب اسمي الاول ع ارد عليك🧚🏻‍♂️ 』\`*"
-    
-    const messages = [
-    { role: 'system', content: 'You are a helpful assistant.' },
-    { role: 'user', content: text },
-  ];
-    try {
-        let res = await chatWithGPT(messages)
-        await m.reply(res.choices[0].message.content)
-    } catch (e) {
-        await m.reply('error')
+import fetch from 'node-fetch';
+
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+
+  try {
+
+    const name = "سفروت";
+
+    const anime = "مطوري سفروت"; 
+    if (!text) {
+      return conn.reply(m.chat, `*\`『 🧚🏻‍♂️قول عايز اي معا الامر سفروت 』\`*`, m);
     }
-}
-handler.help = ["ji1z"]
-handler.tags = ["ai"];
-handler.command = /^(سفروت)$/i
-
-export default handler
-
-/* New Line */
-async function chatWithGPT(messages) {
-    try {
-        const response = await fetch("https://chatbot-ji1z.onrender.com/chatbot-ji1z", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ messages }),
-        });
-
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error("Error fetching data:", error);
-        throw error;
+      
+    const response = await fetch(`https://joanimi-apis-for-devs.vercel.app/api/cai/v1?name=${name}&anime=${anime}&text=${text}`);
+    const data = await response.json();
+    const result = data.result;
+    if (!result) {
+      return conn.reply(m.chat, 'للاسف مافيش اجابه.', m);
     }
-}
+    conn.reply(m.chat, result, m);
+  } catch (error) {
+    throw error
+  }
+};
+
+handler.help = ['سفروت'];
+handler.tags = ['ai'];
+handler.command = /^(سفروت)$/i;
+export default handler;
