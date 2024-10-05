@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 let handler = async (m, { conn, text, command, usedPrefix }) => {
     const url = text;
     if (!url) {
-return m.reply(`هذا الأمر خاص بتحميل فيديوات من جميع المنصات مثال :\n${usedPrefix + command} *ورابط الفيديو*`);
+return m.reply('*\`『 هات لينك الي عايز تحملو🧚🏻‍♂️ 』\`*');
      };
 
     let website;
