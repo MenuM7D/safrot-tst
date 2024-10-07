@@ -1,39 +1,33 @@
-import gtts from 'node-gtts'
-import { readFileSync, unlinkSync } from 'fs'
-import { join } from 'path'
-const defaultLang = 'ar'
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-let lang = args[0]
-let text = args.slice(1).join(' ')
-if ((args[0] || '').length !== 2) { 
-lang = defaultLang 
-text = args.join(' ')
-}
-if (!text && m.quoted?.text) text = m.quoted.text
-let res
-try { res = await tts(text, lang) }
-catch (e) {
-m.reply(e + '')
-text = args.join(' ')
-if (!text) throw `*اكتب شيء وانا بقوله*`
-res = await tts(text, defaultLang)
-} finally {
-if (res) conn.sendFile(m.chat, res, 'tts.opus', null, m, true)    
-}}
-handler.help = ['tts <lang> <teks>']
-handler.tags = ['tools']
-handler.command = /^g?قولي|انطقي$/i
-export default handler
+import 'node-fetch';
 
-function tts(text, lang = 'ar') {
-console.log(lang, text)
-return new Promise((resolve, reject) => {
-try {
-let tts = gtts(lang)
-let filePath = join(global.__dirname(import.meta.url), '../tmp', (1 * new Date) + '.wav')
-tts.save(filePath, text, () => {
-resolve(readFileSync(filePath))
-unlinkSync(filePath)
-})
-} catch (e) { reject(e) }
-})}
+let handler = async (m, { conn, text }) => {
+
+    if (!text) {
+
+        return m.reply('*\`『 اكتب الي عيزني اقولو بلصوت معا الامر🧚🏻‍♂️ 』\`*');
+
+    }
+
+    const audioUrl = `https://ai.xterm.codes/api/text2speech/bella?text=${encodeURIComponent(text)}&key=Bell409&voice=bella`;
+
+    
+
+    conn.sendMessage(m.chat, {
+
+        audio: { url: audioUrl },
+
+        mimetype: "audio/mpeg",
+
+        ptt: true
+
+    }, { quoted: m });
+
+};
+
+handler.command = ["انطقي", "قولي"];
+
+handler.help = ["elevenlab3", "thomas_shelby"];
+
+handler.tags = ['ai'];
+
+export default handler;
