@@ -196,7 +196,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
         conn.sendFile(m.chat, 'JoAnimi•Error.jpg', m);      
     };  
     conn.sendMessage(m.chat, { 
-    audio: { url: 'https://qu.ax/SdWV.mp3' }, 
+    audio: { url: '' }, 
     mimetype: 'audio/mpeg', 
     ptt: true
 }, { quoted: m });
