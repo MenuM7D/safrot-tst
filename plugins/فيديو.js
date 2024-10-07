@@ -35,13 +35,13 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                         header: video.title,
                                         title: video.author.name,
                                         description: 'صوت',
-                                        id: `${prefijo}play.1 ${video.url}`
+                                        id: `${prefijo}mp3 ${video.url}`
                                     },
                                     {
                                         header: video.title,
                                         title: video.author.name,
                                         description: 'فيديو',
-                                        id: `${prefijo}play.2 ${video.url}`
+                                        id: `${prefijo}mp4 ${video.url}`
                                     }
                                 ]
                             }))
@@ -81,6 +81,6 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
 
 handler.help = ['ytsearch <نص>'];
 handler.tags = ['search'];
-handler.command = /^(مهرجان|اغاني|اغنيه1|يوتيوب)$/i;
+handler.command = /^(مهرجنات|اغاني|اغنيه1|يوتيوب)$/i;
 
 export default handler;
