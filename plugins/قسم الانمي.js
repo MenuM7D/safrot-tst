@@ -4,7 +4,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
     const device = await getDevice(m.key.id);
 
     if (device !== 'desktop' && device !== 'web') {      
-        var imageMessageMedia = await prepareWAMessageMedia({ image: { url: 'https://i.ibb.co/dGTKqbC/file.jpg' } }, { upload: conn.waUploadToServer });
+        var imageMessageMedia = await prepareWAMessageMedia({ image: { url: 'https://i.ibb.co/Cv42zDr/file.jpg' } }, { upload: conn.waUploadToServer });
         const interactiveMessage = {
             body: { text: '*\`『 قسم الانمي بلازرار 』\`*\n *🧚🏻‍♂️دوس علي زر اخطار علشان تخطار الزر الصور الي تينزبك* '.trim() },
             footer: { text: `©𝑺𝐴𝐹𝑹O𝑇-𝐵O𝑇`.trim() },  
