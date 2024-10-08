@@ -1,131 +1,83 @@
-import { createHash } from 'crypto'
-import PhoneNumber from 'awesome-phonenumber'
-import { canLevelUp, xpRange } from '../lib/levelling.js'
-import fetch from 'node-fetch'
-import fs from 'fs'
-import moment from 'moment-timezone'
-import { promises } from 'fs'
-import { join } from 'path'
+import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys';
 
-const time = moment.tz('Egypt').format('HH')
-let wib = moment.tz('Egypt').format('HH:mm:ss')
+const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
+    const device = await getDevice(m.key.id);
 
-let handler = async (m, { conn, usedPrefix, command }) => {
-    let d = new Date(new Date + 3600000)
-    let locale = 'en'
-    let week = d.toLocaleDateString(locale, { weekday: 'long' })
-    let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
-    let _uptime = process.uptime() * 1000
-    let uptime = clockString(_uptime)
-    let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-    if (!(who in global.db.data.users)) throw `✳️ لم يتم العثور على المستخدم في قاعدة البيانات الخاصة بي`
-    let videoUrl = 'https://telegra.ph/file/73ef7488ba7f7f3e613ee.mp4'
-    let user = global.db.data.users[who]
-    let { name, exp, diamond, lastclaim, registered, regTime, age, level, role, warn } = global.db.data.users[who]
-    let { min, xp, max } = xpRange(user.level, global.multiplier)
-    let username = conn.getName(who)
-    let math = max - xp
-    let prem = global.prems.includes(who.split`@`[0])
-    let sn = createHash('md5').update(who).digest('hex')
-    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
-    let more = String.fromCharCode(8206)
-    m.react('👩🏻‍🎤')
-    let readMore = more.repeat(850)
-    let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
-    let str = `
-┏━━⊜ *◡̈⃝˼‏👩🏻‍🎤˹ ━━|قسم الانمي│━━˼👩🏻‍🎤˹◡̈⃝*
-┇≡ *◡̈⃝🧸📌 ⁩ تفضل القائمة يا*  : *${taguser}*
-┇≡ *◡̈⃝📝📌قبل كتابة اي امر حط (.)*
-┇≡ *◡̈⃝⌚📌وقـت الـتـشـغـيـل ${uptime}
-┇≡ *◡̈⃝⏳📌الـتـوقـيـت ${date}
-┇≡ *◡̈⃝🕊📌عـدد الـمـسـتـخـدمـيـن ${rtotalreg}
-┇≡ *◡̈⃝🧚🏻‍♀️📌 اسـم الـبوت : ₛₐfᵣₒₜ bₒₜ🤺🔥*
-┇≡ *◡̈⃝⚙️📌 الـمنـصه  Heroku *
-┗━━━━━━━━━━⬣
-┏━━⊜
-❐╎◡̈⃝🍙❯ .فانرت⌉
-❐╎◡̈⃝🍚❯ .هوسبو⌉
-❐╎◡̈⃝🍥❯ .كانا⌉
-❐╎◡̈⃝🍡❯ .ميغومين⌉
-❐╎◡̈⃝🍜❯ .نيكو⌉
-❐╎◡̈⃝🍱❯ .شوتا⌉
-❐╎◡̈⃝🍨❯ .وايف⌉
-❐╎◡̈⃝🍧❯ .الينا⌉
-❐╎◡̈⃝🔮❯ .مراتي⌉
-❐╎◡̈⃝🔮❯ .بنت⌉
-❐╎◡̈⃝🍥❯ .وايفو⌉
-❐╎◡̈⃝🥨❯ .لولي⌉
-❐╎◡̈⃝🍓❯ .لولي2⌉
-❐╎◡̈⃝👘❯ .كوسبلاي⌉
-❐╎◡̈⃝🗑❯ .ساكورا⌉
-❐╎◡̈⃝🌩❯ .ساسكي⌉
-❐╎◡̈⃝🥢❯ .ساجيري⌉
-❐╎◡̈⃝🧁❯ .نيزوكو⌉
-❐╎◡̈⃝🦊❯ .ناروتو⌉
-❐╎◡̈⃝🏹❯ .ميناتو⌉
-❐╎◡̈⃝🍪❯ .ميكو⌉
-❐╎◡̈⃝🍩❯ .ميكاسا⌉
-❐╎◡̈⃝🗿❯ .مادارا⌉
-❐╎◡̈⃝🍒❯ .جوزو⌉
-❐╎◡̈⃝🤸‍♂️❯ .كوترو⌉
-❐╎◡̈⃝🤺❯ .كانيكي⌉
-❐╎◡̈⃝🪕❯ .كاوري⌉
-❐╎🤿❯ .كاجيرو⌉
-❐╎◡̈⃝🪔❯ .كاجا⌉
-❐╎◡̈⃝🩹❯ .ايتوري⌉
-❐╎◡̈⃝🩸❯ .ايتاتشي⌉
-❐╎◡̈⃝🪴❯ .ايسوزي⌉
-❐╎◡̈⃝🩰❯ .اينوري⌉
-❐╎◡̈⃝💒❯ .هيناتا⌉
-❐╎◡̈⃝🏖❯ .هيستيا⌉
-❐╎◡̈⃝⛱️❯ .ايميليا⌉
-❐╎◡̈⃝🗻❯ .ايبا⌉
-❐╎◡̈⃝🎠❯ .ايرزا⌉
-❐╎◡̈⃝🌋❯ .ديدارا⌉
-❐╎◡̈⃝🍃❯ .شيتوجي⌉
-❐╎◡̈⃝🍄❯ .شينوبو⌉
-❐╎◡̈⃝🐵❯ .بوروتو⌉
-❐╎◡̈⃝🥀❯ .أيوزاوا⌉
-❐╎◡̈⃝🌷❯ .اسونا⌉
-❐╎◡̈⃝🌺❯ .اناا⌉
-❐╎◡̈⃝⛹️‍♂️❯ .اكياما⌉
-❐╎◡̈⃝🕴❯ .اكيرا⌉
-❐╎◡̈⃝🍙❯ .كيوت⌉
-  ┗━━━━━━━━━━⬣
-`.trim()
-    conn.sendMessage(m.chat, {
-        video: { url: videoUrl }, caption: str,
-        mentions: [m.sender, global.conn.user.jid],
-        gifPlayback: true, gifAttribution: 0
-    }, { quoted: m });
+    if (device !== 'desktop' && device !== 'web') {      
+        var imageMessageMedia = await prepareWAMessageMedia({ image: { url: 'https://i.ibb.co/dGTKqbC/file.jpg' } }, { upload: conn.waUploadToServer });
+        const interactiveMessage = {
+            body: { text: '*\`『 قسم الانمي بلازرار 』\`*\n *🧚🏻‍♂️دوس علي زر اخطار علشان تخطار الزر الصور الي تينزبك* '.trim() },
+            footer: { text: `©𝑺𝐴𝐹𝑹O𝑇-𝐵O𝑇`.trim() },  
+            header: {
+                sourceUrl: 'https://www.atom.bio/safrotbob-376/',
+                hasMediaAttachment: true,
+                imageMessage: imageMessageMedia.imageMessage,
+            },
+            nativeFlowMessage: {
+                buttons: [
+                    {
+                        "name": "single_select",
+                        "buttonParamsJson": `{"title":"اخطار","sections":[
+                            {"rows":[{"title":"『 كيوت 』","id":"/كيوت"}]},
+                            {"rows":[{"title":"『 اكياما 』","id":"/اكياما"}]},
+                            {"rows":[{"title":"『 اسونا 』","id":"/اسونا"}]},
+                            {"rows":[{"title":"『 ايوزاوا 』","id":"/ايوزاوا"}]},
+                            {"rows":[{"title":"『 بوروتو 』","id":"/بوروتو"}]},
+                            {"rows":[{"title":"『 شينوبو 』","id":"/شينوبو"}]},
+                            {"rows":[{"title":"『 شيتوجي 』","id":"/شيتوجي"}]},
+                            {"rows":[{"title":"『 ديدارا 』","id":"/ديدارا"}]},
+                            {"rows":[{"title":"『 ايرزا 』","id":"/ايرزا"}]},
+                            {"rows":[{"title":"『 ايبا 』","id":"/ايبا"}]},
+                            {"rows":[{"title":"『 ايملي 』","id":"/ايملي"}]},
+                            {"rows":[{"title":"『 هيستيا 』","id":"/هيستيا"}]},
+                            {"rows":[{"title":"『 هيناتا 』","id":"/هيناتا"}]},
+                            {"rows":[{"title":"『 اينوري 』","id":"/اينوري"}]},
+                            {"rows":[{"title":"『 ايسوزو 』","id":"/ايسوزو"}]},
+                            {"rows":[{"title":"『 ايتاشي 』","id":"/ايتاشي"}]},
+                            {"rows":[{"title":"『 كاغا 』","id":"/كاغا"}]},
+                            {"rows":[{"title":"『 اننا 』","id":"/اننا"}]},
+                            {"rows":[{"title":"『 كاوري 』","id":"/كاوري"}]},
+                            {"rows":[{"title":"『 كانيكي 』","id":"/كانيكي"}]},
+                            {"rows":[{"title":"『 كوتوري 』","id":"/كوتوري"}]},
+                            {"rows":[{"title":"『 كاغورا 』","id":"/كاغورا"}]},
+                            {"rows":[{"title":"『 ميكاسا 』","id":"/ميكاسا"}]},
+                            {"rows":[{"title":"『 مادارا 』","id":"/مادارا"}]},
+                            {"rows":[{"title":"『 ميكو 』","id":"/ميكو"}]},
+                            {"rows":[{"title":"『 ميناتو 』","id":"/ميناتو"}]},
+                            {"rows":[{"title":"『 ناروتو 』","id":"/ناروتو"}]},
+                            {"rows":[{"title":"『 نيزيكو 』","id":"/نيزيكو"}]},
+                            {"rows":[{"title":"『 نيكو 』","id":"/نيكو"}]},
+                            {"rows":[{"title":"『 اويفو 』","id":"/اويفو"}]},
+                            {"rows":[{"title":"『 بنت 』","id":"/بنت"}]},
+                            {"rows":[{"title":"『 مراتي 』","id":"/مراتي"}]},
+                            {"rows":[{"title":"『 الينا 』","id":"/الينا"}]},
+                            {"rows":[{"title":"『 تشيهو 』","id":"/تشيهو"}]},
+                            {"rows":[{"title":"『 كورومي 』","id":"/كورومي"}]},  // قسم جديد
+                            {"rows":[{"title":"『 قريبا 』","id":"/قريبا"}]}, // قسم جديد
+                            {"rows":[{"title":"『 قريبا 』","id":"/قريبا"}]}, // قسم جديد
+                            {"rows":[{"title":"『 قريبا 』","id":"/قريبا"}]}  // قسم جديد
+                        ]}`
+                    }
+                ],
+                messageParamsJson: ''
+            }
+        };        
+
+        let msg = generateWAMessageFromContent(m.chat, {
+            viewOnceMessage: {
+                message: {
+                    interactiveMessage,
+                },
+            },
+        }, { userJid: conn.user.jid, quoted: m });
+        conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
+
+    } else {
+        conn.sendFile(m.chat, 'JoAnimi•Error.jpg', m);      
+    }    
 };
 
-handler.help = ['main']
-handler.command = ['سفروت10']
-
-export default handler
-
-function clockString(ms) {
-    let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-    let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-    let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-}
-
-function ucapan() {
-    const time = moment.tz('Egypt').format('HH')
-    let res = "بداية يوم سعيده ☀️"
-    if (time >= 4) {
-        res = "صباح الخير 🌄"
-    }
-    if (time >= 10) {
-        res = "مساء الخير ☀️"
-    }
-    if (time >= 15) {
-        res = "مساء الخير 🌇"
-    }
-    if (time >= 18) {
-        res = "مساء الخير 🌙"
-    }
-    return res
-}
+handler.help = ['imgboton'];
+handler.tags = ['For Test'];
+handler.command = /^(سفروت10)$/i;
+export default handler;
