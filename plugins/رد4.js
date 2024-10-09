@@ -28,7 +28,7 @@ handler.all = async function(m) {
     m.conn.sendMessage(m.chat, {text: randomReply(replies)}, {quoted: m});
 
   } else if (/^لا انت بوت|انت بوت$/i.test(m.text) && !chat.isBanned) {
-    const replies = ['*قولت سامي سفروت🐤*'];
+    const replies = ['*قولت اسمي سفروت🐤*'];
     m.conn.sendMessage(m.chat, {text: randomReply(replies)}, {quoted: m});
 
   } else if (/^بوت عبيط$/i.test(m.text) && !chat.isBanned) {
