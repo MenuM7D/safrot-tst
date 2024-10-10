@@ -1,13 +1,13 @@
 let handler = async (m, { conn, usedPrefix, command, text }) => {
-    let img1 = 'https://qu.ax/hKqji.jpg';
-    let img2 = 'https://qu.ax/SZWpn.jpg';
-    let img3 = 'https://qu.ax/ufXRQ.jpg';
-    let img4 = 'https://qu.ax/rcNpB.jpg';
-    let img5 = 'https://qu.ax/QGBVe.jpg';
-    let img6 = 'https://qu.ax/SZWpn.jpg'; // تأكد من تكرار الصورة إذا كان مقصود
-    let img7 = 'https://qu.ax/WOfSZ.jpg';
-    let img8 = 'https://qu.ax/UGzNp.jpg';
-    let img9 = 'https://qu.ax/rcNpB.jpg';
+    let img1 = 'https://i.ibb.co/2ZXTWjJ/file.jpg';
+    let img2 = 'https://i.ibb.co/2SjJKVp/file.jpg';
+    let img3 = 'https://i.ibb.co/2ZXTWjJ/file.jpg';
+    let img4 = 'https://i.ibb.co/2SjJKVp/file.jpg';
+    let img5 = 'https://i.ibb.co/2ZXTWjJ/file.jpg';
+    let img6 = 'https://i.ibb.co/2SjJKVp/file.jpg'; // تأكد من تكرار الصورة إذا كان مقصود
+    let img7 = 'https://i.ibb.co/2ZXTWjJ/file.jpg';
+    let img8 = 'https://i.ibb.co/2SjJKVp/file.jpg';
+    let img9 = 'https://i.ibb.co/2ZXTWjJ/file.jpg';
 
     const messages = [
         [
