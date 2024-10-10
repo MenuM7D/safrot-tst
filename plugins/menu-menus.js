@@ -8,8 +8,8 @@ import { xpRange } from '../lib/levelling.js'
 let fecha = moment.tz('America/Bogota').format('DD/MM/YYYY')
 let hora = moment.tz('America/Argentina/Buenos_Aires').format('LT')
 let tags = {
-  'main': 'ℹ️ INFOBOT',
-  'jadibot': '✨ بُوت ثانوي', 
+  'main': '*\`『 𝐒𝐀𝐅𝐑𝐎𝐓-𝐁𝐎𝐓 』\`*',
+  'jadibot': '✨ بُوت سفروت', 
   'downloader': '🚀 تحميلات',
   'game': '👾 ألعاب', 
   'rg': '🟢 تسجيل', 
@@ -163,7 +163,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 handler.help = ['help']
 handler.tags = ['main']
 //handler.command = ['menucompleto', 'help', 'fullmenu'] 
-handler.command = /^(منيو\?)$/i
+handler.command = /^(منيو$\?)$/i
 handler.register = false
 
 handler.exp = 3
