@@ -23,7 +23,7 @@ let handler = async (m, { isOwner, isAdmin, conn, text, participants, args, comm
         teks += `➥ @${mem.id.split('@')[0]}\n`
     }
 
-    const wm = 'علامة تجارية هنا' // تأكد أن wm معرف هنا
+    const wm = '*\`『 𝐒𝐀𝐅𝐑𝐎𝐓-𝐁𝐎𝐓 』\`*'
     teks += `➥ ${wm}`
 
     // إرسال الرسالة إلى الدردشة
