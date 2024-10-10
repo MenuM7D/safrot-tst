@@ -1,6 +1,6 @@
 let handler = async(m, { conn, text }) => {
 
-  const usageMessage = `*ريب علي الي عايز تنيكو😹*`;
+  const usageMessage = '*\`『 اعمل ريب ع الي عايز تنيكو😹🐤 』\`*';
 
   const who = m.mentionedJid[0] 
     || (m.quoted ? m.quoted.sender : text ? text.replace(/[^0-9]/g, '') + '@s.whatsapp.net' : false);
