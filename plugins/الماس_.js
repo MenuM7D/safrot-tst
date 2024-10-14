@@ -27,6 +27,6 @@ conn.reply(m.chat, `*•───⧼⧼⧼ *الرصيد* ⧽⧽⧽───•*
 handler.help = ['balance']
 handler.tags = ['econ']
 handler.command = ['bal', 'الماس', 'diamond', 'balance'] 
-handler.register = true
+
 
 export default handler
