@@ -3,94 +3,108 @@ const {
   generateWAMessageContent,
   generateWAMessageFromContent,
   proto
-} = (await import("@whiskeysockets/baileys"))["default"];
+} = (await import("@whiskeysockets/baileys")).default;
 
-let handler = async (m, { conn, text, usedPrefix, command }) => {
+let handler = async (message, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return conn.reply(m.chat, "[🧚🏼‍♂️] *\`『 اكتب الي بدور عليه علي بينترست 』\`*", m);
+    return conn.reply(message.chat, " >*\`『 اكدب اسم الصوره الي بدور عليها علي بنترست 』\`*", message);
   }
 
-  async function getImageMessage(imageUrl) {
-    const { imageMessage } = await generateWAMessageContent({
-      'image': {
-        'url': imageUrl
+  try {
+    // استدعاء واجهة Pinterest API
+    let { data } = await axios.get(`https://www.pinterest.com/resource/BaseSearchResource/get/?source_url=%2Fsearch%2Fpins%2F%3Fq%3D${encodeURIComponent(text)}&data=%7B%22options%22%3A%7B%22isPrefetch%22%3Afalse%2C%22query%22%3A%22${encodeURIComponent(text)}%22%2C%22scope%22%3A%22pins%22%2C%22no_fetch_context_on_resource%22%3Afalse%7D%2C%22context%22%3A%7B%7D%7D&_=1619980301559`);
+
+    // استخراج روابط الصور
+    let imageUrls = data.resource_response.data.results.map(result => result.images.orig.url);
+    shuffleArray(imageUrls);
+
+    // التحقق من وجود صور
+    if (imageUrls.length === 0) {
+      return conn.reply(message.chat, "*\`『 لا توجد صور متاحة 』\`*", message);
+    }
+
+    // اختيار أول 10 صور فقط
+    let selectedImages = imageUrls.slice(0, 10);
+
+    let results = [];
+    for (let i = 0; i < selectedImages.length; i++) {
+      let imageUrl = selectedImages[i];
+      let imageMessage = await generateImageMessage(imageUrl);
+
+      results.push({
+        body: proto.Message.InteractiveMessage.Body.fromObject({
+          text: `النتيجة : ${i + 1}`
+        }),
+        footer: proto.Message.InteractiveMessage.Footer.fromObject({
+          text: "*\`『 𝐒𝐀𝐅𝐑𝐎𝐓-𝐁𝐎𝐓 』\`*"
+        }),
+        header: proto.Message.InteractiveMessage.Header.fromObject({
+          title: '',
+          hasMediaAttachment: true,
+          imageMessage
+        }),
+        nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
+          buttons: [
+            {
+              name: "quick_reply",
+              buttonParamsJson: JSON.stringify({
+                display_text: "ابحث تاني 🧚🏻‍♂️",
+                id: `${usedPrefix + command} ${text}`
+              })
+            }
+          ]
+        })
+      });
+    }
+
+    const messageContent = generateWAMessageFromContent(message.chat, {
+      viewOnceMessage: {
+        message: {
+          interactiveMessage: proto.Message.InteractiveMessage.fromObject({
+            body: proto.Message.InteractiveMessage.Body.create({
+              text: `[🧚🏻‍♂️] النتيجه لي: ${text}`
+            }),
+            footer: proto.Message.InteractiveMessage.Footer.create({
+              text: "🔎 `بـحث بنـتريست`"
+            }),
+            header: proto.Message.InteractiveMessage.Header.create({
+              hasMediaAttachment: false
+            }),
+            carouselMessage: proto.Message.InteractiveMessage.CarouselMessage.fromObject({
+              cards: results
+            })
+          })
+        }
       }
     }, {
-      'upload': conn.waUploadToServer
+      quoted: message
     });
-    return imageMessage;
+
+    await conn.relayMessage(message.chat, messageContent.message, { messageId: messageContent.key.id });
+
+  } catch (error) {
+    console.error(error);
+    conn.reply(message.chat, "*\`『 حدث خطا عيد المحوله 』\`*", message);
   }
-
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  }
-
-  let messages = [];
-  let { data } = await axios.get("https://www.pinterest.com/resource/BaseSearchResource/get/?source_url=%2Fsearch%2Fpins%2F%3Fq%3D" + text + "&data=%7B%22options%22%3A%7B%22isPrefetch%22%3Afalse%2C%22query%22%3A%22" + text + "%22%2C%22scope%22%3A%22pins%22%2C%22no_fetch_context_on_resource%22%3Afalse%7D%2C%22context%22%3A%7B%7D%7D&_=1619980301559");
-  let imageUrls = data.resource_response.data.results.map(result => result.images.orig.url);
-  shuffleArray(imageUrls);
-  let selectedImages = imageUrls.splice(0, 5);
-  let counter = 1;
-
-  for (let url of selectedImages) {
-    messages.push({
-      'body': proto.Message.InteractiveMessage.Body.fromObject({
-        'text': "الصورة -" + (" " + counter++)
-      }),
-      'footer': proto.Message.InteractiveMessage.Footer.fromObject({
-        'text': wm
-      }),
-      'header': proto.Message.InteractiveMessage.Header.fromObject({
-        'title': '',
-        'hasMediaAttachment': true,
-        'imageMessage': await getImageMessage(url)
-      }),
-      'nativeFlowMessage': proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
-        'buttons': [{
-          'name': "cta_url",
-          'buttonParamsJson': "{\"display_text\":\"رابط 📫\",\"Url\":\"https://www.pinterest.com/search/pins/?rs=typed&q=" + text + "\",\"merchant_url\":\"https://www.pinterest.com/search/pins/?rs=typed&q=" + text + "\"}"
-        }]
-      })
-    });
-  }
-
-  const messageContent = generateWAMessageFromContent(m.chat, {
-    'viewOnceMessage': {
-      'message': {
-        'messageContextInfo': {
-          'deviceListMetadata': {},
-          'deviceListMetadataVersion': 0x2
-        },
-        'interactiveMessage': proto.Message.InteractiveMessage.fromObject({
-          'body': proto.Message.InteractiveMessage.Body.create({
-            'text': "[❗] نتيجة بحث لـ : " + text
-          }),
-          'footer': proto.Message.InteractiveMessage.Footer.create({
-            'text': "🔎 `بِـينتِرِست - بَحْث`"
-          }),
-          'header': proto.Message.InteractiveMessage.Header.create({
-            'hasMediaAttachment': false
-          }),
-          'carouselMessage': proto.Message.InteractiveMessage.CarouselMessage.fromObject({
-            'cards': [...messages]
-          })
-        })
-      }
-    }
-  }, {
-    'quoted': m
-  });
-
-  await conn.relayMessage(m.chat, messageContent.message, {
-    'messageId': messageContent.key.id
-  });
 };
 
+// إعادة تعريف المساعدات والتعليمات
 handler.help = ["pinterest"];
 handler.tags = ["downloader"];
-handler.command = /^(pinterest|بينترست)$/i;
+handler.command = /^(بين|بنرست|بنتريست|بنترست)$/i;
 
 export default handler;
+
+// وظيفة عشوائية لتبديل ترتيب العناصر في المصفوفة
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+// وظيفة لتوليد رسالة صورة
+async function generateImageMessage(url) {
+  const { imageMessage } = await generateWAMessageContent({ image: { url } }, { upload: conn.waUploadToServer });
+  return imageMessage;
+  }
