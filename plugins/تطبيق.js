@@ -1,38 +1,45 @@
-import {search, download} from 'aptoide-scraper';
-
-const handler = async (m, {conn, usedPrefix, command, text}) => {
-  if (!text) return conn.reply(m.chat, `⚠️ *اكتب اسم التطبيق (APK)*`, m, {contextInfo: {externalAdReply: {mediaUrl: null, mediaType: 1, description: null, body: `ماذا تبحث؟`, previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}});
-  
-  try {    
-    const searchA = await search(text);
-    const data5 = await download(searchA[0].id);
-    let response = `≪*تم التنزيل🧚🏼‍♂️*≫
-
-┏━━━━━━━━━━━━━━━━━━━━━━• 
-┃💫 *لايف*: ${data5.name}
-┃📦 *باكج*: ${data5.package}
-┃🕒 *اخر تحديث*: ${data5.lastup}
-┃💪 *حجم*: ${data5.size}
-┗━━━━━━━━━━━━━━━━━━━━━━━•`;
-
-    await conn.sendFile(m.chat, data5.icon, 'apk.jpg', response, m, false, {contextInfo: {externalAdReply: {mediaUrl: null, mediaType: 1, description: null, body: iig, previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}});
-    
-    if (data5.size.includes('GB') || parseFloat(data5.size.replace(' MB', '')) > 999) {
-      return await conn.sendMessage(m.chat, {text: '*التطبيق كبير جداً.*'}, {quoted: m});
+let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
+    if (!args[0]) {
+        return conn.reply(m.chat, '*\`『 اكتب اسم التطبيق الي انت عيزو🧚🏻‍♂️ 』\`*:\n```................```\n.تطبيق القران\n.تطبيق كيبورد', m);
     }
-    
-    await conn.sendMessage(m.chat, {document: {url: data5.dllink}, mimetype: 'application/vnd.android.package-archive', fileName: data5.name + '.apk', caption: null}, {quoted: m}); 
-    handler.limit = 2;
-  } catch (e) {
-    m.react(`❌`); 
-    console.log(e);
-    handler.limit = false;
-  }
-};
 
-handler.help = ['apk', 'apkmod'];
-handler.tags = ['downloader'];
-handler.command = /^(تطبيق|apk|modapk|dapk2|aptoide|aptoidedl)$/i;
-//handler.register = true;
+    try {
+        let res = await fetch(`https://api-streamline.vercel.app/dlapk?search=${args[0]}`);
+        let result = await res.json();
+
+        if (!result.file || !result.file.path) {
+            return conn.reply(m.chat, '[ ⚠️ ] لم أستطع العثور على رابط تحميل التطبيق، حاول اسم آخر.', m);
+        }
+
+        let { name, size, package: packe, icon, updated } = result;
+        let URL = result.file.path;
+        let sizeInMB = (parseInt(size) / (1024 * 1024)).toFixed(2) + ' MB';
+
+        let texto = `  ❯───「 𝗔𝗣𝗸 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 」───❮
+            ✦ الـاـــســم : ⇢ ${name} 📛
+            ✦ المــقــاس  : ⇢ ${sizeInMB} ⚖️
+            ✦ الطــرْد : ⇢ ${packe} 📦
+            ✦ التـحـديـث  : ⇢ ${updated} 🗓️
+
+        ## التطبيق بتاعك هييجي في لح;ظة، من فضلك استنى . . .`;
+
+        await conn.sendFile(m.chat, icon, name + '.jpg', texto, m);
+        
+        await conn.sendMessage(m.chat, { 
+            document: { url: URL }, 
+            mimetype: 'application/vnd.android.package-archive', 
+            fileName: name + '.apk', 
+            caption: '' 
+        }, { quoted: m });
+        
+    } catch (error) {
+        console.error(error);
+        return conn.reply(m.chat, '[ ⚠️ ] حدث خطأ أثناء محاولة تحميل التطبيق، حاول مرة أخرى لاحقًا.', m);
+    }
+}
+
+handler.command = ['apk', 'بلاي', 'تطبيق', 'متجر'];
+handler.help = ['apkdl'];
+handler.tags = ['descargas'];
 
 export default handler;
