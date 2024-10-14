@@ -2,46 +2,32 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 
 let handler = async (m, { conn, usedPrefix, args, command, text }) => {
-  if (!text) throw `*╮┄╌〔 ≪ 𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩 ≫ 〕╌╌•*\n*┆❌ بتستخدم الامر غلط*\n*┆✔️ الاستخدام الصح*\n*┆❕ مثال: ${usedPrefix + command} ورابط الفيديو*\n*╯────ׂ─ׂ─ׂ─ׂ─────╌─╌─╌*`;
-    await conn.sendMessage(m.chat, { react: { text: '⏳', key: m.key } });
+  if (!text) throw `يرجى استخدام الأمر مع رابط فيديو من تيكتوك\nمثال: ${usedPrefix + command} https://vt.tiktok.com/ZS2CQ96qp/`;
+  m.react('⏳');
 
   try {
-    let mediaURL = await zoro(text);
-
-    if (!mediaURL) throw '❮ ❌ ┇ حدث خطأ  ❯';
-
-    conn.sendFile(m.chat, mediaURL, '', '「 تـفـضـل طـلـبـك ⌋', m, false, { mimetype: 'video/mp4' });
- await conn.sendMessage(m.chat, { react: { text: '✔️', key: m.key } });
+    let mediaURL = await obito(text); // تغيير هنا
+    if (!mediaURL) throw new Error('لم يتم العثور على رابط تحميل الفيديو');
+    await conn.sendFile(m.chat, mediaURL, '', 'تم تحميل الفيديو بنجاح', m, false, { mimetype: 'video/mp4' });
   } catch (error) {
-await conn.sendMessage(m.chat, { react: { text: '❌', key: m.key } });
-    throw `*╮┄╌〔 ≪ 𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩 ≫ 〕╌╌•*\n*┆❌ ضيف رابط الفيديو صح*\n*╯────ׂ─ׂ─ׂ─ׂ─────╌─╌─╌*`;
+    throw `حدث خطأ ما في تحميل الفيديو: ${error.message}`;
   }
-try{
-  let mediaURL = await zoro(text);
-  conn.sendMessage(m.chat, {audio: {url: mediaURL}, ptt: true, mimetype: 'audio/mpeg', fileName: `shawaza_zizo_2024.opp`}, {quoted: m});
-} catch (error){
-  return
-  } 
 };
 
-async function zoro(text) {
-  let res = await fetch(`https://zoro-api-zoro-bot-5b28aebf.koyeb.app/api/tiktok?url=${encodeURIComponent(text)}`);
-  if (!res.ok) return false;
-
-  const fileName = 'Zezo_tiktok_video.mp4';
-  const fileStream = fs.createWriteStream(fileName);
-  res.body.pipe(fileStream);
-
-  await new Promise((resolve, reject) => {
-    fileStream.on('finish', resolve);
-    fileStream.on('error', reject);
-  });
-
-  return fileName;
+async function obito(text) { // تغيير هنا
+  try {
+    let res = await fetch(`https://api-streamline.vercel.app/dltiktok?url=${encodeURIComponent(text)}`);
+    if (!res.ok) throw new Error('الـ API لم يعيد استجابة صحيحة');
+    let json = await res.json();
+    if (!json.play) throw new Error('لم يتم العثور على رابط الفيديو');
+    return json.play;
+  } catch (error) {
+    return false;
+  }
 }
 
-handler.help = ['tiktok'];
+handler.help = ['instagramdl'];
 handler.tags = ['downloader'];
-handler.command = /^(tiktokdl|tt|تيكتوك|تيك)$/i;
+handler.command = /^(تيك|تيكتوك|tiktok)$/i;
 
 export default handler;
