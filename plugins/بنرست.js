@@ -7,7 +7,7 @@ const {
 
 let handler = async (message, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return conn.reply(message.chat, " >*\`『 اكدب اسم الصوره الي بدور عليها علي بنترست 』\`*", message);
+    return conn.reply(message.chat, "*\`『 🧚🏻‍♂️اكدب اسم الصوره الي بدور عليها علي بنترست 』\`*", message);
   }
 
   try {
@@ -46,9 +46,9 @@ let handler = async (message, { conn, text, usedPrefix, command }) => {
         nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
           buttons: [
             {
-              name: "quick_reply",
+              name: "",
               buttonParamsJson: JSON.stringify({
-                display_text: "ابحث تاني 🧚🏻‍♂️",
+                display_text: "",
                 id: `${usedPrefix + command} ${text}`
               })
             }
@@ -91,7 +91,7 @@ let handler = async (message, { conn, text, usedPrefix, command }) => {
 // إعادة تعريف المساعدات والتعليمات
 handler.help = ["pinterest"];
 handler.tags = ["downloader"];
-handler.command = /^(بين|بنرست|بنتريست|بنترست)$/i;
+handler.command = /^(بنرست|بين|بنتريست|بنترست)$/i;
 
 export default handler;
 
@@ -107,4 +107,4 @@ function shuffleArray(array) {
 async function generateImageMessage(url) {
   const { imageMessage } = await generateWAMessageContent({ image: { url } }, { upload: conn.waUploadToServer });
   return imageMessage;
-  }
+            }
