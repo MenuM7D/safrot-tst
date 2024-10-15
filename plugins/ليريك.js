@@ -1,24 +1,10 @@
-/*
-╾━━━━━━━━━━━━━━━━━╼
-`كود التحويل لريكورد و صوت :`
-بواسطة :
-- زيزو : https://wa.me/201508628077
-https://whatsapp.com/channel/0029Vaflefp4Y9ljqmqllP3a
-
-- شعوذة : https://wa.me/201145624848
-https://whatsapp.com/channel/0029Vael6wMJP20ze3IXJk0z
-> تغييرك للحقوق دليل على فشلك ، حاول تتطور وحط حقوقك 🧞.
-╾━━━━━━━━━━━━━━━━━╼
-*/
-
-
  import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
 
 const handler = async (m, {command, conn, usedPrefix}) => {
     let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || ''
-    if (!mime) throw '*اعمل ريبلي للفيديو او الصوت اللي عاوز تحولو لريك او صوت ي حوب 🦦*'
+    if (!mime) throw '> *\`『 اعمل ريب ع الصوت الي هتحولو ليريك 🧚🏻‍♂️ 』\`*'
     if (command ==='لصوت'){
     let media = await q.download()
     let isAudio = /audio/.test(mime) // تحقق من نوع الصوت
