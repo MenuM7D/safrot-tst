@@ -20,9 +20,9 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
 handler.help = ['fake <نص> @شخص <نص2>'];
 handler.tags = ['tools'];
 handler.command = /^(نص|fakereply|فيك)$/;
-handler.register = true;
+
 handler.limit = 3;
-//export default handler;
+export default handler;
 
 function copy(obj) {
   return JSON.parse(JSON.stringify(obj));
