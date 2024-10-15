@@ -9,15 +9,15 @@ let handler = async (m, { conn, command, usedPrefix }) => {
     }
     let src = await (await fetch('https://gist.githubusercontent.com/Kyutaka101/2ca0f797f66d524a1f2e3685f66298f2/raw/7fe3898420592b47ca37db07fdd173b9b4ca9a63/Game.json')).json()
   let json = src[Math.floor(Math.random() * src.length)]
-    let caption = `*· • • ━━ ⌝🐉⌞ ━━ • • ·*
+    let caption = `*· • • ━━ ⌝🧚🏻‍♂️⌞ ━━ • • ·*
 *${command.toUpperCase()}*
 *🜋↫╎السـؤال ✍🏻⇜『من في الصورة』*
   *🜋↫╎الـوقـت⏳↞ ${(timeout / 1000).toFixed(2)} ┇*
   *استخدم .انسحب للأنسحاب*
   *🜋↫╎الـجـائزة💰↞ ${poin} نقاط┇*
-∞┇━━━ •🐉• ━━━┇∞
-*✠ ~تــ✍︎ــوقــيــع ↯:~*
-『𝐴𝑌𝐴𝑁𝛩𝐾𝛩𝑈𝐽𝐼 𝐵𝛩𝑇』
+
+
+> *\`『 𝐒𝐀𝐅𝐑𝐎𝐓-𝐁𝐎𝐓 』\`*
      `.trim()
     conn.tebakbendera[id] = [
         await conn.sendFile(m.chat, json.img, '', caption, m),
