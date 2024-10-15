@@ -19,7 +19,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 handler.help = ['rob']
 handler.tags = ['econ']
 handler.command = ['نهب']
-handler.register = true
+
 export default handler
 
 function msToTime(duration) {
