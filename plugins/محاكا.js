@@ -1,19 +1,19 @@
 let handler = async (m, { conn, usedPrefix, command, args: [event], text }) => {
 
     let chat = global.db.data.chats[m.chat]
-    if (!chat.welcome) throw `⚠️ عشان تستخدم الأمر ده، لازم تفعل الترحيب باستخدام *${usedPrefix}on* welcome`
+    if (!chat.welcome) throw `⚠️ عشان تستخدم الأمر ده، لازم تفعل الترحيب باستخدام *${usedPrefix}on* ترحيب`
     
     let te = `
     ┌─⊷ *الأحداث*
-    ▢ welcome
-    ▢ bye
-    ▢ promote 
-    ▢ demote
+    ▢ ترحيب
+    ▢ وداع
+    ▢ ترقية
+    ▢ تخفيض
     └───────────
     
     📌 مثال :
     
-    *${usedPrefix + command}* welcome @user`
+    *${usedPrefix + command}* ترحيب @user`
 
     if (!event) return await m.reply(te) 
 
@@ -24,25 +24,25 @@ let handler = async (m, { conn, usedPrefix, command, args: [event], text }) => {
     m.reply(`✅ بيتم محاكاة ${event}...`)
     switch (event.toLowerCase()) {
         case 'add':
-        case 'bienvenida':
+        case 'ترحيب':
         case 'invite':
         case 'welcome':
             act = 'add'
             break 
         case 'bye':
-        case 'despedida':
+        case 'وداع':
         case 'leave':
         case 'remove':
             act = 'remove'
             break
 
         case 'promote':
-        case 'promover':
+        case 'ترقية':
             act = 'promote'
             break
 
         case 'demote':
-        case 'degradar':
+        case 'تخفيض':
             act = 'demote'
             break
 
@@ -57,9 +57,8 @@ let handler = async (m, { conn, usedPrefix, command, args: [event], text }) => {
 }
 handler.help = ['simulate <event> @user']
 handler.tags = ['group']
-handler.command = ['محاكاة', 'محاكه'] 
+handler.command = ['محاكا', 'محاكه'] 
 handler.admin = true
 handler.group = true
-handler.register = true
 
 export default handler
