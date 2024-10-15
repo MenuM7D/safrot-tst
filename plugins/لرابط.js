@@ -12,7 +12,7 @@ let handler = async (m) => {
         let media = await q.download(true)
         let data = await uploadFile(media)
         m.reply(data.files[0].url)
-    } else throw '*\`『 اعمل ريب ع الي هيترفع لرابط 🧚🏼‍♂️』\`*'
+    } else throw '> *\`『 اعمل ريب ع الي هيترفع لرابط 🧚🏼‍♂️』\`*'
 }
 handler.help = ['tourl <reply file>']
  handler.tags = ['url']
