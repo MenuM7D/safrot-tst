@@ -47,6 +47,6 @@ handler.help = ['levelup']
 handler.tags = ['econ']
 
 handler.command = ['مستوي', 'مستوى_أعلى', 'مستوايا'] 
-handler.register = true
+
 
 export default handler
