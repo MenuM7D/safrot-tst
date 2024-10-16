@@ -173,6 +173,6 @@ async function startNewQuestion(conn, m, id, level) {
 
 handler.help = ['فزوره'];
 handler.tags = ['العاب'];
-handler.command = /^فزوره|سوال$/i;
+handler.command = /^فزوره$/i;
 
 export default handler;
