@@ -114,7 +114,7 @@ const tips = [
 'لو خيروك أن تكون لديك القدرة على التحدث مع كل الناس ولكنهم لا يفهمونك جيدًا أو أن تكون صامتًا ولكنهم يفهمونك تمامًا.',
  ] 
 const randomImage = tips[Math.floor(Math.random() * tips.length)];
-   var messa = await prepareWAMessageMedia({ image: { url:'https://d.uguu.se/ORNzctLs.jpg' } }, { upload: conn.waUploadToServer });
+   var messa = await prepareWAMessageMedia({ image: { url:'https://l.arzfun.com/XBLC1' } }, { upload: conn.waUploadToServer });
 let msg = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
     message: {
