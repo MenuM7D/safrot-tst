@@ -2,7 +2,7 @@ import axios from "axios";
 import { toAudio } from '../lib/converter.js';
 let generateWAMessageFromContent = (await import(global.baileys)).default;
 const handler = async (m, { conn, args, command, usedPrefix }) => {
-  if (!args[0]) throw '> *\`『 ابعت لنك فديو الانستا الي عايز تحملو 』\`*n\*مثال* ${usedPrefix + command} https://www.instagram.com/reel/C8sWV3Nx_GZ/?igsh=MWZoeTY2cW01Nzg1bQ==';
+  if (!args[0]) throw '> *\`『 ابعت لنك فديو الانستا الي عايز تحملو 』\`*';
 
   try {
     // إرسال إيموجي الساعة للدلالة على أن المعالجة بدأت
