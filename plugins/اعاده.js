@@ -1,5 +1,3 @@
-//import db from '../lib/database.js'
-
 let handler = async (m, { conn, text }) => {
   function no(number){
     return number.replace(/\s/g,'').replace(/([@+-])/g,'')
@@ -43,9 +41,9 @@ let handler = async (m, { conn, text }) => {
 }
 handler.help = ['reset <54xxx>']
 handler.tags = ['owner']
-handler.command = ['إعادة'] 
+handler.command = ['اعاده'] 
 handler.admin = false
-handler.rowner = true
+
 
 export default handler
                                            
