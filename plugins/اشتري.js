@@ -17,5 +17,5 @@ const handler = async (m, {conn, command, args}) => {
 handler.help = ['buy', 'buyall'];
 handler.tags = ['econ'];
 handler.command = ['اشتري', 'buyall'];
-handler.register = true;
+
 export default handler;
