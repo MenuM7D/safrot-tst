@@ -36,16 +36,15 @@ const handler = async (m, { isPrems, conn }) => {
         'participant': '0@s.whatsapp.net',
     };
 
-    await conn.sendButton(m.chat, texto, botname, img, [['🔰 *روح للمنيو* ', `.menu`]], null, null, m);
+    await conn.sendButton(m.chat, texto, botname, img, [['🧚🏻‍♂️ الاوامر ', `.menu`]], null, null, m);
     global.db.data.users[m.sender].lastcofre = new Date * 1;
 };
 
 handler.help = ['daily'];
 handler.tags = ['econ'];
 handler.command = ['coffer', 'cofre', 'افتح_الصندوق', 'cofreabrir'];
-handler.level = 9;
-handler.register = true;
-//export default handler;
+
+export default handler;
 
 function pickRandom(list) {
     return list[Math.floor(Math.random() * list.length)];
