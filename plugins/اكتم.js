@@ -27,23 +27,33 @@ const handler = async (m, {conn, command, args}) => {
   global.db.data.chats[m.chat].banUntil = banUntil;
   global.db.data.chats[m.chat].isBanned = true;
 
-  // تحميل الصورة من الإنترنت
-  let imageUrl = 'https://f.uguu.se/GPmXnURT.jpg';
+  // تحميل الصورة الجديدة من الإنترنت عند الكتم
+  const imageUrl = 'https://d.uguu.se/vhHoCqMJ.jpg'; // رابط صورة جديدة
   let response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
   let imageBuffer = Buffer.from(response.data, 'binary');
 
   // إرسال الصورة مع رسالة الحظر
   await conn.sendMessage(m.chat, {
     image: imageBuffer,
-    caption: '> *\`『 تم كتم البوت 』\`*\n\n- *مدة الكتم${args[0]}*'
+    caption: `> *\`『 تم كتم البوت 』\`*\n\n- *مدة الكتم ${args[0]}*`
   });
 
-  // إزالة الحظر تلقائيًا بعد انتهاء المدة المحددة
+  // فك الحظر بعد انتهاء المدة
   setTimeout(async () => {
     global.db.data.chats[m.chat].isBanned = false;
     global.db.data.chats[m.chat].banUntil = null;
-    await conn.sendMessage(m.chat, { react: { text: "🧚🏻‍♂️", key: m.key } });
-    conn.reply(m.chat, '> *\`『 تم فك الكتم🧚🏻‍♂️ 』\`*');
+
+    // تحميل صورة جديدة عند فك الحظر
+    const imageUrl = 'https://d.uguu.se/hoyBOZuU.jpg'; // رابط صورة جديدة عند فك الكتم
+    let response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
+    let imageBuffer = Buffer.from(response.data, 'binary');
+
+    // إرسال الصورة مع رسالة فك الحظر
+    await conn.sendMessage(m.chat, {
+      image: imageBuffer,
+      caption: '> *\`『 تم فك الكتم🧚🏻‍♂️ 』\`*'
+    });
+    
   }, duration);
 };
 
@@ -54,17 +64,28 @@ const checkBan = async (m, next) => {
       // Ban period expired, lift the ban
       global.db.data.chats[m.chat].isBanned = false;
       global.db.data.chats[m.chat].banUntil = null;
-      m.reply('> *\`『 تم فك الكتم 🧚🏻‍♂️ 』\`*');
-    } else {
-      // Still banned
-      const remainingTime = global.db.data.chats[m.chat].banUntil - Date.now();
-      const days = Math.floor(remainingTime / (24 * 60 * 60 * 1000));
-      const hours = Math.floor((remainingTime % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
-      const minutes = Math.floor((remainingTime % (60 * 60 * 1000)) / (60 * 1000));
-      const seconds = Math.floor((remainingTime % (60 * 1000)) / 1000);
-      m.reply(`*⌜🧚🏻‍♂️⌝*\n*هذا الشات محظور من استعمالي*\n\n- *⏳ الوقت المتبقي ليكون بأمكانكم استعمالي مره اخري هو ${days} يوم ${hours} ساعة ${minutes} دقيقه ${seconds} ثانيه*`);
+
+      // تحميل صورة جديدة عند فك الحظر
+      const imageUrl = 'https://d.uguu.se/hoyBOZuU.jpg'; 
+      let response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
+      let imageBuffer = Buffer.from(response.data, 'binary');
+
+      // إرسال الصورة مع رسالة فك الحظر
+      await conn.sendMessage(m.chat, {
+        image: imageBuffer,
+        caption: '> *\`『 تم فك الكتم والبوت شغال 』\`*'
+      });
+
       return;
     }
+
+    const remainingTime = global.db.data.chats[m.chat].banUntil - Date.now();
+    const days = Math.floor(remainingTime / (24 * 60 * 60 * 1000));
+    const hours = Math.floor((remainingTime % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+    const minutes = Math.floor((remainingTime % (60 * 60 * 1000)) / (60 * 1000));
+    const seconds = Math.floor((remainingTime % (60 * 1000)) / 1000);
+    m.reply(`*⌜🧚🏻‍♂️⌝*\n*هذا الشات محظور من استعمالي*\n\n- *⏳ الوقت المتبقي ليكون بأمكانكم استعمالي مره اخري هو ${days} يوم ${hours} ساعة ${minutes} دقيقه ${seconds} ثانيه*`);
+    return;
   }
   next();
 };
