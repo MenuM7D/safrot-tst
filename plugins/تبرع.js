@@ -4,7 +4,7 @@ let handler = async (m, { conn, command }) => {
   await conn.sendMessage(m.chat, {
     text: `*\`[💖 التبرع 💖 ]\`*
 
-◈ أهلاً ${name} 👋
+◈ منور ياً ${name} 🧚🏻‍♂️
 
 *بشكرك على دعمك واستخدامك للبوت بتاعي. لو حابب تدعم المشروع ده علشان يفضل متحدث دايمًا تقدر تتبرع عن طريق PayPal أو Mercado Pago.*
 
@@ -54,9 +54,8 @@ https://wa.me/+201115618853`,
 }
 handler.help = ['donar']
 handler.tags = ['main']
-handler.command = /^dona(te|si)|donar|apoyar|paypal|donating|creditos$/i
-handler.exp = 80
-handler.register = true
+handler.command = /^dona(te|si)|donar|apoyar|تبرع|هتبرع|creditos$/i
+
 export default handler
 
 function toNum(number) {
