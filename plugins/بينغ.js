@@ -82,7 +82,7 @@ const handler = async (m, { conn, usedPrefix }) => {
   conn.sendMessage(m.chat, Message, { quoted: m });
 };
 
-handler.command = /^(ping|info|بينغ|estado)$/i;
+handler.command = /^(ping|بينج|بينغ|estado)$/i;
 export default handler;
 
 function clockString(ms) {
