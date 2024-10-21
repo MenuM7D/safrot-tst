@@ -1,7 +1,7 @@
-import {webp2mp4} from '../lib/webp2mp4.js';
-import {ffmpeg} from '../lib/converter.js';
+import { webp2mp4 } from '../lib/webp2mp4.js';
+import { ffmpeg } from '../lib/converter.js';
 
-const handler = async (m, {conn, usedPrefix, command}) => {
+const handler = async (m, { conn, usedPrefix, command }) => {
   if (!m.quoted) throw `*🧚🏼‍♂️ اعمل ريب ع الملصق الي هتحولو ليفديو ${usedPrefix + command}*`;
   
   const mime = m.quoted.mimetype || '';
@@ -22,12 +22,11 @@ const handler = async (m, {conn, usedPrefix, command}) => {
     ], 'mp3', 'mp4');
   }
   
-  await conn.sendFile(m.chat, out, 'output.mp4', '*✅ التحويل تم بنجاح!*', m, null, fake, 0, {thumbnail: out});
+  await conn.sendFile(m.chat, out, 'output.mp4', '*✅ التحويل تم بنجاح!*', m);
 };
 
 handler.help = ['tovideo'];
 handler.tags = ['convertidor'];
 handler.command = ['لمقطع', 'لفديو', 'لفيديو', 'togif'];
-//handler.register = true;
 
 export default handler;
