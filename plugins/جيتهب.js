@@ -25,6 +25,6 @@ let handler = async (m, { args, usedPrefix, command }) => {
 
 handler.help = ['gitclone <url>']
 handler.tags = ['downloader']
-handler.command = /باتش_حرامي|باتش-حرامي/i
+handler.command = /^مشروع$/i
 
 export default handler
