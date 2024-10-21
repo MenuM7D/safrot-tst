@@ -35,8 +35,8 @@ const handler = async (m, {conn, usedPrefix, command, groupMetadata, participant
 }
 handler.help = ['سرقة'];
 handler.tags = ['اقتصاد'];
-handler.command = /^(سرقه|اقتصاد)$/i
-handler.register = true
+handler.command = /^(اقتصاد)$/i
+
 handler.group = true
 export default handler;
 
