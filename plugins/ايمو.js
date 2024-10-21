@@ -25,7 +25,7 @@ const handler = async (m, {conn, usedPrefix}) => {
 ━━━━━━❰･𓃦･❱━━━━━`.trim();
 
   // رابط الصورة الخاصة بالسؤال
-  const imageUrl = 'https://d.uguu.se/uUgoTfnv.jpg';
+  const imageUrl = 'https://d.uguu.se/VZtkZNLr.jpg';
 
   conn.tekateki[id] = [
     await conn.sendFile(m.chat, imageUrl, 'image.jpg', caption, m), json,
