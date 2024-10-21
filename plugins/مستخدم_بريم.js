@@ -21,6 +21,11 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }
     user.premium = true;
 
+    // إضافة المستخدم إلى قائمة البريميوم
+    if (!global.prems.includes(mentionedUser)) {
+        global.prems.push(mentionedUser);
+    }
+
     conn.reply(m.chat, `*🎟️ دلوقتي @${mentionedUser.split`@`[0]} أصبح بريميوم!!!*\n*🕐 الوقت: ${msToTime(duration)}*`, m, { contextInfo: { mentionedJid: [mentionedUser] } });
 };
 
@@ -43,6 +48,7 @@ function msToTime(duration) {
     return `${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
 }
 
+// تعليمات المساعدة
 handler.help = ['بريم [@user] <time>'];
 handler.tags = ['owner'];
 handler.command = ['بريم'];
