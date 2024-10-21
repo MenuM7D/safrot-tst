@@ -44,7 +44,7 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
 handler.help = ['رهان *<كمية>*']
 handler.tags = ['game']
 handler.command = /^(رهان|casino)$/i
-handler.register = true
+
 
 handler.fail = null
 
