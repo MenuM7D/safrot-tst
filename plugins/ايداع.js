@@ -45,6 +45,6 @@ const handler = async (m, { conn, command, args }) => {
 handler.help = ['dep', 'retirar'];
 handler.tags = ['econ'];
 handler.command = /^(dep|ايداع|retirar|toremove)$/i;
-handler.register = true;
+
 
 export default handler;
