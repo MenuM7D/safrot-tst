@@ -45,7 +45,7 @@ const handler = async (m, {isPrems, conn}) => {
 handler.help = ['daily'];
 handler.tags = ['exp'];
 handler.command = ['coffer', 'cofre', 'تسوق', 'cofreabrir'];
-handler.level = 5;
+
 export default handler;
 
 function pickRandom(list) {
