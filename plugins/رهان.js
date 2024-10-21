@@ -1,81 +1,64 @@
+import db from '../lib/database.js'
 
-let handler = async (m, { conn, args, text, usedPrefix , command }) => {
+let buatall = 1
+let cooldowns = {}
 
+let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
+    let user = global.db.data.users[m.sender]
+    let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
+    let randomkamu = `${Math.floor(Math.random() * 55)}`.trim()
+    let Aku = (randomaku * 1)
+    let Kamu = (randomkamu * 1)
+    let count = args[0]
+    let who = m.fromMe ? conn.user.jid : m.sender
+    let username = conn.getName(who)
 
-/*if (global.db.data.users[m.sender].level < 5) {
-    return conn.reply(m.chat, 'You must be at least level 5 to use this command.', m);
-  }*/
+    let tiempoEspera = 15
 
-    let fa = `🟥 *توفير كمية الذهب للمراهنة*
-
-*Example:*
-${usedPrefix + command} 1000`.trim()
-    if (!args[0]) throw fa
-    if (isNaN(args[0])) throw fa
-
-    let users = global.db.data.users[m.sender]
-    let credit = users.credit
-    let amount = (args[0] && number(parseInt(args[0])) ? Math.max(parseInt(args[0]), 1) : /all/i.test(args[0]) ? Math.floor(parseInt(users.credit)) : 1) * 1
-
-    let time = users.lastcf + 90000
-        if (new Date - users.lastcf < 90000) throw `يمكنك لعب مصارعة الديكة مرة أخرى ${msToTime(time - new Date())}`
-        if (amount < 100) throw `🟥 *لا يمكنك المراهنة بالذهب بأقل من 100*`
-        if (users.credit < amount) throw `🟥 *ليس لديك ما يكفي من المال لهذا الرهان.*\n*لديك حاليًا فقط ${credit} في الذهب.*`
-        if (users.chicken < 1) {
-        throw `🟥 *ليس لديك أي الكتاكيت للمراهنة* \nاستخدم الأمر ${usedPrefix}buy-chicken`
+    if (cooldowns[m.sender] && Date.now() - cooldowns[m.sender] < tiempoEspera * 1000) {
+        let tiempoRestante = segundosAHMS(Math.ceil((cooldowns[m.sender] + tiempoEspera * 1000 - Date.now()) / 1000))
+        conn.reply(m.chat, `🧚🏻‍♂️ انت بدأت رهان بالفعل، استنى *⏱ ${tiempoRestante}* علشان تقدر تراهن تاني`, m)
+        return
     }
-    //if (amount > 100000) throw `🟥 *لا يمكنك المراهنة بالذهب بأكثر من 100000*`
 
-    let botScore = (Math.ceil(Math.random() * 35)) * 1  // Random score for the bot (1 to 51)
-    let playerScore = (Math.floor(Math.random() * 101)) * 1  // Random score for the player (1 to 100)
-    let status = `Your chicken died 🪦`
+    cooldowns[m.sender] = Date.now()
 
-      if (botScore < playerScore) {
-        users.credit += amount * 1
-        status = `لقد فازت دجاجتك الصغيرة في المعركة، وصنعتك 🪙 ${amount * 2} الذهب أكثر ثراء! 🐥`
-      } else {
-        users.credit -= amount * 1
-        users.chicken -= 1
-        users.lastcf = new Date * 1
-      }
+    count = count ? /all/i.test(count) ? Math.floor(global.db.data.users[m.sender].limit / buatall) : parseInt(count) : args[0] ? parseInt(args[0]) : 1
+    count = Math.max(1, count)
+    if (args.length < 1) return conn.reply(m.chat, '>*\`اكتب عدد الكميه\`* ' + ' اللي عايز تراهن بيها ضد' + ` *سفروت بوت*` + `\n\n` + '`مثال:`\n' + `> *${usedPrefix + command}* 100`, m)
 
-    let result = `${status}
-      `.trim()
-
-    m.reply(result)
-    
+    if (user.limit >= count * 1) {
+        user.limit -= count * 1
+        if (Aku > Kamu) {
+            conn.reply(m.chat, '`🧚🏻‍♂️ يلا نشوف الدرجه!`\n\n'+ `➠ *🧚🏼‍♂️ \`『 سفروت بوت 』\`* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username}, *خسرت* ${formatNumber(count)} 🙂 نقطه.`.trim(), m)
+        } else if (Aku < Kamu) {
+            user.limit += count * 2
+            conn.reply(m.chat, '`⏳ يلا نشوف الدرجه!`\n\n'+ `➠ *🧚🏼‍♂️\`『 سفروت بوت 』\`* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username}, *كسبت* ${formatNumber(count * 2)} ☺️ نقطه.`.trim(), m)
+        } else {
+            user.limit += count * 1
+            conn.reply(m.chat, '`🌚 يلا نشوف الدرجه!`\n\n'+ `➠ *🧚🏼‍♂️\`『 سفروت بوت 』\`* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username} حصلت على ${formatNumber(count * 1)} ☺️ درجه.`.trim(), m)
+        }
+    } else conn.reply(m.chat, `*معكش*${formatNumber(count)}  *نقطه كفايا*🧚🏻‍♂️`.trim(), m)
 }
 
-handler.help = ['cock-fight <amount>']
-handler.tags = ['economy']
-handler.command = ['cock-fight', 'رهان']
+handler.help = ['رهان *<كمية>*']
+handler.tags = ['game']
+handler.command = /^(رهان|casino)$/i
 
-handler.group = true
 
-export default handler  
+handler.fail = null
 
-function msToTime(duration) {
-  var milliseconds = parseInt((duration % 1000) / 100),
-    seconds = Math.floor((duration / 1000) % 60),
-    minutes = Math.floor((duration / (1000 * 60)) % 60),
-    hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
+export default handler
 
-  hours = (hours < 10) ? "" + hours : hours
-  minutes = (minutes < 10) ? "" + minutes : minutes
-  seconds = (seconds < 10) ? "" + seconds : seconds
-
-  return minutes + " minutes " + seconds + " seconds" 
-}
 function pickRandom(list) {
-  return list[Math.floor(list.length * Math.random())]
+    return list[Math.floor(Math.random() * list.length)]
 }
 
-/**
- * Detect if thats number
- * @param {Number} x 
- * @returns Boolean
- */
-function number(x = 0) {
-    x = parseInt(x)
-    return !isNaN(x) && typeof x == 'number'
+function segundosAHMS(seconds) {
+    let remainingSeconds = seconds % 60
+    return `${remainingSeconds} ثواني`
 }
+
+function formatNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                                     }
