@@ -5,27 +5,37 @@ const handler = async (m, {conn, usedPrefix}) => {
   conn.tekateki = conn.tekateki ? conn.tekateki : {};
   const id = m.chat;
   if (id in conn.tekateki) {
-    conn.reply(m.chat, 'لا تزال هناك سؤال لم تتم الإجابة عليها في هذه الدردشة', conn.tekateki[id][0]);
+    conn.reply(m.chat, '> *\`『 لسه عندك سوال مجوبتش عليه 🧚🏻‍♂️ 』\`*', conn.tekateki[id][0]);
     throw false;
   }
   const tekateki = JSON.parse(fs.readFileSync(`./src/game/acertijo.json`));
   const json = tekateki[Math.floor(Math.random() * tekateki.length)];
   const _clue = json.response;
   const clue = _clue.replace(/[A-Za-z]/g, '_');
-  const caption = `
+  const caption = `━━━━━━❰･𓃦･❱━━━━━━
 ⷮ *${json.question}*
-*• وقت:* ${(timeout / 1000).toFixed(2)} ثواني
-*• الجوائز:* +${poin} Exp
-`.trim();
+
+> *\`『 الوقت 』\`* ${(timeout / 1000).toFixed(2)} ثواني
+
+> *\`『 الجايزه 』\`* +${poin} Exp
+
+> *\`『 𝐒𝐀𝐅𝐑𝐎𝐓-𝐁𝐎𝐓 』\`*
+
+♡ ㅤ    ❍ㅤ     ⎙ㅤ     ⌲
+━━━━━━❰･𓃦･❱━━━━━`.trim();
+
+  // رابط الصورة الخاصة بالسؤال
+  const imageUrl = 'https://d.uguu.se/BYNQnSuE.jpg';
+
   conn.tekateki[id] = [
-    await conn.reply(m.chat, caption, m), json,
+    await conn.sendFile(m.chat, imageUrl, 'image.jpg', caption, m), json,
     poin,
     setTimeout(async () => {
-      if (conn.tekateki[id]) await conn.reply(m.chat, `انتهى الوقت!\n*إجابة:* ${json.response}`, conn.tekateki[id][0]);
+      if (conn.tekateki[id]) await conn.reply(m.chat, `> *\`『 الوقت خلص 』\`*\n*إلاجابة* ${json.response}`, conn.tekateki[id][0]);
       delete conn.tekateki[id];
     }, timeout)];
 };
 handler.help = ['acertijo'];
 handler.tags = ['game'];
-handler.command = /^(سؤال|acert|pregunta|adivinanza|tekateki)$/i;
+handler.command = /^(سؤال|acert|سوال|adivinanza|tekateki)$/i;
 export default handler;
