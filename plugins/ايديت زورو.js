@@ -1,3 +1,27 @@
+import fetch from 'node-fetch'
+
+let handler = async (m, { conn, command }) => {
+    // إذا كنت بحاجة لهذا الشرط، تأكد من أن db موجودة وتحقق من قيمته.
+    /*if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`*/
+
+    let pies = dir; // تأكد من تعريف مصفوفة pies
+    let url = pies[Math.floor(Math.random() * pies.length)];
+
+    // تأكد من أن url ليست فارغة
+    if (url) {
+        conn.sendButton(m.chat, `𝐒𝐀𝐅𝐑𝐎𝐓-𝐁𝐎𝐓 `, author, url, [['فديو تاني🧚🏻‍♂️', `/${command}`]], m);
+    } else {
+        console.error("رابط الفيديو غير متوفر");
+    }
+}
+
+handler.help = ['دراغون-بول']
+handler.tags = ['internet']
+handler.command = /^(ايدت_زورو)$/
+handler.exp = 50
+handler.level = 0
+export default handler
+
 const dir = [
 'https://telegra.ph/file/0de3d724cc7ff6719e671.mp4',
 'https://telegra.ph/file/8711c85e060a892ecce8d.mp4',
@@ -14,11 +38,3 @@ const dir = [
 '',
 '',
 ];
-let handler = async (m, { conn }) => {
-  conn.sendFile(m.chat, dir[Math.floor(Math.random() * dir.length)], 'dado.webp', '', m)
-}
-handler.help = ['dado']
-handler.tags = ['game']
-handler.command = ['ايدت_زورو', 'edit'] 
-
-export default handler
