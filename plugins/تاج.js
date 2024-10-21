@@ -3,7 +3,7 @@ conn.reply(m.chat,`——————–—\n\n————————“${pick
 }
 handler.help = ['تاج']
 handler.tags = ['fun']
-handler.command = /^تاج/i
+handler.command = /^(تاج)$/i
 export default handler
 function pickRandom(list) {
 return list[Math.floor(list.length * Math.random())]
