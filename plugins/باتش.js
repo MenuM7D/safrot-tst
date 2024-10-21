@@ -1,19 +1,102 @@
-import fs from 'fs'  // استيراد مكتبة fs عشان نقدر نتعامل مع الملفات
+import cp, {exec as _exec} from 'child_process';
+import {promisify} from 'util';
+import fs from 'fs';
+import axios from 'axios';
+import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysockets/baileys';
 
-let handler = async (m, { usedPrefix, command, text }) => {
-    let ar = Object.keys(plugins)  // جلب أسماء كل ملفات الـ plugins
-    let ar1 = ar.map(v => v.replace('.js', ''))  // شيل الامتداد .js من الأسماء
+const exec = promisify(_exec).bind(cp);
+const handler = async (m, {conn, isROwner, usedPrefix, command, text}) => {
+  
+  const ar = Object.keys(plugins);
+  const ar1 = ar.map((v) => v.replace('.js', ''));
+  
+  const images = ['https://f.uguu.se/BojCxLdT.jpg', 'https://d.uguu.se/QjQCMWtk.jpg'];
+  
+  const randomImage = images[Math.floor(Math.random() * images.length)];
+  
+  const mediaMessage = await prepareWAMessageMedia({ image: { url: randomImage } }, { upload: conn.waUploadToServer });
+  
+  if (!text) {
+    const rows = ar1.map((v, index) => (
+    
+    { 
+    header: `الملــف رقـم : [${index + 1}]`, 
+    title: `${v}`, 
+    description: '', 
+    id: `${usedPrefix + command} ${v}` 
+    }
+    
+    ));
 
-    if (!text) throw `*دور على إيه؟*\nمثال:\n${usedPrefix + command} sticker`  // لو المستخدم مدخلش اسم الملف، نرمي رسالة خطأ
+    const caption = `━━━━━━❰･𓃦･❱━━━━━━\n\n│ قائــمة ملفــات plugins.\n\n│ عدد الملفات المتاحة: ${ar1.length}\n\n━━━━━━❰⨴_⨵❱━━━━━━`;
+    
+    const msg = generateWAMessageFromContent(m.chat, {
+    viewOnceMessage: {
+      message: {
+        interactiveMessage: {
+          body: { text: caption },
+          footer: { text: wm },
+          header: {
+            hasMediaAttachment: true,
+            imageMessage: mediaMessage.imageMessage
+          },
+          nativeFlowMessage: {
+            buttons: [
+              {
+                name: 'single_select',
+                buttonParamsJson: JSON.stringify({
+                  title: '「 قــائــمــة الملفــات 」',
+                  sections: [
+                    {
+                  title: '「 قائــمة ملفــات plugins 」',
+                  highlight_label: wm,
+                  rows: rows
+                      
+                    }
+                  ]
+                })
+              }
+            ]
+          }
+        }
+      }
+    }
+  }, { userJid: conn.user.jid, quoted: m });
+    
+    await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
+    return;
+  }
 
-    if (!ar1.includes(text)) return m.reply(`'${text}' مش موجود!\n\n${ar1.map(v => ' ' + v).join`\n`}`)  // لو الاسم مش موجود، نبعت رسالة خطأ
+  let o;
+  try {
+    o = await exec(`cat plugins/${text}.js`);
+  } catch (e) {
+    o = e;
+  }
 
-    m.reply(fs.readFileSync('./plugins/' + text + '.js', 'utf-8'))  // لو الاسم موجود، نقرأ محتوى الملف ونبعت الرد
-}
+  const {stdout, stderr} = o;
+  if (stdout.trim()) {
+    const aa = await conn.sendMessage(m.chat, {text: stdout}, {quoted: m});
+    await conn.sendMessage(m.chat, {
+      document: fs.readFileSync(`./plugins/${text}.js`), 
+      mimetype: 'application/javascript', 
+      fileName: `${text}.js`
+    }, {quoted: aa});
+  }
+  
+  if (stderr.trim()) {
+    const aa2 = await conn.sendMessage(m.chat, {text: stderr}, {quoted: m});
+    await conn.sendMessage(m.chat, {
+      document: fs.readFileSync(`./plugins/${text}.js`), 
+      mimetype: 'application/javascript', 
+      fileName: `${text}.js`
+    }, {quoted: aa2});
+  }
+};
 
-handler.help = ['جبلي-البلجن'].map(v => v + ' <النص>')  // تحديد شكل الأمر في المساعدة
-handler.tags = ['owner']  // تحديد التاجات (الفئات) للأمر
-handler.command = /^(باتش|gp)$/i  // تحديد الأوامر اللي بتشغل الدالة
-handler.rowner = true  // تحديد إن الأمر ده مخصص لصاحب البوت فقط
+handler.help = ['getplugin'].map((v) => v + ' *<nombre>*');
+handler.tags = ['owner'];
+handler.command = /^(باتش|gp)$/i;
+handler.rowner = true;
 
-export default handler  // تصدير الدالة عشان نقدر نستخدمها في مكان تاني
+export default handler;
