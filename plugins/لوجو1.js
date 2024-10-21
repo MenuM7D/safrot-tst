@@ -8,5 +8,5 @@ let handler = async (m, { conn, args }) => {
 }
 handler.help = ['flaming1'].map(v => v + ' <text>')
 handler.tags = ['maker','logo']
-handler.command = /^(تصميم)$/i
+handler.command = /^(لوجو1)$/i
 export default handler
