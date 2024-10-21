@@ -3,7 +3,7 @@ conn.reply(m.chat,`*\`『 𝙎𝙖𝙛𝙧𝙤𝙩-𝘽𝙤𝙩 』\`*\n*『${pi
 }
 handler.help = ['jsbzk']
 handler.tags = ['fun']
-handler.command = /تويت/i
+handler.command = /^(تويت)$/i
 export default handler
 
 function pickRandom(list) {
