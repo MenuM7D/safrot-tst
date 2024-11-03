@@ -9,7 +9,7 @@ import moment from 'moment-timezone'
 
 //---------[ Añada los numeros a ser Propietario/a ]---------
 
-global.owner = [['573147616444', 'ＰＲＯＰＩＥＴＡＲＩＯ', true], ['593968585383'], ['5492266466080'], ['5492266613038']]
+global.owner = [['201115618853', 'سفࢪوت الكبيࢪ „ 3 »', true], ['201115618853'], ['201115618853'], ['201115618853']]
 global.mods = []
 global.prems = []
 
@@ -70,13 +70,13 @@ global.moment = moment
 
 //------------------------[ Stickers ]-----------------------------
 
-global.packname = 'LoliBot'
-global.author = 'elrebelde21'
+global.packname = '𝐒𝐀𝐅𝐑𝐎𝐓-𝐁𝐎𝐓'
+global.author = '♯ЅᗩFᏒOT꙯'
 
 //------------[ Versión | Nombre | cuentas ]------------
 
-global.wm = '𝐋𝐨𝐥𝐢𝐁𝐨𝐭-𝐌𝐃' 
-global.botname = '𝙇𝙤𝙡𝙞𝘽𝙤𝙩-𝙈𝘿'
+global.wm = '♯ЅᗩFᏒOT꙯' 
+global.botname = '♯ЅᗩFᏒOT'
 global.vs = '1.9.5'
 global.yt = 'https://www.youtube.com/@elrebelde.21'
 global.tiktok = 'tiktok.com/@elrebelde21'
@@ -99,11 +99,11 @@ global.redes = [nna, yt, nn, md, tiktok, fb, nnn, face]
 
 //------------------------[ Info | Datos ]---------------------------
 
-global.wait = 'Calmao pa estoy procesando😎\n\n> *❗Por favor no hacer spam👏❗*'
-global.waitt = '*⌛ _Cargando..._ ▬▬▭▭▭*'
-global.waittt = '*⌛ _Cargando..._ ▬▬▬▬▭▭*'
-global.waitttt = '*⌛ _Cargando..._ ▬▬▬▬▬▬▭*'
-global.waittttt = '*⌛ _Cargando..._ ▬▬▬▬▬▬▬*'
+global.wait = '*\`『 سفࢪوت الكبيࢪ „ 3 » 』\`*'
+global.waitt = '*⌛ _جاري التحميل..._ ▬▬▭▭▭*'
+global.waittt = '*⌛ _جاري التحميل..._ ▬▬▬▬▭▭*'
+global.waitttt = '*⌛ _جاري التحميل..._ ▬▬▬▬▬▬▭*'
+global.waittttt = '*⌛ _جاري التحميل..._ ▬▬▬▬▬▬▬*'
 global.rg = '『✅ 𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊𝙎 ✅』\n\n'
 global.resultado = rg
 global.ag = '『⚠️ 𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 ⚠️』\n\n'
@@ -161,9 +161,9 @@ global.flaaa = [
 //---------------[ IDs de canales ]----------------
 
 global.ch = {
-ch1: '120363355261011910@newsletter', 
-ch2: '120363160031023229@newsletter',
-ch3: '120363301598733462@newsletter',
+ch1: '120363297635509525@newsletter', 
+ch2: '120363297635509525@newsletter',
+ch3: '120363297635509525@newsletter',
 }
 
 //----------------------------------------------------
