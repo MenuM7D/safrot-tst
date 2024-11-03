@@ -121,20 +121,20 @@ global.exito = eg
 
 //-------------------------[ IMAGEN ]------------------------------
 //global.img = "https://qu.ax/Zgqq.jpg"
-global.img1 = 'https://qu.ax/hNJk.jpg'
-global.img2 = 'https://qu.ax/jzhN.jpg'
+global.img1 = 'https://tinyurl.com/28mcfjbd'
+global.img2 = 'https://tinyurl.com/28mcfjbd'
 
 global.imagen = fs.readFileSync('./Menu2.jpg')
 global.imagen1 = fs.readFileSync('./media/Menu1.jpg')
 global.imagen2 = fs.readFileSync('./media/Menu2.jpg')
 global.imagen3 = fs.readFileSync('./media/Menu3.jpg')
 global.imagen4 = fs.readFileSync('./media/Menu4.jpg')
-global.imagen5 = 'https://qu.ax/rULv.jpg'
-global.imagen6 = 'https://qu.ax/CySs.jpg'
-global.menu18 = 'https://qu.ax/MOgO.jpg'
+global.imagen5 = 'https://tinyurl.com/28mcfjbd'
+global.imagen6 = 'https://tinyurl.com/28mcfjbd'
+global.menu18 = 'https://tinyurl.com/28mcfjbd'
 global.vid1 = 'https://qu.ax/dcAc.mp4'
 global.img = [imagen, imagen1, imagen2, imagen3, imagen4]
-global.imageUrl = ["https://qu.ax/HJnWj.jpg", "https://qu.ax/ehPzQ.jpg", "https://qu.ax/ilfbC.jpg"]
+global.imageUrl = ["https://tinyurl.com/28mcfjbd", "https://tinyurl.com/28mcfjbd", "https://tinyurl.com/28mcfjbd"]
 
 //----------------------------[ NIVELES | RPG ]---------------------------------
 
