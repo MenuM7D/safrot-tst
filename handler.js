@@ -1446,16 +1446,16 @@ global.dfail = (type, m, conn, usedPrefix) => {
     let msg = {
         rowner: '*\`『 [🚯] الميزه دي للمطور بس يحب 』\`*',
         owner: '*\`『 [🚯] الميزه دي للمطور بس يحب 』\`*',
-        mods: '*\`『 [🚯] الميزه دي للمطور بس يا حب 』\`*',
+        mods: '*\`『 [🚯] الميزه دي للمطور بس يحب 』\`*',
         premium: '*\`『 [🚯] االميزه دي للمميزين بس 』\`*',
         group: '*\`『 [🚯] الميزه دي للجروبات بس يحب 』\`*',
         private: '*\`『 [🚯] الميزه دي برايفت بس تعاله بف 』\`*',
-        admin: '*\`『 [🚯] االميزه دي برايفت بس تعاله بف 』\`*',
-        botAdmin: '*\`『 [🚯] الميزه دي للمشرف بس يحب 』\`*',
+        admin: '*\`『 [🚯] االميزه دي للادمن بس يحب 』\`*',
+        botAdmin: '*\`『 [⛔] علشان تستخدم الميزه دي ارفع البوت ادمن يحب 』\`*',
         unreg: '*\`『 الميزه دي للمسجلين فلبوت بس🧚🏻‍♂️🥂 』\`*',
         restrict: '*\`『 [ 🔐 ] الميزه دي المطور موقفهاا 』\`*'
     }[type]
-    if (msg) return conn.sendMessage(m.chat, {text: msg, contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363355261011910@newsletter', serverMessageId: '', newsletterName: 'LoliBot ✨' }, externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `ℹ️𝐈𝐍𝐅𝐎 ℹ️`, body: wm, previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, nna2, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })
+    if (msg) return conn.sendMessage(m.chat, {text: msg, contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363297635509525@newsletter', serverMessageId: '', newsletterName: '𝐒𝐀𝐅𝐑𝐎𝐓-𝐁𝐎𝐓' }, externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `≡◡̈⃝❯𓃠`, body: wm, previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, nna2, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })
 }
 
 const file = global.__filename(import.meta.url, true);
