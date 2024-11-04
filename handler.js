@@ -1218,11 +1218,11 @@ continue
                 else
 m.exp += xp
 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-conn.sendMessage(m.chat, {text: `*⚠ 𝐒𝐮𝐬 𝐝𝐢𝐚𝐦𝐚𝐧𝐭𝐞 💎 𝐬𝐞 𝐡𝐚𝐧 𝐚𝐠𝐨𝐭𝐚𝐝𝐨 𝐩𝐮𝐞𝐝𝐞 𝐜𝐨𝐦𝐩𝐫𝐚𝐫 𝐦𝐚𝐬 𝐮𝐬𝐚𝐧𝐝𝐨 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨:* #buy`, contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": wm, body: '', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })         
+conn.sendMessage(m.chat, {text: `*الماس بتاعك خلص، ممكن تشتري أكتر باستخدام الأمر🧚🏼‍♂️* #buy`, contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": wm, body: '', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })         
 continue
 }
 if (plugin.level > _user.level) {
-conn.sendMessage(m.chat, {text: `*⚠️𝐍𝐞𝐜𝐞𝐬𝐢𝐭𝐚 𝐞𝐥 𝐧𝐢𝐯𝐞𝐥 ${plugin.level} 𝐩𝐚𝐫𝐚 𝐩𝐨𝐝𝐞𝐫 𝐮𝐬𝐚𝐫 𝐞𝐬𝐭𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨, 𝐓𝐮 𝐧𝐢𝐯𝐞𝐥 𝐚𝐜𝐭𝐮𝐚𝐥 𝐞𝐬:* ${_user.level}`, contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": wm, body: '', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })         
+conn.sendMessage(m.chat, {text: `*مستواك ضعيف🧚🏻‍♂️ ${plugin.level} عشان تقدر تستخدم الأمر ده، مستوى معرفتك الحالي هو🧚🏼‍♂️* ${_user.level}`, contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": wm, body: '', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })         
 continue // Si no se ha alcanzado el nivel
 }
 let extra = {match, usedPrefix, noPrefix, _args, args, command, text, conn: this, participants, groupMetadata, user, bot, isROwner, isOwner, isRAdmin, isAdmin,  isBotAdmin, isPrems, chatUpdate, __dirname: ___dirname, __filename }
@@ -1248,8 +1248,8 @@ await plugin.after.call(this, m, extra)
 } catch (e) {
 console.error(e)
 }}
-if (m.limit) m.reply(`*${+m.limit}* 𝘿𝙞𝙖𝙢𝙖𝙣𝙩𝙚 💎 𝙪𝙨𝙖𝙙𝙤𝙨`)
-if (m.money) m.reply(+m.money + ' 𝙇𝙤𝙡𝙞𝘾𝙤𝙞𝙣𝙨 𝙪𝙨𝙖𝙙𝙤𝙨') 
+if (m.limit) m.reply(`*${+m.limit}* 💎الماس المستخدم`)
+if (m.money) m.reply(+m.money + ' عملات مستخدمه') 
 }
 break
 }}} catch (e) {
@@ -1306,8 +1306,8 @@ if (opts['autoread']) await this.readMessages([m.key])
 if (settingsREAD.autoread2) await this.readMessages([m.key])  
 //if (settingsREAD.autoread2 == 'true') await this.readMessages([m.key])    
 	    
-if (!m.fromMem && m.text.match(/(@5492266466080|LoliBot|Botsito|Gata|:v)/gi)) {
-let emot = pickRandom(["😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🤩", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🤧", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "🐱", "🐈", "🐆", "🐅", "⚡️", "🌈", "☃️", "⛄️", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "💘", "💝", "💟", "🌝", "😎", "🔥", "🖕", "🐦"])
+if (!m.fromMem && m.text.match(/(@201115618853|ببحبك|تجوزني|بوتي|سفرووي|سفروته|بحبو|بوثه|بوسني|وسه|سفروت|بوت|🙂|🧚🏻‍♂️💋|💕|😹|😉|😊|😋|😎|😍|😘|🥰|😗|🤔|🤩|🤗|🥹|🥲|😐|🤨|🫥|😚|😙|😌|😴|🥱|😭|😢|😤|😵|☺️|😵‍💫|😈|👿|😼|😂|🥰|🖕🏻|🦶🏻|🤞|✌|🫁|💋|🗣|👥|👩‍⚕|❤|❤️‍🩹|❤️‍🔥|🤍|💝|💓|💘|🌚|🦦:v)/gi)) {
+let emot = pickRandom(["😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🤩", "😏", "😳", "🙈", "🤯", "😱", "😨", "🤫", "🥴", "🤧", "🤑", "🤠", "🤏🏻", "🤝", "💪", "👑", "😚", "🐱", "🥂", "😹", "😈", "☺️", "🦦", "☃🥂", "💗", "💞", "🧸", "💋", "🫦", "👀", "🤦🏻", "🧞‍♂️", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "💘", "💝", "💟", "🌝", "😎", "🔥", "📿", "🐦"])
 this.sendMessage(m.chat, { react: { text: emot, key: m.key }})}
 function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}}}
 
